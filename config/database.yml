@@ -15,7 +15,10 @@
 # gem 'pg'
 #
 default: &default
+  # Default adapter MUST always be postgresql. -wavpack
   adapter: postgresql
+  # adapter: sqlite3
+
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
