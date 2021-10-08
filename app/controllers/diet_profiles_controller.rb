@@ -18,6 +18,6 @@ class DietProfilesController < ApplicationController
   private
 
   def diet_profile_params
-    params.require(:diet_profile).permit(:name, :description, :rate, :location, :photo)
+    params.require(:diet_profile).permit(:health_labels)
   end
 end
