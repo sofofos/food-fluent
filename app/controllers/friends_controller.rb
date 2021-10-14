@@ -7,4 +7,8 @@ class FriendsController < ApplicationController
 
   def update
   end
+
+  private
+
+  def accept
 end
