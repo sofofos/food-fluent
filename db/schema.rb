@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_08_003342) do
+ActiveRecord::Schema.define(version: 2021_10_08_003229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2021_10_08_003342) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "inviter_id"
     t.bigint "invitee_id"
-    t.string "status"
     t.index ["invitee_id"], name: "index_friends_on_invitee_id"
     t.index ["inviter_id"], name: "index_friends_on_inviter_id"
   end
