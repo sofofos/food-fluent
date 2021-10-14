@@ -14,9 +14,9 @@ class RestaurantsController < ApplicationController
   end
 
   def find_health_tag
-    users_tags = user.
+    users_tags = user.diet_profiles
 
     @dishes = Dish.all
-    @restaurants = Restaurant.all.reject{ |restaurant| restaurant.dishes != users_tags}
+    @restaurants = Restaurant.all.select{ |restaurant| restaurant.dishes != users_tags}
   end
 end
