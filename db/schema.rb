@@ -93,5 +93,6 @@ ActiveRecord::Schema.define(version: 2021_10_13_024017) do
   add_foreign_key "dishes", "restaurants"
   add_foreign_key "friends", "users", column: "invitee_id"
   add_foreign_key "friends", "users", column: "inviter_id"
-  add_foreign_key "ingredients", "dishes"
+
+  add_foreign_key "health_labels", "ingredients"
 end
