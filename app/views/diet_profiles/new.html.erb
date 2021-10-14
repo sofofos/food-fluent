@@ -1,2 +1,5 @@
 <h1>DietProfiles#new</h1>
 <p>Find me in app/views/diet_profiles/new.html.erb</p>
+<%= simple_form_for [@diet_profile] do |f| %>
+  <%= f.association :health_label, as: :check_boxes%>
+<% end %>
