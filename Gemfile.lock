@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/sungwoncho/has_friendship.git
+  revision: 2b6ceca04ace7b282f0e4d04665f17da09af4552
+  specs:
+    has_friendship (1.1.8)
+      activemodel (>= 4.2.0, < 6.2)
+      activerecord (>= 4.2.0, < 6.2)
+      activesupport (>= 4.2.0, < 6.2)
+      stateful_enum
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -205,6 +215,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stateful_enum (0.6.0)
     thor (1.1.0)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -248,6 +259,7 @@ DEPENDENCIES
   dotenv-rails
   faker
   font-awesome-sass
+  has_friendship!
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
