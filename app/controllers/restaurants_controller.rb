@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
   def index
-    @restaurants = Restaurant.all.order(created_at: :desc)
-    # find_health_tag
+    #@restaurants = Restaurant.all.order(created_at: :desc)
+    find_health_label
   end
 
   def show; end
@@ -13,10 +13,9 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
-  def find_health_tag
-    users_tags = user.diet_profiles
-
-    @dishes = Dish.all
-    @restaurants = Restaurant.all.select{ |restaurant| restaurant.dishes != users_tags}
+  def find_health_label
+    users_health_label = current_user.diet_profiles.map(&:health_label)
+    @dishes = Dish.all.select { |dish| (users_health_label - dish.health_labels).empty? }
+    @restaurants = @dishes.map(&:restaurant).uniq
   end
 end
