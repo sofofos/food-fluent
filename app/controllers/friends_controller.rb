@@ -39,7 +39,6 @@ class FriendsController < ApplicationController
     @user = current_user
     @friend = User.find(params[:id])
   end
-
 end
 
 # friendship gem methods relational map verbal
