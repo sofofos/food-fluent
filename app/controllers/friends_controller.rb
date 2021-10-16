@@ -1,13 +1,13 @@
 class FriendsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_friend, only: %i[create accept decline]
+  before_action :skip_policy_scope
 
   def index
     @user = current_user
     @friends = @user.friends.all
     @requests = @user.requested_friends
     @pending = @user.pending_friends
-    policy_scope(Friend)
   end
 
   def create
