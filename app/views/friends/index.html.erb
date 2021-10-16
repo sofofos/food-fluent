@@ -1,2 +1,40 @@
-<h1>Friends#index</h1>
-<p>Find me in app/views/friends/index.html.erb</p>
+<!-- Friend requests received -->
+<div class="">
+  <% if @user.requested_friends %>
+
+  <h3>Friend Requests:</h3>
+
+  <% @requests.each do |friend| %>
+  <%= friend.name%>
+  <%= form_tag ({controller: 'friends', action: 'accept', method: 'post', id: friend.id}) do %>
+    <input class="" type=submit value='Accept'>
+    <% end %>
+  <%= form_tag ({controller: 'friends', action: 'decline', method: 'post', id: friend.id}) do %>
+    <input class="" type=submit value='Decline'>
+    <% end %>
+  <% end %>
+  <% end %>
+</div>
+
+<!-- Friend Requests send -->
+<div class="">
+  <% if @user.pending_friends %>
+  <h3>Pending:</h3>
+  <% @pending.each do |friend| %>
+  <%= friend.name%>
+  <% end %>
+  <% end %>
+</div>
+
+<!-- List all friends -->
+
+<div class="">
+  <h3>Your Friends:</h3>
+  <% if @user.friends %>
+  <% @friends.each do |friend| %>
+  <%= friend.name %>
+  <!-- #INSERT HERE FRIEND CARD -->
+  <% end %>
+  <% end %>
+</div>
+

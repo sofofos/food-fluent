@@ -13,8 +13,20 @@ class DietProfilesController < ApplicationController
       authorize @diet_profile
       render :new && return unless @diet_profile.save
     end
-    
+
     redirect_to root_path
+    authorize [@diet_profile]
+  end
+
+  def create
+    @diet_profile = DietProfile.new(diet_profile_params)
+    @diet_profile.user = current_user
+    authorize [@diet_profile]
+    if @diet_profile.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
