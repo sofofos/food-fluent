@@ -64,4 +64,9 @@ renters = []
 end
 
 
-
+# 40.times do |i|
+#   user = User.all.sample
+#   friend = User.all.sample
+#   user.friend_request(friend)
+#   friend.accept_request(user)
+# end
