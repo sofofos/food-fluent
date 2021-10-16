@@ -15,11 +15,14 @@ class FriendsController < ApplicationController
   end
 
   def accept
+    authorize @friend
+    authorize @user
     @user.accept_request(@friend)
     redirect_to friends_path
   end
 
   def decline
+    authorize @user
     @user.decline_request(@friend)
     redirect_to friends_path
   end
