@@ -37,7 +37,7 @@ class FriendsController < ApplicationController
   def user_friend
     @user = current_user
     @friend = User.find(params[:id])
-    authorize @friend
+    # authorize @friend
   end
 end
 
