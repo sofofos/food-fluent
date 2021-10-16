@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :diet_profiles, only: %I[new create]
   resources :users, only: %i[index]
-  resources :friends, only: %i[index create update]
+  resources :friends, only: %i[index create]
   resources :restaurants, only: %i[index show]
   resources :dishes, only: [:create]
 end

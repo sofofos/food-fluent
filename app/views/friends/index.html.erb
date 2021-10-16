@@ -1,6 +1,6 @@
 <!-- Friend requests received -->
 <div class="">
-  <% if @user.requested_friends? %>
+  <% if @user.requested_friends %>
 
   <h3>Friend Requests:</h3>
 
@@ -18,7 +18,7 @@
 
 <!-- Friend Requests send -->
 <div class="">
-  <% if @user.pending_friends? %>
+  <% if @user.pending_friends %>
   <h3>Pending:</h3>
   <% @pending.each do |friend| %>
   <%= friend.name%>
@@ -30,9 +30,10 @@
 
 <div class="">
   <h3>Your Friends:</h3>
-  <% if @user.friends? %>
+  <% if @user.friends %>
   <% @friends.each do |friend| %>
-  <%= link_to  friend.name, user_path(friend) %>
+  <%= link_to  friend.name #INSERT HERE FRIEND CARD %>
   <% end %>
   <% end %>
 </div>
+
