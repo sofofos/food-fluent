@@ -23,6 +23,7 @@ class FriendsController < ApplicationController
 
   def decline
     authorize @user
+    authorize @friend
     @user.decline_request(@friend)
     redirect_to friends_path
   end
