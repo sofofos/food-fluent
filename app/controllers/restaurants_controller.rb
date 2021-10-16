@@ -1,7 +1,8 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
+
   def index
-    #@restaurants = Restaurant.all.order(created_at: :desc)
+    # @restaurants = Restaurant.all.order(created_at: :desc)
     find_health_label
   end
 
@@ -11,6 +12,7 @@ class RestaurantsController < ApplicationController
 
   def find_restaurant
     @restaurant = Restaurant.find(params[:id])
+    authorize @restaurant
   end
 
   def find_health_label

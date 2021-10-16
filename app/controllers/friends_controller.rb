@@ -7,12 +7,11 @@ class FriendsController < ApplicationController
     @friends = @user.friends.all
     @requests = @user.requested_friends
     @pending = @user.pending_friends
+    policy_scope(Friend)
   end
 
   def create
     @user.friend_request(@friend)
-
-    # redirect_to TODO:where to redirect-to?
   end
 
   def accept
@@ -38,6 +37,7 @@ class FriendsController < ApplicationController
   def user_friend
     @user = current_user
     @friend = User.find(params[:id])
+    authorize @friend
   end
 end
 
