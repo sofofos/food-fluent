@@ -1,6 +1,7 @@
 class FriendsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_friend, only: %i[create accept decline]
+  before_action :skip_policy_scope
 
   def index
     @user = current_user
@@ -11,16 +12,18 @@ class FriendsController < ApplicationController
 
   def create
     @user.friend_request(@friend)
-
-    # redirect_to TODO:where to redirect-to?
   end
 
   def accept
+    authorize @friend
+    authorize @user
     @user.accept_request(@friend)
     redirect_to friends_path
   end
 
   def decline
+    authorize @user
+    authorize @friend
     @user.decline_request(@friend)
     redirect_to friends_path
   end
@@ -38,6 +41,7 @@ class FriendsController < ApplicationController
   def user_friend
     @user = current_user
     @friend = User.find(params[:id])
+    # authorize @friend
   end
 end
 
