@@ -10,17 +10,19 @@ class FriendsController < ApplicationController
   end
 
   def create
-    @user.friend_request(friend)
+    @user.friend_request(@friend)
 
     # redirect_to TODO:where to redirect-to?
   end
 
   def accept
-    @user.accept_request(friend)
+    @user.accept_request(@friend)
+    redirect_to friends_path
   end
 
   def decline
-    @user.decline_request(friend)
+    @user.decline_request(@friend)
+    redirect_to friends_path
   end
 
   # potential search for friend method, validate if useful
