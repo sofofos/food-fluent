@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :friends_as_inviter, class_name: "Friend", foreign_key: :inviter_id
-  has_many :friends_as_invitee, class_name: "Friend", foreign_key: :invitee_id
+  has_friendship
 
   has_many :diet_profiles
   has_many :health_labels, through: :diet_profiles
