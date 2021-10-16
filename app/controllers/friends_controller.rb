@@ -1,5 +1,6 @@
 class FriendsController < ApplicationController
   before_action :authenticate_user!
+  before_action :user_friend, only: %i[create accept decline]
 
   def index
     @user = current_user
@@ -9,19 +10,16 @@ class FriendsController < ApplicationController
   end
 
   def create
-    user_friend
     @user.friend_request(friend)
 
     # redirect_to TODO:where to redirect-to?
   end
 
   def accept
-    user_friend
     @user.accept_request(friend)
   end
 
   def decline
-    user_friend
     @user.decline_request(friend)
   end
 

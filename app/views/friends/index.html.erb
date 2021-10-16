@@ -6,10 +6,10 @@
 
   <% @requests.each do |friend| %>
   <%= friend.name%>
-  <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: friend.id}) do %>
+  <%= form_tag ({controller: 'friends', action: 'accept', method: 'post', id: friend.id}) do %>
     <input class="" type=submit value='Accept'>
     <% end %>
-  <%= form_tag ({controller: 'friends', action: 'reject', method: 'post', id: friend.id}) do %>
+  <%= form_tag ({controller: 'friends', action: 'decline', method: 'post', id: friend.id}) do %>
     <input class="" type=submit value='Decline'>
     <% end %>
   <% end %>
@@ -32,7 +32,8 @@
   <h3>Your Friends:</h3>
   <% if @user.friends %>
   <% @friends.each do |friend| %>
-  <%= link_to  friend.name #INSERT HERE FRIEND CARD %>
+  <%= friend.name %>
+  <!-- #INSERT HERE FRIEND CARD -->
   <% end %>
   <% end %>
 </div>
