@@ -2,17 +2,45 @@ class FriendsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @friends = current_user.friends.all
+    @user = current_user
+    @friends = @user.friends.all
+    @requests = @user.requested_friends
+    @pending = @user.pending_friends
   end
 
   def create
-    @friend_request = current_user.friend_request
+    user_friend
+    @user.friend_request(friend)
+
+    # redirect_to TODO:where to redirect-to?
   end
 
-  def update
+  def accept
+    user_friend
+    @user.accept_request(friend)
   end
+
+  def decline
+    user_friend
+    @user.decline_request(friend)
+  end
+
+  # potential search for friend method, validate if useful
+  # def search
+  #   @search = params[:search].downcase
+  #   @results = User.all.select do |user|
+  #     user.username.downcase.include?(@search)
+  #   end
+  # end
+
+  private
+
+  def user_friend
+    @user = current_user
+    @friend = User.find(params[:id])
+  end
+
 end
-
 
 # friendship gem methods relational map verbal
 
@@ -22,6 +50,4 @@ end
 # SOF accepts the friend request from jon: sof.accept_request(jon)
 # SOF checks the list of her friends: sof.friends.all
 
-# for create method: current user sends a request to other_user.
-# how to ref that user in method?
 
