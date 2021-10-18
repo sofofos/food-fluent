@@ -7,7 +7,9 @@ class FriendsController < ApplicationController
     @friends = @user.friends.all
     @requests = @user.requested_friends
     @pending = @user.pending_friends
-    search
+
+    @people = policy_scope(User)
+    search if params[:query].present?
   end
 
   def create
@@ -26,13 +28,10 @@ class FriendsController < ApplicationController
   end
 
   def search
-    people = policy_scope(User)
-    strangers = people.reject { |user| @user.friends_with?(user) }
-    if params[:query].present?
-      @search = params[:query].downcase
-      @results = strangers.select do |user|
-        user.username.downcase.include?(@search)
-      end
+    strangers = @people.reject { |user| @user.friends_with?(user) }
+    @search = params[:query].downcase
+    @results = strangers.select do |user|
+      user.username.downcase.include?(@search)
     end
   end
 
