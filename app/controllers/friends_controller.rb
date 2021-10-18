@@ -26,10 +26,11 @@ class FriendsController < ApplicationController
   end
 
   def search
-    friend = policy_scope(User)
+    people = policy_scope(User)
+    strangers = people.reject { |user| @user.friends_with?(user) }
     if params[:query].present?
       @search = params[:query].downcase
-      @results = friend.select do |user|
+      @results = strangers.select do |user|
         user.username.downcase.include?(@search)
       end
     end

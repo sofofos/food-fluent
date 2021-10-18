@@ -11,7 +11,11 @@
     <% @results.each do |friend|%>
       <%= friend.username %> is <%= friend.name %>
       <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: friend.id}) do %>
-      <input class="" type=submit value='Add Friend'>
+        <% if @user.pending_friends.include?(friend) %>
+          <input class="" type=submit value='Request Pending' disabled="true">
+        <% else %>
+          <input class="" type=submit value='Add Friend'>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
