@@ -1,3 +1,15 @@
+<!-- Search for friends -->
+  <%= form_tag friends_path, method: :get, action: :search do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+  placeholder: "Find a friend"
+  %>
+  <%= submit_tag "Search", class: "btn btn-dark ml-3" %>
+  <% end %>
+  <%= @friend.name if params[:query].present? %>
+
+
 <!-- Friend requests received -->
 <div class="">
   <% if @user.requested_friends %>

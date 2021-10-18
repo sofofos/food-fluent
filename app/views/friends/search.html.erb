@@ -1,27 +1,8 @@
-
-  <%= form_tag friends_path, method: :get, class:'' do %>
+  <%= form_tag friends_path, method: :get, action: :search do %>
   <%= text_field_tag :query,
   params[:query],
   class: "form-control",
-  placeholder: "Find your friends"
+  placeholder: "Find a friend"
   %>
   <%= submit_tag "Search", class: "btn btn-dark ml-3" %>
-  <% end %>
-
-  <% unless @results.nil? %>
-  <% @results.each do |user| %>
-    <% if user.name != current_user.name %>
-    <div class="">
-      <% unless current_user.friends.include?(user) %>
-      <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: user.id}) do %>
-      <% if @user.requested_friends.include?(user) %>
-        <input class="button" type=submit value='Request Pending' disabled=true>
-        <% else %>
-          <input class="button" type=submit value='Add Friend'>
-        <% end %>
-      <% end %>
-      </div>
-      <% end %>
-    <% end %>
-  <% end %>
   <% end %>
