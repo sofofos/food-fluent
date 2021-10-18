@@ -5,6 +5,10 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    true
+  end
+
   def accept?
     true
   end

@@ -7,7 +7,14 @@
   %>
   <%= submit_tag "Search", class: "btn btn-dark ml-3" %>
   <% end %>
-  <%= @friend.name if params[:query].present? %>
+  <% if params[:query].present? %>
+    <% @results.each do |friend|%>
+      <%= friend.username %> is <%= friend.name %>
+      <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: friend.id}) do %>
+      <input class="" type=submit value='Add Friend'>
+      <% end %>
+    <% end %>
+  <% end %>
 
 
 <!-- Friend requests received -->

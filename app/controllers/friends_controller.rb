@@ -12,6 +12,7 @@ class FriendsController < ApplicationController
 
   def create
     @user.friend_request(@friend)
+    redirect_to friends_path
   end
 
   def accept
@@ -27,7 +28,10 @@ class FriendsController < ApplicationController
   def search
     friend = policy_scope(User)
     if params[:query].present?
-      @friend = friend.find_by(username: params[:query])
+      @search = params[:query].downcase
+      @results = friend.select do |user|
+        user.username.downcase.include?(@search)
+      end
     end
   end
 
