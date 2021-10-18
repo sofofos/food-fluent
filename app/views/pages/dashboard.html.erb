@@ -19,15 +19,14 @@
     <div class="friend-card">
       <%=  friend.name %>
       <% friend.diet_profiles.each do |tag| %>
-      <i class="fas fa-ice-cream"><%= tag.health_label.name  %> </i>
+        <i class="fas fa-ice-cream"><%= tag.health_label.name  %> </i>
       <% end %>
     </div>
     <% end %>
-
-
 </div>
-  <!-- search-friend -->
-  <!-- friend-requests -->
+
+<!-- search-friend -->
+<!-- friend-requests -->
   <%= link_to "See friend requests", friends_path %>
 
 <!-- find-restaurant -->
