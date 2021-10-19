@@ -1,10 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "json"
+require "rest-client"
+
 print "cleaning db... "
 
 HealthLabel.destroy_all
@@ -31,12 +27,39 @@ end
     location: Faker::Address.full_address
   )
   restaurant.save!
-  
-  rand(10..20).times do
+
+# introducing Edamam food api to generate dishes
+  base = "https://api.edamam.com/api/recipes/v2?type=public"
+  app_id = "c635e655"
+  app_key = "0ce249ab10cb9770c69b865d5a953ffe"
+  img_size = "LARGE"
+  meal_type = "Dinner"
+  dish_type = "Starter"
+  query_specs = "&random=true&field=label&field=image&field=healthLabels"
+
+  # first request: starters
+  request = "#{base}&q=&app_id=#{app_id}&app_key=#{app_key}&imageSize=#{img_size}&mealType=#{meal_type}&dishType=#{dish_type}#{query_specs}"
+  response = RestClient.get request
+  dish_data = JSON.parse(response)
+
+  5.times do |dish|
     dish = Dish.new(
-      name: Faker::Food.dish,
-      restaurant: restaurant
-    )
+      name: dish_data.hits[0].recipe.label,
+      restaurant: restaurant,
+      img_url: dish_data.hits[0].recipe.image,
+      dish_type: dish_type
+      )
+
+
+
+
+
+
+
+
+
+  
+
     dish.save!
 
     rand(1..6).times do
