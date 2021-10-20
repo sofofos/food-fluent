@@ -34,12 +34,7 @@
   <%= form_tag restaurants_path, method: :get do %>
     <% @user.friends.each do |friend| %>
       <div class="d-flex">
-      <%= check_box_tag :query,
-        params[:query],
-        checked_value: friend.id,
-        label: friend.name,
-        class: "form-control"
-      %>
+      <%= check_box_tag "friend_ids[]", friend.id, id: friend, class: "form-control"%>
       <%= friend.name %>
       </div>
     <% end %>
@@ -47,4 +42,3 @@
   <% end %>
   <!-- add-location -->
   <%= link_to "See restaurants", restaurants_path %>
-
