@@ -1,0 +1,16 @@
+.green-button {
+    background-color: $white;
+    padding: 10px 20px;
+    border: 1px solid $forest;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.green-button:hover {
+    background-color: $forest-dim;
+    color: $forest;
+    text-decoration: none;
+}

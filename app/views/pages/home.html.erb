@@ -1,8 +1,13 @@
-<%= link_to "see your dashboard", dashboard_path %>
 <div class="banner">
-  <div class="container content-wrap align-items-center h-100">
+  <div class="container content-wrap content-border align-items-center w-100 h-100">
     <h1>Food Fluent</h1>
     <%= image_tag 'cutlery', class:'logo' %>
-    <h3>A restaurant for everyone</h3>
+    <h2>A restaurant for everyone</h2>
+  </div>
+  
+  
+  <div class="call-to-action">
+    <h3>You shouldn't have to choose between your lifestyle and your friends!</h3>
+    <p class="text-center">Find a restaurant for everyone today! <%= link_to "Get Started!", dashboard_path, class:'green-button' %> </p>
   </div>
 </div>
