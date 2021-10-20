@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_many :diet_profiles, dependent: :destroy
   has_many :health_labels, through: :diet_profiles
+
 end
