@@ -1,10 +1,24 @@
-// Define variables for your color scheme
+// _colors.scss
 
-// For example:
-$red: #FD1015;
-$blue: #167FFB;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+// Colour Palette 1er (primary, mains)
+$forest:      #339933;
+$guardsman:   #CC0000;
+$kelly:       #33CC00;
+$sky:         #3399CC;
+$sunglow:     #FFCC33;
+
+// Colour Palette 2e (secondary, contrasts)
+$aqua:        #00FFFF;
+$black:       #000000;
+$fuchsia:     #FF00FF;
+$grey:        #CCCCCC;
+$indigo:      #660099;
+$lime:        #00FF00;
+$orange:      #FF9900;
+$red:         #FF0000;
+$white:       #FFFFFF;
+
+// Colour Palette 3e (Tertiary, aliases)
+$cyan:        #00FFFF;
+$gray:        #CCCCCC;
+$magenta:     #FF00FF;
