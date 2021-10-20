@@ -1,25 +1,30 @@
-// This is where you override default Bootstrap variables
-// 1. All Bootstrap variables are here => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
-// 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
-// 3. You can override them below!
+// _bootstrap_variables.scss
 
-// General style
-$font-family-sans-serif:  $body-font;
-$headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+// Bootstrap Variable Overrides
+// 1. All Bootstrap Variables => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+// 2. Sass Default Value Variables => https://robots.thoughtbot.com/sass-default
+
+// Config Imports
+@import 'config/colors'; // colour variables
+@import 'config/fonts'; // font variables
+
+// General
+$font-family-sans-serif:   $body-font;
+$headings-font-family:     $headers-font;
+$body-bg:                  $white; // prev. $light-gray
 $font-size-base: 1rem;
 
-// Colors
-$body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+// Colours
+$body-color:    $black; // prev. $gray
+$primary:       $forest; // prev. $blue
+$success:       $kelly; // prev. $green
+$info:          $sunglow; // prev. $yellow
+$danger:        $guardsman; // prev. $red
+$warning:       $orange;
 
-// Buttons & inputs' radius
+// Buttons & Input Radii
 $border-radius:    2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
-// Override other variables below!
+// Other Variable Overrides
