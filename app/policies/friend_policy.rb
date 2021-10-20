@@ -17,6 +17,10 @@ class FriendPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def accept?
     update?
   end

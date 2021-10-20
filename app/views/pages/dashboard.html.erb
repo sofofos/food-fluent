@@ -1,3 +1,37 @@
-<h1>Pages#dashboard</h1>
+<h1>Dashboard</h1>
+<!-- user-info -->
+<div class="welcome">
+  <h5> Welcome <%= @user.name %>!</h5>
+    <ul>Dietary restrictions:
+      <% @user.diet_profiles.each do |tag| %>
+      <li>
+        <%= tag.health_label.name %>
+      </li>
+      <% end %>
+    </ul>
+</div>
 
+<!-- friends-list -->
+<div>
+  <h5 class="friends-list">Your Friends</h5>
+    <% @user.friends.each do |friend| %>
+<!-- friend-card -->
+    <div class="friend-card">
+      <%=  friend.name %>
+      <% friend.diet_profiles.each do |tag| %>
+        <i class="fas fa-ice-cream"><%= tag.health_label.name  %> </i>
+      <% end %>
+    </div>
+    <% end %>
+</div>
+
+<%= link_to "Find your friends", friends_path %>
+
+<!-- friend-requests -->
+  <%= link_to "See friend requests", friends_path %>
+
+<!-- find-restaurant -->
+  <!-- select-friends -->
+  <!-- add-location -->
+  <%= link_to "See restaurants", restaurants_path %>
 
