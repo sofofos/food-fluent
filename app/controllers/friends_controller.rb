@@ -1,47 +1,48 @@
 class FriendsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_friend, only: %i[create accept decline]
-  before_action :skip_policy_scope
 
   def index
     @user = current_user
     @friends = @user.friends.all
     @requests = @user.requested_friends
     @pending = @user.pending_friends
+
+    @people = policy_scope(User)
+    search if params[:query].present?
   end
 
   def create
     @user.friend_request(@friend)
+    redirect_to friends_path
   end
 
   def accept
-    authorize @friend
-    authorize @user
     @user.accept_request(@friend)
     redirect_to friends_path
   end
 
   def decline
-    authorize @user
-    authorize @friend
     @user.decline_request(@friend)
     redirect_to friends_path
   end
 
-  # potential search for friend method, validate if useful
-  # def search
-  #   @search = params[:search].downcase
-  #   @results = User.all.select do |user|
-  #     user.username.downcase.include?(@search)
-  #   end
-  # end
+  def search
+    strangers = @people.reject { |user| @user.friends_with?(user) }
+    @search = params[:query].downcase
+    @results = strangers.select do |user|
+      user.username.downcase.include?(@search)
+    end
+  end
 
   private
 
   def user_friend
     @user = current_user
+    authorize @user
+
     @friend = User.find(params[:id])
-    # authorize @friend
+    authorize @friend
   end
 end
 
@@ -52,5 +53,3 @@ end
 # JON checks the friends he has already sent requests to: jon.pending_friends
 # SOF accepts the friend request from jon: sof.accept_request(jon)
 # SOF checks the list of her friends: sof.friends.all
-
-
