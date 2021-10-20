@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :skip_policy_scope
 
   def index
-    # @restaurants = Restaurant.all.order(created_at: :desc)
+    @restaurants = Restaurant.all.order(created_at: :desc)
     find_health_label
   end
 

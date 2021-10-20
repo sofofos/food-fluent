@@ -23,20 +23,15 @@ load_files
   restaurant.save!
 
 # first request: starters
-  5.times{ make_dish(restaurant, @starters_hash, i) }
-  puts "I am outside the dish-maker, this is my index i: #{i}"
-
+  5.times do |j|
+    make_dish(restaurant, @starters_hash, j)
 # second request: main courses
-  5.times{ make_dish(restaurant, @salad_hash, i) }
-  puts "I am outside the dish-maker, this is my index i: #{i}"
-
+    make_dish(restaurant, @salad_hash, j)
 # third request: salads
-  5.times{ make_dish(restaurant, @main_hash, i) }
-  puts "I am outside the dish-maker, this is my index i: #{i}"
-
+    make_dish(restaurant, @main_hash, j)
 # fourth request: desserts
-  5.times{ make_dish(restaurant, @desserts_hash, i) }
-  puts "I am outside the dish-maker, this is my index i: #{i}"
+    make_dish(restaurant, @desserts_hash, j)
+  end
 end
 
 puts "generating users.."
