@@ -1,16 +1,26 @@
-// Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+// Marmelad Google Font
+// 1 weight: 400
+@import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
+// Biryani Google Font
+// 7 weights: 200, 300, 400, 600, 700, 800, 900
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Biryani&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@900&display=swap');
 
-// Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+// Body Font
+$body-font: 'Marmelad';
+$header-font: 'Biryani';
 
-// To use a font file (.woff) uncomment following lines
+// Uncomment to use .woff
 // @font-face {
-//   font-family: "Font Name";
+//   font-family: 'Font Name';
 //   src: font-url('FontFile.eot');
 //   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
+//        font-url('FontFile.ttf') format('truetype'),
+//        font-url('FontFile.woff') format('woff')
 // }
-// $my-font: "Font Name";
+// $my-font: 'Font Name';
