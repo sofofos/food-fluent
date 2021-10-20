@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: f160a89366404cfd8ac6ea7c45bb64c61c0dd74b
+  branch: master
+  specs:
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
+
+GIT
   remote: https://github.com/sungwoncho/has_friendship.git
   revision: 2b6ceca04ace7b282f0e4d04665f17da09af4552
   specs:
@@ -106,8 +114,6 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
-    faker (2.18.0)
-      i18n (>= 1.6, < 2)
     ffi (1.15.4)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
@@ -139,6 +145,8 @@ GEM
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
+    nokogiri (1.12.5-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -275,7 +283,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   dotenv-rails
-  faker
+  faker!
   font-awesome-sass
   has_friendship!
   jbuilder (~> 2.7)

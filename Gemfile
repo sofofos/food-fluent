@@ -63,10 +63,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'faker'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'has_friendship', github: 'sungwoncho/has_friendship'
 
 # pundit (authorization)
 gem 'pundit'
 gem 'rest-client'
 gem 'json'
+
