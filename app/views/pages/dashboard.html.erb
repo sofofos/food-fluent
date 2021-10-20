@@ -1,5 +1,4 @@
-<h1>Pages#dashboard</h1>
-
+<h1>Dashboard</h1>
 <!-- user-info -->
 <div class="welcome">
   <h5> Welcome <%= @user.name %>!</h5>
@@ -20,7 +19,7 @@
     <div class="friend-card">
       <%=  friend.name %>
       <% friend.diet_profiles.each do |tag| %>
-      <i class="fas fa-ice-cream"><%= tag.health_label.name  %> </i>
+        <i class="fas fa-ice-cream"><%= tag.health_label.name  %> </i>
       <% end %>
     </div>
     <% end %>
@@ -34,5 +33,5 @@
 <!-- find-restaurant -->
   <!-- select-friends -->
   <!-- add-location -->
-
+  <%= link_to "See restaurants", restaurants_path %>
 
