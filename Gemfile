@@ -69,3 +69,4 @@ gem 'has_friendship', github: 'sungwoncho/has_friendship'
 # pundit (authorization)
 gem 'pundit'
 gem 'rest-client'
+gem 'json'
