@@ -1,7 +1,10 @@
 class DietProfilesController < ApplicationController
+  before_action :uniq_labels, only: %i[show]
+
   def new
-    @diet_profile = DietProfile.new
+    @diet_profile = DietProfile.new(diet_profile_params)
     authorize @diet_profile
+    @labels = uniq_labels
   end
 
   def create
@@ -24,5 +27,9 @@ class DietProfilesController < ApplicationController
     params.require(:diet_profile).permit(health_label_id: [])
 
     # health_label_id"=>["", "209"]} permitted: false>, "commit"=>"Submit list", "controller"=>"diet_profiles", "action"=>"create"} permitted: false>
+  end
+
+  def uniq_labels
+    HealthLabel.all.uniq(&:name)
   end
 end

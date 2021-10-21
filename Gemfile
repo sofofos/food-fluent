@@ -71,3 +71,4 @@ gem 'pundit'
 gem 'rest-client'
 gem 'json'
 
+gem 'select2-rails'

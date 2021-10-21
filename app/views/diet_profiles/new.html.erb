@@ -1,6 +1,25 @@
 <h1>DietProfiles#new</h1>
 <p>Find me in app/views/diet_profiles/new.html.erb</p>
-<%= simple_form_for [@diet_profile] do |f| %>
-  <%= f.association :health_label, as: :check_boxes, include_hidden: false %>
-  <%= f.submit "Submit list", class: "btn btn-primary" %>
-<% end %>
+
+<!--     <script>
+        $(document).ready(function() { $(".js-example-basic-multiple").select2({
+          placeholder: 'Select your options'
+        }); });
+    </script> -->
+
+<body>
+    <select class="js-example-basic-multiple js-example-matcher" id="labels" multiple="multiple">
+      <% @labels.each do |label| %>
+        <option><%= label.association value:label.name, as: :health_label %></option>
+        <% end %>
+        <%= f.submit "Submit list", class: "btn btn-primary" %>
+    </select>
+</body>
+
+
+
+
+  <%# simple_form_for [@diet_profile] do |f| %>
+  <%#= f.association :health_label, as: :check_boxes, include_hidden: false %>
+  <%#= f.submit "Submit list", class: "btn btn-primary" %>
+  <%# end %>

@@ -3,6 +3,7 @@
 <div class="welcome">
   <h5> Welcome <%= @user.name %>!</h5>
     <ul>Dietary restrictions:
+      <%= link_to "Create your diet profile", new_diet_profile_path if @user.diet_profiles.empty? %>
       <% @user.diet_profiles.each do |tag| %>
       <li>
         <%= tag.health_label.name %>
