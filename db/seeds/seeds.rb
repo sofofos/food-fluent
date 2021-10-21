@@ -27,17 +27,19 @@ load_files
 # index for dishes ( up to 20 entries/ json file )
     j += (i * 5)
 # first request: starters
-    make_dish(restaurant, @starters_hash, j)
+    # make_dish(restaurant, @starters_hash, j)
 # second request: main courses
     make_dish(restaurant, @salad_hash, j)
 # third request: salads
     make_dish(restaurant, @main_hash, j)
 # fourth request: desserts
-    make_dish(restaurant, @desserts_hash, j)
+    # make_dish(restaurant, @desserts_hash, j)
 # go to next dataset
     update_index if j >= 19
   end
 end
+
+puts "dishes are done! #{@count_errors} dishes missing"
 
 puts "generating users.."
 
@@ -58,3 +60,5 @@ puts "generating users.."
       user: user)
   end
 end
+
+puts "bye bye"
