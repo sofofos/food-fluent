@@ -4,6 +4,7 @@ require 'json'
 def update_index
   index_for_datasets = Dish.all.count / 80
   index_for_datasets.zero? ? @idx = "0" : @idx = index_for_datasets + 1
+  load_files
 end
 
 def load_files

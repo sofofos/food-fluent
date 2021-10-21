@@ -6,7 +6,6 @@ ERRORS = [NoMethodError, ArgumentError]
 def make_dish(restaurant, dish_data, i)
 # if index for dishes reaches max dataset entries:
   i > 20 ? j = i - 20 : j = i
-  puts "I am inside make_dish j: #{j}"
 
   @dish = Dish.new(
     name: dish_data["hits"][j]["recipe"]["label"],
@@ -16,11 +15,10 @@ def make_dish(restaurant, dish_data, i)
   )
 rescue *ERRORS
   j += 1
-  puts "rescued! #{j- 20} dishes missing..."
+  puts "rescued! #{j - 20} dishes missing..."
 else
   @dish.save!
   make_dish_labels(dish_data, j)
-  puts @dish.name, @dish.dish_type, @dish.img_url.nil?
 end
 
 def make_dish_labels(dish_data, j)

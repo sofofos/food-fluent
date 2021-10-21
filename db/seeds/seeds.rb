@@ -12,6 +12,7 @@ User.destroy_all
 puts "done! nice clean database"
 puts "generating yummy foods.."
 
+# set index for datasets in load_files.rb
 @idx = 0
 load_files
 
@@ -22,9 +23,10 @@ load_files
   )
   restaurant.save!
 
-# first request: starters
   5.times do |j|
+# index for dishes ( up to 20 entries/ json file )
     j += (i * 5)
+# first request: starters
     make_dish(restaurant, @starters_hash, j)
 # second request: main courses
     make_dish(restaurant, @salad_hash, j)
@@ -34,8 +36,6 @@ load_files
     make_dish(restaurant, @desserts_hash, j)
 # go to next dataset
     update_index if j >= 19
-    puts "this is the new load_file idx: #{@idx}"
-    puts "my index inside seeds for dish loops: #{i}"
   end
 end
 
