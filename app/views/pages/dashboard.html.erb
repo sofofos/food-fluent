@@ -32,6 +32,14 @@
 
 <!-- find-restaurant -->
   <!-- select-friends -->
+  <%= form_tag restaurants_path, method: :get do %>
+    <% @user.friends.each do |friend| %>
+      <div class="d-flex">
+      <%= check_box_tag "friend_ids[]", friend.id, id: friend, class: "form-control"%>
+      <%= friend.name %>
+      </div>
+    <% end %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   <!-- add-location -->
-  <%= link_to "See restaurants", restaurants_path %>
-
+  
