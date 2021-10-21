@@ -1,8 +1,7 @@
 .banner{
     width: 100%;
     height: 80vh;
-    color: $forest;
-    background-image: url(banner-image2.jpg);
+    color: $white;
     padding: 100px;
 }
 
@@ -11,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $white;
+  background-color: $forest;
 }
 
 .content-border {
@@ -26,6 +25,7 @@
 .logo {
   width: 300px;
   margin-bottom: 50px;
+  color: $white;
 }
 
 .call-to-action {
