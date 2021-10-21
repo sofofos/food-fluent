@@ -34,10 +34,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= yield %>
-    <%= render 'shared/flashes' %>
-    <%= render 'shared/footer' %>
+    
+        <%= render 'shared/navbar' %>
+        <%= render 'shared/flashes' %>
+        <div class="py-5">
+          <%= yield %>
+        </div>
+      <%= render 'shared/footer' %>
   </body>
 </html>
 <% console %>
