@@ -25,10 +25,12 @@ end
 def make_dish_labels(dish_data, j)
   dish_health_labels = dish_data["hits"][j]["recipe"]["healthLabels"]
   dish_health_labels.each do |label|
-    dish_label = HealthLabel.create!(name: label)
-    DishHealthLabel.new(
+    dish_label = HealthLabel.create(name: label)
+    dhl = DishHealthLabel.new(
       dish_id: @dish.id,
       health_label_id: dish_label.id
     )
+    dish_label.save!
+    dhl.save!
   end
 end

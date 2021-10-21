@@ -27,12 +27,11 @@
 
 <%= link_to "Find your friends", friends_path %>
 
-<!-- friend-requests -->
-  <%= link_to "See friend requests", friends_path %>
-
 <!-- find-restaurant -->
+
   <!-- select-friends -->
   <%= form_tag restaurants_path, method: :get do %>
+    <div class="h5">Include a friend in your restaurant search?</div>
     <% @user.friends.each do |friend| %>
       <div class="d-flex">
       <%= check_box_tag "friend_ids[]", friend.id, id: friend, class: "form-control"%>

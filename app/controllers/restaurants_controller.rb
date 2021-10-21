@@ -5,11 +5,13 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all.order(created_at: :desc)
-    find_health_label
-    # @restaurants = Restaurant.all.order(created_at: :desc)
-    @users = params[:friend_ids].map{|id| User.find(id)}
-    
-    @users << current_user
+    # find_health_label
+    unless params[:friend_ids].nil?
+      @users = params[:friend_ids].map{ |id| User.find(id)}
+      @users << current_user
+    else
+      @users = [current_user]
+    end
     find_matching_restaurants
   end
 
@@ -23,8 +25,13 @@ class RestaurantsController < ApplicationController
   end
 
   def find_matching_restaurants
+    # IMPORTANT: method currently not working bc health label ids
+    # from user and from dish are not the same, therefore substraction
+    # will never match the right labels. must compare properly,
+    # through dish_health_labels maybe?
+
     @restaurants = []
-    Restaurant.all.each do |restaurant|
+    Restaurant.all.collect do |restaurant|
       counter = 0
       @users.each do |user|
         restaurant.dishes.each do |dish|
@@ -34,7 +41,7 @@ class RestaurantsController < ApplicationController
           end
         end
       end
-      @restaurants << restaurant if counter === @users.count
+      @restaurants << restaurant if counter == @users.count
     end
     # users_health_label = current_user.health_labels
     # @dishes = Dish.all.select { |dish| (users_health_label - dish.health_labels).empty? }
