@@ -4,8 +4,8 @@ class RestaurantsController < ApplicationController
 
   def index
     # @restaurants = Restaurant.all.order(created_at: :desc)
-    @users = params[:friend_ids].map{|id| User.find(id)}
-    
+    @users = params[:query].present? ? params[:friend_ids].map{|id| User.find(id)} : []
+
     @users << current_user
     find_matching_restaurants
   end
