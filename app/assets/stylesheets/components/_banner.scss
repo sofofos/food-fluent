@@ -1,8 +1,10 @@
 .banner{
     width: 100%;
     height: 80vh;
-    color: $white;
+    // color: $white;
+    color: $forest;
     padding: 100px;
+
 }
 
 .content-wrap {
@@ -10,7 +12,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $forest;
+  background-color: $white;
+  // background-color: $forest;
 }
 
 .content-border {
@@ -25,7 +28,6 @@
 .logo {
   width: 300px;
   margin-bottom: 50px;
-  color: $white;
 }
 
 .call-to-action {
