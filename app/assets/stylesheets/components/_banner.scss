@@ -1,0 +1,45 @@
+.banner{
+    width: 100%;
+    height: 80vh;
+    // color: $white;
+    color: $forest;
+    padding: 100px; 
+    background-image: url(banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $white;
+  // background-color: $forest;
+}
+
+.content-border {
+  border: 3px solid $forest;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
+.logo {
+  width: 300px;
+  margin-bottom: 50px;
+}
+
+.call-to-action {
+  margin-top: 125px;
+}
+
+.call-to-action p {
+  padding: 10px;
+  font-size: 18px;
+}
+h1 {
+  font-size: 54px;
+}
