@@ -15,7 +15,12 @@ class RestaurantsController < ApplicationController
     find_matching_restaurants
   end
 
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   private
 
@@ -35,7 +40,7 @@ class RestaurantsController < ApplicationController
       counter = 0
       @users.each do |user|
         restaurant.dishes.each do |dish|
-          if (user.health_labels - dish.health_labels).empty?
+          unless (user.health_labels - dish.health_labels).empty?
             counter += 1
             break
           end
@@ -50,5 +55,6 @@ class RestaurantsController < ApplicationController
 
   def group_dishes
     @grouped = @restaurant.dishes.group_by { |x| x[:dish_type] }
+    @salads
   end
 end

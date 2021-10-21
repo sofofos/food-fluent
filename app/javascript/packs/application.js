@@ -21,6 +21,12 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 
+//= require jquery
+//= require popper
+//= require turbolinks
+//= require bootstrap
+//= require_tree
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 

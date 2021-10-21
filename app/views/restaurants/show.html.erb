@@ -1,32 +1,44 @@
 <h1><%= @restaurant.name %> </h1>
 <p><%= @restaurant.location %></p>
 
-<ul>
-  <li>
-    <% @grouped["starter"].each do |dish| %>
-    <%= salad.name %>
-    <%= image_tag dish.img_url %>
-    <% end %>
-  </li>
-   <li>
-    <% @grouped["salad"].each do |dish| %>
-    <%= salad.name %>
-    <%= image_tag dish.img_url %>
-    <% end %>
-  </li>
-   <li>
-    <% @grouped["main"].each do |dish| %>
-    <%= salad.name %>
-    <%= image_tag dish.img_url %>
-    <% end %>
-  </li>
-   <li>
-    <% @grouped["dessert"].each do |dish| %>
-    <%= salad.name %>
-    <%= image_tag dish.img_url %>
-    <% end %>
-  </li>
 
+<ul>
+  <div class="menu">Starters
+    <% @grouped["starter"].each do |dish| %>
+    <li><%= dish.name %>
+      <%= image_tag dish.img_url, size: "30x30" %>
+      <%= link_to render(:partial => 'dhl_modal'), restaurant_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg'}  %>
+      <% end %>
+    </li>
+  </div>
 </ul>
 
-<%= link_to "Back", restaurants_path %>
+<ul>
+  <div class="menu">Salads
+    <% @grouped["salad"].each do |dish| %>
+    <li><%= dish.name %>
+      <%= image_tag dish.img_url, size: "30x30" %>
+      <% end %>
+    </li>
+  </div>
+</ul>
+<ul>
+  <div class="menu">Main Courses
+    <% @grouped["main"].each do |dish| %>
+    <li><%= dish.name %>
+      <%= image_tag dish.img_url, size: "30x30" %>
+      <% end %>
+    </li>
+  </div>
+</ul>
+<ul>
+  <div class="menu">Desserts
+    <% @grouped["dessert"].each do |dish| %>
+    <li><%= dish.name %>
+      <%= image_tag dish.img_url, size: "30x30" %>
+      <% end %>
+    </li>
+  </div>
+</ul>
+
+<%= link_to "Back to search results", restaurants_path %>
