@@ -1,9 +1,32 @@
 <h1><%= @restaurant.name %> </h1>
 <p><%= @restaurant.location %></p>
 
-<ul><% @restaurant.dishes.each do |dish| %>
+<ul>
+  <li>
+    <% @grouped["starter"].each do |dish| %>
+    <%= salad.name %>
+    <%= image_tag dish.img_url %>
+    <% end %>
+  </li>
+   <li>
+    <% @grouped["salad"].each do |dish| %>
+    <%= salad.name %>
+    <%= image_tag dish.img_url %>
+    <% end %>
+  </li>
+   <li>
+    <% @grouped["main"].each do |dish| %>
+    <%= salad.name %>
+    <%= image_tag dish.img_url %>
+    <% end %>
+  </li>
+   <li>
+    <% @grouped["dessert"].each do |dish| %>
+    <%= salad.name %>
+    <%= image_tag dish.img_url %>
+    <% end %>
+  </li>
 
-  <li><%= dish.name%></li>
-<% end %></ul>
+</ul>
 
 <%= link_to "Back", restaurants_path %>

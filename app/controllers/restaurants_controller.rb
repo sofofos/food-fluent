@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
-  before_action :sort_dishes, only: %i[show]
+  before_action :group_dishes, only: %i[show]
   before_action :skip_policy_scope
 
   def index
@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
     @restaurants = @dishes.map(&:restaurant).uniq
   end
 
-  def sort_dishes
-    @restaurant.dishes.sort_by(&:dish_type).reverse!
+  def group_dishes
+    @grouped = @restaurant.dishes.group_by { |x| x[:dish_type] }
   end
 end
