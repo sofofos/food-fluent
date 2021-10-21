@@ -39,6 +39,8 @@ load_files
   end
 end
 
+puts "dishes are done! #{@count_errors} dishes missing"
+
 puts "generating users.."
 
 10.times do |i|
@@ -58,3 +60,5 @@ puts "generating users.."
       user: user)
   end
 end
+
+puts "bye bye"
