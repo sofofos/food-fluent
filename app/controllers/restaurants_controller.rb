@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
     # @restaurants = Restaurant.all.order(created_at: :desc)
     # find_health_label
     # @restaurants = Restaurant.all.order(created_at: :desc)
-    @users = params[:query].present? ? params[:friend_ids].map{ |id| User.find(id) } : []
+    @users = params[:friend_ids].present? ? params[:friend_ids].map { |id| User.find(id.to_i) } : []
 
     @users << current_user
     find_matching_restaurants
