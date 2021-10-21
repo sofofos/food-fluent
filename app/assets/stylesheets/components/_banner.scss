@@ -3,8 +3,10 @@
     height: 80vh;
     // color: $white;
     color: $forest;
-    padding: 100px;
-
+    padding: 100px; 
+    background-image: url(banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .content-wrap {
