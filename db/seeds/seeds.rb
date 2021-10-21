@@ -15,7 +15,6 @@ puts "generating yummy foods.."
 load_files
 
 10.times do |i|
-  i += 1
   restaurant = Restaurant.new(
     name: Faker::Restaurant.name,
     location: Faker::Address.full_address
@@ -24,6 +23,7 @@ load_files
 
 # first request: starters
   5.times do |j|
+    j += (i * 5)
     make_dish(restaurant, @starters_hash, j)
 # second request: main courses
     make_dish(restaurant, @salad_hash, j)
