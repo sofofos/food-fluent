@@ -13,6 +13,7 @@ puts "done! nice clean database"
 puts "generating yummy foods.."
 
 load_files
+@idx = 0
 
 10.times do |i|
   restaurant = Restaurant.new(
@@ -31,6 +32,9 @@ load_files
     make_dish(restaurant, @main_hash, j)
 # fourth request: desserts
     make_dish(restaurant, @desserts_hash, j)
+# go to next dataset
+    update_index if j >= 19
+    puts j
   end
 end
 

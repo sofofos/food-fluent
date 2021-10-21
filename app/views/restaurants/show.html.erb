@@ -2,6 +2,8 @@
 <p><%= @restaurant.location %></p>
 
 <ul><% @restaurant.dishes.each do |dish| %>
+sorted = @restaurant.dishes.sort_by { |dish| dish.dish_type }.reverse!
+
   <li><%= dish.name%></li>
 <% end %></ul>
 

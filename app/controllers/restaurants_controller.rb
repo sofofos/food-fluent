@@ -24,6 +24,6 @@ class RestaurantsController < ApplicationController
   end
 
   def sort_dishes
-    @restaurant.dishes.sort_by(&:dish_type).reverse!
+    @restaurant.dishes.sort_by!(&:dish_type).reverse!
   end
 end
