@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
+  before_action :sort_dishes, only: %i[show]
   before_action :skip_policy_scope
 
   def index
@@ -20,5 +21,9 @@ class RestaurantsController < ApplicationController
     users_health_label = current_user.diet_profiles.map(&:health_label)
     @dishes = Dish.all.select { |dish| (users_health_label - dish.health_labels).empty? }
     @restaurants = @dishes.map(&:restaurant).uniq
+  end
+
+  def sort_dishes
+    @restaurant.dishes.sort_by(&:dish_type).reverse!
   end
 end
