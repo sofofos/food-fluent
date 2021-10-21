@@ -9,4 +9,5 @@ class Dish < ApplicationRecord
     salad: "salad",
     dessert: "desserts"
   }
+
 end

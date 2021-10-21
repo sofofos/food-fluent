@@ -1,11 +1,9 @@
 require 'json'
 require 'rest-client'
 require 'faker'
+require "./db/seeds/load_files"
 
 dish_type = Dish.dish_types
-
-index_for_datasets = Dish.all.count / 80
-index_for_datasets == 0 ? idx = "_" : idx = index_for_datasets + 1
 
 def api_call(dish_type, opt = "")
   base = "https://api.edamam.com/api/recipes/v2?type=public"
@@ -20,25 +18,30 @@ def api_call(dish_type, opt = "")
   JSON.parse(response)
 end
 
+update_index
 
 # first request: starters
 data_hash = api_call(dish_type[:starter])
-File.write("storage/starters#{idx}.json", JSON.dump(data_hash))
+File.write("storage/starters#{@idx}.json", JSON.dump(data_hash))
 
 # second request: main courses
 data_hash = api_call(dish_type[:main])
-File.write("storage/mains#{idx}.json", JSON.dump(data_hash))
+File.write("storage/mains#{@idx}.json", JSON.dump(data_hash))
 
 #  third request: salads
 data_hash = api_call(dish_type[:salad])
-File.write("storage/salads#{idx}.json", JSON.dump(data_hash))
+File.write("storage/salads#{@idx}.json", JSON.dump(data_hash))
 
 #  fourth request: desserts
-fruit = Faker::Food.fruits
+#  ...adding fruit query to improve api results
+fruit = ["apple", "orange", "cherry", "grapes", "peach"].sample
+
 data_hash = api_call(dish_type[:dessert], fruit)
-File.write("storage/desserts#{idx}.json", JSON.dump(data_hash))
+File.write("storage/desserts#{@idx}.json", JSON.dump(data_hash))
+
 puts "Today's desserts are inspired by #{fruit}! Enjoy"
 
 puts "Ensuring I am not executed again for 30 seconds, pls wait..."
 sleep(30)
-puts "Proceed!"
+puts "Bye bye"
+

@@ -1,5 +1,5 @@
-require './storage/make_dishes.rb'
-require './storage/load_files.rb'
+require './db/seeds/make_dishes.rb'
+require './db/seeds/load_files.rb'
 
 require 'faker'
 
@@ -12,8 +12,8 @@ User.destroy_all
 puts "done! nice clean database"
 puts "generating yummy foods.."
 
-load_files
 @idx = 0
+load_files
 
 10.times do |i|
   restaurant = Restaurant.new(
@@ -34,7 +34,8 @@ load_files
     make_dish(restaurant, @desserts_hash, j)
 # go to next dataset
     update_index if j >= 19
-    puts j
+    puts "this is the new load_file idx: #{@idx}"
+    puts "my index inside seeds for dish loops: #{i}"
   end
 end
 
