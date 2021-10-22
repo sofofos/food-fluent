@@ -1,0 +1,21 @@
+.dashboard-title,
+.dashboard-welcome,
+.friends-list,
+.container-friends-find,
+.container-friends-see {
+  text-align: center;
+}
+
+.dashboard-welcome ul {
+  padding-left: 0px;
+}
+
+.container-friends,
+#dashboard-search {
+  display: flex;
+  justify-content: center;
+}
+.container-friends-find,
+.container-friends-see {
+  width: 50%;
+}

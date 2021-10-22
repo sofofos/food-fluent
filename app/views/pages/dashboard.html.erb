@@ -1,45 +1,52 @@
-<h1>Dashboard</h1>
-<!-- user-info -->
-<div class="welcome">
-  <h5> Welcome <%= @user.name %>!</h5>
-    <ul>Dietary restrictions:
-      <% @user.diet_profiles.each do |tag| %>
-      <li>
-        <%= tag.health_label.name %>
-      </li>
-      <% end %>
-    </ul>
-</div>
+<div class='container'>
+  <h1 class='dashboard-title'>Dashboard</h1>
 
-<!-- friends-list -->
-<div>
-  <h5 class="friends-list">Your Friends</h5>
-    <% @user.friends.each do |friend| %>
-<!-- friend-card -->
-    <div class="friend-card">
-      <%=  friend.name %>
-      <% friend.diet_profiles.each do |tag| %>
-        <i class="fas fa-ice-cream"><%= tag.health_label.name  %> </i>
-      <% end %>
-    </div>
-    <% end %>
-</div>
+  <!-- user-info -->
+  <div class='dashboard-welcome'>
+    <h5>Welcome <%= @user.name %>!</h5>
+      <ul>Dietary restrictions:
+        <% @user.diet_profiles.each do |tag| %>
+        <li>
+          <%= tag.health_label.name %>
+        </li>
+        <% end %>
+      </ul>
+  </div>
 
-<%= link_to "Find your friends", friends_path %>
-
-<!-- friend-requests -->
-  <%= link_to "See friend requests", friends_path %>
-
-<!-- find-restaurant -->
-  <!-- select-friends -->
-  <%= form_tag restaurants_path, method: :get do %>
-    <% @user.friends.each do |friend| %>
-      <div class="d-flex">
-      <%= check_box_tag "friend_ids[]", friend.id, id: friend, class: "form-control"%>
-      <%= friend.name %>
+  <!-- friends-list -->
+  <div class='container'>
+    <h5 class='friends-list'>Your Friends</h5>
+      <% @user.friends.each do |friend| %>
+      <div class='friend-card'>
+        <%= friend.name %>
+        <% friend.diet_profiles.each do |tag| %>
+          <i class='fas fa-ice-cream'><%= tag.health_label.name  %> </i>
+        <% end %>
       </div>
+      <% end %>
+
+    <div class='container-friends'>
+      <div class='container-friends-find'>
+        <%= link_to 'Find Friends', friends_path %>
+      </div>
+      <div class='container-friends-see'>
+        <%= link_to 'See Friend Requests', friends_path %>
+      </div>
+    </div>
+  </div>
+
+  <!-- find-restaurant -->
+  <!-- select-friends -->
+  <div class='container' id='dashboard-search'>
+    <%= form_tag restaurants_path, method: :get do %>
+      <% @user.friends.each do |friend| %>
+      <div class='d-flex'>
+        <%= check_box_tag 'friend_ids[]', friend.id, id: friend, class: 'form-control'%>
+        <%= friend.name %>
+      </div>
+      <% end %>
+      <%= submit_tag 'Search', class: 'btn btn-primary' %>
     <% end %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+  </div>
   <!-- add-location -->
-  
+</div>
