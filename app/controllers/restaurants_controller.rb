@@ -4,13 +4,13 @@ class RestaurantsController < ApplicationController
   before_action :skip_policy_scope
 
   def index
-    @restaurants = Restaurant.all.order(created_at: :desc)
-    find_health_label
     # @restaurants = Restaurant.all.order(created_at: :desc)
-    @users = params[:friend_ids].map{|id| User.find(id)}
-    
+    # find_health_label
+    # @restaurants = Restaurant.all.order(created_at: :desc)
+    @users = params[:friend_ids].present? ? params[:friend_ids].map { |id| User.find(id.to_i) } : []
+
     @users << current_user
-    find_matching_restaurants
+    @matching_restaurants = find_matching_restaurants
   end
 
   def show; end
@@ -34,11 +34,12 @@ class RestaurantsController < ApplicationController
           end
         end
       end
-      @restaurants << restaurant if counter === @users.count
+      @restaurants << restaurant if counter == @users.count
     end
     # users_health_label = current_user.health_labels
     # @dishes = Dish.all.select { |dish| (users_health_label - dish.health_labels).empty? }
     # @restaurants = @dishes.map(&:restaurant).uniq
+    # return restaurants
   end
 
   def group_dishes

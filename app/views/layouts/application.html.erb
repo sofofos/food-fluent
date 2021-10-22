@@ -33,14 +33,15 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-  <body>
-    
-        <%= render 'shared/navbar' %>
-        <%= render 'shared/flashes' %>
-        <div class="py-5">
-          <%= yield %>
-        </div>
-      <%= render 'shared/footer' %>
+  <body>  
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
+    <div class="py-5">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
-<% console %>
+
+<%# <% console %>
+
