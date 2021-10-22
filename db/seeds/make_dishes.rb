@@ -14,6 +14,7 @@ def make_dish(restaurant, dish_data, i)
     img_url: dish_data["hits"][j]["recipe"]["image"],
     dish_type: dish_data["hits"][j]["recipe"]["dishType"][0]
   )
+  puts "created a dish: #{@dish.name}"
 rescue *ERRORS
   j += 1
   @count_errors += 1
