@@ -28,7 +28,7 @@ class FriendsController < ApplicationController
   end
 
   def search
-    strangers = @people.reject { |user| @user.friends_with?(user) }
+    strangers = @people.reject { |user| @user.friends_with?(user) || user == current_user }
     @search = params[:query].downcase
     @results = strangers.select do |user|
       user.username.downcase.include?(@search)

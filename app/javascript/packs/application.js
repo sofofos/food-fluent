@@ -26,6 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
 import "bootstrap";
 
 //= require select2
+//= require jquery
+//= require popper
+//= require turbolinks
+//= require bootstrap
+//= require_tree
+
 // Internal imports, e.g:
 import { initSelect2 } from '../plugins/init_select2';
 

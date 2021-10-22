@@ -4,11 +4,21 @@ class RestaurantsController < ApplicationController
   before_action :skip_policy_scope
 
   def index
-    @restaurants = Restaurant.all.order(created_at: :desc)
-    find_health_label
+    # @restaurants = Restaurant.all.order(created_at: :desc)
+    # find_health_label
+    # @restaurants = Restaurant.all.order(created_at: :desc)
+    @users = params[:friend_ids].present? ? params[:friend_ids].map { |id| User.find(id.to_i) } : []
+
+    @users << current_user
+    @matching_restaurants = find_matching_restaurants
   end
 
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   private
 
@@ -17,13 +27,33 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
   end
 
-  def find_health_label
-    users_health_label = current_user.diet_profiles.map(&:health_label)
-    @dishes = Dish.all.select { |dish| (users_health_label - dish.health_labels).empty? }
-    @restaurants = @dishes.map(&:restaurant).uniq
+  def find_matching_restaurants
+    # IMPORTANT: method currently not working bc health label ids
+    # from user and from dish are not the same, therefore substraction
+    # will never match the right labels. must compare properly,
+    # through dish_health_labels maybe?
+
+    @restaurants = []
+    Restaurant.all.collect do |restaurant|
+      counter = 0
+      @users.each do |user|
+        restaurant.dishes.each do |dish|
+          unless (user.health_labels - dish.health_labels).empty?
+            counter += 1
+            break
+          end
+        end
+      end
+      @restaurants << restaurant if counter == @users.count
+    end
+    # users_health_label = current_user.health_labels
+    # @dishes = Dish.all.select { |dish| (users_health_label - dish.health_labels).empty? }
+    # @restaurants = @dishes.map(&:restaurant).uniq
+    # return restaurants
   end
 
   def group_dishes
     @grouped = @restaurant.dishes.group_by { |x| x[:dish_type] }
+    @salads
   end
 end

@@ -8,7 +8,6 @@ def update_index
 end
 
 def load_files
-  puts "value of #{@idx} in load_files"
   starters = File.read("storage/starters#{@idx}.json")
   @starters_hash = JSON.parse(starters)
 

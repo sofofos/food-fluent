@@ -1,0 +1,50 @@
+.banner {
+  background-image: url(banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $forest;
+  height: 80vh;
+  padding: 100px;
+  width: 100%;
+}
+
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+}
+
+.content-border {
+  border: 3px solid $forest;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
+.logo {
+  margin-bottom: 50px;
+  width: 300px;
+}
+
+.call-to-action {
+  margin-top: 125px;
+}
+.call-to-action p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $white;
+  border: 1px solid $forest;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+}
