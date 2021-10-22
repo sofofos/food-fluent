@@ -1,27 +1,27 @@
 .footer{
+    position: absolute;
     box-shadow: inset 4px 4px 24px $forest-light;
     // border-top: 1px solid $grey;
     color: $forest;
-    position: absolute;
-    width: 100%;
     height: 250px;
     left: 0px;
-    top: 1200px;
     padding: 30px;
+    top: 1200px;
+    width: 100%;
 }
 
 .footer-content-wrap{
-    text-align: center;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
+    text-align: center;
 }
 
 .media-link {
-    width: 32px;
     height: 32px;
     margin: 0 10px;
+    width: 32px;
 }
 
 p {
