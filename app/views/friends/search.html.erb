@@ -1,8 +1,10 @@
+<div class='container'>
   <%= form_tag friends_path, method: :get, action: :search do %>
-  <%= text_field_tag :query,
-  params[:query],
-  class: "form-control",
-  placeholder: "Find a friend"
+  <%= text_field_tag :query, 
+      params[:query],
+      class: 'form-control',
+      placeholder: 'Find Friends'
   %>
-  <%= submit_tag "Search", class: "btn btn-dark ml-3" %>
+  <%= submit_tag 'Search', class: 'btn btn-dark ml-3' %>
   <% end %>
+</div>
