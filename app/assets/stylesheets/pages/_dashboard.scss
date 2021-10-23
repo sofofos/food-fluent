@@ -1,21 +1,23 @@
-.dashboard-title,
-.dashboard-welcome,
-.friends-list,
-.container-friends-find,
-.container-friends-see {
+// _dashboard.scss
+
+#dashboard-text-profile,
+#dashboard-list-restrictions,
+#dashboard-list-friends,
+#dashboard-container-friends-find,
+#dashboard-container-friends-see {
   text-align: center;
 }
 
-.dashboard-welcome ul {
+#dashboard-list-restrictions ul {
   padding-left: 0px;
 }
 
-.container-friends,
+#dashboard-links-friends,
 #dashboard-search {
   display: flex;
   justify-content: center;
 }
-.container-friends-find,
-.container-friends-see {
+#dashboard-container-friends-find,
+#dashboard-container-friends-see {
   width: 50%;
 }
