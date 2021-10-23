@@ -3,26 +3,26 @@
 
 <ul>
   <li>
-    <% @grouped["starter"].each do |dish| %>
-    <%= salad.name %>
+    <% @restaurant.dishes.where(dish_type: "starter").each do |dish| %>
+    <%= dish.name %>
     <%= image_tag dish.img_url %>
     <% end %>
   </li>
    <li>
-    <% @grouped["salad"].each do |dish| %>
-    <%= salad.name %>
+    <% @restaurant.dishes.where(dish_type: "salad").each do |dish| %>
+    <%= dish.name %>
     <%= image_tag dish.img_url %>
     <% end %>
   </li>
    <li>
-    <% @grouped["main"].each do |dish| %>
-    <%= salad.name %>
+    <% @restaurant.dishes.where(dish_type: "main").each do |dish| %>
+    <%= dish.name %>
     <%= image_tag dish.img_url %>
     <% end %>
   </li>
    <li>
-    <% @grouped["dessert"].each do |dish| %>
-    <%= salad.name %>
+    <% @restaurant.dishes.where(dish_type: "dessert").each do |dish| %>
+    <%= dish.name %>
     <%= image_tag dish.img_url %>
     <% end %>
   </li>
