@@ -1,64 +1,56 @@
-<!-- dashboard.html.erb !-->
-<!-- -->
-<div class='container' id='dashboard-main'>
-  <h1 id='dashboard-text-profile'>
-    Profile
-  </h1>
+<div class='container'>
+  <h1 class='dashboard-title'>Dashboard</h1>
 
-  <!-- user-info !-->
-  <div id='dashboard-list-restrictions'>
-    <h5>
-      Welcome <%= @user.name %>!
-    </h5>
-
-    <ul>Dietary Restrictions:
-      <% @user.diet_profiles.each do |tag| %>
+  <!-- user-info -->
+  <div class='dashboard-welcome'>
+    <h5>Welcome <%= @user.name %>!</h5>
+      <ul>Dietary restrictions:
+        <% @user.diet_profiles.each do |tag| %>
         <li>
           <%= tag.health_label.name %>
         </li>
-      <% end %>
-    </ul>
+        <% end %>
+      </ul>
   </div>
 
-  <!-- friends-list !-->
-  <div class='container' id='dashboard-friends'>
-    <h5 id='dashboard-list-friends'>
-      Your Friends
-    </h5>
-
-    <% @user.friends.each do |friend| %>
-      <div id='friend-card'>
+  <!-- friends-list -->
+  <div class='container'>
+    <h5 class='friends-list'>Your Friends</h5>
+      <% @user.friends.each do |friend| %>
+      <div class='friend-card'>
         <%= friend.name %>
         <% friend.diet_profiles.each do |tag| %>
-          <i class='fas fa-ice-cream'>
-            <%= tag.health_label.name  %>
-          </i>
+          <i class='fas fa-ice-cream'><%= tag.health_label.name  %> </i>
         <% end %>
       </div>
-    <% end %>
+      <% end %>
 
-    <div id='dashboard-links-friends'>
-      <div id='dashboard-container-friends-find'>
+    <div class='container-friends'>
+      <div class='container-friends-find'>
         <%= link_to 'Find Friends', friends_path %>
       </div>
-      <div id='dashboard-container-friends-see'>
+      <div class='container-friends-see'>
         <%= link_to 'See Friend Requests', friends_path %>
       </div>
     </div>
   </div>
 
-  <!-- find-restaurant !-->
-  <!-- select-friends !-->
+
+<%= link_to "add a diet profile", new_diet_profile_path %>
+
+<!-- find-restaurant -->
+
+  <!-- select-friends -->
   <div class='container' id='dashboard-search'>
     <%= form_tag restaurants_path, method: :get do %>
       <% @user.friends.each do |friend| %>
-        <div class='d-flex'>
-          <%= check_box_tag 'friend_ids[]', friend.id, id: friend, class: 'form-control'%>
-          <%= friend.name %>
-        </div>
+      <div class='d-flex'>
+        <%= check_box_tag 'friend_ids[]', friend.id, id: friend, class: 'form-control'%>
+        <%= friend.name %>
+      </div>
       <% end %>
       <%= submit_tag 'Search', class: 'btn btn-primary' %>
     <% end %>
   </div>
-  <!-- add-location !-->
+  <!-- add-location -->
 </div>
