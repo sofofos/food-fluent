@@ -12,7 +12,12 @@ class RestaurantsController < ApplicationController
     find_matching_restaurants
   end
 
-  def show; end
+  def show
+    @starter = @restaurant.dishes.where(dish_type: "starter")
+    @salad = @restaurant.dishes.where(dish_type: "salad")
+    @main = @restaurant.dishes.where(dish_type: "main")
+    @dessert = @restaurant.dishes.where(dish_type: "dessert")
+  end
 
   private
 

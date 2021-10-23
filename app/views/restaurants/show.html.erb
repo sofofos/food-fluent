@@ -3,25 +3,25 @@
 
 <ul>
   <li>
-    <% @restaurant.dishes.where(dish_type: "starter").each do |dish| %>
+    <% @starter.each do |dish| %>
     <%= dish.name %>
     <%= image_tag dish.img_url %>
     <% end %>
   </li>
    <li>
-    <% @restaurant.dishes.where(dish_type: "salad").each do |dish| %>
+    <% @salad.each do |dish| %>
     <%= dish.name %>
     <%= image_tag dish.img_url %>
     <% end %>
   </li>
    <li>
-    <% @restaurant.dishes.where(dish_type: "main").each do |dish| %>
+    <% @main.each do |dish| %>
     <%= dish.name %>
     <%= image_tag dish.img_url %>
     <% end %>
   </li>
    <li>
-    <% @restaurant.dishes.where(dish_type: "dessert").each do |dish| %>
+    <% @dessert.each do |dish| %>
     <%= dish.name %>
     <%= image_tag dish.img_url %>
     <% end %>
