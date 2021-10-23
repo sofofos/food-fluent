@@ -17,7 +17,7 @@ load_files
 
 20.times do |i|
   restaurant = generate_restaurant
-  make_dishes(restaurant)
+  make_dishes(restaurant, i)
 end
 
 puts "generating users.."
@@ -44,9 +44,7 @@ puts "generating users.."
 end
 
 puts "done!"
-puts "created #{Dish.all.count} dishes,
-              #{Restaurant.all.count} restaurants and
-              #{User.all.count} users"
+puts "created #{Dish.all.count} dishes, #{Restaurant.all.count} restaurants, and #{User.all.count} users"
 puts "bye bye"
 
 

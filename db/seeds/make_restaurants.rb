@@ -15,17 +15,17 @@ end
 def generate_restaurant
   restaurant = Restaurant.new(
   name: Faker::Restaurant.name,
-  location: Faker::Address.street_address + ", Montreal, QC"
+  location: Faker::Address.street_address + ", Montreal, QC",
   phone_number: generate_number
   )
   # generating url after creating restaurant bcus uses name attribute
-  generate_website(restaurant.name)
+  restaurant.website = generate_website(restaurant.name)
 
   restaurant.save!
   restaurant
 end
 
-def make_dishes(restaurant)
+def make_dishes(restaurant, i)
   5.times do |j|
   # index for dishes ( up to 20 entries/ json file )
     j += (i * 5)
