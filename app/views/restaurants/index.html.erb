@@ -1,16 +1,20 @@
 <div class="content-wrap">
   <h1>Choose your future favourite restaurant!</h1>
-
-<div class="cards">
-  <% @matching_restaurants.each do |restaurant| %>
-    <div class="card-category">
-      <!-- <img src="https://unsplash.com/photos/l5JwNGQ96iE" alt="food"> -->
-        <div class="card-description">
-        <%= link_to restaurant.name, restaurant_path(restaurant)%>
-        <p> <%= restaurant.location %> </p>
-        </div>
-    </div> 
-    <% end %>
 </div>
+
+<div class="container">
+  <div class="cards">
+    <% @matching_restaurants.each do |restaurant| %>
+      <div class="card-category">
+          <div class="card-description">
+            <div class="card-info">
+              <%= link_to restaurant.name, restaurant_path(restaurant)%>
+              <p> <%= restaurant.location %> </p>  
+            </div>
+            <%= image_tag 'leaf.png', class:'card-icon' %>
+          </div>
+      </div> 
+      <% end %>
+  </div>
 </div>
 
