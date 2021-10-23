@@ -1,10 +1,7 @@
 .banner {
-  background-image: url(banner.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
   color: $forest;
-  padding: 50px;
-  width: 100%;
+  margin: 50px auto;
+  width: 70%;
   }
 
 .content-wrap {
@@ -13,7 +10,8 @@
   align-items: center;
   justify-content: center;
   background-color: $white;
-  padding: 25px;
+  border-radius: 25px;
+  padding: 50px;
 }
 
 .content-border {
@@ -27,11 +25,11 @@
 
 .logo {
   margin-bottom: 50px;
-  width: 300px;
+  width: 200px;
 }
 
 .call-to-action {
- margin-top: 100px;
+ margin-top: 50px;
 }
 .call-to-action p {
   display: flex;

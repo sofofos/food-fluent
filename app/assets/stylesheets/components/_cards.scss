@@ -1,0 +1,76 @@
+.cards {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-category {
+  display: flex;
+  align-items: end;
+  background-image: url("https://source.unsplash.com/random/400x250");
+  background-position: center;
+  background-size: cover;
+  border: 1px solid $forest;
+  border-radius: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  height: 250px;
+  // max-height: 250px;
+  // min-height: 250px;
+}
+
+.card-description{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $white;
+  border-radius: 0px 0px 25px 25px;
+  height: 65px;
+  padding: 15px;
+  width: 100%;
+}
+
+.card-info p {
+  color: $forest;
+  font-size: 10px;
+}
+
+.card-icon {
+  height: 30px;
+  width: 30px;
+}
+
+// Smallest Device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small Devices (landscape phones, 576px & up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium Devices (tablets, 768px & up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large Devices (desktops, 992px & up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Largest Devices (large desktops, 1200px & up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

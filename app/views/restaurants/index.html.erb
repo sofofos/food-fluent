@@ -1,6 +1,19 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
-<ul><% @restaurants.each do |restaurant| %>
-  <li><%= link_to restaurant.name, restaurant_path(restaurant)%>
-  <%= restaurant.location %></li>
-<% end %></ul>
+<div class="content-wrap">
+  <h1>Choose your future favourite restaurant!</h1>
+</div>
+
+<div class="container">
+  <div class="cards">
+    <% @matching_restaurants.each do |restaurant| %>
+      <div class="card-category">
+          <div class="card-description">
+            <div class="card-info">
+              <%= link_to restaurant.name, restaurant_path(restaurant)%>
+              <p> <%= restaurant.location %> </p>  
+            </div>
+            <%= image_tag 'leaf.png', class:'card-icon' %>
+          </div>
+      </div> 
+      <% end %>
+  </div>
+</div>
