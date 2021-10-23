@@ -14,14 +14,14 @@ class DietProfilesController < ApplicationController
       render :new && return unless @diet_profile.save
     end
 
-    redirect_to root_path
+    redirect_to dashboard_path
     authorize [@diet_profile]
   end
 
   private
 
   def diet_profile_params
-    params.require(:diet_profile).permit(:health_label_id)
+    params.require(:diet_profile).permit(health_label_id: [])
 
     # health_label_id"=>["", "209"]} permitted: false>, "commit"=>"Submit list", "controller"=>"diet_profiles", "action"=>"create"} permitted: false>
   end
