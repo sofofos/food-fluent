@@ -34,7 +34,14 @@ h5 {
   font-size: 16px;
 }
 
-p {
+ul,
+ol {
+  color: $forest;
+  font: 20px Biryani;
+}
+
+p,
+li {
   color: $forest;
   font: 12px Biryani;
 }

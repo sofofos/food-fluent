@@ -7,14 +7,12 @@
   text-align: center;
 }
 
-#dash-main-header-text {
-  color: $forest;
-  font-family: 'Marmelad';
-  margin: 10px 10px 10px 10px;
-  text-align: left;
+#dash-main-row {
+  margin: 10px 0px 10px 0px;
 }
-
 #dash-main-card {
+  height: 200px;
+  margin: 10px 0px 10px 0px;
   width: 50%;
 }
 #dash-main-card-container {
@@ -47,7 +45,6 @@
 }
 #dash-main-card-text {
   color: $forest;
-  font-family: 'Biryani';
   height: 60px;
   margin: 5px 0px 5px 0px;
   text-align: center;
@@ -55,12 +52,31 @@
 }
 
 #dash-main-list {
+  height: 200px;
+  margin: 10px 0px 10px 0px;
+  text-align: center;
   width: 50%;
 }
+#dash-main-list-container {
+  height: 200px;
+  padding: 0;
+}
 #dash-main-list-restrictions {
+  display: flex;
+  justify-content: center;
   list-style: none;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 10px 10px 10px;
+  overflow: hidden;
   padding: 0px;
+}
+.dash-main-list-restriction {
+  border: 2px solid $forest;
+  border-radius: 30%;
+  float: center;
+  margin: 0px 10px 0px 10px;
+  min-height: 35px;
+  min-width: 70px;
+  padding: 5px;
 }
 
 #dash-friends {
