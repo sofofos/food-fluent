@@ -1,34 +1,50 @@
 <!-- dashboard.html.erb !-->
 
-<div class='container' id='dashboard-main'>
-  <h1 id='dashboard-text-profile'>
+<div class='container' id='dash-container'>
+  <h1 id='dash-main-header-text'>
     Profile
+    <h2>h2</h2><h3>h3</h3><h4>h4</h4><h5>h5</h5><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
   </h1>
 
-  <!-- user-info !-->
-  <div id='dashboard-list-restrictions'>
-    <h5 id='dashboard-list-restrictions-welcome'>
-      Welcome <%= @user.name %>!
-    </h5>
+  <div class='row' id='dash-main-row'>
+    <!-- avatar !-->
+    <div class='column' id='dash-main-card'>
+      <div class='container' id='dash-main-card-container'>
+        <div class='container' id='dash-main-card-picture-container'>
+          <%= image_tag 'vivi.jpg', class: 'avatar', id: 'dash-main-card-picture', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
+        </div>
 
-    <ul id='dashboard-list-restrictions-items'>
-      Dietary Restrictions:
-      <% @user.diet_profiles.each do |tag| %>
-        <li>
-          <%= tag.health_label.name %>
-        </li>
-      <% end %>
-    </ul>
+        <div class='container' id='dash-main-card-text-container'>
+          <h5 id='dash-main-card-text'>
+            Welcome
+            <br>
+            <%= @user.name.split.first %>!
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- restrictions !-->
+    <div class='column' id='dash-main-list'>
+      <ul id='dash-main-list-restrictions'>
+        Dietary Restrictions:
+        <% @user.diet_profiles.each do |tag| %>
+          <li>
+            <%= tag.health_label.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 
   <!-- friends-list !-->
-  <div class='container' id='dashboard-friends'>
-    <h5 id='dashboard-list-friends'>
-      Your Friends
+  <div class='container' id='dash-friends'>
+    <h5 id='dash-list-friends'>
+      Friends
     </h5>
 
     <% @user.friends.each do |friend| %>
-      <div id='card-dashboard-friend'>
+      <div id='card-dash-friend'>
         <%= friend.name %>
         <% friend.diet_profiles.each do |tag| %>
           <i class='fas fa-ice-cream'>
@@ -38,11 +54,11 @@
       </div>
     <% end %>
 
-    <div id='dashboard-links-friends'>
-      <div id='dashboard-container-friends-find'>
+    <div id='dash-links-friends'>
+      <div id='dash-container-friends-find'>
         <%= link_to 'Find Friends', friends_path %>
       </div>
-      <div id='dashboard-container-friends-see'>
+      <div id='dash-container-friends-see'>
         <%= link_to 'See Friend Requests', friends_path %>
       </div>
     </div>
@@ -50,7 +66,7 @@
 
   <!-- find-restaurant !-->
   <!-- select-friends !-->
-  <div class='container' id='dashboard-search'>
+  <div class='container' id='dash-search'>
     <%= form_tag restaurants_path, method: :get do %>
       <% @user.friends.each do |friend| %>
         <div class='d-flex'>
