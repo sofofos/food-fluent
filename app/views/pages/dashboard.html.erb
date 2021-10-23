@@ -7,11 +7,12 @@
 
   <!-- user-info !-->
   <div id='dashboard-list-restrictions'>
-    <h5>
+    <h5 id='dashboard-list-restrictions-welcome'>
       Welcome <%= @user.name %>!
     </h5>
 
-    <ul>Dietary Restrictions:
+    <ul id='dashboard-list-restrictions-items'>
+      Dietary Restrictions:
       <% @user.diet_profiles.each do |tag| %>
         <li>
           <%= tag.health_label.name %>
@@ -27,7 +28,7 @@
     </h5>
 
     <% @user.friends.each do |friend| %>
-      <div id='friend-card'>
+      <div id='card-dashboard-friend'>
         <%= friend.name %>
         <% friend.diet_profiles.each do |tag| %>
           <i class='fas fa-ice-cream'>
