@@ -16,7 +16,6 @@ LABELS = [ "Keto-Friendly",
 def make_dish(restaurant, dish_data, i)
   # if index for dishes reaches max dataset entries:
   i >= 20 ? j = i - 20 : j = i
-  puts "#{j}"
 
   if j < 20 && dish_data["hits"][j]["recipe"]["dishType"].count == 1
     dish = Dish.new(
@@ -37,12 +36,11 @@ def make_dish_labels(dish_data, dish, j)
   dish_health_labels = health_labels.select{ |label| LABELS.include?(label) }
 
   dish_health_labels.each do |label|
-    dish_label = HealthLabel.create(name: label)
-    dhl = DishHealthLabel.new(
-      dish_id: dish.id,
-      health_label_id: dish_label.id
-      )
+
+    dish_label = HealthLabel.find_by(name: label) || HealthLabel.create(name: label)
     dish_label.save!
+
+    dhl = DishHealthLabel.new(dish_id: dish.id, health_label_id: dish_label.id)
     dhl.save!
   end
 end
