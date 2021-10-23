@@ -13,9 +13,11 @@ def load_files
   @starters_hash = JSON.parse(starters)
 
   salad = File.read("storage/salads#{@idx}.json")
+  puts "salads #{@idx} loaded"
   @salad_hash = JSON.parse(salad)
 
   main = File.read("storage/mains#{@idx}.json")
+  puts "loading mains#{@idx}"
   @main_hash = JSON.parse(main)
 
   desserts = File.read("storage/desserts#{@idx}.json")
