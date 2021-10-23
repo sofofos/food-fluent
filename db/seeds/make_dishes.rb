@@ -3,7 +3,6 @@ require './db/seeds/load_files'
 
 LABELS = [ "Keto-Friendly",
  "Kosher",
- "Low Sugar",
  "Mediterranean",
  "Paleo",
  "Pescatarian",
