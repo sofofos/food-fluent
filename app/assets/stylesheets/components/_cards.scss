@@ -1,23 +1,23 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .card-category {
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  align-items: end;
   background-image: url("https://source.unsplash.com/random/400x250");
-  // min-height: 250px;
-  // max-height: 250px;
-  height: 250px;
-  font-size: 24px;
-  font-weight: bold;
+  background-position: center;
+  background-size: cover;
   border: 1px solid $forest;
   border-radius: 25px;
   display: flex;
   align-items: end;
   transition: opacity 0.3s ease;
+  font-size: 24px;
+  font-weight: bold;
+  height: 250px;
 }
 
 .card-hover {
@@ -27,14 +27,14 @@
 
 
 .card-description{
-  border-radius: 0px 0px 25px 25px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background-color: $white;
-  width: 100%;
+  border-radius: 0px 0px 25px 25px;
   height: 65px;
   padding: 15px;
+  width: 100%;
 }
 
 .hover-text-no-display {
@@ -47,15 +47,16 @@
 }
 
 .card-info p {
-  font-size: 10px;
   color: $forest;
+  font-size: 10px;
 }
 
 .card-icon {
-  width: 30px;
   height: 30px;
+  width: 30px;
 }
 
+<<<<<<< HEAD
 .card-info a:hover {
   color: $forest;
   text-decoration: none;
@@ -66,34 +67,35 @@
 
 
 // Smallest device
+// Smallest Device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
   }
 }
 
-// Small devices (landscape phones, 576px and up)
+// Small Devices (landscape phones, 576px & up)
 @media (min-width: 576px) {
   .cards {
     grid-template-columns: 1fr;
   }
 }
 
-// Medium devices (tablets, 768px and up)
+// Medium Devices (tablets, 768px & up)
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-// Large devices (desktops, 992px and up)
+// Large Devices (desktops, 992px & up)
 @media (min-width: 992px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-// Extra large devices (large desktops, 1200px and up)
+// Largest Devices (large desktops, 1200px & up)
 @media (min-width: 1200px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
