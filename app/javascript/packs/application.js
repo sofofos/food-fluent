@@ -29,11 +29,3 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
-document.querySelectorAll(".card-category").forEach((card) => {
-  card.addEventListener("mouseover", (event) => {
-    event.currentTarget.classList.add("card-hover");
-  });
-  card.addEventListener("mouseout", (event) => {
-    event.currentTarget.classList.remove("card-hover");
-  });
-});

@@ -5,15 +5,20 @@
 <div class="container">
   <div class="cards">
     <% @restaurants.each do |restaurant| %>
-      <div class="card-category">
-          <div class="card-description">
-            <div class="card-info">
-              <%= link_to restaurant.name, restaurant_path(restaurant)%>
-              <p> <%= restaurant.location %> </p>  
-            </div>
-            <%= image_tag 'leaf.png', class:'card-icon' %>
-          </div>
-      </div> 
-      <% end %>
+    <div class="card-category hover-card">
+      <div class="hover-card-layer">
+        <%= link_to restaurant.name, restaurant_path(restaurant), class:'hover-card-description' %>
+      </div>
+      <div class="card-description">
+        <div class="card-info">
+          <%= link_to restaurant.name, restaurant_path(restaurant)%>
+          <p> <%= restaurant.location %> </p>  
+        </div>
+        <%= image_tag 'leaf.png', class:'card-icon' %>
+      </div>
+    </div> 
+    <% end %>
   </div>
 </div>
+
+

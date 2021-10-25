@@ -1,3 +1,4 @@
+// cards - restaurants and dishes
 .cards {
   display: grid;
   grid-gap: 16px;
@@ -7,7 +8,6 @@
 .card-category {
   display: flex;
   align-items: end;
-  background-image: url("https://source.unsplash.com/random/400x250");
   background-position: center;
   background-size: cover;
   border: 1px solid $forest;
@@ -20,10 +20,9 @@
   height: 250px;
 }
 
-.card-hover {
-  opacity:0.4;
+.card-category:hover{
+  opacity: 0.6;
 }
-
 
 
 .card-description{
@@ -37,15 +36,6 @@
   width: 100%;
 }
 
-.hover-text-no-display {
-  display: none;
-}
-
-.hover-text {
-  color: $forest;
-  align-self: center;
-}
-
 .card-info p {
   color: $forest;
   font-size: 10px;
@@ -56,17 +46,64 @@
   width: 30px;
 }
 
-<<<<<<< HEAD
 .card-info a:hover {
   color: $forest;
   text-decoration: none;
+}
+
+//hover effects on hidden text 
+
+.hover-card {
+  position: relative;
+}
+
+.hover-card-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  color: $forest;
+  border-radius: inherit;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transition effect. not necessary */
+  transition: opacity .3s ease, visibility .3s ease;
+}
+
+.hover-card:hover .hover-card-layer {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hover-card-description {
+  font-size: 24px;
+}
+
+.hover-card-description:hover{
+  text-decoration: none;
+}
+
+
+.hover-card:hover .hover-card-description {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 
 
 
 
-// Smallest device
+
+
+
+
+
+
+
 // Smallest Device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
