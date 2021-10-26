@@ -1,7 +1,6 @@
-require './db/seeds/make_dishes.rb'
 require './db/seeds/load_files.rb'
-
-require 'faker'
+require './db/seeds/make_restaurants.rb'
+require './db/seeds/make_diets.rb'
 
 print "cleaning db... "
 
@@ -10,36 +9,17 @@ Dish.destroy_all
 Restaurant.destroy_all
 User.destroy_all
 puts "done! nice clean database"
+
 puts "generating yummy foods.."
 
 # set index for datasets in load_files.rb
 @idx = 0
 load_files
 
-10.times do |i|
-  restaurant = Restaurant.new(
-    name: Faker::Restaurant.name,
-    location: Faker::Address.full_address
-  )
-  restaurant.save!
-
-  5.times do |j|
-# index for dishes ( up to 20 entries/ json file )
-    j += (i * 5)
-# first request: starters
-    make_dish(restaurant, @starters_hash, j)
-# second request: main courses
-    make_dish(restaurant, @salad_hash, j)
-# third request: salads
-    make_dish(restaurant, @main_hash, j)
-# fourth request: desserts
-    make_dish(restaurant, @desserts_hash, j)
-# go to next dataset
-    update_index if j >= 19
-  end
+20.times do |i|
+  restaurant = generate_restaurant
+  make_dishes(restaurant, i)
 end
-
-puts "dishes are done! #{@count_errors} dishes missing"
 
 puts "generating users.."
 
@@ -54,11 +34,19 @@ puts "generating users.."
     user[:username] = "#{user[:name].first(4).downcase}_#{Faker::Food.fruits.split.first.downcase}"
     user.save!
 
-  rand(1..5).times do
-    DietProfile.create!(
+  rand(1..3).times do
+    diet_p = DietProfile.create!(
       health_label: HealthLabel.all.sample,
       user: user)
+    expand_profile(diet_p, user)
   end
+
+  #strip duplicate health_labels from diet_profile
+  user.diet_profiles = user.diet_profiles.all.uniq(&:health_label_id)
 end
 
+puts "done!"
+puts "created #{Dish.all.count} dishes, #{Restaurant.all.count} restaurants, and #{User.all.count} users"
 puts "bye bye"
+
+

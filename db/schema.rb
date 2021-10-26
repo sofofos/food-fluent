@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_19_223432) do
+ActiveRecord::Schema.define(version: 2021_10_23_204726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,16 +41,6 @@ ActiveRecord::Schema.define(version: 2021_10_19_223432) do
     t.string "dish_type"
     t.string "img_url"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
-  end
-
-  create_table "friends", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "inviter_id"
-    t.bigint "invitee_id"
-    t.string "status"
-    t.index ["invitee_id"], name: "index_friends_on_invitee_id"
-    t.index ["inviter_id"], name: "index_friends_on_inviter_id"
   end
 
   create_table "friendships", id: :serial, force: :cascade do |t|
@@ -84,6 +74,8 @@ ActiveRecord::Schema.define(version: 2021_10_19_223432) do
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phone_number"
+    t.string "website"
   end
 
   create_table "users", force: :cascade do |t|
@@ -105,7 +97,5 @@ ActiveRecord::Schema.define(version: 2021_10_19_223432) do
   add_foreign_key "dish_health_labels", "dishes"
   add_foreign_key "dish_health_labels", "health_labels"
   add_foreign_key "dishes", "restaurants"
-  add_foreign_key "friends", "users", column: "invitee_id"
-  add_foreign_key "friends", "users", column: "inviter_id"
   add_foreign_key "ingredients", "dishes"
 end
