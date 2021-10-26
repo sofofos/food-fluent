@@ -21,9 +21,10 @@
 	.media-links {
 		position: absolute;
 		right: 2em;
-		bottom: 4em;
+		bottom: 50vh;
 		display: flex;
 		flex-direction: column;
+		transform: translate(0em, 10vh);
 	}
 
 	.media-link {

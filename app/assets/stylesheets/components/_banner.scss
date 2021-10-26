@@ -1,14 +1,21 @@
 .banner {
   color: $forest;
+<<<<<<< HEAD
   padding: 50px;
   width: 100%;
 }
+=======
+  margin: 50px auto;
+  width: 70%;
+  }
+>>>>>>> 5da874a815683d6f5fdbf556d27aaaf08b2b8a9f
 
 .content-wrap {
   width: 60%;
   display: flex;
   background-color: rgba(230,230,230,0.4);
   flex-direction: column;
+<<<<<<< HEAD
   align-items: flex-end;
   justify-content: flex-end;
   padding: 25px;
@@ -21,6 +28,13 @@
   font-size: 4.3em;
   text-transform: uppercase;
   font-weight: 800;
+=======
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+  border-radius: 25px;
+  padding: 50px;
+>>>>>>> 5da874a815683d6f5fdbf556d27aaaf08b2b8a9f
 }
 
 .content-wrap h2 {
@@ -30,11 +44,15 @@
 
 .logo {
   margin-bottom: 50px;
-  width: 300px;
+  width: 200px;
 }
 
 .call-to-action {
+<<<<<<< HEAD
   margin-top: 0.4em;
+=======
+ margin-top: 50px;
+>>>>>>> 5da874a815683d6f5fdbf556d27aaaf08b2b8a9f
 }
 
 .call-to-action h3 {

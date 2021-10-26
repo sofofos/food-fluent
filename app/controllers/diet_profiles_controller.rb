@@ -14,7 +14,7 @@ class DietProfilesController < ApplicationController
       render :new && return unless @diet_profile.save
     end
 
-    redirect_to root_path
+    redirect_to dashboard_path
     authorize [@diet_profile]
   end
 
