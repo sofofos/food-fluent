@@ -6,7 +6,6 @@ LABELS = [ "Keto-Friendly",
  "Mediterranean",
  "Paleo",
  "Pescatarian",
- "Sugar-Conscious",
  "Vegan",
  "Vegetarian" ]
 
@@ -36,6 +35,7 @@ def make_dish_labels(dish_data, dish, j)
   dish_health_labels.each do |label|
 
     dish_label = HealthLabel.find_by(name: label) || HealthLabel.create(name: label)
+    dish_label.category = :diet
     dish_label.save!
 
     dhl = DishHealthLabel.new(dish_id: dish.id, health_label_id: dish_label.id)
