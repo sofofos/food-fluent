@@ -3,22 +3,22 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 25px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .card-category {
-  overflow: hidden;
   background: $white;
-  box-shadow: 4px 4px 12px $grey;
   border-radius: 25px;
+  box-shadow: 4px 4px 12px $grey;
+  overflow: hidden;
 }
 
 .card-category > .card-img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
   // border-radius: 25px 25px 0 0;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
 }
 
 .card-category h2 {
@@ -29,24 +29,23 @@
 
 .card-category p {
   font-size: 12px;
-  opacity: .7;
   margin: 0;
+  opacity: .7;
 }
 
 .card-category .card-description {
-  padding: 16px;
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
-  position: relative;
+  justify-content: space-between;
   border-radius: inherit;
   color: $forest;
-
+  padding: 16px;
+  position: relative;
 }
 
 .card-icon {
-  width: 30px;
   height: 30px;
+  width: 30px;
 }
 
 // hover effect on resturants

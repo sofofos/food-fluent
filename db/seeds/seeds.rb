@@ -1,5 +1,6 @@
 require './db/seeds/load_files.rb'
 require './db/seeds/make_restaurants.rb'
+require './db/seeds/make_diets.rb'
 
 print "cleaning db... "
 
@@ -34,9 +35,10 @@ puts "generating users.."
     user.save!
 
   rand(1..3).times do
-    DietProfile.create!(
+    diet_p = DietProfile.create!(
       health_label: HealthLabel.all.sample,
       user: user)
+    expand_profile(diet_p, user)
   end
 
   #strip duplicate health_labels from diet_profile
