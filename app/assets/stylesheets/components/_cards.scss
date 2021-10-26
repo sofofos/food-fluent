@@ -1,4 +1,6 @@
 
+// cards for dishes and restaurants
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -45,4 +47,44 @@
 .card-icon {
   width: 30px;
   height: 30px;
+}
+
+// hover effect on resturants
+
+.card_wrap {
+  position: relative;
+  height: 200px;
+  width: 257px;
+}
+
+.card_layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(36, 62, 206, 0.6);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.card_wrap:hover .card_layer {
+  visibility: visible;
+  opacity: 1;
+}
+
+.card-hover-text {
+  transition: .2s;
+  transform: translateY(1em);
+}
+
+.card_wrap:hover .card-hover-text {
+  transform: translateY(0);
 }

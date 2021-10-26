@@ -9,6 +9,9 @@
         <% @restaurants.each do |restaurant| %>
         <div class="card-category">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img">
+            <div class="card_layer">
+            <p class="card-hover-text">This image looks super neat.</p>
+            </div>
           <div class="card-description">
             <div class="card-info">
               <%= link_to restaurant.name, restaurant_path(restaurant)%>
@@ -18,6 +21,13 @@
           </div>
         </div> 
         <% end %>
+      </div>
+
+      <div class="card_wrap">
+        <img class="img__img" src="http://placehold.it/257x200.jpg" />
+        <div class="card_layer">
+          <p class="card-hover-text">This image looks super neat.</p>
+        </div>
       </div>
     </div>   
   </div>
