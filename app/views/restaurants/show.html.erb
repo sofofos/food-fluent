@@ -1,11 +1,17 @@
 <div class="container">
   <div class="py-5">
 
-    <h1><%= @restaurant.name %> </h1>
-    <p><%= @restaurant.location %></p>
+    <h1>
+      <%= @restaurant.name %>
+    </h1>
+    <p>
+      <%= @restaurant.location %>
+    </p>
 
 
-    <h2>Starters</h2>
+    <h2>
+      Starters
+    </h2>
       <div class="cards">
         <% @starter.each do |dish| %>
         <!-- card content -->
@@ -19,7 +25,9 @@
         </div>
         <% end %>
       </div>  
-      <h2>main</h2>
+      <h2>
+        main
+      </h2>
       <div class="cards">
         <% @main.each do |dish| %>
         <!-- card content -->
@@ -33,7 +41,9 @@
         </div>
         <% end %>
       </div>  
-      <h2>salads</h2>
+      <h2>
+        salads
+      </h2>
       <div class="cards">
         <% @salad.each do |dish| %>
         <!-- card content -->
@@ -47,7 +57,9 @@
         </div>
         <% end %>
       </div>  
-      <h2>Dessert</h2>
+      <h2>
+        Dessert
+      </h2>
       <div class="cards">
         <% @dessert.each do |dish| %>
         <!-- card content -->
@@ -62,9 +74,7 @@
         <% end %>
       </div>  
     <!-- padding -py-5 -->
-<%= link_to "Back", restaurants_path, class:'btn btn-dark' %>
+    <%= link_to "Back", restaurants_path, class:'btn btn-dark' %>
   </div>
   <!-- container -->
 </div>
-
-
