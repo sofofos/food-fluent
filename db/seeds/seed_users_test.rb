@@ -35,8 +35,6 @@ require 'faker'
     end
   end
 
-allergy = Proc.new { |x| x.category == "allergy" }
-
 10.times do |i|
   i += 1
   user = User.create!(
