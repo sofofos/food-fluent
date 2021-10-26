@@ -1,69 +1,70 @@
 <div class="container">
-  <h1><%= @restaurant.name %> </h1>
-  <p><%= @restaurant.location %></p>
-  
-  <h2>starters</h2>
-  
-  <div class="cards">
-    <% @starter.each do |dish| %>
-    <div class="card-category">
-      <div class="card-description">
-        <div class="card-info">
-          <%= dish.name %>
-        </div>
-      </div>
-    </div>
-    <%# image_tag dish.img_url %>
-    <% end %>
-  </div>  
-  
-  <h2>salad</h2>
-  
-  <div class="cards">
-    <% @salad.each do |dish| %>
-    <div class="card-category">
-      <div class="card-description">
-        <div class="card-info">
-          <%= dish.name %>
-        </div>
-      </div>
-    </div>
-    <%# image_tag dish.img_url %>
-    <% end %>
-  </div>  
+  <div class="py-5">
 
-  <h2>main</h2>
-  
-  <div class="cards">
-    <% @main.each do |dish| %>
-    <div class="card-category">
-      <div class="card-description">
-        <div class="card-info">
-          <%= dish.name %>
-        </div>
-      </div>
-    </div>
-    <%# image_tag dish.img_url %>
-    <% end %>
-  </div>  
-  
+    <h1><%= @restaurant.name %> </h1>
+    <p><%= @restaurant.location %></p>
 
-  <h2>dessert</h2>
-  
-  <div class="cards">
-    <% @dessert.each do |dish| %>
-    <div class="card-category">
-      <div class="card-description">
-        <div class="card-info">
-          <%= dish.name %>
+
+    <h2>Starters</h2>
+      <div class="cards">
+        <% @starter.each do |dish| %>
+        <!-- card content -->
+        <div class="card-category">
+          <%= image_tag dish.img_url, class:'card-img' %>
+          <div class="card-description">
+            <div class="card-info">
+              <%= dish.name %>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <%# image_tag dish.img_url %>
-    <% end %>
-  </div>  
-  
+        <% end %>
+      </div>  
+      <h2>main</h2>
+      <div class="cards">
+        <% @main.each do |dish| %>
+        <!-- card content -->
+        <div class="card-category">
+          <%= image_tag dish.img_url, class:'card-img' %>
+          <div class="card-description">
+            <div class="card-info">
+              <%= dish.name %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>  
+      <h2>salads</h2>
+      <div class="cards">
+        <% @salad.each do |dish| %>
+        <!-- card content -->
+        <div class="card-category">
+          <%= image_tag dish.img_url, class:'card-img' %>
+          <div class="card-description">
+            <div class="card-info">
+              <%= dish.name %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>  
+      <h2>Dessert</h2>
+      <div class="cards">
+        <% @dessert.each do |dish| %>
+        <!-- card content -->
+        <div class="card-category">
+          <%= image_tag dish.img_url, class:'card-img' %>
+          <div class="card-description">
+            <div class="card-info">
+              <%= dish.name %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>  
+    <!-- padding -py-5 -->
+<%= link_to "Back", restaurants_path, class:'btn btn-dark' %>
+  </div>
+  <!-- container -->
 </div>
 
 
-<%= link_to "Back", restaurants_path %>

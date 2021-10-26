@@ -1,23 +1,25 @@
-<div class="content-wrap">
-  <h1>Choose your future favourite restaurant!</h1>
-</div>
-
 <div class="container">
-  <div class="cards">
-    <% @restaurants.each do |restaurant| %>
-    <div class="card-category hover-card">
-      <div class="hover-card-layer">
-        <%= link_to restaurant.name, restaurant_path(restaurant), class:'hover-card-description' %>
+  <div class="py-5">
+    <div class="content-wrap">
+      <h1>Choose your future favourite restaurant!</h1>
+    </div>
+
+    <div class="container">
+      <div class="cards">
+        <% @restaurants.each do |restaurant| %>
+        <div class="card-category">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img">
+          <div class="card-description">
+            <div class="card-info">
+              <%= link_to restaurant.name, restaurant_path(restaurant)%>
+              <p> <%= restaurant.location %> </p>  
+            </div>
+            <%= image_tag 'leaf.png', class:'card-icon' %>
+          </div>
+        </div> 
+        <% end %>
       </div>
-      <div class="card-description">
-        <div class="card-info">
-          <%= link_to restaurant.name, restaurant_path(restaurant)%>
-          <p> <%= restaurant.location %> </p>  
-        </div>
-        <%= image_tag 'leaf.png', class:'card-icon' %>
-      </div>
-    </div> 
-    <% end %>
+    </div>   
   </div>
 </div>
 
