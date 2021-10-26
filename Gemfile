@@ -70,4 +70,5 @@ gem 'has_friendship', github: 'sungwoncho/has_friendship'
 gem 'pundit'
 gem 'rest-client'
 gem 'json'
+gem 'bootstrap'
 
