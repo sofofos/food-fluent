@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="py-5">
 
@@ -7,6 +8,24 @@
     <p>
       <%= @restaurant.location %>
     </p>
+
+
+  <% @users.each do |user| %>
+  <h2><%= user.name %></h2>
+  <ul>
+    <% @restaurant.dishes_for(user).each do |dish| %>
+      <li><%= dish.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Back", restaurants_path %>
+    
+<h2>Entire menu</h2>
+    
+    
+
+
 
 
     <h2>
@@ -74,7 +93,7 @@
         <% end %>
       </div>  
     <!-- padding -py-5 -->
-    <%= link_to "Back", restaurants_path, class:'btn btn-dark' %>
   </div>
   <!-- container -->
 </div>
+

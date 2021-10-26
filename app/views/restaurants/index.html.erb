@@ -13,7 +13,7 @@
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img">
           <div class="card-description">
             <div class="card-info">
-              <%= link_to restaurant.name, restaurant_path(restaurant)%>
+              <%= link_to restaurant.name, restaurant_path(restaurant, :user_ids => @user_ids)%>
               <p> <%= restaurant.location %> </p>  
             </div>
             <%= image_tag 'leaf.png', class:'card-icon' %>
@@ -24,3 +24,4 @@
     </div>   
   </div>
 </div>
+
