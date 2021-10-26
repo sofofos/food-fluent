@@ -22,7 +22,5 @@ class DietProfilesController < ApplicationController
 
   def diet_profile_params
     params.require(:diet_profile).permit(health_label_id: [])
-
-    # health_label_id"=>["", "209"]} permitted: false>, "commit"=>"Submit list", "controller"=>"diet_profiles", "action"=>"create"} permitted: false>
   end
 end

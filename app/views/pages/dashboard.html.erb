@@ -1,16 +1,10 @@
 <div class='container'>
-  <h1 class='dashboard-title'>Dashboard</h1>
+  <h3 class='dashboard-title'>
+    Welcome <%= @user.name %>!</h3>
 
   <!-- user-info -->
   <div class='dashboard-welcome'>
-    <h5>Welcome <%= @user.name %>!</h5>
-      <ul>Dietary restrictions:
-        <% @user.diet_profiles.each do |tag| %>
-        <li>
-          <%= tag.health_label.name %>
-        </li>
-        <% end %>
-      </ul>
+      <%= render 'diet_profiles/show' %>
   </div>
 
   <!-- friends-list -->
@@ -35,9 +29,6 @@
     </div>
   </div>
 
-
-<%= link_to "add a diet profile", new_diet_profile_path %>
-
 <!-- find-restaurant -->
 
   <!-- select-friends -->
@@ -54,3 +45,5 @@
   </div>
   <!-- add-location -->
 </div>
+
+<% console %>
