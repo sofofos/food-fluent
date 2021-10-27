@@ -1,13 +1,34 @@
 # make the dishes for restaurants in db/seeds.rb
 require './db/seeds/load_files'
 
-LABELS = [ "Keto-Friendly",
- "Kosher",
- "Mediterranean",
- "Paleo",
- "Pescatarian",
- "Vegan",
- "Vegetarian" ]
+LABELS =["Alcohol-Free",
+         "Dairy-Free",
+         "Egg-Free",
+         "Fish-Free",
+         "Gluten-Free",
+         "High-Fiber",
+         "High-Protein",
+         "Keto-Friendly",
+         "Kosher",
+         "Low-Carb",
+         "Low-Fat",
+         "Low-Sodium",
+         "Low-Sugar",
+         "Mediterranean",
+         "Paleo",
+         "Peanut-Free",
+         "Pescatarian",
+         "Pork-Free",
+         "Poultry-Free",
+         "Red-Meat-Free",
+         "Sesame-Free",
+         "Shellfish-Free",
+         "Soy-Free",
+         "Sulfite-Free",
+         "Tree-Nut-Free",
+         "Vegan",
+         "Vegetarian",
+         "Wheat-Free"]
 
  ERRORS = [NoMethodError, ArgumentError]
 
