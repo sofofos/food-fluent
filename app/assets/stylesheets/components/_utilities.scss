@@ -12,6 +12,42 @@ body {
   overflow: hidden;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $forest;
+  font: Marmelad;
+}
+h1 {
+  font-size: 48px
+}
+h2 {
+  font-size: 40px;
+}
+h3 {
+  font-size: 32px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 16px;
+}
+
+ul,
+ol {
+  color: $forest;
+  font: 20px Biryani;
+}
+
+p,
+li {
+  color: $forest;
+  font: 12px Biryani;
+}
+
 .bg-wrapper {
   position: absolute;
   left: -200px;

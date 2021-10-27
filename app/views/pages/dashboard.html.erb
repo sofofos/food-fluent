@@ -1,49 +1,109 @@
-<div class='container'>
-  <h3 class='dashboard-title'>
-    Welcome <%= @user.name %>!</h3>
+<!-- dashboard.html.erb !-->
 
-  <!-- user-info -->
-  <div class='dashboard-welcome'>
-      <%= render 'diet_profiles/show' %>
-  </div>
+<div class='container' id='dash-container'>
+  <div class='row' id='dash-main-row'>
+    <!-- avatar !-->
+    <div class='column' id='dash-main-card'>
+      <div class='container' id='dash-main-card-container'>
+        <div class='container' id='dash-main-card-picture-container'>
+          <%= image_tag 'vivi.jpg', class: 'avatar', id: 'dash-main-card-picture', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
+        </div>
 
-  <!-- friends-list -->
-  <div class='container'>
-    <h5 class='friends-list'>Your Friends</h5>
-      <% @user.friends.each do |friend| %>
-      <div class='friend-card'>
+        <div class='container' id='dash-main-card-text-container'>
+          <h5 id='dash-main-card-text'>
+            Welcome
+            <br>
+            <%= @user.name.split.first %>!
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- restrictions !-->
+    <div class='column' id='dash-main-list'>
+      <div class='container' id='dash-main-list-container'>
+        <h4>Diet</h4>
+        <ul id='dash-main-list-diets'>
+          <% @user.diet_profiles.each do |tag| %>
+            <li class='dash-main-list-diet'>
+              <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-diet-icon', alt: 'Diet Icon', data: { title: 'diet' }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <br>
+              <div class='container' id='dash-main-list-diet-text'>
+                <%= tag.health_label.name.split('-')[0] %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+
+        <h4>Allergies</h4>
+        <ul id='dash-main-list-allergies'>
+          <% @user.diet_profiles.each do |tag| %>
+            <li class='dash-main-list-allergy'>
+              <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <br>
+              <div class='container' id='dash-main-list-allergy-text'>
+                <%= tag.health_label.name.split('-')[0] %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+
+        <h4>Macros</h4>
+        <ul id='dash-main-list-macros'>
+          <% @user.diet_profiles.each do |tag| %>
+            <li class='dash-main-list-macro'>
+              <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-macro-icon', alt: 'Macro Icon', data: { title: 'macro' }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <br>
+              <div class='container' id='dash-main-list-macro-text'>
+                <%= tag.health_label.name.split('-')[0] %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+
+  <!-- friends-list !-->
+  <div class='container' id='dash-friends'>
+    <h5 id='dash-list-friends'>
+      Friends
+    </h5>
+
+    <% @user.friends.each do |friend| %>
+      <div id='card-dash-friend'>
         <%= friend.name %>
         <% friend.diet_profiles.each do |tag| %>
-          <i class='fas fa-ice-cream'><%= tag.health_label.name  %> </i>
+          <i class='fas fa-ice-cream'>
+            <%= tag.health_label.name  %>
+          </i>
         <% end %>
       </div>
-      <% end %>
+    <% end %>
 
-    <div class='container-friends'>
-      <div class='container-friends-find'>
+    <div id='dash-links-friends'>
+      <div id='dash-container-friends-find'>
         <%= link_to 'Find Friends', friends_path %>
       </div>
-      <div class='container-friends-see'>
+      <div id='dash-container-friends-see'>
         <%= link_to 'See Friend Requests', friends_path %>
       </div>
     </div>
   </div>
 
-<!-- find-restaurant -->
+  <!-- find-restaurant !-->
+  <!-- select-friends !-->
+  <div class='container' id='dash-search'>
 
-  <!-- select-friends -->
-  <div class='container' id='dashboard-search'>
     <%= form_tag restaurants_path, method: :get do %>
       <% @user.friends.each do |friend| %>
-      <div class='d-flex'>
-        <%= check_box_tag 'friend_ids[]', friend.id, id: friend, class: 'form-control'%>
-        <%= friend.name %>
-      </div>
+        <div class='d-flex'>
+          <%= check_box_tag 'friend_ids[]', friend.id, id: friend, class: 'form-control'%>
+          <%= friend.name %>
+        </div>
       <% end %>
       <%= submit_tag 'Search', class: 'btn btn-primary' %>
     <% end %>
   </div>
-  <!-- add-location -->
+  <!-- add-location !-->
 </div>
-
-<% console %>
