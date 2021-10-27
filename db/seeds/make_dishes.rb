@@ -1,34 +1,11 @@
 # make the dishes for restaurants in db/seeds.rb
-require './db/seeds/load_files'
-
-LABELS =["Alcohol-Free",
-         "Dairy-Free",
-         "Egg-Free",
-         "Fish-Free",
-         "Gluten-Free",
-         "High-Fiber",
-         "High-Protein",
-         "Keto-Friendly",
-         "Kosher",
-         "Low-Carb",
-         "Low-Fat",
-         "Low-Sodium",
-         "Low-Sugar",
-         "Mediterranean",
-         "Paleo",
-         "Peanut-Free",
-         "Pescatarian",
-         "Pork-Free",
-         "Poultry-Free",
-         "Red-Meat-Free",
-         "Sesame-Free",
-         "Shellfish-Free",
-         "Soy-Free",
-         "Sulfite-Free",
-         "Tree-Nut-Free",
-         "Vegan",
-         "Vegetarian",
-         "Wheat-Free"]
+LABELS =["Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+         "Gluten-Free", "High-Fiber", "High-Protein", "Keto-Friendly",
+         "Kosher", "Low-Carb", "Low-Fat", "Low-Sodium", "Low-Sugar",
+         "Mediterranean", "Paleo", "Peanut-Free", "Pescatarian",
+         "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free",
+         "Shellfish-Free", "Soy-Free", "Sulfite-Free", "Tree-Nut-Free",
+         "Vegan", "Vegetarian", "Wheat-Free"]
 
  ERRORS = [NoMethodError, ArgumentError]
 
@@ -62,5 +39,24 @@ def make_dish_labels(dish_data, dish, j)
 
     dhl = DishHealthLabel.new(dish_id: dish.id, health_label_id: dish_label.id)
     dhl.save!
+  end
+end
+
+ def make_dishes(restaurant, i)
+  5.times do |j|
+  # index for dishes ( up to 20 entries/ json file )
+    j += (i * 5)
+
+  # first request: starters
+    make_dish(restaurant, @starter_hash, j)
+  # second request: main courses
+    make_dish(restaurant, @salad_hash, j)
+  # third request: salads
+    make_dish(restaurant, @main_hash, j)
+  # fourth request: desserts
+    make_dish(restaurant, @dessert_hash, j)
+
+  # go to next dataset
+    update_index if j >= 19
   end
 end

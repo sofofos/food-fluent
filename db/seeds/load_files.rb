@@ -1,25 +1,26 @@
 # loading cached data for dishes in db/seeds.rb
 require 'json'
+require_relative 'api_calls'
 
-def update_index
-  index_for_datasets = Dish.all.count / 80
-  index_for_datasets.zero? ? @idx = "0" : @idx = index_for_datasets + 1
-  load_files
-end
 
 def load_files
-  starters = File.read("storage/starters#{@idx}.json")
-  @starters_hash = JSON.parse(starters)
-
-  salad = File.read("storage/salads#{@idx}.json")
-  @salad_hash = JSON.parse(salad)
-
-  main = File.read("storage/mains#{@idx}.json")
-  @main_hash = JSON.parse(main)
-
-  desserts = File.read("storage/desserts#{@idx}.json")
-  @desserts_hash = JSON.parse(desserts)
-rescue Errno::ENOENT
-  Rake::Task['db:seed:api_calls'].invoke
-  retry
+  idx = update_index
+  idx.times do |i|
+    dish_type.each do |key, value|
+      file_path = "storage/#{key}#{i}.json"
+      if File.file?(file_path)
+        file = File.read(file_path)
+        instance_variable_set("@{key}_hash", JSON.parse(file))
+      else
+        call_api
+      end
+    end
+  end
 end
+
+def call_api
+  puts "file not found, calling Edamam for fresh new data"
+  Rake::Task['db:seed:api_calls'].invoke
+end
+
+

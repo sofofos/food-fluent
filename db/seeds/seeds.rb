@@ -1,6 +1,6 @@
-require './db/seeds/load_files.rb'
-require './db/seeds/make_restaurants.rb'
-require './db/seeds/make_diets.rb'
+require_relative 'load_files'
+require_relative 'make_restaurants'
+require_relative 'make_diets'
 
 print "cleaning db... "
 
@@ -12,8 +12,6 @@ puts "done! nice clean database"
 
 puts "generating yummy foods.."
 
-# set index for datasets in load_files.rb
-@idx = 0
 load_files
 
 20.times do |i|

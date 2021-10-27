@@ -1,7 +1,7 @@
+# coding utf-8
 require 'json'
 require 'rest-client'
 require 'faker'
-require "./db/seeds/load_files"
 
 dish_type = Dish.dish_types
 
@@ -11,9 +11,10 @@ def api_call(dish_type, opt = "")
   app_key = "0ce249ab10cb9770c69b865d5a953ffe"
   img_size = "LARGE"
   meal_type = "Dinner"
-  query_specs = "&random=true&field=label&field=image&field=healthLabels&field=dishType&field=dietLabels"
+  query_specs = "&random=true&field=label&field=image&field=healthLabels&field=dietLabels"
 
   request = "#{base}&q=#{opt}&app_id=#{app_id}&app_key=#{app_key}&imageSize=#{img_size}&mealType=#{meal_type}&dishType=#{dish_type}#{query_specs}"
+
   begin
   response = RestClient.get request
   rescue RestClient::ExceptionWithResponse
@@ -24,28 +25,29 @@ def api_call(dish_type, opt = "")
   end
 end
 
-update_index
+def write_files(dish_type, i)
+  fruit = ["apple", "orange", "cherry", "grapes", "peach"].sample
 
-# first request: starters
-data_hash = api_call(dish_type[:starter])
-File.write("storage/starters#{@idx}.json", JSON.dump(data_hash))
+  dish_type.each do |key, value|
+    data = key == :dessert ? api_call(value, fruit) : api_call(value)
+    File.write("storage/#{key}#{i}.json", JSON.dump(data))
+  end
+  puts "Batch #{i}'s desserts are inspired by #{fruit}! Enjoy"
+end
 
-# second request: main courses
-data_hash = api_call(dish_type[:main])
-File.write("storage/mains#{@idx}.json", JSON.dump(data_hash))
+def update_index
+  dir = 'storage'
+  num = Dir[File.join(dir, '**', '*.json')].count { |file| File.file?(file) }
+  num / 4
+end
 
-#  third request: salads
-data_hash = api_call(dish_type[:salad])
-File.write("storage/salads#{@idx}.json", JSON.dump(data_hash))
 
-#  fourth request: desserts
-#  ...adding fruit query to improve api results
-fruit = ["apple", "orange", "cherry", "grapes", "peach"].sample
+# Will produce 3 batch of dishes (starter, salad, main, dessert)
+idx = update_index
 
-data_hash = api_call(dish_type[:dessert], fruit)
-File.write("storage/desserts#{@idx}.json", JSON.dump(data_hash))
-
-puts "Today's desserts are inspired by #{fruit}! Enjoy"
+3.times do |i|
+  write_files(dish_type, idx + i )
+end
 
 puts "Bye bye"
 

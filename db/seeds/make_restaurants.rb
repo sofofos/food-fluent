@@ -24,22 +24,3 @@ def generate_restaurant
   restaurant.save!
   restaurant
 end
-
-def make_dishes(restaurant, i)
-  5.times do |j|
-  # index for dishes ( up to 20 entries/ json file )
-    j += (i * 5)
-
-  # first request: starters
-    make_dish(restaurant, @starters_hash, j)
-  # second request: main courses
-    make_dish(restaurant, @salad_hash, j)
-  # third request: salads
-    make_dish(restaurant, @main_hash, j)
-  # fourth request: desserts
-    make_dish(restaurant, @desserts_hash, j)
-
-  # go to next dataset
-    update_index if j >= 19
-  end
-end
