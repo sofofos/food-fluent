@@ -11,13 +11,19 @@
 
 
   <% @users.each do |user| %>
-  <h2><%= user.name %></h2>
-  <ul>
-    <% @restaurant.dishes_for(user).each do |dish| %>
-      <li><%= dish.name %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <button id="<%= user.id %>" class="person-button"><%= user.name %></button>
+  <% end %>
+
+  
+  <% @users.each do |user| %>
+  <div class="dishes" id="<%= user.id %>-dishes">
+    <ul>
+      <% @restaurant.dishes_for(user).each do |dish| %>
+        <li><%= dish.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
 <%= link_to "Back", restaurants_path %>
     

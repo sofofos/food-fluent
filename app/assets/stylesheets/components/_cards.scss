@@ -45,3 +45,11 @@
   height: 30px;
   width: 30px;
 }
+
+.dishes {
+  display: none;
+}
+
+.dishes.show {
+  display: block;
+}
