@@ -4,7 +4,7 @@ class Dish < ApplicationRecord
   has_many :health_labels, through: :dish_health_labels
 
   enum dish_type: {
-    main: "main_course",
+    main: "main course",
     starter: "starter",
     salad: "salad",
     dessert: "desserts"
