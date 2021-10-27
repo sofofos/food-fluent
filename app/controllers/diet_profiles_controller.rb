@@ -2,7 +2,7 @@ class DietProfilesController < ApplicationController
   def new
     @diet_profile = DietProfile.new
     authorize @diet_profile
-    @diets = DietProfile.all.uniq(&:health_label_id)
+    @diet_labels = HealthLabel.all.uniq(&:name)
   end
 
   def create
