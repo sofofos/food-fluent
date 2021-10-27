@@ -5,7 +5,8 @@ class RestaurantsController < ApplicationController
   def index
     # @restaurants = Restaurant.all.order(created_at: :desc)
     # find_health_label
-    # @restaurants = Restaurant.all.order(created_at: :desc)
+    @test = 5
+    @all_restaurants = Restaurant.all.order(created_at: :desc)
     @users = params[:friend_ids].present? ? params[:friend_ids].map { |id| User.find(id.to_i) } : []
 
     @users << current_user
