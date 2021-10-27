@@ -1,3 +1,4 @@
+
 <div>
 <%= form_tag diet_profiles_path, method: :post do %>
 <div>
@@ -5,9 +6,9 @@
   <% diet = Proc.new { |x| x.category == "diet" }  %>
   <ul>
   <% @diet_labels.sort.select(&diet).each do |tag| %>
-    <%= check_box_tag 'health_label_id', id: tag.id,  class: 'form-control' %>
-      <%= tag.name %>
-    <% end %>
+    <%= check_box_tag "diet_profile[health_label_id][]", tag.id %>
+    <%= tag.name %>
+  <% end %>
   </ul>
 </div>
 
@@ -17,21 +18,21 @@
   <ul>
   <% allergy = Proc.new { |x| x.category == "allergy" }  %>
   <% @diet_labels.sort.select(&allergy).each do |tag| %>
-    <%= check_box_tag 'health_label_id', id: tag.id %>
-      <%= tag.name.gsub('-Free', '') %>
-    <% end %>
+    <%= check_box_tag "diet_profile[health_label_id][]", tag.id %>
+    <%= tag.name.gsub('-Free', '') %>
+  <% end %>
   </ul>
 </div>
 
 
-<div>
+<,div>
   <h6>Macronutrient preferences</h6>
   <ul>
   <% macros = Proc.new { |x| x.category == "macros" }  %>
   <% @diet_labels.sort.select(&macros).each do |tag| %>
-    <%= check_box_tag 'health_label_id', id: tag.id %>
-      <%= tag.name %>
-    <% end %>
+    <%= check_box_tag "diet_profile[health_label_id][]", tag.id %>
+    <%= tag.name %>
+  <% end %>
   </ul>
 </div>
 
@@ -39,4 +40,4 @@
   <% end %>
 </div>
 
-<% console %>
+<!-- "diet_profile"=>{"health_label_id"=>["315"]} -->
