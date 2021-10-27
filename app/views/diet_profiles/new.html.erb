@@ -1,5 +1,38 @@
+<div>
+  <% diet = Proc.new { |x| x.health_label.category == "diet" }  %>
+  <ul>Diet profile:
+  <%= form_tag restaurants_path, method: :get do %>
+    <% @diets.select(&diet).sort.each do |tag| %>
+    <%= check_box_tag 'tag_ids[]', tag.id, id: tag, class: 'form-control'%>
+      <%= tag.health_label.name %>
+    <% end %>
+  <% end %>
+  </ul>
+</div>
 
-<%= simple_form_for [@diet_profile] do |f| %>
-  <%= f.association :health_label, as: :check_boxes, include_hidden: false %>
-  <%= f.submit "Submit list", class: "btn btn-primary" %>
-<% end %>
+
+<div>
+  <ul>Allergies:
+  <% allergy = Proc.new { |x| x.health_label.category == "allergy" }  %>
+  <%= form_tag restaurants_path, method: :get do %>
+    <% @diets.select(&allergy).sort.each do |tag| %>
+    <%= check_box_tag 'tag_ids[]', tag.id, id: tag, class: 'form-control'%>
+      <%= tag.health_label.name.gsub('-Free', '') %>
+    <% end %>
+  <% end %>
+  </ul>
+</div>
+
+
+<div>
+  <ul>Macronutrient preferences:
+  <% macros = Proc.new { |x| x.health_label.category == "macros" }  %>
+  <%= form_tag restaurants_path, method: :get do %>
+    <% @diets.select(&macros).sort.each do |tag| %>
+    <%= check_box_tag 'tag_ids[]', tag.id, id: tag, class: 'form-control'%>
+      <%= tag.health_label.name.gsub('-Free', '') %>
+    <% end %>
+  <% end %>
+  </ul>
+</div>
+
