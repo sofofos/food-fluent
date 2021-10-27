@@ -9,6 +9,10 @@
       <%= @restaurant.location %>
     </p>
 
+    <p>
+      <%= @restaurant.compatibility(@users) %>
+    </p>
+
 
   <% @users.each do |user| %>
   <button id="<%= user.id %>" class="person-button"><%= user.name %></button>
