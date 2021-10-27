@@ -1,6 +1,8 @@
 // _dashboard.scss
 
-#dash-main-list-restrictions,
+#dash-main-list-diets,
+#dash-main-list-allergies,
+#dash-main-list-macros,
 #dash-list-friends,
 #dash-container-friends-find,
 #dash-container-friends-see {
@@ -52,31 +54,57 @@
 }
 
 #dash-main-list {
-  height: 200px;
   margin: 10px 0px 10px 0px;
+  min-height: 200px;
   text-align: center;
   width: 50%;
 }
 #dash-main-list-container {
-  height: 200px;
-  padding: 0;
+  border: 2px solid $forest;
+  border-radius: 25px;
+  min-height: 200px;
+  padding: 10px 0px 10px 0px;
 }
-#dash-main-list-restrictions {
+#dash-main-list-diets,
+#dash-main-list-allergies,
+#dash-main-list-macros {
   display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-content: center;
   list-style: none;
   margin: 10px 10px 10px 10px;
   overflow: hidden;
   padding: 0px;
+  width: 33%, 33%, 33%;
 }
-.dash-main-list-restriction {
-  border: 2px solid $forest;
-  border-radius: 30%;
-  float: center;
+.dash-main-list-diet,
+.dash-main-list-allergy,
+.dash-main-list-macro {
+  height: 85px;
   margin: 0px 10px 0px 10px;
-  min-height: 35px;
-  min-width: 70px;
-  padding: 5px;
+  min-height: 80px;
+  min-width: 100px;
+  max-height: 85px;
+  max-width: 100px;
+  width: 100px;
+}
+#dash-main-list-diet-icon,
+#dash-main-list-allergy-icon,
+#dash-main-list-macro-icon {
+  height: 50px;
+  width: 50px;
+}
+#dash-main-list-diet-text,
+#dash-main-list-allergy-text,
+#dash-main-list-macro-text {
+  border: 2px solid $forest;
+  border-radius: 25px;
+  min-height: 25px;
+  min-width: 100px;
+  padding: 0;
 }
 
 #dash-friends {
