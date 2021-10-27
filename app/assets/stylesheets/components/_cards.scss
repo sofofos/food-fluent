@@ -1,4 +1,61 @@
 // _cards.scss
 
-#card-dashboard-friend {
+// this line was part of wavpack/dashboard in conflicts 
+// remove if not needed, I was unsure - sof
+#card-dashboard-friend { 
+}
+
+.cards {
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-category {
+  background: $white;
+  border-radius: 25px;
+  box-shadow: 4px 4px 12px $grey;
+  overflow: hidden;
+}
+
+.card-category > .card-img {
+  // border-radius: 25px 25px 0 0;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-category h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-category p {
+  font-size: 12px;
+  margin: 0;
+  opacity: .7;
+}
+
+.card-category .card-description {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-radius: inherit;
+  color: $forest;
+  padding: 16px;
+  position: relative;
+}
+
+.card-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.dishes {
+  display: none;
+}
+
+.dishes.show {
+  display: block;
 }

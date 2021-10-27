@@ -5,9 +5,11 @@ html {
 
 body {
   position: relative;
+  color: $forest;
   margin-bottom: 0px!important;
   min-height: 100vh;
   padding-bottom:250px;
+  overflow: hidden;
 }
 
 h1,
@@ -45,3 +47,14 @@ li {
   color: $forest;
   font: 12px Biryani;
 }
+
+.bg-wrapper {
+  position: absolute;
+  left: -200px;
+  top: 19px;
+  width: 70vw;
+  z-index: -1000;
+  overflow: hidden;
+  bottom: 0;
+}
+

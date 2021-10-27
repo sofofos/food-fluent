@@ -1,6 +1,5 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
-  before_action :group_dishes, only: %i[show]
   before_action :skip_policy_scope
 
   def index
@@ -10,10 +9,18 @@ class RestaurantsController < ApplicationController
     @users = params[:friend_ids].present? ? params[:friend_ids].map { |id| User.find(id.to_i) } : []
 
     @users << current_user
-    @matching_restaurants = find_matching_restaurants
+
+    @user_ids = @users.map(&:id)
+    find_matching_restaurants
   end
 
-  def show; end
+  def show
+    @users = params[:user_ids].map { |id| User.find(id.to_i) }
+    @starter = @restaurant.dishes.where(dish_type: "starter")
+    @salad = @restaurant.dishes.where(dish_type: "salad")
+    @main = @restaurant.dishes.where(dish_type: "main")
+    @dessert = @restaurant.dishes.where(dish_type: "dessert")
+  end
 
   private
 
@@ -40,9 +47,5 @@ class RestaurantsController < ApplicationController
     # @dishes = Dish.all.select { |dish| (users_health_label - dish.health_labels).empty? }
     # @restaurants = @dishes.map(&:restaurant).uniq
     # return restaurants
-  end
-
-  def group_dishes
-    @grouped = @restaurant.dishes.group_by { |x| x[:dish_type] }
   end
 end

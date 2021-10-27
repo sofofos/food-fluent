@@ -62,7 +62,7 @@
         </ul>
       </div>
     </div>
-  </div>
+
 
   <!-- friends-list !-->
   <div class='container' id='dash-friends'>
@@ -94,6 +94,7 @@
   <!-- find-restaurant !-->
   <!-- select-friends !-->
   <div class='container' id='dash-search'>
+
     <%= form_tag restaurants_path, method: :get do %>
       <% @user.friends.each do |friend| %>
         <div class='d-flex'>
