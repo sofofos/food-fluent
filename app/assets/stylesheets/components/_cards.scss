@@ -1,7 +1,7 @@
 
 .cards {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 75px;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -9,7 +9,6 @@
   background: $white;
   border-radius: 25px;
   box-shadow: 4px 4px 12px $grey;
-  width: 400px;
 }
 
 .card-category > .card-img {
@@ -74,7 +73,7 @@
 
 .card-wrap:hover .card-layer {
   visibility: visible;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .card-hover-text {
@@ -84,5 +83,10 @@
 
 .card_wrap:hover .card-hover-text {
   transform: translateY(0);
+}
+
+.card-hover-text:hover {
+  text-decoration: none;
+  font-weight: 700;
 }
 
