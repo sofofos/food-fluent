@@ -16,22 +16,22 @@ require 'faker'
 # TODO: Encapsulate this monster seed file properly so I can stop
 # polluting main with instance variables...
 
-# allergy
-@alcohol = HealthLabel.new( name: "Alcohol-Free", category: :allergy)
-@dairy = HealthLabel.new( name: "Dairy-Free", category: :allergy)
-@egg = HealthLabel.new( name: "Egg-Free", category: :allergy)
-@fish = HealthLabel.new( name: "Fish-Free", category: :allergy)
-@gluten = HealthLabel.new( name: "Gluten-Free", category: :allergy)
-@peanut = HealthLabel.new( name: "Peanut-Free", category: :allergy)
-@pork = HealthLabel.new( name: "Pork-Free", category: :allergy)
-@red_meat = HealthLabel.new( name: "Red-Meat-Free", category: :allergy)
-@poultry = HealthLabel.new( name: "Poultry-Free", category: :allergy)
-@sesame = HealthLabel.new( name: "Sesame-Free", category: :allergy)
-@shellfish = HealthLabel.new( name: "Shellfish-Free", category: :allergy)
-@soy = HealthLabel.new( name: "Soy-Free", category: :allergy)
-@sulfite = HealthLabel.new( name: "Sulfite-Free", category: :allergy)
-@tree_nut = HealthLabel.new( name: "Tree-Nut-Free", category: :allergy)
-@wheat = HealthLabel.new( name: "Wheat-Free", category: :allergy)
+# # allergy
+# @alcohol = HealthLabel.new( name: "Alcohol-Free", category: :allergy)
+# @dairy = HealthLabel.new( name: "Dairy-Free", category: :allergy)
+# @egg = HealthLabel.new( name: "Egg-Free", category: :allergy)
+# @fish = HealthLabel.new( name: "Fish-Free", category: :allergy)
+# @gluten = HealthLabel.new( name: "Gluten-Free", category: :allergy)
+# @peanut = HealthLabel.new( name: "Peanut-Free", category: :allergy)
+# @pork = HealthLabel.new( name: "Pork-Free", category: :allergy)
+# @red_meat = HealthLabel.new( name: "Red-Meat-Free", category: :allergy)
+# @poultry = HealthLabel.new( name: "Poultry-Free", category: :allergy)
+# @sesame = HealthLabel.new( name: "Sesame-Free", category: :allergy)
+# @shellfish = HealthLabel.new( name: "Shellfish-Free", category: :allergy)
+# @soy = HealthLabel.new( name: "Soy-Free", category: :allergy)
+# @sulfite = HealthLabel.new( name: "Sulfite-Free", category: :allergy)
+# @tree_nut = HealthLabel.new( name: "Tree-Nut-Free", category: :allergy)
+# @wheat = HealthLabel.new( name: "Wheat-Free", category: :allergy)
 
 def assign_allergy_macros(labels, user)
   labels.each do |label|
