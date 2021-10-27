@@ -1,5 +1,6 @@
 <div>
-  <ul>Diet profile:
+  <h4>Diet</h4>
+  <ul>
     <% diet = Proc.new { |x| x.health_label.category == "diet" }  %>
     <% @user.diet_profiles.select(&diet).each do |tag| %>
     <li>
