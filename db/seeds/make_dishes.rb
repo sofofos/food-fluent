@@ -50,6 +50,7 @@ end
 
 def make_dish_labels(dish_data, dish, j)
   health_labels = dish_data["hits"][j]["recipe"]["healthLabels"]
+  health_labels << dish_data["hits"][i]["recipe"]["dietLabels"]
 
   dish_health_labels = health_labels.select{ |label| LABELS.include?(label) }
 

@@ -11,11 +11,17 @@ def api_call(dish_type, opt = "")
   app_key = "0ce249ab10cb9770c69b865d5a953ffe"
   img_size = "LARGE"
   meal_type = "Dinner"
-  query_specs = "&random=true&field=label&field=image&field=healthLabels&field=dishType"
+  query_specs = "&random=true&field=label&field=image&field=healthLabels&field=dishType&field=dietLabels"
 
   request = "#{base}&q=#{opt}&app_id=#{app_id}&app_key=#{app_key}&imageSize=#{img_size}&mealType=#{meal_type}&dishType=#{dish_type}#{query_specs}"
+  begin
   response = RestClient.get request
+  rescue RestClient::ExceptionWithResponse
+    puts "Too many requests! Prepare for 1 min snooze before resuming.."
+    sleep(60)
+  retry
   JSON.parse(response)
+  end
 end
 
 update_index
@@ -41,7 +47,5 @@ File.write("storage/desserts#{@idx}.json", JSON.dump(data_hash))
 
 puts "Today's desserts are inspired by #{fruit}! Enjoy"
 
-puts "Ensuring I am not executed again for 30 seconds, pls wait..."
-sleep(30)
 puts "Bye bye"
 
