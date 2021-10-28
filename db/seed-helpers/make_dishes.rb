@@ -1,12 +1,8 @@
 # make the dishes for restaurants in db/seeds.rb
 
-LABELS =["Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
-         "Gluten-Free", "High-Fiber", "High-Protein", "Keto-Friendly",
-         "Kosher", "Low-Carb", "Low-Fat", "Low-Sodium", "Low-Sugar",
-         "Mediterranean", "Paleo", "Peanut-Free", "Pescatarian",
-         "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free",
-         "Shellfish-Free", "Soy-Free", "Sulfite-Free", "Tree-Nut-Free",
-         "Vegan", "Vegetarian", "Wheat-Free"]
+DIET = HealthLabel.categories[:diets]
+ALLERGy = HealthLabel.categories[:allergies]
+MACROS = HealthLabel.categories[:macros]
 
 def make_dish(restaurant, dish_data, i)
   # if index for dishes reaches max dataset entries:
@@ -24,20 +20,20 @@ def make_dish(restaurant, dish_data, i)
 end
 
 def make_dish_labels(dish_data, dish, j)
-  health_labels = dish_data["hits"][j]["recipe"]["healthLabels"]
-  health_labels << dish_data["hits"][j]["recipe"]["dietLabels"]
+  labels = dish_data["hits"][j]["recipe"]["healthLabels"]
+  labels << dish_data["hits"][j]["recipe"]["dietLabels"]
 
-  dish_health_labels = health_labels.select{ |label| LABELS.include?(label) }
+  dhls = labels.select { |label| DIETS.include?(label) || ALLERGIES.include?(label) || MACROS.include?(label) }
 
-  dish_health_labels.each do |label|
+  dhls.each do |label|
     dish_label = HealthLabel.find_by(name: label) || HealthLabel.create(name: label)
     case dish_label.name
-    when label.include?("-Free")
+    when ALLERGIES.include?(label)
       dish_label.category = :allergy
-    when label.include?("High"||"Low")
+    when MACROS.include?(label)
       dish_label.category = :macros
-    else
-      dish_label.category = :diet
+    when DIETS.include?(label)
+      dish_label.category = :diets
     end
     dish_label.save!
 
