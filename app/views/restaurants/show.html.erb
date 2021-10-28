@@ -11,7 +11,9 @@
 
 
   <% @users.each do |user| %>
-  <button id="<%= user.id %>" class="person-button"><%= user.name %></button>
+    <button id="<%= user.id %>" class="person-button">
+      <%= user.name %>   
+    </button>
   <% end %>
 
   
@@ -28,28 +30,11 @@
 <%= link_to "Back", restaurants_path %>
     
 <h2>Entire menu</h2>
-    
-    
-
-
-
-
+   
     <h2>
       Starters
     </h2>
-      <div class="cards">
-        <% @starter.each do |dish| %>
-        <!-- card content -->
-        <div class="card-category">
-          <%= image_tag dish.img_url, class:'card-img' %>
-          <div class="card-description">
-            <div class="card-info">
-              <%= dish.name %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>  
+ 
       <h2>
         main
       </h2>

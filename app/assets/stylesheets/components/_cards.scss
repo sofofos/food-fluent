@@ -1,10 +1,3 @@
-// _cards.scss
-
-// this line was part of wavpack/dashboard in conflicts 
-// remove if not needed, I was unsure - sof
-#card-dashboard-friend { 
-}
-
 .cards {
   display: grid;
   grid-gap: 75px;
@@ -48,17 +41,7 @@
 .card-icon {
   height: 30px;
   width: 30px;
-  // color gradient on svg
-  // red #ff003d
-  // blue 3D00EB
-  color: #ff003d;  /* fallback for old browsers */
-color: -webkit-linear-gradient(to right, #3D00EB, #ff003d);  /* Chrome 10-25, Safari 5.1-6 */
-color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
-
-//  <<<<<<< HEAD
-// hover effect on restaurants
 
 .card-wrap {
   position: relative;
@@ -72,8 +55,8 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
   bottom: 0;
   left: 0;
   right: 0;
-  background: $forest-light;
-  color: #fff;
+  background: $forest-light-transparent;
+  border-radius: inherit;
   visibility: hidden;
   opacity: 0;
   display: flex;
@@ -85,9 +68,16 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
   transition: opacity .2s, visibility .2s;
 }
 
+.card-layer > a {
+  color: $forest!important;
+  font-size: 24px;
+  padding-bottom: 24px;
+}
+
 .card-wrap:hover .card-layer {
   visibility: visible;
-  opacity: 0.4;
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .card-hover-text {
@@ -104,7 +94,6 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
   font-weight: 700;
 }
 
-// =======
 .dishes {
   display: none;
 }
@@ -112,4 +101,3 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
 .dishes.show {
   display: block;
 }
-//  >>>>>>> d1492be49ecbe1b255239c41005aecb9f5062495
