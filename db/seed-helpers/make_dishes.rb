@@ -30,9 +30,15 @@ def make_dish_labels(dish_data, dish, j)
   dish_health_labels = health_labels.select{ |label| LABELS.include?(label) }
 
   dish_health_labels.each do |label|
-
     dish_label = HealthLabel.find_by(name: label) || HealthLabel.create(name: label)
-    dish_label.category = :diet
+    case dish_label.name
+    when label.include?("-Free")
+      dish_label.category = :allergy
+    when label.include?("High"||"Low")
+      dish_label.category = :macros
+    else
+      dish_label.category = :diet
+    end
     dish_label.save!
 
     dhl = DishHealthLabel.new(dish_id: dish.id, health_label_id: dish_label.id)

@@ -36,7 +36,7 @@ puts "generating users.."
 
   rand(1..3).times do
     diet_p = DietProfile.create!(
-      health_label: HealthLabel.all.sample,
+      health_label: HealthLabel.all(&:diet).sample,
       user: user)
     expand_profile(diet_p, user)
   end

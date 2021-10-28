@@ -19,50 +19,7 @@
       </div>
     </div>
 
-    <!-- restrictions !-->
-    <div class='column' id='dash-main-list'>
-      <div class='container' id='dash-main-list-container'>
-        <h4>Diet</h4>
-        <ul id='dash-main-list-diets'>
-          <% @user.diet_profiles.each do |tag| %>
-            <li class='dash-main-list-diet'>
-              <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-diet-icon', alt: 'Diet Icon', data: { title: 'diet' }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <br>
-              <div class='container' id='dash-main-list-diet-text'>
-                <%= tag.health_label.name.split('-')[0] %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-
-        <h4>Allergies</h4>
-        <ul id='dash-main-list-allergies'>
-          <% @user.diet_profiles.each do |tag| %>
-            <li class='dash-main-list-allergy'>
-              <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <br>
-              <div class='container' id='dash-main-list-allergy-text'>
-                <%= tag.health_label.name.split('-')[0] %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-
-        <h4>Macros</h4>
-        <ul id='dash-main-list-macros'>
-          <% @user.diet_profiles.each do |tag| %>
-            <li class='dash-main-list-macro'>
-              <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-macro-icon', alt: 'Macro Icon', data: { title: 'macro' }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <br>
-              <div class='container' id='dash-main-list-macro-text'>
-                <%= tag.health_label.name.split('-')[0] %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-
+    <%= render 'diet_profiles/show' %>
 
   <!-- friends-list !-->
   <div class='container' id='dash-friends'>
