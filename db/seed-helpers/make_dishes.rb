@@ -1,6 +1,4 @@
 # make the dishes for restaurants in db/seeds.rb
-string = "I am make_dishes and these are my demands"
-# puts string.upcase
 
 LABELS =["Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
          "Gluten-Free", "High-Fiber", "High-Protein", "Keto-Friendly",
