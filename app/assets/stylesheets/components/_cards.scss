@@ -42,6 +42,13 @@
 .card-icon {
   height: 30px;
   width: 30px;
+  // color gradient on svg
+  // red #ff003d
+  // blue 3D00EB
+  color: #ff003d;  /* fallback for old browsers */
+color: -webkit-linear-gradient(to right, #3D00EB, #ff003d);  /* Chrome 10-25, Safari 5.1-6 */
+color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 // hover effect on resturants
