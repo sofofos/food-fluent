@@ -31,7 +31,7 @@ class FriendsController < ApplicationController
     strangers = @people.reject { |user| @user.friends_with?(user) || user == current_user }
     @search = params[:query].downcase
     @results = strangers.select do |user|
-      user.username.downcase.include?(@search)
+      user.try(:username).downcase.include?(@search) unless user.username.nil?
     end
   end
 
