@@ -10,7 +10,7 @@ LABELS =["Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
 
 def make_dish(restaurant, dish_data, i)
   # if index for dishes reaches max dataset entries:
-    j = i % 20
+  j = i % 20
 
   if j < 20 && dish_data["hits"][j]["recipe"]["dishType"].count == 1
     dish = Dish.new(

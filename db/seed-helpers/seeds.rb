@@ -1,7 +1,7 @@
 require_relative 'load_files'
 require_relative 'make_restaurants'
 require_relative 'make_dishes'
-require_relative 'make_diets'
+require_relative 'generate_users'
 
 print "cleaning db... "
 
@@ -25,28 +25,20 @@ puts "generating users.."
 
 10.times do |i|
   i += 1
-  user = User.create!(
-    name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
-    password: "password",
-    email: "user#{i}@gmail.com")
+  user = generate_users(i)
+  assign_username(user)
+  add_diets(user)
+end
 
-# Assign a "slightly less random" username based on name and a fruit..
-    user[:username] = "#{user[:name].first(4).downcase}_#{Faker::Food.fruits.split.first.downcase}"
-    user.save!
-
-  rand(1..3).times do
-    diet_p = DietProfile.create!(
-      health_label: HealthLabel.all(&:diet).sample,
-      user: user)
-    expand_profile(diet_p, user)
-  end
-
-  #strip duplicate health_labels from diet_profile
-  user.diet_profiles = user.diet_profiles.all.uniq(&:health_label_id)
+puts "generating friends"
+10.times do |i|
+  i += User.first.id
+  user = User.find(i)
+  add_friends(user)
 end
 
 puts "done!"
-puts "created #{Dish.all.count} dishes, #{Restaurant.all.count} restaurants, and #{User.all.count} users"
+puts "created #{Dish.all.count} dishes, #{Restaurant.all.count} restaurants, and #{User.all.count} users with 3 friends each"
 puts "bye bye"
 
 
