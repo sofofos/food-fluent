@@ -7,7 +7,7 @@
 
 .cards {
   display: grid;
-  grid-gap: 25px;
+  grid-gap: 75px;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -15,14 +15,12 @@
   background: $white;
   border-radius: 25px;
   box-shadow: 4px 4px 12px $grey;
-  overflow: hidden;
 }
 
 .card-category > .card-img {
-  // border-radius: 25px 25px 0 0;
-  height: 200px;
+  border-radius: 25px 25px 0 0;
+  height: 125px;
   object-fit: cover;
-  width: 100%;
 }
 
 .card-category h2 {
@@ -50,8 +48,63 @@
 .card-icon {
   height: 30px;
   width: 30px;
+  // color gradient on svg
+  // red #ff003d
+  // blue 3D00EB
+  color: #ff003d;  /* fallback for old browsers */
+color: -webkit-linear-gradient(to right, #3D00EB, #ff003d);  /* Chrome 10-25, Safari 5.1-6 */
+color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
+<<<<<<< HEAD
+// hover effect on resturants
+
+.card-wrap {
+  position: relative;
+  height: 200px;
+  // width: 257px;
+}
+
+.card-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $forest-light;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.card-wrap:hover .card-layer {
+  visibility: visible;
+  opacity: 0.4;
+}
+
+.card-hover-text {
+  transition: .2s;
+  transform: translateY(1em);
+}
+
+.card_wrap:hover .card-hover-text {
+  transform: translateY(0);
+}
+
+.card-hover-text:hover {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+=======
 .dishes {
   display: none;
 }
@@ -59,3 +112,4 @@
 .dishes.show {
   display: block;
 }
+>>>>>>> d1492be49ecbe1b255239c41005aecb9f5062495
