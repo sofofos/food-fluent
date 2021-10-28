@@ -1,4 +1,5 @@
 class DietProfilesController < ApplicationController
+
   def new
     @diet_profile = DietProfile.new
     authorize @diet_profile
@@ -11,10 +12,10 @@ class DietProfilesController < ApplicationController
       @diet_profile = DietProfile.new
       @diet_profile.user = current_user
       @diet_profile.health_label = HealthLabel.find(id.to_i)
+      add_procs
       authorize @diet_profile
       render :new && return unless @diet_profile.save
     end
-
     redirect_to dashboard_path
     authorize [@diet_profile]
   end

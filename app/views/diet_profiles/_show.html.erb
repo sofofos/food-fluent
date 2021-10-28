@@ -1,23 +1,20 @@
 <!-- restrictions !-->
 <div class='column' id='dash-main-list'>
   <div class='container' id='dash-main-list-container'>
-  <% diet = Proc.new { |x| x.health_label.category == "diet" }  %>
-  <% unless @user.diet_profiles.select(&diet).empty? %>
+  <% unless @diets.select(&@diet).empty? %>
     <%= render 'diet_profiles/diet' %>
   <% end %>
 
-  <% allergy = Proc.new { |x| x.health_label.category == "allergy" }  %>
-  <% unless @user.diet_profiles.select(&allergy).empty? %>
+  <% unless @diets.select(&@allergy).empty? %>
     <%= render 'diet_profiles/allergy'%>
   <% end %>
 
-  <% macros = Proc.new { |x| x.health_label.category == "macros" }  %>
-  <% unless @user.diet_profiles.select(&macros).empty? %>
+  <% unless @diets.select(&@macros).empty? %>
     <%= render 'diet_profiles/macros' %>
   <% end %>
 
 <!-- TODO: ADD STYLING FOR THIS BUTTON -->
-<% if @user.diet_profiles.empty?  %>
+<% if @diets.empty?  %>
     <%= link_to "Add a diet profile", new_diet_profile_path %>
 <% end %>
 <!-- TODO: Add edit function for diet profile -->

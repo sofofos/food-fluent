@@ -1,7 +1,6 @@
-<% macros = Proc.new { |x| x.health_label.category == "macros" }  %>
 <h4>Macros</h4>
     <ul id='dash-main-list-macros'>
-      <% @user.diet_profiles.select(&macros).each do |tag| %>
+      <% @diets.select(&@macros).each do |tag| %>
       <li class='dash-main-list-macro'>
         <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-macro-icon', alt: 'Macro Icon', data: { title: 'macro' }, 'aria-haspopup': true, 'aria-expanded': false %>
         <br>

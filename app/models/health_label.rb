@@ -5,12 +5,18 @@ class HealthLabel < ApplicationRecord
 
   validates :category, presence: true
 
-  enum category: { diet: "diet", allergy: "allergy", macros: "macros" }
+  enum category: { diet: "diet", allergy: "allergies", macro: "macros"}
 
-# diets:["Keto-Friendly","Kosher","Low Sugar","Mediterranean","Paleo","Pescatarian","Sugar-Conscious","Vegan","Vegetarian"]
+  diets = ["Keto-Friendly", "Kosher", "Mediterranean",
+           "Paleo", "Pescatarian", "Vegan", "Vegetarian"]
 
-# allergies:["Alcohol-Free","Dairy-Free","Egg-Free","Fish-Free","Gluten-Free","Peanut-Free","Pork-Free","Red-Meat-Free","Sesame-Free","Shellfish-Free","Soy-Free","Sulfite-Free","Tree-Nut-Free","Wheat-Free"]
+  allergies = ["Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+               "Gluten-Free", "Peanut-Free", "Pork-Free", "Poultry-Free",
+               "Red-Meat-Free", "Sesame-Free", "Shellfish-Free",
+               "Soy-Free", "Sulfite-Free", "Tree-Nut-Free", "Wheat-Free"]
 
-# macros: ["High-Fiber", "High-Protein", "Low-Carb", "Low-Fat", "Low-Sodium"]
+  macros = ["High-Fiber", "High-Protein", "Low-Carb",
+            "Low-Fat", "Low-Sodium", "Low-Sugar"]
 
+  enum labels: { diets: diets, allergies: allergies, macros: macros }
 end
