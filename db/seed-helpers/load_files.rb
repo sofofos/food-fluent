@@ -13,6 +13,7 @@ def load_files(i)
       call_api
     end
   end
+  puts "fresh datasets loaded at '...#{i}.json'"
 end
 
 def update_index
