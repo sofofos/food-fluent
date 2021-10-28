@@ -1,0 +1,41 @@
+<div>
+  <h4>Diet</h4>
+  <ul>
+    <% diet = Proc.new { |x| x.health_label.category == "diet" }  %>
+    <% @user.diet_profiles.select(&diet).each do |tag| %>
+    <li>
+      <%= tag.health_label.name.gsub('-Free', '') %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <ul>Allergies:
+    <% allergy = Proc.new { |x| x.health_label.category == "allergy" }  %>
+    <% @user.diet_profiles.select(&allergy).each do |tag| %>
+    <li>
+      <%= tag.health_label.name.gsub('-Free', '') %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <ul>Macronutrient preferences:
+    <% macros = Proc.new { |x| x.health_label.category == "macros" }  %>
+    <% @user.diet_profiles.select(&macros).each do |tag| %>
+    <li>
+      <%= tag.health_label.name.gsub('-Free', '') %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<%# if @user.diet_profiles.empty?  %>
+    <%= link_to "add a diet profile", new_diet_profile_path %>
+<%# end %>
+
+<%#= link_to "add a diet profile", new_diet_profile_path %>
+<!-- TODO: Add edit function for diet profile -->
+<!-- Otherwise, removing the link to add diet profile if one already exists -->

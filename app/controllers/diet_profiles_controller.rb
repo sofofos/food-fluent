@@ -2,6 +2,7 @@ class DietProfilesController < ApplicationController
   def new
     @diet_profile = DietProfile.new
     authorize @diet_profile
+    @diet_labels = HealthLabel.all.uniq(&:name)
   end
 
   def create
@@ -22,7 +23,5 @@ class DietProfilesController < ApplicationController
 
   def diet_profile_params
     params.require(:diet_profile).permit(health_label_id: [])
-
-    # health_label_id"=>["", "209"]} permitted: false>, "commit"=>"Submit list", "controller"=>"diet_profiles", "action"=>"create"} permitted: false>
   end
 end

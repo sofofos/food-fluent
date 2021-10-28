@@ -1,21 +1,128 @@
-.dashboard-title,
-.dashboard-welcome,
-.friends-list,
-.container-friends-find,
-.container-friends-see {
+// _dashboard.scss
+
+#dash-main-list-diets,
+#dash-main-list-allergies,
+#dash-main-list-macros,
+#dash-list-friends,
+#dash-container-friends-find,
+#dash-container-friends-see {
   text-align: center;
 }
 
-.dashboard-welcome ul {
-  padding-left: 0px;
+#dash-main-row {
+  margin: 10px 0px 10px 0px;
+}
+#dash-main-card {
+  height: 200px;
+  margin: 10px 0px 10px 0px;
+  width: 50%;
+}
+#dash-main-card-container {
+  border: 2px solid $forest;
+  border-radius: 15%;
+  height: 200px;
+  width: 200px;
+}
+#dash-main-card-picture-container {
+  display: flex;
+  align-items: center;
+  height: 120px;
+  justify-content: center;
+  padding: 0px 10px 0px 10px;
+  width: 170px;
+}
+#dash-main-card-picture {
+  border: 2px solid $grey;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+#dash-main-card-text-container {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  justify-content: center;
+  margin: 5px 0px 0px 0px;
+  width: 170px;
+}
+#dash-main-card-text {
+  color: $forest;
+  height: 60px;
+  margin: 5px 0px 5px 0px;
+  text-align: center;
+  width: 140px;
 }
 
-.container-friends,
-#dashboard-search {
+#dash-main-list {
+  margin: 10px 0px 10px 0px;
+  min-height: 200px;
+  text-align: center;
+  width: 50%;
+}
+#dash-main-list-container {
+  border: 2px solid $forest;
+  border-radius: 25px;
+  min-height: 200px;
+  padding: 10px 0px 10px 0px;
+}
+#dash-main-list-diets,
+#dash-main-list-allergies,
+#dash-main-list-macros {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  list-style: none;
+  margin: 10px 10px 10px 10px;
+  overflow: hidden;
+  padding: 0px;
+  width: 33%, 33%, 33%;
+}
+.dash-main-list-diet,
+.dash-main-list-allergy,
+.dash-main-list-macro {
+  height: 85px;
+  margin: 0px 10px 0px 10px;
+  min-height: 80px;
+  min-width: 100px;
+  max-height: 85px;
+  max-width: 100px;
+  width: 100px;
+}
+#dash-main-list-diet-icon,
+#dash-main-list-allergy-icon,
+#dash-main-list-macro-icon {
+  height: 50px;
+  width: 50px;
+}
+#dash-main-list-diet-text,
+#dash-main-list-allergy-text,
+#dash-main-list-macro-text {
+  border: 2px solid $forest;
+  border-radius: 25px;
+  min-height: 25px;
+  min-width: 100px;
+  padding: 0;
+}
+
+#dash-friends {
+  margin: 30px 0px 10px 0px;
+  padding: 0px;
+}
+#dash-list-friends {
+  margin: 10px 0px 10px 0px;
+}
+#dash-links-friends,
+#dash-search {
   display: flex;
   justify-content: center;
 }
-.container-friends-find,
-.container-friends-see {
+#dash-container-friends-find,
+#dash-container-friends-see {
   width: 50%;
+}
+#dash-search {
+  margin: 10px 0px 10px 0px;
 }

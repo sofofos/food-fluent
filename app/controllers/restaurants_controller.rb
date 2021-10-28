@@ -9,10 +9,13 @@ class RestaurantsController < ApplicationController
     @users = params[:friend_ids].present? ? params[:friend_ids].map { |id| User.find(id.to_i) } : []
 
     @users << current_user
+
+    @user_ids = @users.map(&:id)
     find_matching_restaurants
   end
 
   def show
+    @users = params[:user_ids].map { |id| User.find(id.to_i) }
     @starter = @restaurant.dishes.where(dish_type: "starter")
     @salad = @restaurant.dishes.where(dish_type: "salad")
     @main = @restaurant.dishes.where(dish_type: "main")
