@@ -1,3 +1,9 @@
+// _cards.scss
+
+// this line was part of wavpack/dashboard in conflicts 
+// remove if not needed, I was unsure - sof
+#card-dashboard-friend { 
+}
 
 .cards {
   display: grid;
@@ -51,6 +57,7 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
 
 }
 
+<<<<<<< HEAD
 // hover effect on resturants
 
 .card-wrap {
@@ -97,3 +104,12 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
   font-weight: 700;
 }
 
+=======
+.dishes {
+  display: none;
+}
+
+.dishes.show {
+  display: block;
+}
+>>>>>>> d1492be49ecbe1b255239c41005aecb9f5062495
