@@ -1,6 +1,4 @@
 # require 'faker'
-string = "I am make_diets and these are my demands"
-# puts string.upcase
 
 # Expanding diet profile for seeded users to categories: diet, allergy, macros
 # Since many food restrictions/macro preferences are implicitly part of
