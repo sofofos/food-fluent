@@ -11,11 +11,11 @@ Restaurant.destroy_all
 User.destroy_all
 puts "done! nice clean database"
 
-puts "generating yummy foods.."
+puts "generating nice restos with yummy foods.."
 
 load_files(0)
 
-50.times do |i|
+30.times do |i|
   # puts "calling restaurant maker dish maker"
   restaurant = generate_restaurant
   make_dishes(restaurant, i)
