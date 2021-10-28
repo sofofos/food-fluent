@@ -1,8 +1,8 @@
 # make the dishes for restaurants in db/seeds.rb
 
-DIET = HealthLabel.categories[:diets]
-ALLERGy = HealthLabel.categories[:allergies]
-MACROS = HealthLabel.categories[:macros]
+DIETS = HealthLabel.labels[:diets]
+ALLERGIES = HealthLabel.labels[:allergies]
+MACROS = HealthLabel.labels[:macros]
 
 def make_dish(restaurant, dish_data, i)
   # if index for dishes reaches max dataset entries:
@@ -27,13 +27,13 @@ def make_dish_labels(dish_data, dish, j)
 
   dhls.each do |label|
     dish_label = HealthLabel.find_by(name: label) || HealthLabel.create(name: label)
-    case dish_label.name
+    case
     when ALLERGIES.include?(label)
       dish_label.category = :allergy
     when MACROS.include?(label)
-      dish_label.category = :macros
+      dish_label.category = :macro
     when DIETS.include?(label)
-      dish_label.category = :diets
+      dish_label.category = :diet
     end
     dish_label.save!
 

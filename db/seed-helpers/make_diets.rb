@@ -1,17 +1,17 @@
 # require 'faker'
 
-# Expanding diet profile for seeded users to categories: diet, allergy, macros
+# Expanding diet profile for seeded users to categories: diet, allergy, macro
 # Since many food restrictions/macro preferences are implicitly part of
 # certain diets, allergy and macro assignment is based on the initial diet
 # that is randomly assigned to the seeded user
 
- # macros
-@low_carb = HealthLabel.new( name: "Low-Carb", category: :macros )
-@low_fat = HealthLabel.new( name: "Low-Fat", category: :macros )
-@low_sodium = HealthLabel.new( name: "Low-Sodium", category: :macros )
-@low_sugar = HealthLabel.new( name: "Low-Sugar", category: :macros )
-@hi_fiber = HealthLabel.new( name: "High-Fiber", category: :macros )
-@hi_protein = HealthLabel.new( name: "High-Protein", category: :macros )
+ # macro
+@low_carb = HealthLabel.new( name: "Low-Carb", category: :macro )
+@low_fat = HealthLabel.new( name: "Low-Fat", category: :macro )
+@low_sodium = HealthLabel.new( name: "Low-Sodium", category: :macro )
+@low_sugar = HealthLabel.new( name: "Low-Sugar", category: :macro )
+@hi_fiber = HealthLabel.new( name: "High-Fiber", category: :macro )
+@hi_protein = HealthLabel.new( name: "High-Protein", category: :macro )
 
 # TODO: Encapsulate this monster seed file properly so I can stop
 # polluting main with instance variables...
@@ -33,7 +33,7 @@
 @tree_nut = HealthLabel.new( name: "Tree-Nut-Free", category: :allergy)
 @wheat = HealthLabel.new( name: "Wheat-Free", category: :allergy)
 
-def assign_allergy_macros(labels, user)
+def assign_allergy_macro(labels, user)
   labels.each do |label|
     DietProfile.create!(
       health_label: label,
@@ -45,18 +45,18 @@ end
 def expand_profile(diet_p, user)
   case diet_p.health_label.name
     when "Keto-Friendly"
-      assign_allergy_macros([@low_carb, @low_sodium], user)
+      assign_allergy_macro([@low_carb, @low_sodium], user)
     when "Kosher"
-      assign_allergy_macros([@shellfish, @pork], user)
+      assign_allergy_macro([@shellfish, @pork], user)
     when "Mediterranean"
-      assign_allergy_macros([@low_sugar, @low_sodium], user)
+      assign_allergy_macro([@low_sugar, @low_sodium], user)
     when "Paleo"
-      assign_allergy_macros([@low_sugar, @dairy, @gluten, @soy, @peanut], user)
+      assign_allergy_macro([@low_sugar, @dairy, @gluten, @soy, @peanut], user)
     when "Pescatarian"
-      assign_allergy_macros([@red_meat, @pork, @poultry], user)
+      assign_allergy_macro([@red_meat, @pork, @poultry], user)
     when "Vegan"
-      assign_allergy_macros([@dairy, @egg, @fish, @pork, @red_meat, @shellfish], user)
+      assign_allergy_macro([@dairy, @egg, @fish, @pork, @red_meat, @shellfish], user)
     when "Vegetarian"
-      assign_allergy_macros([@pork, @red_meat, @shellfish, @fish], user)
+      assign_allergy_macro([@pork, @red_meat, @shellfish, @fish], user)
   end
 end

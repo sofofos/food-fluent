@@ -5,7 +5,7 @@ class HealthLabel < ApplicationRecord
 
   validates :category, presence: true
 
-  enum category: { diet: "diet", allergy: "allergies", macros: "macros"}
+  enum category: { diet: "diet", allergy: "allergies", macro: "macros"}
 
   diets = ["Keto-Friendly", "Kosher", "Mediterranean",
            "Paleo", "Pescatarian", "Vegan", "Vegetarian"]
