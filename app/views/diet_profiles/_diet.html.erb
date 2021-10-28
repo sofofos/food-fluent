@@ -1,0 +1,13 @@
+<% diet = Proc.new { |x| x.health_label.category == "diet" }  %>
+<h4>Diet</h4>
+<ul id='dash-main-list-diets'>
+  <% @user.diet_profiles.select(&diet).each do |tag| %>
+    <li class='dash-main-list-diet'>
+      <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-diet-icon', alt: 'Diet Icon', data: { title: 'diet' }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <br>
+      <div class='container' id='dash-main-list-diet-text'>
+        <%= tag.health_label.name %>
+      </div>
+    </li>
+  <% end %>
+ </ul>
