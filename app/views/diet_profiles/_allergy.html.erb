@@ -1,8 +1,8 @@
 <% allergy = Proc.new { |x| x.health_label.category == "allergy" }  %>
 <h4>Allergies</h4>
-    <ul id='dash-main-list-allergies'>
+<ul id='dash-main-list-allergies'>
+  <% @user.diet_profiles.select(&allergy).each do |tag| %>
     <li class='dash-main-list-allergy'>
-      <% @user.diet_profiles.select(&allergy).each do |tag| %>
         <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
       <br>
       <div class='container' id='dash-main-list-allergy-text'>
