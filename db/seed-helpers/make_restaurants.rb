@@ -1,9 +1,6 @@
 # require './db/seeds/make_dishes.rb'
 # require 'faker'
 
-string = "I am make_restaurants and these are my demands"
-# puts string.upcase
-
 def generate_number
   prefix = Faker::PhoneNumber.extension(length: 3)
   line = Faker::PhoneNumber.extension(length: 4)
