@@ -1,40 +1,23 @@
-<div>
-  <ul>Diet profile:
-    <% diet = Proc.new { |x| x.health_label.category == "diet" }  %>
-    <% @user.diet_profiles.select(&diet).each do |tag| %>
-    <li>
-      <%= tag.health_label.name.gsub('-Free', '') %>
-    </li>
-    <% end %>
-  </ul>
-</div>
+<!-- restrictions !-->
+<div class='column' id='dash-main-list'>
+  <div class='container' id='dash-main-list-container'>
+  <% unless @diets.select(&@diet).empty? %>
+    <%= render 'diet_profiles/diet' %>
+  <% end %>
 
-<div>
-  <ul>Allergies:
-    <% allergy = Proc.new { |x| x.health_label.category == "allergy" }  %>
-    <% @user.diet_profiles.select(&allergy).each do |tag| %>
-    <li>
-      <%= tag.health_label.name.gsub('-Free', '') %>
-    </li>
-    <% end %>
-  </ul>
-</div>
+  <% unless @diets.select(&@allergy).empty? %>
+    <%= render 'diet_profiles/allergy'%>
+  <% end %>
 
-<div>
-  <ul>Macronutrient preferences:
-    <% macros = Proc.new { |x| x.health_label.category == "macros" }  %>
-    <% @user.diet_profiles.select(&macros).each do |tag| %>
-    <li>
-      <%= tag.health_label.name.gsub('-Free', '') %>
-    </li>
-    <% end %>
-  </ul>
-</div>
+  <% unless @diets.select(&@macros).empty? %>
+    <%= render 'diet_profiles/macros' %>
+  <% end %>
 
-<% if @user.diet_profiles.empty?  %>
-    <%= link_to "add a diet profile", new_diet_profile_path %>
+<!-- TODO: ADD STYLING FOR THIS BUTTON -->
+<% if @diets.empty?  %>
+    <%= link_to "Add a diet profile", new_diet_profile_path %>
 <% end %>
-
-<%#= link_to "add a diet profile", new_diet_profile_path %>
 <!-- TODO: Add edit function for diet profile -->
-<!-- Otherwise, removing the link to add diet profile if one already exists -->
+<!-- ^^ Until then, removing link to add dietprofile if one already exists^^ -->
+  </div>
+</div>
