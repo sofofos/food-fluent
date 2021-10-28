@@ -1,5 +1,43 @@
 
-<%= simple_form_for [@diet_profile] do |f| %>
-  <%= f.association :health_label, as: :check_boxes, include_hidden: false %>
-  <%= f.submit "Submit list", class: "btn btn-primary" %>
-<% end %>
+<div>
+<%= form_tag diet_profiles_path, method: :post do %>
+<div>
+  <h6>Diet</h6>
+  <% diet = Proc.new { |x| x.category == "diet" }  %>
+  <ul>
+  <% @diet_labels.sort.select(&diet).each do |tag| %>
+    <%= check_box_tag "diet_profile[health_label_id][]", tag.id %>
+    <%= tag.name %>
+  <% end %>
+  </ul>
+</div>
+
+
+<div>
+  <h6>Allergies</h6>
+  <ul>
+  <% allergy = Proc.new { |x| x.category == "allergy" }  %>
+  <% @diet_labels.sort.select(&allergy).each do |tag| %>
+    <%= check_box_tag "diet_profile[health_label_id][]", tag.id %>
+    <%= tag.name.gsub('-Free', '') %>
+  <% end %>
+  </ul>
+</div>
+
+
+<,div>
+  <h6>Macronutrient preferences</h6>
+  <ul>
+  <% macros = Proc.new { |x| x.category == "macros" }  %>
+  <% @diet_labels.sort.select(&macros).each do |tag| %>
+    <%= check_box_tag "diet_profile[health_label_id][]", tag.id %>
+    <%= tag.name %>
+  <% end %>
+  </ul>
+</div>
+
+    <%= submit_tag 'Submit', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<!-- "diet_profile"=>{"health_label_id"=>["315"]} -->
