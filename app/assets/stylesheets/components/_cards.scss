@@ -72,7 +72,9 @@
   color: $forest!important;
   font-size: 24px;
   padding-bottom: 24px;
+  font-weight: 900;
 }
+
 
 .card-wrap:hover .card-layer {
   visibility: visible;
@@ -91,7 +93,6 @@
 
 .card-hover-text:hover {
   text-decoration: none;
-  font-weight: 700;
 }
 
 .dishes {
@@ -101,3 +102,43 @@
 .dishes.show {
   display: block;
 }
+
+// cards - restaurant show
+
+
+.card-restaurant{
+  width: 80%;
+  border: 2px solid $forest;
+  border-radius: 25px;
+  margin: 100px auto;
+  position: relative;
+}
+
+.card-restaurant-img{
+  width: 60%;
+  flex-grow: 1;
+  border-radius: 25px 0px 0px 25px;
+  background-size: cover;
+}
+
+.restaurant-contact-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: between;
+  padding: 15px;
+}
+
+.card-match-calculation {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background-color: $forest-light;
+}
+
+
+
+
+
+
+
+
