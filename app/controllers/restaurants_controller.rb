@@ -30,25 +30,27 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
   end
 
+  def dishes_for(user, restaurant = @restaurant)
+    @avail_dishes = []
+    user_labels = user.health_labels.map(&:name)
+    restaurant.dishes.each do |dish|
+      dish_labels = dish.health_labels.map(&:name)
+      @avail_dishes << dish if (user_labels - dish_labels).empty?
+    end
+    @avail_dishes
+  end
+
   def find_matching_restaurants
     @restaurants = []
+    @msg = ""
     Restaurant.all.each do |restaurant|
-      counter = 0
+      @counter = 0
       @users.each do |user|
-        avail_dish = []
-        user_labels = user.health_labels.map(&:name)
-        restaurant.dishes.each do |dish|
-          puts "I am here at counter #{counter}"
-          dish_labels = dish.health_labels.map(&:name)
-          avail_dish << dish if (user_labels - dish_labels).empty?
-          end
-        end
+        @menu = dishes_for(user, restaurant)
+        @counter += 1 unless @menu.empty?
+        @msg << "counter #{@counter}: #{@menu.size} for #{user.name} ** "
       end
-      @restaurants << restaurant if counter >= @users.count
+      @restaurants << restaurant if @counter == @users.count
     end
-    # users_health_label = current_user.health_labels
-    # @dishes = Dish.all.select { |dish| (users_health_label - dish.health_labels).empty? }
-    # @restaurants = @dishes.map(&:restaurant).uniq
-    # return restaurants
   end
 end
