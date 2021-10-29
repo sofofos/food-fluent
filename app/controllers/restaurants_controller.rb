@@ -5,7 +5,6 @@ class RestaurantsController < ApplicationController
   def index
     # @restaurants = Restaurant.all.order(created_at: :desc)
     # find_health_label
-    @test = 5
     @all_restaurants = Restaurant.all.order(created_at: :desc)
     @users = params[:friend_ids].present? ? params[:friend_ids].map { |id| User.find(id.to_i) } : []
 
@@ -13,14 +12,15 @@ class RestaurantsController < ApplicationController
 
     @user_ids = @users.map(&:id)
     find_matching_restaurants
+    @restaurants
   end
 
   def show
     @users = params[:user_ids].map { |id| User.find(id.to_i) }
     @starter = @restaurant.dishes.where(dish_type: "starter")
     @salad = @restaurant.dishes.where(dish_type: "salad")
-    @main = @restaurant.dishes.where(dish_type: "main")
-    @dessert = @restaurant.dishes.where(dish_type: "dessert")
+    @main = @restaurant.dishes.where(dish_type: "main course")
+    @dessert = @restaurant.dishes.where(dish_type: "desserts")
   end
 
   private
@@ -35,14 +35,16 @@ class RestaurantsController < ApplicationController
     Restaurant.all.each do |restaurant|
       counter = 0
       @users.each do |user|
+        avail_dish = []
+        user_labels = user.health_labels.map(&:name)
         restaurant.dishes.each do |dish|
-          if (user.health_labels - dish.health_labels).empty?
-            counter += 1
-            break
+          puts "I am here at counter #{counter}"
+          dish_labels = dish.health_labels.map(&:name)
+          avail_dish << dish if (user_labels - dish_labels).empty?
           end
         end
       end
-      @restaurants << restaurant if counter == @users.count
+      @restaurants << restaurant if counter >= @users.count
     end
     # users_health_label = current_user.health_labels
     # @dishes = Dish.all.select { |dish| (users_health_label - dish.health_labels).empty? }
