@@ -19,4 +19,14 @@ class HealthLabel < ApplicationRecord
             "Low-Fat", "Low-Sodium", "Low-Sugar"]
 
   enum labels: { diets: diets, allergies: allergies, macros: macros }
+
+  def assign_icon
+    paths = []
+    diets.each do |name|
+      paths << "#{name.downcase.split('-').first}.svg"
+    end
+    allergies.each do |name|
+      paths << "#{name.downcase.split('-').first}.svg"
+    end
+  end
 end
