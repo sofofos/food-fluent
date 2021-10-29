@@ -6,7 +6,7 @@ class Restaurant < ApplicationRecord
   end
 
   def compatibility(users)
-    counter = users.map { |user| (dishes_for(user).count.to_f / dishes.count * 100).round }
+    counter = users.map { |user| (dishes_for(user).count.to_f * 100 / dishes.count).round }
     counter.sum(0.0) / counter.size
   end
 end
