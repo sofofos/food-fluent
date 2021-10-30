@@ -61,8 +61,8 @@
         <div class='container' id='dash-friends-titlebar-right-box'>
           <div class='btn btn-primary' id='dash-friends-titlebar-right-button'>
             +
-          </div>
-        </div> <!-- end dash-friends-titlebar-right-button !-->
+          </div> <!-- end dash-friends-titlebar-right-button !-->
+        </div> <!-- end dash-friends-titlebar-right-box !-->
       </div> <!-- end dash-friends-titlebar-right !-->
     </div> <!-- end dash-friends-titlebar !-->
 
@@ -85,8 +85,8 @@
             <div class='column' id='dash-friends-card-head-text-container'>
               <div class='text' id='dash-friends-card-head-text' >
                 <%= friend.name %>
-              </div>
-            </div> <!-- end dash-friends-card-head-text !-->
+              </div> <!-- end dash-friends-card-head-text !-->
+            </div> <!-- end dash-friends-card-head-text-container !-->
           </div> <!-- end dash-friends-card-head-container !-->
 
           <div class='container' id='dash-friends-card-body-container'>
@@ -104,9 +104,9 @@
                   %>
                   <div class='text' id='dash-friends-card-body-tooltip'>
                     <%= tag.health_label.name.gsub('-Free', '') %>
-                  </div>
+                  </div> <!-- end dash-friends-card-body-tooltip !-->
                 </div> <!-- end dash-friends-card-body-label !-->
-              </li> <!-- end dash-friends-card-body-descriptor !-->
+              </li> <!-- end dash-friends-card-body-list !-->
             <% end %>
           </div>
         </div> <!-- dash-friends-card !-->
@@ -114,49 +114,86 @@
     </div> <!-- end dash-friends-cards !-->
   </div> <!-- end dash-friends-row !-->
 
-  <div class='row' id='dash-restos-row'>
-    <!-- restos-bar !-->
-    <div class='row' id='dash-restos-titlebar'>
-      <div class='column' id='dash-restos-titlebar-left'>
-        <h5 id='dash-restos-titlebar-left-text'>
-          Restaurants
-        </h5>  <!-- end dash-restos-titlebar-left-text !-->
-      </div> <!-- end dash-restos-titlebar-left !-->
+  <div class='row' id='dash-finder-row'>
+    <!-- finder-bar !-->
+    <div class='row' id='dash-finder-titlebar'>
+      <div class='column' id='dash-finder-titlebar-left'>
+        <h5 id='dash-finder-titlebar-left-text'>
+          Finder
+        </h5>  <!-- end dash-finder-titlebar-left-text !-->
+      </div> <!-- end dash-finder-titlebar-left !-->
 
-      <div class='column' id='dash-restos-titlebar-right'>
+      <div class='column' id='dash-finder-titlebar-right'>
         <%= form_tag friends_path, method: :get, action: :search do %>
           <%= text_field_tag :query, 
               params[:query], 
               class: 'form-control', 
-              id: 'dash-restos-titlebar-right-bar', 
+              id: 'dash-finder-titlebar-right-bar', 
               placeholder: 'Enter Location' 
           %>
           <%= submit_tag 'enter', 
               class: 'btn btn-primary', 
-              id: 'dash-restos-titlebar-right-button' 
+              id: 'dash-finder-titlebar-right-button' 
           %>
         <% end %>
-      </div> <!-- end dash-restos-titlebar-right !-->
-    </div> <!-- end dash-restos-titlebar !-->
-    <!-- find-restaurant !-->
-    <!-- select-friends !-->
+      </div> <!-- end dash-finder-titlebar-right !-->
+    </div> <!-- end dash-finder-titlebar !-->
 
-    <!-- restos-list !-->
-    <div class='cards' id='dash-restos-list'>
+    <!-- finder-list !-->
+    <div class='cards' id='dash-finder-cards'>
       <%= form_tag restaurants_path, method: :get do %>
       <% @user.friends.each do |friend| %>
-        <div class='card' id='dash-restos-list-container'>
-          <div class='d-flex'>
-            <%= check_box_tag 'friend_ids[]', friend.id, 
-                class: 'form-control', 
-                id: friend 
-            %>
-            <%= friend.name %>
+        <div class='card' id='dash-finder-card'>
+          <div class='container' id='dash-finder-card-head-container'>
+            <div class='column' id='dash-finder-card-head-pic-container'>
+              <%= image_tag @user.avatar_path, 
+                  class: 'avatar', 
+                  id: 'dash-finder-card-head-pic', 
+                  alt: 'Profile Picture', 
+                  data: { title: 'profile_pic' }, 
+                  'aria-haspopup': true, 
+                  'aria-expanded': false 
+              %>
+            </div> <!-- end dash-finder-card-head-pic-container !-->
+
+            <div class='column' id='dash-finder-card-head-text-container'>
+              <div class='container' id='dash-finder-card-head-checkbox-container'>
+                <%= check_box_tag 'friend_ids[]', friend.id, 
+                    class: 'form-control', 
+                    id: 'dash-finder-card-head-checkbox' 
+                %>
+              </div> <!-- end dash-finder-card-head-checkbox-container !-->
+
+              <div class='text' id='dash-finder-card-head-text' >
+                <%= friend.name %>
+              </div> <!-- end dash-finder-card-head-text !-->
+            </div> <!-- end dash-finder-card-head-text-container !-->
+
+          </div> <!-- end dash-finder-card-head-container !-->
+
+          <div class='container' id='dash-finder-card-body-container'>
+            <% friend.diet_profiles.each do |tag| %>   
+              <li class='container' id='dash-finder-card-body-list'>
+                <div class='icon' id='dash-finder-card-body-label'>
+                  <%  tag.health_label.assign_icon(tag.health_label) %>
+                  <%= image_tag "#{tag.health_label.icon_path}", 
+                      class: 'icon', 
+                      id: 'dash-main-list-allergy-icon', 
+                      alt: 'Allergy Icon', 
+                      data: { title: 'allergy' }, 
+                      'aria-haspopup': true, 
+                      'aria-expanded': false 
+                  %>
+                  <div class='text' id='dash-finder-card-body-tooltip'>
+                    <%= tag.health_label.name.gsub('-Free', '') %>
+                  </div> <!-- end dash-finder-card-body-tooltip !-->
+                </div> <!-- end dash-finder-card-body-label !-->
+              </li> <!-- end dash-finder-card-body-list !-->
+            <% end %>
           </div>
-          <% end %>
-          <%= submit_tag 'Search', class: 'btn btn-primary' %>
-        </div> <!-- dash-restos-list-container !-->
+        </div> <!-- dash-finder-card !-->
       <% end %>
-    </div> <!-- end dash-restos-list !-->
-  </div> <!-- end dash-restos-row !-->
+      <% end %>
+    </div> <!-- end dash-finder-cards !-->
+  </div> <!-- end dash-finder-row !-->
 </div> <!-- end dash-container !-->
