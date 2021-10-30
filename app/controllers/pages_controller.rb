@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
-  before_action :add_procs, only: [:dashboard]
+  skip_before_action :authenticate_user!, only: %i[home]
+  before_action :add_procs, only: %i[dashboard]
   before_action :user_friend, only: %i[create accept decline]
-
 
   def home
   end
@@ -47,5 +46,13 @@ class PagesController < ApplicationController
     @diet = proc { |x| x.health_label.category == "diet" }
     @allergy = proc { |x| x.health_label.category == "allergy" }
     @macros = proc { |x| x.health_label.category == "macros" }
+  end
+
+  def user_friend
+    @user = current_user
+    authorize @user
+
+    @friend = User.find(params[:id])
+    authorize @friend
   end
 end

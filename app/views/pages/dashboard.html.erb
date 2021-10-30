@@ -42,10 +42,10 @@
       <div id='dash-container-friends-find'>
         <%= render 'friends/search'%>
       </div>
-      <% if @user.requested_friends %>
+      <% unless @user.requested_friends.empty? %>
         <%= render 'friends/requests_received' %>
-        <% end %>
-      <% if @user.pending_friends %>
+      <% end %>
+      <% unless @user.pending_friends.empty? %>
         <%= render 'friends/requests_sent' %>
       <% end %>
     </div>
@@ -66,3 +66,4 @@
   </div>
   <!-- add-location !-->
 </div>
+<% console %>
