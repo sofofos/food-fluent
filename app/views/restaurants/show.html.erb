@@ -1,34 +1,45 @@
 <div class="container">
   <div class="py-5">
-    <div class="text-center">
-      <h1>
-        <%= @restaurant.name %>
-      </h1>
-      <div class="card-restaurant">
-        <div class="card-match-calculation">
-          <%= @restaurant.compatibility(@users) %>% Match
-        </div>
-        <div class="d-flex justify-content-between">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-restaurant-img">
-          <div class="restaurant-contact-info">
-            <div class="d-flex flex-column align-items-start">
-              <div class="contact-item">
-                <%= image_tag 'address.svg', class:'card-icon' %>
-                <p> <%= @restaurant.location %> </p>                 
-              </div>
-              <div class="contact-item">
-                <%= image_tag 'telephone.svg', class:'card-icon' %>
-                <p> <%= @restaurant.phone_number %> </p>  
-              </div>
-            </div>
-            <div class="buttons-container">
-              <a href="#" class="green-button">See Menu</a>
-              <%= link_to "Visit Website",@restaurant.website, class:"green-button" %>
-              <%= link_to "back", restaurants_path, class:"green-button" %>
-            </div>
+
+    <h1><%= @restaurant.name %></h1>
+    <p><%= @restaurant.location %></p>
+    <p><%= @restaurant.compatibility(@users) %></p>
+  <% @users.each do |user| %>
+  <button id="<%= user.id %>" class="person-button">
+    <%= user.name %></button>
+  <% end %>
+
+  <% @users.each do |user| %>
+  <div class="dishes" id="<%= user.id %>-dishes">
+    <ul>
+      <% @restaurant.dishes_for(user).each do |dish| %>
+        <li><%= dish.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+<% if URI(request.referer).path == "/restaurants" %>
+  <%= link_to 'Back to search results', request.referer, class: "green-button" %>
+<%end%>
+
+<h2>Entire menu</h2>
+<% @dish_type.each do |key, name| %>
+  <h2><%= name.pluralize.capitalize %></h2>
+  <div class="cards">
+    <% type = (key + "?").to_sym %>
+    <% @restaurant.dishes.select(&type).each do |dish| %>
+      <div class="card-category">
+        <%= image_tag dish.img_url, class:'card-img' %>
+        <div class="card-description">
+          <div class="card-info">
+            <%= dish.name %>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
+  </div>
+  <% end %>
+    <!-- padding -py-5 -->
   </div>
 </div>

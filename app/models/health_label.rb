@@ -20,4 +20,19 @@ class HealthLabel < ApplicationRecord
 
   enum labels: { diets: diets, allergies: allergies, macros: macros }
 
+  def assign_icon(health_label)
+    label = health_label.name.downcase
+
+    case health_label.category
+    when "diet"
+      health_label.icon_path = "#{label.split('-').first}.svg"
+    when "allergy"
+      health_label.icon_path = "#{label.gsub('-free', '')}.svg"
+    when "macros"
+      health_label.icon_path = "#{label}.svg"
+    end
+    path = "app/assets/images/#{health_label.icon_path}"
+    File.file?(path) ? "good" : health_label.icon_path = "leaf-test.png"
+    health_label.save!
+  end
 end

@@ -2,7 +2,7 @@
     <ul id='dash-main-list-macros'>
       <% @diets.select(&@macros).each do |tag| %>
       <li class='dash-main-list-macro'>
-        <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-macro-icon', alt: 'Macro Icon', data: { title: 'macro' }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= image_tag tag.health_label.icon_path, class: 'icon', id: 'dash-main-list-macro-icon', alt: 'Macro Icon', data: { title: 'macro' }, 'aria-haspopup': true, 'aria-expanded': false %>
         <br>
         <div class='container' id='dash-main-list-macro-text'>
           <%= tag.health_label.name.gsub('-Free', '') %>
