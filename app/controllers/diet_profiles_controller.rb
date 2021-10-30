@@ -1,5 +1,4 @@
 class DietProfilesController < ApplicationController
-
   def new
     @diet_profile = DietProfile.new
     authorize @diet_profile

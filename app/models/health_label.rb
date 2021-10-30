@@ -22,7 +22,6 @@ class HealthLabel < ApplicationRecord
 
   def assign_icon(health_label)
     label = health_label.name.downcase
-
     case health_label.category
     when "diet"
       health_label.icon_path = "#{label.split('-').first}.svg"
