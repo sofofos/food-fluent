@@ -1,16 +1,15 @@
 <!-- Search for friends -->
-  <%= form_tag friends_path, method: :get, action: :search do %>
-  <%= text_field_tag :query,
-  params[:query],
-  class: "form-control",
-  placeholder: "Find a friend"
-  %>
+  <%= form_tag dashboard_path, method: :get, action: :search do %>
+  <%= text_field_tag :query, params[:query], class: "form-control",
+      placeholder: "Find a friend!" %>
   <%= submit_tag "Search", class: "btn btn-dark ml-3" %>
   <% end %>
+
+<!-- Search result appears here -->
   <% if params[:query].present? %>
     <% @results.each do |friend|%>
       <%= friend.username %> is <%= friend.name %>
-      <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: friend.id}) do %>
+      <%= form_tag ({controller: 'pages', action: 'create', method: 'post', id: friend.id}) do %>
         <% if @user.pending_friends.include?(friend) %>
           <input class="" type=submit value='Request Pending' disabled="true">
         <% else %>

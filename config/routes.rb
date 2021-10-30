@@ -6,13 +6,12 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index]
   resources :diet_profiles, only: %I[new create]
-  resources :friends, only: %i[index create] do
+  resources :pages, only: %i[index create] do
      member do
         post :accept
         post :decline
       end
     end
-
   resources :restaurants, only: %i[index show]
   resources :dishes, only: [:create]
 end

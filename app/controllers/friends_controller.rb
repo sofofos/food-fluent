@@ -2,30 +2,30 @@ class FriendsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_friend, only: %i[create accept decline]
 
-  def index
-    @user = current_user
-    @friends = @user.friends.all
-    @requests = @user.requested_friends
-    @pending = @user.pending_friends
+  # def index
+  #   @user = current_user
+  #   @friends = @user.friends.all
+  #   @requests = @user.requested_friends
+  #   @pending = @user.pending_friends
 
-    @people = policy_scope(User)
-    search if params[:query].present?
-  end
+  #   @people = policy_scope(User)
+  #   search if params[:query].present?
+  # end
 
-  def create
-    @user.friend_request(@friend)
-    redirect_to friends_path
-  end
+  # def create
+  #   @user.friend_request(@friend)
+  #   redirect_to friends_path
+  # end
 
-  def accept
-    @user.accept_request(@friend)
-    redirect_to friends_path
-  end
+  # def accept
+  #   @user.accept_request(@friend)
+  #   redirect_to friends_path
+  # end
 
-  def decline
-    @user.decline_request(@friend)
-    redirect_to friends_path
-  end
+  # def decline
+  #   @user.decline_request(@friend)
+  #   redirect_to friends_path
+  # end
 
   def search
     strangers = @people.reject { |user| @user.friends_with?(user) || user == current_user }

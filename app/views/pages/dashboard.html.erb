@@ -41,15 +41,14 @@
     <div id='dash-links-friends'>
       <div id='dash-container-friends-find'>
         <%= render 'friends/search'%>
-
-
-        <%= link_to 'Find Friends', friends_path %>
       </div>
-      <div id='dash-container-friends-see'>
-        <%= link_to 'See Friend Requests', friends_path %>
-      </div>
+      <% if @user.requested_friends %>
+        <%= render 'friends/requests_received' %>
+        <% end %>
+      <% if @user.pending_friends %>
+        <%= render 'friends/requests_sent' %>
+      <% end %>
     </div>
-  </div>
 
   <!-- find-restaurant !-->
   <!-- select-friends !-->
