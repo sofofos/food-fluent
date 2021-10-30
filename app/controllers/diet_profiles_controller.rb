@@ -4,7 +4,7 @@ class DietProfilesController < ApplicationController
   def new
     @diet_profile = DietProfile.new
     authorize @diet_profile
-    @diet_labels = HealthLabel.all.uniq(&:name)
+    @diet_labels = HealthLabel.all.uniq(&:name).sort_by(&:name)
   end
 
   def create
@@ -22,7 +22,15 @@ class DietProfilesController < ApplicationController
   def edit; end
 
   def update
-    @diet_profile.update(diet_profile_params)
+    current_user.diet_profiles.destroy_all
+
+    diet_profile_params[:health_label_id].each do |id|
+      @diet_profile = DietProfile.new
+      @diet_profile.user = current_user
+      @diet_profile.health_label = HealthLabel.find(id.to_i)
+      authorize @diet_profile
+      render :new && return unless @diet_profile.save
+    end
     authorize @diet_profile
 
     redirect_to dashboard_path
@@ -31,7 +39,7 @@ class DietProfilesController < ApplicationController
   private
 
   def find_diet_profile
-    @diet_profile = List.find(params[:id])
+    @diet_profiles = DietProfile.find(params[health_label_id: []])
   end
 
   def diet_profile_params
