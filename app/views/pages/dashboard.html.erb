@@ -6,7 +6,7 @@
     <div class='column' id='dash-main-card'>
       <div class='container' id='dash-main-card-container'>
         <div class='container' id='dash-main-card-picture-container'>
-          <%= image_tag 'vivi.jpg', 
+          <%= image_tag @user.avatar_path, 
               class: 'avatar', 
               id: 'dash-main-card-picture', 
               alt: 'Profile Picture', 
@@ -52,7 +52,6 @@
             class: 'btn btn-primary', 
             id: 'dash-friends-titlebar-center-button' 
         %>
-        <% end %>
       </div> <!-- end dash-friends-titlebar-center !-->
 
       <div class='column' id='dash-friends-titlebar-right'>
@@ -70,9 +69,16 @@
         <div class='card' id='dash-friends-list-container'>
           <%= friend.name %>
           <% friend.diet_profiles.each do |tag| %>
-            <i class='fas fa-ice-cream'>
-              <%= tag.health_label.name  %>
-            </i>
+            <%= tag.health_label.name  %>
+            <%  tag.health_label.assign_icon(tag.health_label) %>
+              <%= image_tag "#{tag.health_label.icon_path}", 
+                  class: 'icon', 
+                  id: 'dash-main-list-allergy-icon', 
+                  alt: 'Allergy Icon', 
+                  data: { title: 'allergy' }, 
+                  'aria-haspopup': true, 
+                  'aria-expanded': false 
+              %>
           <% end %>
         </div> <!-- dash-friends-list-container !-->
       <% end %>
