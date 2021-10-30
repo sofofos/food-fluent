@@ -31,24 +31,22 @@ class RestaurantsController < ApplicationController
   end
 
   def dishes_for(user, restaurant = @restaurant)
-    @avail_dishes = []
+    avail_dishes = []
     user_labels = user.health_labels.map(&:name)
     restaurant.dishes.each do |dish|
       dish_labels = dish.health_labels.map(&:name)
-      @avail_dishes << dish if (user_labels - dish_labels).empty?
+      avail_dishes << dish if (user_labels - dish_labels).empty?
     end
-    @avail_dishes
+    avail_dishes
   end
 
   def find_matching_restaurants
     @restaurants = []
-    @msg = ""
     Restaurant.all.each do |restaurant|
       @counter = 0
       @users.each do |user|
         @menu = dishes_for(user, restaurant)
         @counter += 1 unless @menu.empty?
-        @msg << "counter #{@counter}: #{@menu.size} for #{user.name} ** "
       end
       @restaurants << restaurant if @counter == @users.count
     end
