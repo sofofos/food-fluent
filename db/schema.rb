@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_10_30_064424) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "icon_path"
   end
 
   create_table "ingredients", force: :cascade do |t|

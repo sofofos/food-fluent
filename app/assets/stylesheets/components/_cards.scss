@@ -38,9 +38,9 @@
   position: relative;
 }
 
-.card-icon {
-  height: 30px;
-  width: 30px;
+.icon {
+  height: 25px;
+  width: 25px;
 }
 
 .card-wrap {
@@ -153,7 +153,7 @@
 .card-match-calculation-sm {
   background-color: $forest;
   color: $white;
-  padding: 5px 10px;
+  padding: 10px;
   border-radius: 25px;
   align-self: center;
   opacity: 1!important;
