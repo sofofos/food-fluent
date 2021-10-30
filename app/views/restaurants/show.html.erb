@@ -17,10 +17,10 @@
     </ul>
   </div>
   <% end %>
-
-<%if URI(request.referer).path == "/restaurants" %>
-  <%= link_to 'Back to search results', request.referer, class: "green-button" %>
-<%end%>
+  <% if URI(request.referer).path == "/restaurants" %>
+  <%= link_to 'Back to search results', request.referer,
+  class: "green-button" %>
+  <% end %>
 
 <h2>Entire menu</h2>
 <% @dish_type.each do |key, name| %>
@@ -28,19 +28,19 @@
   <div class="cards">
     <% type = (key + "?").to_sym %>
     <% @restaurant.dishes.select(&type).each do |dish| %>
-      <div class="card-category">
-        <%= image_tag dish.img_url, class:'card-img' %>
-        <div class="card-description">
-          <div class="card-info">
-            <%= dish.name %>
-          </div>
+    <div class="card-category">
+      <%= image_tag dish.img_url, class:'card-img' %>
+      <div class="card-description">
+        <div class="card-info">
+          <%= dish.name %>
         </div>
       </div>
+    </div>
     <% end %>
   </div>
   <% end %>
-    <!-- padding -py-5 -->
-  </div>
-  <!-- container -->
+<!-- padding -py-5 -->
+</div>
+<!-- container -->
 </div>
 
