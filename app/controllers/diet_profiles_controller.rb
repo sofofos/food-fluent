@@ -8,15 +8,7 @@ class DietProfilesController < ApplicationController
   end
 
   def create
-    diet_profile_params[:health_label_id].each do |id|
-      @diet_profile = DietProfile.new
-      @diet_profile.user = current_user
-      @diet_profile.health_label = HealthLabel.find(id.to_i)
-      authorize @diet_profile
-      render :new && return unless @diet_profile.save
-    end
-    redirect_to dashboard_path
-    authorize [@diet_profile]
+    create_diet_profiles
   end
 
   def edit
@@ -25,17 +17,7 @@ class DietProfilesController < ApplicationController
 
   def update
     current_user.diet_profiles.destroy_all
-
-    diet_profile_params[:health_label_id].each do |id|
-      @diet_profile = DietProfile.new
-      @diet_profile.user = current_user
-      @diet_profile.health_label = HealthLabel.find(id.to_i)
-      authorize @diet_profile
-      render :new && return unless @diet_profile.save
-    end
-    authorize @diet_profile
-
-    redirect_to dashboard_path
+    create_diet_profiles
   end
 
   private
@@ -47,5 +29,17 @@ class DietProfilesController < ApplicationController
 
   def diet_profile_params
     params.require(:diet_profile).permit(health_label_id: [])
+  end
+
+  def create_diet_profiles
+    diet_profile_params[:health_label_id].each do |id|
+      @diet_profile = DietProfile.new
+      @diet_profile.user = current_user
+      @diet_profile.health_label = HealthLabel.find(id.to_i)
+      authorize @diet_profile
+      render :new && return unless @diet_profile.save
+    end
+    authorize @diet_profile
+    redirect_to dashboard_path
   end
 end
