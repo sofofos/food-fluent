@@ -19,7 +19,9 @@ class DietProfilesController < ApplicationController
     authorize [@diet_profile]
   end
 
-  def edit; end
+  def edit
+    @diet_labels = HealthLabel.all.uniq(&:name).sort_by(&:name)
+  end
 
   def update
     current_user.diet_profiles.destroy_all
@@ -39,7 +41,8 @@ class DietProfilesController < ApplicationController
   private
 
   def find_diet_profile
-    @diet_profiles = DietProfile.find(params[health_label_id: []])
+    @diet_profiles = DietProfile.find(params[:id])
+    authorize @diet_profiles
   end
 
   def diet_profile_params
