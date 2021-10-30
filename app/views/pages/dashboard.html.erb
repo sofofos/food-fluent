@@ -57,7 +57,8 @@
     <%= form_tag restaurants_path, method: :get do %>
       <% @user.friends.each do |friend| %>
         <div class='d-flex'>
-          <%= check_box_tag 'friend_ids[]', friend.id, id: friend, class: 'form-control'%>
+          <%= check_box_tag 'friend_ids[]', friend.id %>
+          <!-- id: friend, class: 'form-control' %> -->
           <%= friend.name %>
         </div>
       <% end %>
@@ -66,4 +67,3 @@
   </div>
   <!-- add-location !-->
 </div>
-<% console %>
