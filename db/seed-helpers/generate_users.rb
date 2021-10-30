@@ -34,3 +34,9 @@ def add_friends(user)
   end
   user.requested_friends.each { |friend| user.accept_request(friend) }
 end
+
+def assign_avatar(user)
+  avatars = ["chris.png", "sofia.png", "vivi.png"]
+  user.avatar_path = avatars.sample
+  user.save!
+end
