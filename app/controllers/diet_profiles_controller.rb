@@ -8,7 +8,6 @@ class DietProfilesController < ApplicationController
 
   def create
     diet_profile_params[:health_label_id].each do |id|
-      # raise
       @diet_profile = DietProfile.new
       @diet_profile.user = current_user
       @diet_profile.health_label = HealthLabel.find(id.to_i)

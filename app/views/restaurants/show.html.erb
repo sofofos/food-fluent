@@ -14,11 +14,11 @@
             <div class="d-flex flex-column align-items-start">
               <div class="contact-item">
                 <%= image_tag 'address.svg', class:'card-icon' %>
-                <p> <%= @restaurant.location %> </p>                 
+                <p> <%= @restaurant.location %> </p>
               </div>
               <div class="contact-item">
                 <%= image_tag 'telephone.svg', class:'card-icon' %>
-                <p> <%= @restaurant.phone_number %> </p>  
+                <p> <%= @restaurant.phone_number %> </p>
               </div>
             </div>
             <div class="buttons-container">
@@ -30,5 +30,40 @@
         </div>
       </div>
     </div>
+  <% @users.each do |user| %>
+  <button id="<%= user.id %>" class="person-button">
+    <%= user.name %></button>
+  <% end %>
+
+  <% @users.each do |user| %>
+  <div class="dishes" id="<%= user.id %>-dishes">
+    <ul>
+      <% @restaurant.dishes_for(user).each do |dish| %>
+        <li><%= dish.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+<%= link_to "Back", restaurants_path %>
+
+<h2>Entire menu</h2>
+<% @dish_type.each do |key, name| %>
+  <h2><%= name.pluralize.capitalize %></h2>
+  <div class="cards">
+    <% type = (key + "?").to_sym %>
+    <% @restaurant.dishes.select(&type).each do |dish| %>
+      <div class="card-category">
+        <%= image_tag dish.img_url, class:'card-img' %>
+        <div class="card-description">
+          <div class="card-info">
+            <%= dish.name %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+    <!-- padding -py-5 -->
   </div>
 </div>
