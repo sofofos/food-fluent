@@ -30,7 +30,8 @@
 
                 <% if URI(request.referer).path == "/restaurants" %>
                 <%= link_to 'Back to search results', request.referer, class: "green-button" %>
-                <%end%></h5>
+                <% end %>
+              </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -60,12 +61,7 @@
             </div>
           </div>
         </div>
-        <!-- modal above -->
-
-
-
+        <!-- modal above -- >
         <h2>Entire menu</h2>
-
-        <!-- padding -py-5 -->
       </div>
     </div>
