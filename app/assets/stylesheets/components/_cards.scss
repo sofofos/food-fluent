@@ -38,9 +38,9 @@
   position: relative;
 }
 
-.card-icon {
-  height: 30px;
-  width: 30px;
+.icon {
+  height: 25px;
+  width: 25px;
 }
 
 .card-wrap {
@@ -68,11 +68,13 @@
   transition: opacity .2s, visibility .2s;
 }
 
-.card-layer > a {
+.card-layer > .card-hover-text {
   color: $forest!important;
   font-size: 24px;
   padding-bottom: 24px;
+  font-weight: 900;
 }
+
 
 .card-wrap:hover .card-layer {
   visibility: visible;
@@ -91,13 +93,78 @@
 
 .card-hover-text:hover {
   text-decoration: none;
-  font-weight: 700;
 }
 
 .dishes {
   display: none;
 }
 
-.dishes.show {
-  display: block;
+.dishes.show-meals {
+  display: inherit;
 }
+
+// cards - restaurant show
+
+
+.card-restaurant{
+  width: 90%;
+  border-radius: 25px;
+  margin: 20px auto;
+  position: relative;
+  box-shadow: 4px 4px 8px $grey;
+}
+
+.card-restaurant-img{
+  width: 60%;
+  flex-grow: 1;
+  border-radius: 25px 0px 0px 25px;
+  background-size: cover;
+}
+
+.restaurant-contact-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+
+.contact-item {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.contact-item > p {
+  padding-left: 50px;
+  align-self: center;
+}
+.card-match-calculation {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background-color: $forest;
+  color: $white;
+  padding: 5px 10px;
+  border-radius: 25px;
+}
+
+.card-match-calculation-sm {
+  background-color: $forest;
+  color: $white;
+  padding: 10px;
+  border-radius: 25px;
+  align-self: center;
+  opacity: 1!important;
+}
+
+
+
+
+
+
+
+
+
