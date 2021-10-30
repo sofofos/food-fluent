@@ -21,11 +21,13 @@
     <meta name='twitter:image:alt' content='food-fluent-logo' />
     <meta name='twitter:title' content='food-fluent' />
     <meta name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no' />
-    <meta property='og:description' content='Find a restaurant for everyone on food-fluent.' />
-    <meta property='og:locale' content='en_CA' />
-    <meta property='og:site_name' content='food-fluent' />
     <meta property='og:title' content='food-fluent' />
+    <meta property='og:description' content='Find a restaurant for everyone on food-fluent' />
     <meta property='og:type' content='website' />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= 'meta_image.png' %>" />
+    <meta property='og:site_name' content='food-fluent' />
+    <meta property='og:locale' content='en_CA' />
     <title>food-fluent | restaurant finder</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
