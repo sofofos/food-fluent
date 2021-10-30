@@ -1,9 +1,7 @@
 <!-- Friend Requests sent -->
 <div class="">
-  <% if @user.pending_friends %>
   <h3>Pending:</h3>
   <% @pending.each do |friend| %>
   <%= friend.name%>
-  <% end %>
   <% end %>
 </div>
