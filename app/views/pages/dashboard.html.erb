@@ -6,7 +6,7 @@
     <div class='column' id='dash-main-card'>
       <div class='container' id='dash-main-card-container'>
         <div class='container' id='dash-main-card-picture-container'>
-          <%= image_tag 'vivi.jpg', class: 'avatar', id: 'dash-main-card-picture', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag @user.avatar_path, class: 'avatar', id: 'dash-main-card-picture', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
         </div>
 
         <div class='container' id='dash-main-card-text-container'>
