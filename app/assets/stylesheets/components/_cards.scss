@@ -1,10 +1,3 @@
-// _cards.scss
-
-// this line was part of wavpack/dashboard in conflicts 
-// remove if not needed, I was unsure - sof
-#card-dashboard-friend { 
-}
-
 .cards {
   display: grid;
   grid-gap: 75px;
@@ -45,20 +38,10 @@
   position: relative;
 }
 
-.card-icon {
-  height: 30px;
-  width: 30px;
-  // color gradient on svg
-  // red #ff003d
-  // blue 3D00EB
-  color: #ff003d;  /* fallback for old browsers */
-color: -webkit-linear-gradient(to right, #3D00EB, #ff003d);  /* Chrome 10-25, Safari 5.1-6 */
-color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+.icon {
+  height: 25px;
+  width: 25px;
 }
-
-
-// hover effect on restaurants
 
 .card-wrap {
   position: relative;
@@ -72,8 +55,8 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
   bottom: 0;
   left: 0;
   right: 0;
-  background: $forest-light;
-  color: #fff;
+  background: $forest-light-transparent;
+  border-radius: inherit;
   visibility: hidden;
   opacity: 0;
   display: flex;
@@ -85,9 +68,18 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
   transition: opacity .2s, visibility .2s;
 }
 
+.card-layer > .card-hover-text {
+  color: $forest!important;
+  font-size: 24px;
+  padding-bottom: 24px;
+  font-weight: 900;
+}
+
+
 .card-wrap:hover .card-layer {
   visibility: visible;
-  opacity: 0.4;
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .card-hover-text {
@@ -101,15 +93,78 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
 
 .card-hover-text:hover {
   text-decoration: none;
-  font-weight: 700;
 }
-
 
 .dishes {
   display: none;
 }
 
-.dishes.show {
-  display: block;
+.dishes.show-meals {
+  display: inherit;
 }
+
+// cards - restaurant show
+
+
+.card-restaurant{
+  width: 90%;
+  border-radius: 25px;
+  margin: 20px auto;
+  position: relative;
+  box-shadow: 4px 4px 8px $grey;
+}
+
+.card-restaurant-img{
+  width: 60%;
+  flex-grow: 1;
+  border-radius: 25px 0px 0px 25px;
+  background-size: cover;
+}
+
+.restaurant-contact-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+
+.contact-item {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.contact-item > p {
+  padding-left: 50px;
+  align-self: center;
+}
+.card-match-calculation {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background-color: $forest;
+  color: $white;
+  padding: 5px 10px;
+  border-radius: 25px;
+}
+
+.card-match-calculation-sm {
+  background-color: $forest;
+  color: $white;
+  padding: 10px;
+  border-radius: 25px;
+  align-self: center;
+  opacity: 1!important;
+}
+
+
+
+
+
+
+
+
 
