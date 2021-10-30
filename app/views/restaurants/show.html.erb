@@ -37,22 +37,24 @@
 
 
 
-      <div class="modal fade w-100" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">
+              <div class="modal-title" id="staticBackdropLabel">
+
                   <% @users.each do |user| %>
                     <button id="<%= user.id %>" class="person-button">
                       <%= user.name %>
                     </button>
                   <% end %>
-                  </h5>
+                  </div>
               
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span class="ml-auto" aria-hidden="true">&times;</span>
                     </button>
-                  <div class="modal-body">
+                </div>
+                  <div class="modal-body mt-3">
                     <% @users.each do |user| %>
                   <div class="dishes" id="<%= user.id %>-dishes">
                     <!-- <ul> -->
@@ -93,7 +95,6 @@
                     <button type="button" class="green-button" data-dismiss="modal">Close</button>
                   </div>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
