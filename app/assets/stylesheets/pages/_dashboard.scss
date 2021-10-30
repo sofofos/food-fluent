@@ -1,17 +1,12 @@
 // _dashboard.scss
 
-#dash-main-list-diets,
-#dash-main-list-allergies,
-#dash-main-list-macros,
-#dash-list-friends,
-#dash-container-friends-find,
-#dash-container-friends-see {
-  text-align: center;
-}
-
 #dash-main-row {
   margin: 10px 0px 10px 0px;
+  max-width: 100%;
+  padding: 0;
 }
+// _dashboard.scss original card properties begin
+// if changes are made on these properties, copy changes to duplicates in _cards.scss
 #dash-main-card {
   height: 200px;
   margin: 10px 0px 10px 0px;
@@ -23,7 +18,7 @@
   height: 200px;
   width: 200px;
 }
-#dash-main-card-picture-container {
+#dash-main-card-pic-container {
   display: flex;
   align-items: center;
   height: 120px;
@@ -31,7 +26,7 @@
   padding: 0px 10px 0px 10px;
   width: 170px;
 }
-#dash-main-card-picture {
+#dash-main-card-pic {
   border: 2px solid $grey;
   border-radius: 50%;
   height: 100px;
@@ -52,6 +47,7 @@
   text-align: center;
   width: 140px;
 }
+// _dashboard.scss original card properties end
 
 #dash-main-list {
   margin: 10px 0px 10px 0px;
@@ -77,8 +73,9 @@
   list-style: none;
   margin: 10px 10px 10px 10px;
   overflow: hidden;
-  padding: 0px;
-  width: 33%, 33%, 33%;
+  padding: 0;
+  text-align: center;
+  width: 33.33%, 33.33%, 33.33%;
 }
 .dash-main-list-diet,
 .dash-main-list-allergy,
@@ -107,22 +104,222 @@
   padding: 0;
 }
 
-#dash-friends {
-  margin: 30px 0px 10px 0px;
-  padding: 0px;
+#dash-friends-row,
+#dash-finder-row {
+  margin: 10px 0px 10px 0px;
+  max-width: 100%;
+  min-width: 1110px;
+  padding: 0;
 }
-#dash-list-friends {
+#dash-friends-titlebar,
+#dash-finder-titlebar {
+  margin: 10px;
+  min-width: 1090px;
+  padding: 0;
+}
+
+#dash-friends-titlebar-left,
+#dash-friends-titlebar-center,
+#dash-friends-titlebar-right {
+  height: 80px;
   margin: 10px 0px 10px 0px;
 }
-#dash-links-friends,
-#dash-search {
+#dash-friends-titlebar-left {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  width: 33.33%;
 }
-#dash-container-friends-find,
-#dash-container-friends-see {
+#dash-friends-titlebar-left-text {
+  font-weight: bold;
+  margin: 10px 0px 10px 0px;
+  text-align: left;
+  width: 100%;
+}
+#dash-friends-titlebar-center {
+  display: flex;
+  align-items: center;
+  width: 33.33%;
+}
+#dash-friends-titlebar-center form {
+  display: flex;
+  align-items: center;
+  margin: 0px 10px 0px 10px;
+  width: 100%;
+}
+#dash-friends-titlebar-center-bar {
+  border: 2px solid $forest;
+  border-radius: 25px;
+  width: 75%;
+}
+#dash-friends-titlebar-center-button {
+  background-color: $white;
+  border: 2px solid $grey;
+  border-radius: 25px;
+  color: $forest;
+  margin-left: 5px;
+  width: 25%;
+}
+#dash-friends-titlebar-right {
+  width: 33.33%;
+}
+#dash-friends-titlebar-right-box {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  height: 100%;
+  width: 100%;
+}
+#dash-friends-titlebar-right-button {
+  background: $forest;
+  border: 2px solid $grey;
+  border-radius: 999px;
+  -moz-border-radius: 999px;
+  -webkit-border-radius: 999px;
+  color: $white;
+  height: 30px;
+  line-height: 1.5em;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  transition: color 0.3s linear;
+  transition: background 0.3s linear;
+  -o-transition: background 0.3s linear;
+  -moz-transition: background 0.3s linear;
+  -ms-transition: background 0.3s linear;
+  -webkit-transition: background 0.3s linear;
+  width: 30px;
+}
+#dash-friends-titlebar-right-button:hover {
+  background: $kelly;
+  cursor: pointer;
+}
+#dash-friends-cards,
+#dash-finder-cards {
+  width: 100%;
+}
+#dash-friends-card,
+#dash-finder-card {
+  border: 2px solid $forest;
+  border-radius: 15%;
+  height: 320px;
+  max-width: 320px;
+  width: 100%;
+}
+#dash-friends-card-head-container,
+#dash-finder-card-head-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 320px;
+  padding: 5px 0px 5px 0px;
+  width: 100%;
+}
+#dash-friends-card-head-pic-container,
+#dash-finder-card-head-pic-container {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  justify-content: left;
+  max-width: 110px;
+  padding: 0px 5px 0px 5px;
+  width: 100%;
+}
+#dash-friends-card-head-pic,
+#dash-finder-card-head-pic {
+  border: 2px solid $grey;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+#dash-friends-card-head-text-container,
+#dash-finder-card-head-text-container {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  justify-content: center;
+  max-width: 150px;
+  padding: 0px 5px 0px 5px;
+  width: 100%;
+}
+#dash-friends-card-body-container,
+#dash-finder-card-body-container {
+  display: grid;
+  gap: 20px 10px;
+  grid-template-columns: repeat(3, 1fr);
+  max-height: 200px;
+}
+#dash-friends-card-body-list,
+#dash-finder-card-body-list {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 40px;
+  max-width: 40px;
+  padding: 0px 5px 0px 5px;
+}
+#dash-friends-card-body-label > #dash-main-list-allergy-icon,
+#dash-finder-card-body-label > #dash-main-list-allergy-icon {
+  height: 30px;
+  width: 30px;
+}
+#dash-friends-card-body-tooltip,
+#dash-finder-card-body-tooltip {
+  position: absolute;
+  visibility: hidden;
+  background-color: $forest;
+  border: 1px solid $black;
+  border-radius: 5px;
+  color: $white;
+  font-family: 'Biryani';
+  font-size: 10px;
+  opacity: .9;
+  text-align: center;
+  width: 100px;
+}
+#dash-friends-card-body-label:hover > #dash-friends-card-body-tooltip,
+#dash-finder-card-body-label:hover > #dash-finder-card-body-tooltip {
+  visibility: visible;
+}
+
+#dash-finder-titlebar-left,
+#dash-finder-titlebar-right {
+  height: 80px;
+  margin: 10px 0px 10px 0px;
+}
+#dash-finder-titlebar-left {
+  display: flex;
+  align-items: center;
   width: 50%;
 }
-#dash-search {
+#dash-finder-titlebar-left-text {
+  font-weight: bold;
   margin: 10px 0px 10px 0px;
+  text-align: left;
+  width: 100%;
+}
+#dash-finder-titlebar-right {
+  display: flex;
+  align-items: center;
+  max-height: 80px;
+  width: 50%;
+}
+#dash-finder-titlebar-right form {
+  display: flex;
+  align-items: center;
+  margin: 0px 10px 0px 10px;
+  width: 100%;
+}
+#dash-finder-titlebar-right-bar {
+  border: 2px solid $forest;
+  border-radius: 25px;
+  width: 75%;
+}
+#dash-finder-titlebar-right-button {
+  background-color: $white;
+  border: 2px solid $grey;
+  border-radius: 25px;
+  color: $forest;
+  margin-left: 5px;
+  width: 25%;
 }

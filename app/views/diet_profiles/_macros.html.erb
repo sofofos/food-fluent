@@ -1,5 +1,5 @@
 <h4>Macros</h4>
-    <ul id='dash-main-list-macros'>
+<ul id='dash-main-list-macros'>
       <% @diets.select(&@macros).each do |tag| %>
       <li class='dash-main-list-macro'>
         <%= image_tag tag.health_label.icon_path, class: 'icon', id: 'dash-main-list-macro-icon', alt: 'Macro Icon', data: { title: 'macro' }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -9,4 +9,4 @@
         </div>
       </li>
     <% end %>
-  </ul>
+</ul>
