@@ -1,67 +1,100 @@
 <div class="container">
   <div class="py-5">
 
-    <h1><%= @restaurant.name %></h1>
-    <p><%= @restaurant.location %></p>
-    <p><%= @restaurant.compatibility(@users) %></p>
-    <button type="button" class="green-button" data-toggle="modal" data-target="#staticBackdrop">
-      Launch static backdrop modal
-    </button>
 
-    <!-- Modal -->
-    <div class="modal fade w-100" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel"><% @users.each do |user| %>
-              <button id="<%= user.id %>" class="person-button">
-                <%= user.name %></button>
-                <% end %>
-
-                <% @users.each do |user| %>
-                <div class="dishes" id="<%= user.id %>-dishes">
-                  <ul>
-                    <% @restaurant.dishes_for(user).each do |dish| %>
-                    <li><%= dish.name %></li>
-                    <% end %>
-                  </ul>
-                </div>
-                <% end %>
-
-                <% if URI(request.referer).path == "/restaurants" %>
-                <%= link_to 'Back to search results', request.referer, class: "green-button" %>
-                <% end %>
-              </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <% @dish_type.each do |key, name| %>
-                <h2><%= name.pluralize.capitalize %></h2>
-                <div class="cards">
-                  <% type = (key + "?").to_sym %>
-                  <% @restaurant.dishes.select(&type).each do |dish| %>
-                  <div class="card-category">
-                    <%= image_tag dish.img_url, class:'card-img' %>
-                    <div class="card-description">
-                      <div class="card-info">
-                        <%= dish.name %>
-                      </div>
-                    </div>
-                  </div>
-                  <% end %>
-                </div>
-                <% end %>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-              </div>
+    <h1 class='text-center'>
+      <%= @restaurant.name %>
+    </h1>
+    <div class="card-restaurant">
+      <div class="card-match-calculation">
+        <%= @restaurant.compatibility(@users) %>% Match
+      </div>
+      <div class="d-flex justify-content-between">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-restaurant-img">
+        <div class="restaurant-contact-info">
+          <div class="d-flex flex-column align-items-start">
+            <div class="contact-item">
+              <%= image_tag 'address.svg', class:'icon' %>
+              <p> <%= @restaurant.location %> </p>                 
+            </div>
+            <div class="contact-item">
+              <%= image_tag 'telephone.svg', class:'icon' %>
+              <p> <%= @restaurant.phone_number %> </p>  
             </div>
           </div>
+          <div class="buttons-container">
+            <a type="button" class="green-button" data-toggle="modal" data-target="#staticBackdrop">
+              see menu
+            </a>
+            <%= link_to "Visit Website",@restaurant.website, class:"green-button" %>
+
+            <% if URI(request.referer).path == "/restaurants" %>
+              <%= link_to 'Back', request.referer, class: "green-button" %>
+            <% end %>
+          </div>
         </div>
-        <!-- modal above -- >
-        <h2>Entire menu</h2>
       </div>
-    </div>
+
+
+
+      <div class="modal fade w-100" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">
+                  <% @users.each do |user| %>
+                    <button id="<%= user.id %>" class="person-button">
+                      <%= user.name %>
+                    </button>
+                  <% end %>
+                  </h5>
+              
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span class="ml-auto" aria-hidden="true">&times;</span>
+                    </button>
+                  <div class="modal-body">
+                    <% @users.each do |user| %>
+                  <div class="dishes" id="<%= user.id %>-dishes">
+                    <!-- <ul> -->
+                      <div class="cards">
+                        <% @restaurant.dishes_for(user).each do |dish| %>
+                        <div class="card-category">
+                          <%= image_tag dish.img_url, class:'card-img' %>
+                          <div class="card-description">
+                            <div class="card-info">
+                              <%= dish.name %>
+                            </div>
+                          </div>
+                        </div>
+                        <% end %>
+                        <!-- </ul> -->
+                      </div>
+                      <% end %>
+                    </div>
+
+
+                    <% @dish_type.each do |key, name| %>
+                    <h2><%= name.pluralize.capitalize %></h2>
+                    <div class="cards">
+                      <% type = (key + "?").to_sym %>
+                      <% @restaurant.dishes.select(&type).each do |dish| %>
+                      <div class="card-category">
+                        <%= image_tag dish.img_url, class:'card-img' %>
+                        <div class="card-description">
+                          <div class="card-info">
+                            <%= dish.name %>
+                          </div>
+                        </div>
+                      </div>
+                      <% end %>
+                    </div>
+                    <% end %>
+                  <div class="modal-footer">
+                    <button type="button" class="green-button" data-dismiss="modal">Close</button>
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+<!-- modal above -- >

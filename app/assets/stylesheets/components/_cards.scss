@@ -99,8 +99,8 @@
   display: none;
 }
 
-.dishes.show {
-  display: block;
+.dishes.show-meals {
+  display: inherit;
 }
 
 // cards - restaurant show
@@ -134,6 +134,7 @@
   height: 50px;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .contact-item > p {
