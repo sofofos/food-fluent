@@ -14,6 +14,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @return = request.filtered_path
     @users = params[:user_ids].map { |id| User.find(id.to_i) }
     @dish_type = Dish.dish_types
     # @starter = @restaurant.dishes.where(dish_type: "starter")
