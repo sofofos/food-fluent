@@ -80,6 +80,7 @@
   </div> <!-- end dash-friends-row !-->
 
   <div class='row' id='dash-restos-row'>
+    <!-- restos-bar !-->
     <div class='row' id='dash-restos-titlebar'>
       <div class='column' id='dash-restos-titlebar-left'>
         <h5 id='dash-restos-titlebar-left-text'>
@@ -88,23 +89,39 @@
       </div> <!-- end dash-restos-titlebar-left !-->
 
       <div class='column' id='dash-restos-titlebar-right'>
-        <!-- TYPE LOCATION !-->
+        <%= form_tag friends_path, method: :get, action: :search do %>
+          <%= text_field_tag :query, 
+              params[:query], 
+              class: 'form-control', 
+              id: 'dash-restos-titlebar-right-bar', 
+              placeholder: 'Enter Location' 
+          %>
+          <%= submit_tag 'enter', 
+              class: 'btn btn-primary', 
+              id: 'dash-restos-titlebar-right-button' 
+          %>
+        <% end %>
       </div>
     </div> <!-- end dash-restos-titlebar !-->
     <!-- find-restaurant !-->
     <!-- select-friends !-->
 
-    <%= form_tag restaurants_path, method: :get do %>
+    <!-- restos-list !-->
+    <div class='cards' id='dash-restos-list'>
+      <%= form_tag restaurants_path, method: :get do %>
       <% @user.friends.each do |friend| %>
-        <div class='d-flex'>
-          <%= check_box_tag 'friend_ids[]', friend.id, 
-              class: 'form-control', 
-              id: friend 
-          %>
-          <%= friend.name %>
+        <div class='card' id='dash-restos-list-container'>
+          <div class='d-flex'>
+            <%= check_box_tag 'friend_ids[]', friend.id, 
+                class: 'form-control', 
+                id: friend 
+            %>
+            <%= friend.name %>
+          </div>
+          <% end %>
+          <%= submit_tag 'Search', class: 'btn btn-primary' %>
         </div>
       <% end %>
-      <%= submit_tag 'Search', class: 'btn btn-primary' %>
-    <% end %>
+    </div> <!-- end dash-restos-list !-->
   </div> <!-- end dash-restos-row !-->
 </div> <!-- end dash-container !-->
