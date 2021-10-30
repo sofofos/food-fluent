@@ -42,16 +42,17 @@
 
       <div class='row' id='dash-friends-titlebar-center'>
         <%= form_tag friends_path, method: :get, action: :search do %>
-        <%= text_field_tag :query, 
-            params[:query], 
-            class: 'form-control', 
-            id: 'dash-friends-titlebar-center-bar', 
-            placeholder: 'My Friends' 
-        %>
-        <%= submit_tag 'find', 
-            class: 'btn btn-primary', 
-            id: 'dash-friends-titlebar-center-button' 
-        %>
+          <%= text_field_tag :query, 
+              params[:query], 
+              class: 'form-control', 
+              id: 'dash-friends-titlebar-center-bar', 
+              placeholder: 'My Friends' 
+          %>
+          <%= submit_tag 'find', 
+              class: 'btn btn-primary', 
+              id: 'dash-friends-titlebar-center-button' 
+          %>
+        <% end %>
       </div> <!-- end dash-friends-titlebar-center !-->
 
       <div class='column' id='dash-friends-titlebar-right'>
