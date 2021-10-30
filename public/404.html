@@ -4,64 +4,1832 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
+  * {
+  box-sizing: border-box;
+}
+:root {
+  --plate-depth: 1;
+  --marzipan: #f3dd6d;
+  --marzipan-dark: #ecc813;
+  --marzipan-light: #f7e797;
+  --jammies: #f79588;
+  --jammies-dark: #dd4f3c;
+  --cake: #fae09e;
+  --cake-hover-y: 2vmin;
+  --cake-hover-z: 3vmin;
+  --cake-hover-rotate: -10deg;
+  --cake-active-y: 3vmin;
+  --cake-active-z: 4vmin;
+  --cake-active-rotate: -10deg;
+  --shadow-hover-translate: -5%;
+  --shadow-hover-opacity: 0.15;
+  --shadow-active-translate: -8%;
+  --shadow-active-opacity: 0.05;
+  background: #88D488;
+}
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.plane {
+  height: 30vmin;
+  width: 40vmin;
+  transform: rotateX(-24deg) rotateY(-24deg) rotateX(90deg) rotate(0deg);
+  transform-style: preserve-3d;
+}
+[type='checkbox'] {
+  opacity: 0;
+  position: fixed;
+  left: 100%;
+}
+.cube {
+  position: absolute;
+  height: calc(var(--height) * 1vmin);
+  width: calc(var(--width) * 1vmin);
+  transform-style: preserve-3d;
+}
+.cube > div:nth-of-type(1) {
+  height: 100%;
+  width: 100%;
+  transform: translate3d(0, 0, var(--offset, 0));
+}
+.cube > div:nth-of-type(2) {
+  position: absolute;
+  top: 0;
+  left: calc(var(--width) * 1vmin);
+  height: 100%;
+  width: calc(var(--depth) * 1vmin);
+  transform: rotateY(-90deg) translate(var(--offset, 0), 0);
+  transform-origin: 0 50%;
+}
+.cube > div:nth-of-type(3) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(var(--depth) * 1vmin);
+  transform: rotateY(-90deg) translate(var(--offset, 0), 0);
+  transform-origin: 0 50%;
+}
+.cube > div:nth-of-type(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(var(--depth) * 1vmin);
+  width: 100%;
+  transform-origin: 50% 0;
+  transform: rotateX(90deg) translate3d(0, var(--offset, 0), 0);
+}
+.cube > div:nth-of-type(5) {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: calc(var(--depth) * 1vmin);
+  transform-origin: 50% 0;
+  transform: rotateX(90deg) translate3d(0, var(--offset, 0), 0);
+}
+.cube > div:nth-of-type(6) {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateZ(calc(var(--depth) * 1vmin)) translate3d(0, 0, var(--offset, 0));
+}
+.plate {
+  --height: 25;
+  --width: 35;
+  --depth: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.plate > div:nth-of-type(2),
+.plate > div:nth-of-type(3),
+.plate > div:nth-of-type(4) {
+  background: #ccc;
+}
+.plate > div:nth-of-type(5) {
+  background: #e6e6e6;
+}
+.plate > div:nth-of-type(6) {
+  background: #f2f2f2;
+}
+.plate:before {
+  content: '';
+  position: absolute;
+  left: 100%;
+  height: 5vmin;
+  width: 1vmin;
+  top: 72%;
+  transition: transform 0.25s, opacity 0.25s;
+  background: #1a1a1a;
+  opacity: 0;
+  transform: rotateY(-90deg) skewY(-20deg);
+  transform-origin: 0 100%;
+}
+.plate:after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  height: 20vmin;
+  width: 11.5vmin;
+  transition: transform 0.25s, opacity 0.25s;
+  background: #1a1a1a;
+  opacity: 0;
+  top: 52%;
+  transform-origin: 0 50%;
+  transform: translate3d(0%, -50%, -0.2vmin) scaleX(0);
+}
+.cake {
+  height: 20vmin;
+  width: 30vmin;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) translateZ(calc(var(--plate-depth) * 1vmin));
+}
+.cake-slice {
+  --depth: 15;
+  --height: 20;
+  --width: 5;
+  --offset: calc((var(--depth) / 2) * -1vmin);
+  position: absolute;
+  top: 0;
+  transition: transform 0.25s;
+  transform-origin: 50% 100%;
+  z-index: 2;
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin));
+}
+.cake-slice:hover {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-hover-y), var(--cake-hover-z)) rotateX(var(--cake-hover-rotate));
+}
+.cake-slice > div:nth-of-type(1) {
+  background: var(--marzipan-light);
+}
+.cake-slice > div:nth-of-type(2) {
+  background: var(--marzipan-dark);
+}
+.cake-slice > div:nth-of-type(3) {
+  background: var(--marzipan);
+}
+.cake-slice > div:nth-of-type(4) {
+  background: var(--marzipan-light);
+}
+.cake-slice > div:nth-of-type(5) {
+  background: var(--marzipan-light);
+}
+.cake-slice > div:nth-of-type(6) {
+  background: var(--marzipan);
+}
+.cake-slice:nth-of-type(1) {
+  left: calc((var(--width) * 0) * 1vmin);
+}
+.cake-slice:nth-of-type(1):hover ~ span:nth-of-type(1) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-hover-translate));
+  opacity: var(--shadow-hover-opacity);
+}
+.cake-slice:nth-of-type(2) {
+  left: calc((var(--width) * 1) * 1vmin);
+}
+.cake-slice:nth-of-type(2):hover ~ span:nth-of-type(2) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-hover-translate));
+  opacity: var(--shadow-hover-opacity);
+}
+.cake-slice:nth-of-type(3) {
+  left: calc((var(--width) * 2) * 1vmin);
+}
+.cake-slice:nth-of-type(3):hover ~ span:nth-of-type(3) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-hover-translate));
+  opacity: var(--shadow-hover-opacity);
+}
+.cake-slice:nth-of-type(4) {
+  left: calc((var(--width) * 3) * 1vmin);
+}
+.cake-slice:nth-of-type(4):hover ~ span:nth-of-type(4) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-hover-translate));
+  opacity: var(--shadow-hover-opacity);
+}
+.cake-slice:nth-of-type(5) {
+  left: calc((var(--width) * 4) * 1vmin);
+}
+.cake-slice:nth-of-type(5):hover ~ span:nth-of-type(5) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-hover-translate));
+  opacity: var(--shadow-hover-opacity);
+}
+.cake-slice:nth-of-type(6) {
+  left: calc((var(--width) * 5) * 1vmin);
+}
+.cake-slice:nth-of-type(6):hover ~ span:nth-of-type(6) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-hover-translate));
+  opacity: var(--shadow-hover-opacity);
+}
+.cake-slice:nth-of-type(1) > div:nth-of-type(2),
+.cake-slice:nth-of-type(2) > div:nth-of-type(2),
+.cake-slice:nth-of-type(3) > div:nth-of-type(2),
+.cake-slice:nth-of-type(4) > div:nth-of-type(2),
+.cake-slice:nth-of-type(5) > div:nth-of-type(2) {
+  background: linear-gradient(var(--jammies), var(--jammies)) 10% 10%/43% 43% no-repeat, linear-gradient(var(--cake), var(--cake)) 90% 10%/43% 43% no-repeat, linear-gradient(var(--jammies), var(--jammies)) 90% 90%/43% 43% no-repeat, linear-gradient(var(--cake), var(--cake)) 10% 90%/43% 43% no-repeat, linear-gradient(var(--jammies-dark), var(--jammies-dark)) center center/92% 92% no-repeat, var(--marzipan-light);
+}
+.cake-slice:nth-of-type(6) > div:nth-of-type(3) {
+  background: linear-gradient(var(--jammies), var(--jammies)) 10% 10%/43% 43% no-repeat, linear-gradient(var(--cake), var(--cake)) 90% 10%/43% 43% no-repeat, linear-gradient(var(--jammies), var(--jammies)) 90% 90%/43% 43% no-repeat, linear-gradient(var(--cake), var(--cake)) 10% 90%/43% 43% no-repeat, linear-gradient(var(--jammies-dark), var(--jammies-dark)) center center/92% 92% no-repeat, var(--marzipan-light);
+}
+.css-label {
+  display: block;
+  transform: rotate(90deg) rotateY(180deg) translate(-25%, 15%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: overlay;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 4vmin;
+}
+.backdrop {
+  height: 200vh;
+  width: 200vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: hsl(var(--bg-hue), 20%, 40%);
+  transform: translateZ(-30vmin);
+  z-index: -1;
+}
+.cake-slice__shadow {
+  --width: 5;
+  --alpha: 1;
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--width) * 1vmin);
+  background: #1a1a1a;
+  transition: transform 0.25s, opacity 0.25s;
+  top: 0;
+  transform: translateZ(0.00001vmin);
+}
+.cake-slice__shadow:nth-of-type(1) {
+  left: calc((var(--width) * 0) * 1vmin);
+}
+.cake-slice__shadow:nth-of-type(2) {
+  left: calc((var(--width) * 1) * 1vmin);
+}
+.cake-slice__shadow:nth-of-type(3) {
+  left: calc((var(--width) * 2) * 1vmin);
+}
+.cake-slice__shadow:nth-of-type(4) {
+  left: calc((var(--width) * 3) * 1vmin);
+}
+.cake-slice__shadow:nth-of-type(5) {
+  left: calc((var(--width) * 4) * 1vmin);
+}
+.cake-slice__shadow:nth-of-type(6) {
+  left: calc((var(--width) * 5) * 1vmin);
+}
+[type='checkbox']:nth-of-type(1):checked ~ label:nth-of-type(1) {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 11;
+  opacity: 0.3;
+  transform: translateZ(30vmin);
+}
+[type='checkbox']:nth-of-type(1):checked ~ .scene .plane .cake .cake-slice:nth-of-type(1) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate));
+}
+[type='checkbox']:nth-of-type(1):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(1) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-active-translate));
+  opacity: var(--shadow-active-opacity);
+}
+[type='checkbox']:nth-of-type(1):checked ~ .backdrop {
+  -webkit-animation: party-drop 1s infinite linear;
+          animation: party-drop 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-flip 1s infinite linear;
+          animation: cake-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-flip 1s infinite linear;
+          animation: shadow-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(1) {
+  -webkit-animation: cake-wave 1s 0.1s infinite both;
+          animation: cake-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-wave 1s 0.2s infinite both;
+          animation: cake-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(3) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0);
+  -webkit-animation: cake-wave 1s 0.3s infinite both;
+          animation: cake-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  -webkit-animation: cake-wave 1s 0.4s infinite both;
+          animation: cake-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  -webkit-animation: cake-wave 1s 0.5s infinite both;
+          animation: cake-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  -webkit-animation: cake-wave 1s 0.6s infinite both;
+          animation: cake-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(1) {
+  -webkit-animation: shadow-wave 1s 0.1s infinite both;
+          animation: shadow-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-wave 1s 0.2s infinite both;
+          animation: shadow-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(3) {
+  opacity: 1;
+  -webkit-animation: shadow-wave 1s 0.3s infinite both;
+          animation: shadow-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  -webkit-animation: shadow-wave 1s 0.4s infinite both;
+          animation: shadow-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: shadow-wave 1s 0.5s infinite both;
+          animation: shadow-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  -webkit-animation: shadow-wave 1s 0.6s infinite both;
+          animation: shadow-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  transform-origin: 50% 50%;
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) rotate(90deg);
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  opacity: 0;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  transform-origin: 50% 50%;
+  -webkit-animation: blast-off 2s;
+          animation: blast-off 2s;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: blast-shadow 2s;
+          animation: blast-shadow 2s;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 0) scale(1) rotate(0deg) translate3d(calc((var(--width)) * 2vmin), 0, calc(var(--width) * -1vmin)) rotateY(100deg);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  opacity: 0.8;
+  transform: translateZ(0.00001vmin) translate(100%, 0);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:before {
+  opacity: 0.8;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:after {
+  opacity: 0.8;
+  transform: translate3d(0%, -50%, -0.2vmin) scaleX(1);
+}
+[type='checkbox']:nth-of-type(2):checked ~ label:nth-of-type(2) {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 11;
+  opacity: 0.3;
+  transform: translateZ(30vmin);
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate));
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-active-translate));
+  opacity: var(--shadow-active-opacity);
+}
+[type='checkbox']:nth-of-type(1):checked ~ .backdrop {
+  -webkit-animation: party-drop 1s infinite linear;
+          animation: party-drop 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-flip 1s infinite linear;
+          animation: cake-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-flip 1s infinite linear;
+          animation: shadow-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(1) {
+  -webkit-animation: cake-wave 1s 0.1s infinite both;
+          animation: cake-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-wave 1s 0.2s infinite both;
+          animation: cake-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(3) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0);
+  -webkit-animation: cake-wave 1s 0.3s infinite both;
+          animation: cake-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  -webkit-animation: cake-wave 1s 0.4s infinite both;
+          animation: cake-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  -webkit-animation: cake-wave 1s 0.5s infinite both;
+          animation: cake-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  -webkit-animation: cake-wave 1s 0.6s infinite both;
+          animation: cake-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(1) {
+  -webkit-animation: shadow-wave 1s 0.1s infinite both;
+          animation: shadow-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-wave 1s 0.2s infinite both;
+          animation: shadow-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(3) {
+  opacity: 1;
+  -webkit-animation: shadow-wave 1s 0.3s infinite both;
+          animation: shadow-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  -webkit-animation: shadow-wave 1s 0.4s infinite both;
+          animation: shadow-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: shadow-wave 1s 0.5s infinite both;
+          animation: shadow-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  -webkit-animation: shadow-wave 1s 0.6s infinite both;
+          animation: shadow-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  transform-origin: 50% 50%;
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) rotate(90deg);
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  opacity: 0;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  transform-origin: 50% 50%;
+  -webkit-animation: blast-off 2s;
+          animation: blast-off 2s;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: blast-shadow 2s;
+          animation: blast-shadow 2s;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 0) scale(1) rotate(0deg) translate3d(calc((var(--width)) * 2vmin), 0, calc(var(--width) * -1vmin)) rotateY(100deg);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  opacity: 0.8;
+  transform: translateZ(0.00001vmin) translate(100%, 0);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:before {
+  opacity: 0.8;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:after {
+  opacity: 0.8;
+  transform: translate3d(0%, -50%, -0.2vmin) scaleX(1);
+}
+[type='checkbox']:nth-of-type(3):checked ~ label:nth-of-type(3) {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 11;
+  opacity: 0.3;
+  transform: translateZ(30vmin);
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(3) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate));
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(3) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-active-translate));
+  opacity: var(--shadow-active-opacity);
+}
+[type='checkbox']:nth-of-type(1):checked ~ .backdrop {
+  -webkit-animation: party-drop 1s infinite linear;
+          animation: party-drop 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-flip 1s infinite linear;
+          animation: cake-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-flip 1s infinite linear;
+          animation: shadow-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(1) {
+  -webkit-animation: cake-wave 1s 0.1s infinite both;
+          animation: cake-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-wave 1s 0.2s infinite both;
+          animation: cake-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(3) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0);
+  -webkit-animation: cake-wave 1s 0.3s infinite both;
+          animation: cake-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  -webkit-animation: cake-wave 1s 0.4s infinite both;
+          animation: cake-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  -webkit-animation: cake-wave 1s 0.5s infinite both;
+          animation: cake-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  -webkit-animation: cake-wave 1s 0.6s infinite both;
+          animation: cake-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(1) {
+  -webkit-animation: shadow-wave 1s 0.1s infinite both;
+          animation: shadow-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-wave 1s 0.2s infinite both;
+          animation: shadow-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(3) {
+  opacity: 1;
+  -webkit-animation: shadow-wave 1s 0.3s infinite both;
+          animation: shadow-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  -webkit-animation: shadow-wave 1s 0.4s infinite both;
+          animation: shadow-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: shadow-wave 1s 0.5s infinite both;
+          animation: shadow-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  -webkit-animation: shadow-wave 1s 0.6s infinite both;
+          animation: shadow-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  transform-origin: 50% 50%;
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) rotate(90deg);
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  opacity: 0;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  transform-origin: 50% 50%;
+  -webkit-animation: blast-off 2s;
+          animation: blast-off 2s;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: blast-shadow 2s;
+          animation: blast-shadow 2s;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 0) scale(1) rotate(0deg) translate3d(calc((var(--width)) * 2vmin), 0, calc(var(--width) * -1vmin)) rotateY(100deg);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  opacity: 0.8;
+  transform: translateZ(0.00001vmin) translate(100%, 0);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:before {
+  opacity: 0.8;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:after {
+  opacity: 0.8;
+  transform: translate3d(0%, -50%, -0.2vmin) scaleX(1);
+}
+[type='checkbox']:nth-of-type(4):checked ~ label:nth-of-type(4) {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 11;
+  opacity: 0.3;
+  transform: translateZ(30vmin);
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate));
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-active-translate));
+  opacity: var(--shadow-active-opacity);
+}
+[type='checkbox']:nth-of-type(1):checked ~ .backdrop {
+  -webkit-animation: party-drop 1s infinite linear;
+          animation: party-drop 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-flip 1s infinite linear;
+          animation: cake-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-flip 1s infinite linear;
+          animation: shadow-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(1) {
+  -webkit-animation: cake-wave 1s 0.1s infinite both;
+          animation: cake-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-wave 1s 0.2s infinite both;
+          animation: cake-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(3) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0);
+  -webkit-animation: cake-wave 1s 0.3s infinite both;
+          animation: cake-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  -webkit-animation: cake-wave 1s 0.4s infinite both;
+          animation: cake-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  -webkit-animation: cake-wave 1s 0.5s infinite both;
+          animation: cake-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  -webkit-animation: cake-wave 1s 0.6s infinite both;
+          animation: cake-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(1) {
+  -webkit-animation: shadow-wave 1s 0.1s infinite both;
+          animation: shadow-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-wave 1s 0.2s infinite both;
+          animation: shadow-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(3) {
+  opacity: 1;
+  -webkit-animation: shadow-wave 1s 0.3s infinite both;
+          animation: shadow-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  -webkit-animation: shadow-wave 1s 0.4s infinite both;
+          animation: shadow-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: shadow-wave 1s 0.5s infinite both;
+          animation: shadow-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  -webkit-animation: shadow-wave 1s 0.6s infinite both;
+          animation: shadow-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  transform-origin: 50% 50%;
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) rotate(90deg);
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  opacity: 0;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  transform-origin: 50% 50%;
+  -webkit-animation: blast-off 2s;
+          animation: blast-off 2s;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: blast-shadow 2s;
+          animation: blast-shadow 2s;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 0) scale(1) rotate(0deg) translate3d(calc((var(--width)) * 2vmin), 0, calc(var(--width) * -1vmin)) rotateY(100deg);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  opacity: 0.8;
+  transform: translateZ(0.00001vmin) translate(100%, 0);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:before {
+  opacity: 0.8;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:after {
+  opacity: 0.8;
+  transform: translate3d(0%, -50%, -0.2vmin) scaleX(1);
+}
+[type='checkbox']:nth-of-type(5):checked ~ label:nth-of-type(5) {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 11;
+  opacity: 0.3;
+  transform: translateZ(30vmin);
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate));
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-active-translate));
+  opacity: var(--shadow-active-opacity);
+}
+[type='checkbox']:nth-of-type(1):checked ~ .backdrop {
+  -webkit-animation: party-drop 1s infinite linear;
+          animation: party-drop 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-flip 1s infinite linear;
+          animation: cake-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-flip 1s infinite linear;
+          animation: shadow-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(1) {
+  -webkit-animation: cake-wave 1s 0.1s infinite both;
+          animation: cake-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-wave 1s 0.2s infinite both;
+          animation: cake-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(3) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0);
+  -webkit-animation: cake-wave 1s 0.3s infinite both;
+          animation: cake-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  -webkit-animation: cake-wave 1s 0.4s infinite both;
+          animation: cake-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  -webkit-animation: cake-wave 1s 0.5s infinite both;
+          animation: cake-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  -webkit-animation: cake-wave 1s 0.6s infinite both;
+          animation: cake-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(1) {
+  -webkit-animation: shadow-wave 1s 0.1s infinite both;
+          animation: shadow-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-wave 1s 0.2s infinite both;
+          animation: shadow-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(3) {
+  opacity: 1;
+  -webkit-animation: shadow-wave 1s 0.3s infinite both;
+          animation: shadow-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  -webkit-animation: shadow-wave 1s 0.4s infinite both;
+          animation: shadow-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: shadow-wave 1s 0.5s infinite both;
+          animation: shadow-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  -webkit-animation: shadow-wave 1s 0.6s infinite both;
+          animation: shadow-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  transform-origin: 50% 50%;
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) rotate(90deg);
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  opacity: 0;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  transform-origin: 50% 50%;
+  -webkit-animation: blast-off 2s;
+          animation: blast-off 2s;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: blast-shadow 2s;
+          animation: blast-shadow 2s;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 0) scale(1) rotate(0deg) translate3d(calc((var(--width)) * 2vmin), 0, calc(var(--width) * -1vmin)) rotateY(100deg);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  opacity: 0.8;
+  transform: translateZ(0.00001vmin) translate(100%, 0);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:before {
+  opacity: 0.8;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:after {
+  opacity: 0.8;
+  transform: translate3d(0%, -50%, -0.2vmin) scaleX(1);
+}
+[type='checkbox']:nth-of-type(6):checked ~ label:nth-of-type(6) {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 11;
+  opacity: 0.3;
+  transform: translateZ(30vmin);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate));
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  transform: translateZ(0.00001vmin) translate(0, var(--shadow-active-translate));
+  opacity: var(--shadow-active-opacity);
+}
+[type='checkbox']:nth-of-type(1):checked ~ .backdrop {
+  -webkit-animation: party-drop 1s infinite linear;
+          animation: party-drop 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-flip 1s infinite linear;
+          animation: cake-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(2):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-flip 1s infinite linear;
+          animation: shadow-flip 1s infinite linear;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(1) {
+  -webkit-animation: cake-wave 1s 0.1s infinite both;
+          animation: cake-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(2) {
+  -webkit-animation: cake-wave 1s 0.2s infinite both;
+          animation: cake-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(3) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0);
+  -webkit-animation: cake-wave 1s 0.3s infinite both;
+          animation: cake-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  -webkit-animation: cake-wave 1s 0.4s infinite both;
+          animation: cake-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  -webkit-animation: cake-wave 1s 0.5s infinite both;
+          animation: cake-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  -webkit-animation: cake-wave 1s 0.6s infinite both;
+          animation: cake-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(1) {
+  -webkit-animation: shadow-wave 1s 0.1s infinite both;
+          animation: shadow-wave 1s 0.1s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(2) {
+  -webkit-animation: shadow-wave 1s 0.2s infinite both;
+          animation: shadow-wave 1s 0.2s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(3) {
+  opacity: 1;
+  -webkit-animation: shadow-wave 1s 0.3s infinite both;
+          animation: shadow-wave 1s 0.3s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  -webkit-animation: shadow-wave 1s 0.4s infinite both;
+          animation: shadow-wave 1s 0.4s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: shadow-wave 1s 0.5s infinite both;
+          animation: shadow-wave 1s 0.5s infinite both;
+}
+[type='checkbox']:nth-of-type(3):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  -webkit-animation: shadow-wave 1s 0.6s infinite both;
+          animation: shadow-wave 1s 0.6s infinite both;
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice:nth-of-type(4) {
+  transform-origin: 50% 50%;
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) rotate(90deg);
+}
+[type='checkbox']:nth-of-type(4):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(4) {
+  opacity: 0;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice:nth-of-type(5) {
+  transform-origin: 50% 50%;
+  -webkit-animation: blast-off 2s;
+          animation: blast-off 2s;
+}
+[type='checkbox']:nth-of-type(5):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(5) {
+  -webkit-animation: blast-shadow 2s;
+          animation: blast-shadow 2s;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice:nth-of-type(6) {
+  transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 0) scale(1) rotate(0deg) translate3d(calc((var(--width)) * 2vmin), 0, calc(var(--width) * -1vmin)) rotateY(100deg);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .cake .cake-slice__shadow:nth-of-type(6) {
+  opacity: 0.8;
+  transform: translateZ(0.00001vmin) translate(100%, 0);
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:before {
+  opacity: 0.8;
+}
+[type='checkbox']:nth-of-type(6):checked ~ .scene .plane .plate:after {
+  opacity: 0.8;
+  transform: translate3d(0%, -50%, -0.2vmin) scaleX(1);
+}
+.spinner {
+  height: 100vh;
+  width: 15vw;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+.spinner:hover ~ .scene .plane {
+  -webkit-animation-name: cake-spin;
+          animation-name: cake-spin;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+.spinner--left {
+  left: 0;
+}
+.spinner--right {
+  right: 0;
+}
+.spinner--right:hover ~ .scene .plane {
+  animation-direction: reverse;
+}
+.cake-bear {
+  mix-blend-mode: overlay;
+  position: absolute;
+  width: 100%;
+  transform: rotate(90deg) translate(15%, 0);
+}
+@-webkit-keyframes party-drop {
+  0% {
+    background: hsl(190, 20%, 40%);
   }
+  1% {
+    background: hsl(193.6, 20%, 40%);
+  }
+  2% {
+    background: hsl(197.2, 20%, 40%);
+  }
+  3% {
+    background: hsl(200.8, 20%, 40%);
+  }
+  4% {
+    background: hsl(204.4, 20%, 40%);
+  }
+  5% {
+    background: hsl(208, 20%, 40%);
+  }
+  6% {
+    background: hsl(211.6, 20%, 40%);
+  }
+  7% {
+    background: hsl(215.2, 20%, 40%);
+  }
+  8% {
+    background: hsl(218.8, 20%, 40%);
+  }
+  9% {
+    background: hsl(222.4, 20%, 40%);
+  }
+  10% {
+    background: hsl(226, 20%, 40%);
+  }
+  11% {
+    background: hsl(229.6, 20%, 40%);
+  }
+  12% {
+    background: hsl(233.2, 20%, 40%);
+  }
+  13% {
+    background: hsl(236.8, 20%, 40%);
+  }
+  14% {
+    background: hsl(240.4, 20%, 40%);
+  }
+  15% {
+    background: hsl(244, 20%, 40%);
+  }
+  16% {
+    background: hsl(247.6, 20%, 40%);
+  }
+  17% {
+    background: hsl(251.2, 20%, 40%);
+  }
+  18% {
+    background: hsl(254.8, 20%, 40%);
+  }
+  19% {
+    background: hsl(258.4, 20%, 40%);
+  }
+  20% {
+    background: hsl(262, 20%, 40%);
+  }
+  21% {
+    background: hsl(265.6, 20%, 40%);
+  }
+  22% {
+    background: hsl(269.2, 20%, 40%);
+  }
+  23% {
+    background: hsl(272.8, 20%, 40%);
+  }
+  24% {
+    background: hsl(276.4, 20%, 40%);
+  }
+  25% {
+    background: hsl(280, 20%, 40%);
+  }
+  26% {
+    background: hsl(283.6, 20%, 40%);
+  }
+  27% {
+    background: hsl(287.2, 20%, 40%);
+  }
+  28% {
+    background: hsl(290.8, 20%, 40%);
+  }
+  29% {
+    background: hsl(294.4, 20%, 40%);
+  }
+  30% {
+    background: hsl(298, 20%, 40%);
+  }
+  31% {
+    background: hsl(301.6, 20%, 40%);
+  }
+  32% {
+    background: hsl(305.2, 20%, 40%);
+  }
+  33% {
+    background: hsl(308.8, 20%, 40%);
+  }
+  34% {
+    background: hsl(312.4, 20%, 40%);
+  }
+  35% {
+    background: hsl(316, 20%, 40%);
+  }
+  36% {
+    background: hsl(319.6, 20%, 40%);
+  }
+  37% {
+    background: hsl(323.20000000000005, 20%, 40%);
+  }
+  38% {
+    background: hsl(326.8, 20%, 40%);
+  }
+  39% {
+    background: hsl(330.4, 20%, 40%);
+  }
+  40% {
+    background: hsl(334, 20%, 40%);
+  }
+  41% {
+    background: hsl(337.6, 20%, 40%);
+  }
+  42% {
+    background: hsl(341.20000000000005, 20%, 40%);
+  }
+  43% {
+    background: hsl(344.8, 20%, 40%);
+  }
+  44% {
+    background: hsl(348.4, 20%, 40%);
+  }
+  45% {
+    background: hsl(352, 20%, 40%);
+  }
+  46% {
+    background: hsl(355.6, 20%, 40%);
+  }
+  47% {
+    background: hsl(359.20000000000005, 20%, 40%);
+  }
+  48% {
+    background: hsl(362.8, 20%, 40%);
+  }
+  49% {
+    background: hsl(366.4, 20%, 40%);
+  }
+  50% {
+    background: hsl(370, 20%, 40%);
+  }
+  51% {
+    background: hsl(373.6, 20%, 40%);
+  }
+  52% {
+    background: hsl(377.20000000000005, 20%, 40%);
+  }
+  53% {
+    background: hsl(380.8, 20%, 40%);
+  }
+  54% {
+    background: hsl(384.4, 20%, 40%);
+  }
+  55% {
+    background: hsl(388, 20%, 40%);
+  }
+  56% {
+    background: hsl(391.6, 20%, 40%);
+  }
+  57% {
+    background: hsl(395.20000000000005, 20%, 40%);
+  }
+  58% {
+    background: hsl(398.8, 20%, 40%);
+  }
+  59% {
+    background: hsl(402.4, 20%, 40%);
+  }
+  60% {
+    background: hsl(406, 20%, 40%);
+  }
+  61% {
+    background: hsl(409.6, 20%, 40%);
+  }
+  62% {
+    background: hsl(413.20000000000005, 20%, 40%);
+  }
+  63% {
+    background: hsl(416.8, 20%, 40%);
+  }
+  64% {
+    background: hsl(420.4, 20%, 40%);
+  }
+  65% {
+    background: hsl(424, 20%, 40%);
+  }
+  66% {
+    background: hsl(427.6, 20%, 40%);
+  }
+  67% {
+    background: hsl(431.20000000000005, 20%, 40%);
+  }
+  68% {
+    background: hsl(434.8, 20%, 40%);
+  }
+  69% {
+    background: hsl(438.4, 20%, 40%);
+  }
+  70% {
+    background: hsl(442, 20%, 40%);
+  }
+  71% {
+    background: hsl(445.6, 20%, 40%);
+  }
+  72% {
+    background: hsl(449.2, 20%, 40%);
+  }
+  73% {
+    background: hsl(452.8, 20%, 40%);
+  }
+  74% {
+    background: hsl(456.40000000000003, 20%, 40%);
+  }
+  75% {
+    background: hsl(460, 20%, 40%);
+  }
+  76% {
+    background: hsl(463.6, 20%, 40%);
+  }
+  77% {
+    background: hsl(467.2, 20%, 40%);
+  }
+  78% {
+    background: hsl(470.8, 20%, 40%);
+  }
+  79% {
+    background: hsl(474.40000000000003, 20%, 40%);
+  }
+  80% {
+    background: hsl(478, 20%, 40%);
+  }
+  81% {
+    background: hsl(481.6, 20%, 40%);
+  }
+  82% {
+    background: hsl(485.2, 20%, 40%);
+  }
+  83% {
+    background: hsl(488.8, 20%, 40%);
+  }
+  84% {
+    background: hsl(492.40000000000003, 20%, 40%);
+  }
+  85% {
+    background: hsl(496, 20%, 40%);
+  }
+  86% {
+    background: hsl(499.6, 20%, 40%);
+  }
+  87% {
+    background: hsl(503.2, 20%, 40%);
+  }
+  88% {
+    background: hsl(506.8, 20%, 40%);
+  }
+  89% {
+    background: hsl(510.40000000000003, 20%, 40%);
+  }
+  90% {
+    background: hsl(514, 20%, 40%);
+  }
+  91% {
+    background: hsl(517.6, 20%, 40%);
+  }
+  92% {
+    background: hsl(521.2, 20%, 40%);
+  }
+  93% {
+    background: hsl(524.8, 20%, 40%);
+  }
+  94% {
+    background: hsl(528.4000000000001, 20%, 40%);
+  }
+  95% {
+    background: hsl(532, 20%, 40%);
+  }
+  96% {
+    background: hsl(535.6, 20%, 40%);
+  }
+  97% {
+    background: hsl(539.2, 20%, 40%);
+  }
+  98% {
+    background: hsl(542.8, 20%, 40%);
+  }
+  99% {
+    background: hsl(546.4000000000001, 20%, 40%);
+  }
+  100% {
+    background: hsl(550, 20%, 40%);
+  }
+}
+@keyframes party-drop {
+  0% {
+    background: hsl(190, 20%, 40%);
+  }
+  1% {
+    background: hsl(193.6, 20%, 40%);
+  }
+  2% {
+    background: hsl(197.2, 20%, 40%);
+  }
+  3% {
+    background: hsl(200.8, 20%, 40%);
+  }
+  4% {
+    background: hsl(204.4, 20%, 40%);
+  }
+  5% {
+    background: hsl(208, 20%, 40%);
+  }
+  6% {
+    background: hsl(211.6, 20%, 40%);
+  }
+  7% {
+    background: hsl(215.2, 20%, 40%);
+  }
+  8% {
+    background: hsl(218.8, 20%, 40%);
+  }
+  9% {
+    background: hsl(222.4, 20%, 40%);
+  }
+  10% {
+    background: hsl(226, 20%, 40%);
+  }
+  11% {
+    background: hsl(229.6, 20%, 40%);
+  }
+  12% {
+    background: hsl(233.2, 20%, 40%);
+  }
+  13% {
+    background: hsl(236.8, 20%, 40%);
+  }
+  14% {
+    background: hsl(240.4, 20%, 40%);
+  }
+  15% {
+    background: hsl(244, 20%, 40%);
+  }
+  16% {
+    background: hsl(247.6, 20%, 40%);
+  }
+  17% {
+    background: hsl(251.2, 20%, 40%);
+  }
+  18% {
+    background: hsl(254.8, 20%, 40%);
+  }
+  19% {
+    background: hsl(258.4, 20%, 40%);
+  }
+  20% {
+    background: hsl(262, 20%, 40%);
+  }
+  21% {
+    background: hsl(265.6, 20%, 40%);
+  }
+  22% {
+    background: hsl(269.2, 20%, 40%);
+  }
+  23% {
+    background: hsl(272.8, 20%, 40%);
+  }
+  24% {
+    background: hsl(276.4, 20%, 40%);
+  }
+  25% {
+    background: hsl(280, 20%, 40%);
+  }
+  26% {
+    background: hsl(283.6, 20%, 40%);
+  }
+  27% {
+    background: hsl(287.2, 20%, 40%);
+  }
+  28% {
+    background: hsl(290.8, 20%, 40%);
+  }
+  29% {
+    background: hsl(294.4, 20%, 40%);
+  }
+  30% {
+    background: hsl(298, 20%, 40%);
+  }
+  31% {
+    background: hsl(301.6, 20%, 40%);
+  }
+  32% {
+    background: hsl(305.2, 20%, 40%);
+  }
+  33% {
+    background: hsl(308.8, 20%, 40%);
+  }
+  34% {
+    background: hsl(312.4, 20%, 40%);
+  }
+  35% {
+    background: hsl(316, 20%, 40%);
+  }
+  36% {
+    background: hsl(319.6, 20%, 40%);
+  }
+  37% {
+    background: hsl(323.20000000000005, 20%, 40%);
+  }
+  38% {
+    background: hsl(326.8, 20%, 40%);
+  }
+  39% {
+    background: hsl(330.4, 20%, 40%);
+  }
+  40% {
+    background: hsl(334, 20%, 40%);
+  }
+  41% {
+    background: hsl(337.6, 20%, 40%);
+  }
+  42% {
+    background: hsl(341.20000000000005, 20%, 40%);
+  }
+  43% {
+    background: hsl(344.8, 20%, 40%);
+  }
+  44% {
+    background: hsl(348.4, 20%, 40%);
+  }
+  45% {
+    background: hsl(352, 20%, 40%);
+  }
+  46% {
+    background: hsl(355.6, 20%, 40%);
+  }
+  47% {
+    background: hsl(359.20000000000005, 20%, 40%);
+  }
+  48% {
+    background: hsl(362.8, 20%, 40%);
+  }
+  49% {
+    background: hsl(366.4, 20%, 40%);
+  }
+  50% {
+    background: hsl(370, 20%, 40%);
+  }
+  51% {
+    background: hsl(373.6, 20%, 40%);
+  }
+  52% {
+    background: hsl(377.20000000000005, 20%, 40%);
+  }
+  53% {
+    background: hsl(380.8, 20%, 40%);
+  }
+  54% {
+    background: hsl(384.4, 20%, 40%);
+  }
+  55% {
+    background: hsl(388, 20%, 40%);
+  }
+  56% {
+    background: hsl(391.6, 20%, 40%);
+  }
+  57% {
+    background: hsl(395.20000000000005, 20%, 40%);
+  }
+  58% {
+    background: hsl(398.8, 20%, 40%);
+  }
+  59% {
+    background: hsl(402.4, 20%, 40%);
+  }
+  60% {
+    background: hsl(406, 20%, 40%);
+  }
+  61% {
+    background: hsl(409.6, 20%, 40%);
+  }
+  62% {
+    background: hsl(413.20000000000005, 20%, 40%);
+  }
+  63% {
+    background: hsl(416.8, 20%, 40%);
+  }
+  64% {
+    background: hsl(420.4, 20%, 40%);
+  }
+  65% {
+    background: hsl(424, 20%, 40%);
+  }
+  66% {
+    background: hsl(427.6, 20%, 40%);
+  }
+  67% {
+    background: hsl(431.20000000000005, 20%, 40%);
+  }
+  68% {
+    background: hsl(434.8, 20%, 40%);
+  }
+  69% {
+    background: hsl(438.4, 20%, 40%);
+  }
+  70% {
+    background: hsl(442, 20%, 40%);
+  }
+  71% {
+    background: hsl(445.6, 20%, 40%);
+  }
+  72% {
+    background: hsl(449.2, 20%, 40%);
+  }
+  73% {
+    background: hsl(452.8, 20%, 40%);
+  }
+  74% {
+    background: hsl(456.40000000000003, 20%, 40%);
+  }
+  75% {
+    background: hsl(460, 20%, 40%);
+  }
+  76% {
+    background: hsl(463.6, 20%, 40%);
+  }
+  77% {
+    background: hsl(467.2, 20%, 40%);
+  }
+  78% {
+    background: hsl(470.8, 20%, 40%);
+  }
+  79% {
+    background: hsl(474.40000000000003, 20%, 40%);
+  }
+  80% {
+    background: hsl(478, 20%, 40%);
+  }
+  81% {
+    background: hsl(481.6, 20%, 40%);
+  }
+  82% {
+    background: hsl(485.2, 20%, 40%);
+  }
+  83% {
+    background: hsl(488.8, 20%, 40%);
+  }
+  84% {
+    background: hsl(492.40000000000003, 20%, 40%);
+  }
+  85% {
+    background: hsl(496, 20%, 40%);
+  }
+  86% {
+    background: hsl(499.6, 20%, 40%);
+  }
+  87% {
+    background: hsl(503.2, 20%, 40%);
+  }
+  88% {
+    background: hsl(506.8, 20%, 40%);
+  }
+  89% {
+    background: hsl(510.40000000000003, 20%, 40%);
+  }
+  90% {
+    background: hsl(514, 20%, 40%);
+  }
+  91% {
+    background: hsl(517.6, 20%, 40%);
+  }
+  92% {
+    background: hsl(521.2, 20%, 40%);
+  }
+  93% {
+    background: hsl(524.8, 20%, 40%);
+  }
+  94% {
+    background: hsl(528.4000000000001, 20%, 40%);
+  }
+  95% {
+    background: hsl(532, 20%, 40%);
+  }
+  96% {
+    background: hsl(535.6, 20%, 40%);
+  }
+  97% {
+    background: hsl(539.2, 20%, 40%);
+  }
+  98% {
+    background: hsl(542.8, 20%, 40%);
+  }
+  99% {
+    background: hsl(546.4000000000001, 20%, 40%);
+  }
+  100% {
+    background: hsl(550, 20%, 40%);
+  }
+}
+@-webkit-keyframes cake-flip {
+  0% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, -1vmin) scale(0.95) rotate(0deg);
+  }
+  50% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) scale(1.2);
+  }
+  75% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) scale(1.1) rotateX(-360deg);
+  }
+  100% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 0) scale(1) rotate(-360deg);
+  }
+}
+@keyframes cake-flip {
+  0% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, -1vmin) scale(0.95) rotate(0deg);
+  }
+  50% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) scale(1.2);
+  }
+  75% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 20vmin) scale(1.1) rotateX(-360deg);
+  }
+  100% {
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 0) scale(1) rotate(-360deg);
+  }
+}
+@-webkit-keyframes shadow-flip {
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+}
+@keyframes shadow-flip {
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes cake-spin {
+  to {
+    transform: rotateX(-24deg) rotateY(-24deg) rotateX(90deg) rotate(360deg);
+  }
+}
+@keyframes cake-spin {
+  to {
+    transform: rotateX(-24deg) rotateY(-24deg) rotateX(90deg) rotate(360deg);
+  }
+}
+@-webkit-keyframes show-off {
+  50% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 15vmin) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 15vmin) rotate(90deg);
+  }
+}
+@keyframes show-off {
+  50% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 15vmin) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) translate3d(0, 0, 15vmin) rotate(90deg);
+  }
+}
+@-webkit-keyframes blast-off {
+  0%, 5%, 10%, 15%, 20%, 25% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(2deg) translate3d(0, 0, 0) scale(1);
+  }
+  2.5%, 7.5%, 12.5%, 17.5%, 22.5% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(-2deg) translate3d(0, 0, 0) scale(1);
+  }
+  80% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(0deg) translate3d(0, 0, 100vmin) scale(1);
+  }
+  80.1% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(0deg) translate3d(0, 0, 100vmin) scale(0);
+  }
+  80.2% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(0deg) translate3d(0, 0, 0) scale(0);
+  }
+  100% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(0deg) translate3d(0, 0, 0) scale(1);
+  }
+}
+@keyframes blast-off {
+  0%, 5%, 10%, 15%, 20%, 25% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(2deg) translate3d(0, 0, 0) scale(1);
+  }
+  2.5%, 7.5%, 12.5%, 17.5%, 22.5% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(-2deg) translate3d(0, 0, 0) scale(1);
+  }
+  80% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(0deg) translate3d(0, 0, 100vmin) scale(1);
+  }
+  80.1% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(0deg) translate3d(0, 0, 100vmin) scale(0);
+  }
+  80.2% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(0deg) translate3d(0, 0, 0) scale(0);
+  }
+  100% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, var(--cake-active-y), var(--cake-active-z)) rotateX(var(--cake-active-rotate)) rotateX(0deg) translate3d(0, 0, 0) scale(1);
+  }
+}
+@-webkit-keyframes blast-shadow {
+  80% {
+    opacity: 0;
+  }
+}
+@keyframes blast-shadow {
+  80% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes cake-wave {
+  0, 100% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 3vmin);
+  }
+}
+@keyframes cake-wave {
+  0, 100% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 0, calc((var(--depth) / 2) * 1vmin)) translate3d(0, 0, 0) rotateX(0) translate3d(0, 0, 3vmin);
+  }
+}
+@-webkit-keyframes shadow-wave {
+  50% {
+    transform: translateZ(0.00001vmin) translate(0, var(--shadow-active-translate));
+    opacity: var(--shadow-active-opacity);
+  }
+}
+@keyframes shadow-wave {
+  50% {
+    transform: translateZ(0.00001vmin) translate(0, var(--shadow-active-translate));
+    opacity: var(--shadow-active-opacity);
+  }
+}
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+<body>
+<input type="checkbox" id="one"/>
+<input type="checkbox" id="two"/>
+<input type="checkbox" id="three"/>
+<input type="checkbox" id="four"/>
+<input type="checkbox" id="five"/>
+<input type="checkbox" id="six"/>
+<label class="label-mask" for="one"></label>
+<label class="label-mask" for="two"></label>
+<label class="label-mask" for="three"></label>
+<label class="label-mask" for="four"></label>
+<label class="label-mask" for="five"></label>
+<label class="label-mask" for="six"></label>
+<div class="spinner spinner--left"></div>
+<div class="spinner spinner--right"></div>
+<div class="scene">
+  <div class="plane">
+    <label class="cube plate">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </label>
+    <div class="cake">
+      <label class="cube cake-slice" for="one">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <label class="cube cake-slice" for="two">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <label class="cube cake-slice" for="three">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <label class="cube cake-slice" for="four">
+        <div></div>
+        <div><span class="css-label">CSS is awesome</span></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <label class="cube cake-slice" for="five">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <label class="cube cake-slice" for="six">
+        <div></div>
+        <div></div>
+        <div><img class="cake-bear" src="https://assets.codepen.io/605876/avatar.png"/></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </label><span class="cake-slice__shadow"></span><span class="cake-slice__shadow"></span><span class="cake-slice__shadow"></span><span class="cake-slice__shadow"></span><span class="cake-slice__shadow"></span><span class="cake-slice__shadow"></span>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
+</div>
+<div class="backdrop"></div>
 </body>
 </html>
