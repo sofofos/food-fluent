@@ -15,7 +15,7 @@ end
 def generate_restaurant
   restaurant = Restaurant.new(
   name: Faker::Restaurant.name,
-  location: Faker::Address.street_address + ", Montreal, QC",
+  location: Faker::Address.street_address + "\n, Montreal, QC",
   phone_number: generate_number
   )
   # generating url after creating restaurant bcus uses name attribute

@@ -68,7 +68,7 @@
   transition: opacity .2s, visibility .2s;
 }
 
-.card-layer > a {
+.card-layer > .card-hover-text {
   color: $forest!important;
   font-size: 24px;
   padding-bottom: 24px;
@@ -107,11 +107,12 @@
 
 
 .card-restaurant{
-  width: 80%;
+  width: 90%;
   border: 2px solid $forest;
   border-radius: 25px;
-  margin: 100px auto;
+  margin: 20px auto;
   position: relative;
+  box-shadow: 4px 4px 8px $grey;
 }
 
 .card-restaurant-img{
@@ -124,16 +125,25 @@
 .restaurant-contact-info{
   display: flex;
   flex-direction: column;
-  justify-content: between;
-  padding: 15px;
+  justify-content: space-between;
+  padding: 25px;
 }
 
 .card-match-calculation {
   position: absolute;
   top: 25px;
   left: 25px;
-  background-color: $forest-light;
+  background-color: $forest;
 }
+
+.contact-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
 
 
 

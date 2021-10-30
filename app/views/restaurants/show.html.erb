@@ -10,16 +10,21 @@
         </div>
         <div class="d-flex justify-content-between">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-restaurant-img">
-          <div class="restaurant-contact-info align-items-between">
+          <div class="restaurant-contact-info">
             <div class="d-flex flex-column align-items-start">
-              <p> <%= @restaurant.location %> </p>  
-              <p> <%= @restaurant.phone_number %> </p>  
-              <p>  </p>  
-              <div class="buttons">
-                <button class="green-button w-75">See Menu</button>
-                <button class="green-button w-75"><%= link_to "Visit Website",@restaurant.website %></button>
-                <button class="green-button w-75">Back to Restaurants</button>
+              <div class="contact-item">
+                <%= image_tag 'address.svg', class:'card-icon' %>
+                <p> <%= @restaurant.location %> </p>                 
               </div>
+              <div class="contact-item">
+                <%= image_tag 'telephone.svg', class:'card-icon' %>
+                <p> <%= @restaurant.phone_number %> </p>  
+              </div>
+            </div>
+            <div class="buttons-container">
+              <a href="#" class="green-button">See Menu</a>
+              <%= link_to "Visit Website",@restaurant.website, class:"green-button" %>
+              <%= link_to "back", restaurants_path, class:"green-button" %>
             </div>
           </div>
         </div>

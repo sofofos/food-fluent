@@ -3,7 +3,7 @@ class DietProfilesController < ApplicationController
   def new
     @diet_profile = DietProfile.new
     authorize @diet_profile
-    @diet_labels = HealthLabel.all.uniq(&:name)
+    @diet_labels = HealthLabel.all.uniq(&:name).sort_by(&:name)
   end
 
   def create
@@ -12,7 +12,6 @@ class DietProfilesController < ApplicationController
       @diet_profile = DietProfile.new
       @diet_profile.user = current_user
       @diet_profile.health_label = HealthLabel.find(id.to_i)
-      add_procs
       authorize @diet_profile
       render :new && return unless @diet_profile.save
     end
