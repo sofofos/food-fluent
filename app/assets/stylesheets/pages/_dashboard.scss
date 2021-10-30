@@ -3,7 +3,7 @@
 #dash-main-list-diets,
 #dash-main-list-allergies,
 #dash-main-list-macros,
-#dash-list-friends,
+#dash-friends-titlebar-text,
 #dash-container-friends-find,
 #dash-container-friends-see {
   text-align: center;
@@ -11,7 +11,11 @@
 
 #dash-main-row {
   margin: 10px 0px 10px 0px;
+  max-width: 100%;
+  padding: 0;
 }
+// _dashboard.scss original card properties begin
+// if changes are made on these properties, copy changes to duplicates in _cards.scss
 #dash-main-card {
   height: 200px;
   margin: 10px 0px 10px 0px;
@@ -52,6 +56,7 @@
   text-align: center;
   width: 140px;
 }
+// _dashboard.scss original card properties end
 
 #dash-main-list {
   margin: 10px 0px 10px 0px;
@@ -77,8 +82,8 @@
   list-style: none;
   margin: 10px 10px 10px 10px;
   overflow: hidden;
-  padding: 0px;
-  width: 33%, 33%, 33%;
+  padding: 0;
+  width: 33.33%, 33.33%, 33.33%;
 }
 .dash-main-list-diet,
 .dash-main-list-allergy,
@@ -107,22 +112,135 @@
   padding: 0;
 }
 
-#dash-friends {
-  margin: 30px 0px 10px 0px;
-  padding: 0px;
+#dash-friends-row {
+  margin: 10px 0px 10px 0px;
+  max-width: 100%;
+  min-width: 1110px;
+  padding: 0;
 }
-#dash-list-friends {
+#dash-friends-titlebar {
+  margin: 10px;
+  min-width: 1090px;
+  padding: 0;
+}
+
+#dash-friends-titlebar-left,
+#dash-friends-titlebar-center,
+#dash-friends-titlebar-right {
+  height: 80px;
   margin: 10px 0px 10px 0px;
 }
-#dash-links-friends,
-#dash-search {
+#dash-friends-titlebar-left {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  width: 33.33%;
 }
+#dash-friends-titlebar-left-text {
+  font-weight: bold;
+  margin: 10px 0px 10px 0px;
+  text-align: left;
+  width: 100%;
+}
+#dash-friends-titlebar-center {
+  width: 33.33%;
+}
+#dash-friends-titlebar-center form {
+  display: flex;
+  align-items: center;
+  margin: 0px 10px 0px 10px;
+  width: 100%;
+}
+#dash-friends-titlebar-center-bar {
+  border: 2px solid $forest;
+  border-radius: 25px;
+  width: 80%;
+}
+#dash-friends-titlebar-center-button {
+  background-color: $white;
+  border: 2px solid $grey;
+  border-radius: 25px;
+  color: $forest;
+  margin-left: 5px;
+  width: 20%;
+}
+#dash-friends-titlebar-right {
+  width: 33.33%;
+}
+#dash-friends-titlebar-right-box {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  height: 100%;
+  width: 100%;
+}
+#dash-friends-titlebar-right-button {
+  background: $forest;
+  border: 2px solid $grey;
+  border-radius: 999px;
+  -moz-border-radius: 999px;
+  -webkit-border-radius: 999px;
+  color: $white;
+  height: 30px;
+  line-height: 1.5em;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  transition: color 0.3s linear;
+  transition: background 0.3s linear;
+  -o-transition: background 0.3s linear;
+  -moz-transition: background 0.3s linear;
+  -ms-transition: background 0.3s linear;
+  -webkit-transition: background 0.3s linear;
+  width: 30px;
+}
+#dash-friends-titlebar-right-button:hover {
+  background: $kelly;
+  cursor: pointer;
+}
+
+
+
+
+// OPTIONAL BEGIN
 #dash-container-friends-find,
 #dash-container-friends-see {
   width: 50%;
 }
-#dash-search {
+#dash-links-friends {
+  display: flex;
+  justify-content: center;
+}
+// OPTIONAL END
+
+#dash-restos-row {
+  display: flex;
+  justify-content: center;
   margin: 10px 0px 10px 0px;
+  max-width: 100%;
+  min-width: 1110px;
+  padding: 0;
+}
+#dash-restos-titlebar {
+  margin: 10px;
+  min-width: 1090px;
+  padding: 0;
+}
+#dash-restos-titlebar-left,
+#dash-restos-titlebar-right {
+  height: 80px;
+  margin: 10px 0px 10px 0px;
+}
+#dash-restos-titlebar-left {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+#dash-restos-titlebar-left-text {
+  font-weight: bold;
+  margin: 10px 0px 10px 0px;
+  text-align: left;
+  width: 100%;
+}
+#dash-restos-titlebar-right {
+  width: 50%;
 }
