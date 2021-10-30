@@ -31,9 +31,9 @@
       <div id='card-dash-friend'>
         <%= friend.name %>
         <% friend.diet_profiles.each do |tag| %>
-          <i class='fas fa-ice-cream'>
             <%= tag.health_label.name  %>
-          </i>
+            <% tag.health_label.assign_icon(tag.health_label) %>
+              <%= image_tag "#{tag.health_label.icon_path}", class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
       </div>
     <% end %>
