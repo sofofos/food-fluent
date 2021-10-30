@@ -1,6 +1,5 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
-  after_action :sort_by_compatibility, only: %i[index]
   before_action :skip_policy_scope
 
   def index
@@ -52,6 +51,7 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  # currently only for matched restos. Do we extend it to @all_restaurants ?
   def sort_by_compatibility
     hash = {}
     @restaurants.map { |resto| hash[resto.id] = resto.compatibility(@users) }
