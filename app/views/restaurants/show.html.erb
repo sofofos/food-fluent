@@ -18,7 +18,9 @@
   </div>
   <% end %>
 
-<%= link_to "Back", restaurants_path %>
+<%if URI(request.referer).path == "/restaurants" %>
+  <%= link_to 'Back to search results', request.referer, class: "green-button" %>
+<%end%>
 
 <h2>Entire menu</h2>
 <% @dish_type.each do |key, name| %>
