@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
   before_action :skip_policy_scope
+  before_action :save_query_path, only: %i[index]
 
   def index
     @all_restaurants = Restaurant.all.order(created_at: :desc)
@@ -11,16 +12,20 @@ class RestaurantsController < ApplicationController
     find_matching_restaurants
     sort_by_compatibility
     @restaurants
+    session[:query] = @query_path
+    session[:user_ids] = @user_ids
   end
 
   def show
-    @return = request.filtered_path
-    @users = params[:user_ids].map { |id| User.find(id.to_i) }
+    @user_ids = session[:user_ids] || params[:user_ids]
+    @users = @user_ids.map { |id| User.find(id.to_i) }
     @dish_type = Dish.dish_types
-    # @starter = @restaurant.dishes.where(dish_type: "starter")
-    # @salad = @restaurant.dishes.where(dish_type: "salad")
-    # @main = @restaurant.dishes.where(dish_type: "main course")
-    # @dessert = @restaurant.dishes.where(dish_type: "desserts")
+    @query_path = session[:query]
+  end
+
+  def save_query_path
+    @query_path = "#{request.protocol}#{request.host_with_port}"
+    @query_path << request.fullpath if URI(request.fullpath).path == "/restaurants"
   end
 
   private
@@ -60,4 +65,5 @@ class RestaurantsController < ApplicationController
     sorted = hash.to_h
     @restaurants = sorted.map { |id, _| Restaurant.find(id) }
   end
+
 end

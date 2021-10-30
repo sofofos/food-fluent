@@ -19,7 +19,7 @@
 	}
 
 	.media-links {
-		position: absolute;
+		position: fixed;
 		right: 2em;
 		bottom: 50vh;
 		display: flex;
@@ -28,9 +28,14 @@
 	}
 
 	.media-link {
-	  height: 24px;
-	  margin: 10px 0px;
-	  width: 24px;
+	  height: 40px;
+	  padding: 10px;
+	  width: 40px;
+	}
+
+	.media-link:hover{
+	background-color: $forest-light-transparent;
+	border-radius: 10px;
 	}
 
 	p {
