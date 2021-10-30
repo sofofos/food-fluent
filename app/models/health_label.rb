@@ -19,4 +19,5 @@ class HealthLabel < ApplicationRecord
             "Low-Fat", "Low-Sodium", "Low-Sugar"]
 
   enum labels: { diets: diets, allergies: allergies, macros: macros }
+
 end

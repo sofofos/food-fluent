@@ -52,7 +52,7 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
 
 }
 
-//  <<<<<<< HEAD
+
 // hover effect on restaurants
 
 .card-wrap {
@@ -99,7 +99,7 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
   font-weight: 700;
 }
 
-// =======
+
 .dishes {
   display: none;
 }
@@ -107,48 +107,3 @@ color: linear-gradient(to right, #3D00EB, #ff003d); /* W3C, IE 10+/ Edge, Firefo
 .dishes.show {
   display: block;
 }
-//  >>>>>>> d1492be49ecbe1b255239c41005aecb9f5062495
-
-// _dashboard.scss duplicate card properties begin
-// if changes are made on these properties, copy changes to _dashboard.scss
-#dash-main-card {
-  height: 200px;
-  margin: 10px 0px 10px 0px;
-  width: 50%;
-}
-#dash-main-card-container {
-  border: 2px solid $forest;
-  border-radius: 15%;
-  height: 200px;
-  width: 200px;
-}
-#dash-main-card-picture-container {
-  display: flex;
-  align-items: center;
-  height: 120px;
-  justify-content: center;
-  padding: 0px 10px 0px 10px;
-  width: 170px;
-}
-#dash-main-card-picture {
-  border: 2px solid $grey;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-}
-#dash-main-card-text-container {
-  display: flex;
-  align-items: center;
-  height: 70px;
-  justify-content: center;
-  margin: 5px 0px 0px 0px;
-  width: 170px;
-}
-#dash-main-card-text {
-  color: $forest;
-  height: 60px;
-  margin: 5px 0px 5px 0px;
-  text-align: center;
-  width: 140px;
-}
-// _dashboard.scss duplicate card properties end
