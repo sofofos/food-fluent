@@ -1,21 +1,11 @@
-
 <div class="container">
   <div class="py-5">
-
-    <h1>
-      <%= @restaurant.name %>
-    </h1>
-    <p>
-      <%= @restaurant.location %>
-    </p>
-
-    <p>
-      <%#= @restaurant.compatibility(@users) %>
-    </p>
-
-
+    <h1><%= @restaurant.name %></h1>
+    <p><%= @restaurant.location %></p>
+    <p><%= @restaurant.compatibility(@users) %></p>
   <% @users.each do |user| %>
-  <button id="<%= user.id %>" class="person-button"><%= user.name %></button>
+  <button id="<%= user.id %>" class="person-button">
+    <%= user.name %></button>
   <% end %>
 
   
@@ -107,4 +97,3 @@
   <!-- container -->
 </div>
 
-<% console %>
