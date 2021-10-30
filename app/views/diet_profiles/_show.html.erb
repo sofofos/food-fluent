@@ -15,7 +15,9 @@
 
 <!-- TODO: ADD STYLING FOR THIS BUTTON -->
 <% if @diets.empty?  %>
-    <%= link_to "Add a diet profile", new_diet_profile_path %>
+  <%= link_to "Add a diet profile", new_diet_profile_path %>
+<% else %>
+  <%= link_to "Update your diet profile", edit_diet_profile_path(@diets.map(&:id)) %>
 <% end %>
 <!-- TODO: Add edit function for diet profile -->
 <!-- ^^ Until then, removing link to add dietprofile if one already exists^^ -->
