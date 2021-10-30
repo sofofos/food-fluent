@@ -26,14 +26,12 @@
             <a type="button" class="green-button" data-toggle="modal" data-target="#staticBackdrop">
               see menu
             </a>
-            <%= link_to "Visit Website",@restaurant.website, class:"green-button" %>
-
-            <% if URI(request.referer).path == "/restaurants" %>
-              <%= link_to 'Back', request.referer, class: "green-button" %>
-            <% end %>
+            <%= link_to "Visit Website", @restaurant.website, class:"green-button" %>
+            <%= link_to 'Back', @query_path, class: "green-button" %>
           </div>
         </div>
       </div>
+
 
 
 
@@ -98,3 +96,4 @@
               </div>
             </div>
 <!-- modal above -- >
+
