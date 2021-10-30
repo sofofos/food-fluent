@@ -5,22 +5,24 @@
     <!-- avatar !-->
     <div class='column' id='dash-main-card'>
       <div class='container' id='dash-main-card-container'>
-        <div class='container' id='dash-main-card-picture-container'>
+        <div class='container' id='dash-main-card-pic-container'>
           <%= image_tag @user.avatar_path, 
               class: 'avatar', 
-              id: 'dash-main-card-picture', 
+              id: 'dash-main-card-pic', 
               alt: 'Profile Picture', 
               data: { title: 'profile_pic' }, 
               'aria-haspopup': true, 
               'aria-expanded': false 
           %>
-        </div> <!-- end dash-main-card-picture-container !-->
+        </div> <!-- end dash-main-card-pic-container !-->
 
         <div class='container' id='dash-main-card-text-container'>
           <h5 id='dash-main-card-text'>
             Welcome
             <br> <!-- space between Welcome and @user.name !-->
-            <%= @user.name.split.first %>!
+            <div class='text' id='dash-main-card-text-name'>
+              <%= @user.name.split.first %>!
+            </div>
           </h5>  <!-- end dash-main-card-text !-->
         </div> <!-- end dash-main-card-text-container !-->
       </div> <!-- end dash-main-card-container !-->
@@ -65,25 +67,51 @@
     </div> <!-- end dash-friends-titlebar !-->
 
     <!-- friends-list !-->
-    <div class='cards' id='dash-friends-list'>
+    <div class='cards' id='dash-friends-cards'>
       <% @user.friends.each do |friend| %>
-        <div class='card' id='dash-friends-list-container'>
-          <%= friend.name %>
-          <% friend.diet_profiles.each do |tag| %>
-            <%= tag.health_label.name  %>
-            <%  tag.health_label.assign_icon(tag.health_label) %>
-              <%= image_tag "#{tag.health_label.icon_path}", 
-                  class: 'icon', 
-                  id: 'dash-main-list-allergy-icon', 
-                  alt: 'Allergy Icon', 
-                  data: { title: 'allergy' }, 
+        <div class='card' id='dash-friends-card'>
+          <div class='container' id='dash-friends-card-head-container'>
+            <div class='column' id='dash-friends-card-head-pic-container'>
+              <%= image_tag @user.avatar_path, 
+                  class: 'avatar', 
+                  id: 'dash-friends-card-head-pic', 
+                  alt: 'Profile Picture', 
+                  data: { title: 'profile_pic' }, 
                   'aria-haspopup': true, 
                   'aria-expanded': false 
               %>
-          <% end %>
-        </div> <!-- dash-friends-list-container !-->
+            </div> <!-- end dash-friends-card-head-pic-container !-->
+
+            <div class='column' id='dash-friends-card-head-text-container'>
+              <div class='text' id='dash-friends-card-head-text' >
+                <%= friend.name %>
+              </div>
+            </div> <!-- end dash-friends-card-head-text !-->
+          </div> <!-- end dash-friends-card-head-container !-->
+
+          <div class='container' id='dash-friends-card-body-container'>
+            <% friend.diet_profiles.each do |tag| %>   
+              <li class='container' id='dash-friends-card-body-list'>
+                <div class='icon' id='dash-friends-card-body-label'>
+                  <%  tag.health_label.assign_icon(tag.health_label) %>
+                  <%= image_tag "#{tag.health_label.icon_path}", 
+                      class: 'icon', 
+                      id: 'dash-main-list-allergy-icon', 
+                      alt: 'Allergy Icon', 
+                      data: { title: 'allergy' }, 
+                      'aria-haspopup': true, 
+                      'aria-expanded': false 
+                  %>
+                  <div class='text' id='dash-friends-card-body-tooltip'>
+                    <%= tag.health_label.name.gsub('-Free', '') %>
+                  </div>
+                </div> <!-- end dash-friends-card-body-label !-->
+              </li> <!-- end dash-friends-card-body-descriptor !-->
+            <% end %>
+          </div>
+        </div> <!-- dash-friends-card !-->
       <% end %>
-    </div> <!-- end dash-friends-list !-->
+    </div> <!-- end dash-friends-cards !-->
   </div> <!-- end dash-friends-row !-->
 
   <div class='row' id='dash-restos-row'>
@@ -108,7 +136,7 @@
               id: 'dash-restos-titlebar-right-button' 
           %>
         <% end %>
-      </div>
+      </div> <!-- end dash-restos-titlebar-right !-->
     </div> <!-- end dash-restos-titlebar !-->
     <!-- find-restaurant !-->
     <!-- select-friends !-->
@@ -127,7 +155,7 @@
           </div>
           <% end %>
           <%= submit_tag 'Search', class: 'btn btn-primary' %>
-        </div>
+        </div> <!-- dash-restos-list-container !-->
       <% end %>
     </div> <!-- end dash-restos-list !-->
   </div> <!-- end dash-restos-row !-->

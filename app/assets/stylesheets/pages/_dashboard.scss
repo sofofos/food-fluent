@@ -27,7 +27,7 @@
   height: 200px;
   width: 200px;
 }
-#dash-main-card-picture-container {
+#dash-main-card-pic-container {
   display: flex;
   align-items: center;
   height: 120px;
@@ -35,7 +35,7 @@
   padding: 0px 10px 0px 10px;
   width: 170px;
 }
-#dash-main-card-picture {
+#dash-main-card-pic {
   border: 2px solid $grey;
   border-radius: 50%;
   height: 100px;
@@ -199,8 +199,82 @@
   background: $kelly;
   cursor: pointer;
 }
-#dash-friends-list {
+#dash-friends-cards {
   width: 100%;
+}
+#dash-friends-card {
+  border: 2px solid $forest;
+  border-radius: 15%;
+  height: 320px;
+  max-width: 320px;
+  width: 100%;
+}
+#dash-friends-card-head-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 320px;
+  padding: 5px 0px 5px 0px;
+  width: 100%;
+}
+#dash-friends-card-head-pic-container {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  justify-content: left;
+  max-width: 110px;
+  padding: 0px 5px 0px 5px;
+  width: 100%;
+}
+#dash-friends-card-head-pic {
+  border: 2px solid $grey;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+#dash-friends-card-head-text-container {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  justify-content: center;
+  max-width: 150px;
+  padding: 0px 5px 0px 5px;
+  width: 100%;
+}
+#dash-friends-card-body-container {
+  display: grid;
+  gap: 20px 10px;
+  grid-template-columns: repeat(3, 1fr);
+  max-height: 200px;
+}
+#dash-friends-card-body-list {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 40px;
+  max-width: 40px;
+  padding: 0px 5px 0px 5px;
+}
+#dash-friends-card-body-label > #dash-main-list-allergy-icon {
+  height: 30px;
+  width: 30px;
+}
+#dash-friends-card-body-tooltip {
+  position: absolute;
+  visibility: hidden;
+  background-color: $forest;
+  border: 1px solid $black;
+  border-radius: 5px;
+  color: $white;
+  font-family: 'Biryani';
+  font-size: 10px;
+  opacity: .9;
+  text-align: center;
+  width: 100px;
+}
+#dash-friends-card-body-label:hover > #dash-friends-card-body-tooltip {
+  visibility: visible;
 }
 
 #dash-restos-row {
