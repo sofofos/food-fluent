@@ -65,9 +65,9 @@
     </div> <!-- end dash-friends-titlebar !-->
 
     <!-- friends-list !-->
-    <div class='row' id='dash-friends-list'>
+    <div class='cards' id='dash-friends-list'>
       <% @user.friends.each do |friend| %>
-        <div id='dash-friends-list-container'>
+        <div class='card' id='dash-friends-list-container'>
           <%= friend.name %>
           <% friend.diet_profiles.each do |tag| %>
             <i class='fas fa-ice-cream'>
@@ -77,18 +77,6 @@
         </div> <!-- dash-friends-list-container !-->
       <% end %>
     </div> <!-- end dash-friends-list !-->
-
-    <!-- PENDING LINKS !-->
-<!--
-    <div id='dash-links-friends'>
-      <div id='dash-container-friends-find'>
-        <%= link_to 'Find Friends', friends_path %>
-      </div>
-      <div id='dash-container-friends-see'>
-        <%= link_to 'See Friend Requests', friends_path %>
-      </div>
-    </div>
-!-->
   </div> <!-- end dash-friends-row !-->
 
   <div class='row' id='dash-restos-row'>
@@ -109,7 +97,10 @@
     <%= form_tag restaurants_path, method: :get do %>
       <% @user.friends.each do |friend| %>
         <div class='d-flex'>
-          <%= check_box_tag 'friend_ids[]', friend.id, id: friend, class: 'form-control'%>
+          <%= check_box_tag 'friend_ids[]', friend.id, 
+              class: 'form-control', 
+              id: friend 
+          %>
           <%= friend.name %>
         </div>
       <% end %>
