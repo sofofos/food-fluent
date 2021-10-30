@@ -1,20 +1,30 @@
 <!-- Search for friends -->
-  <%= form_tag dashboard_path, method: :get, action: :search do %>
-  <%= text_field_tag :query, params[:query], class: "form-control",
-      placeholder: "Find a friend!" %>
-  <%= submit_tag "Search", class: "btn btn-dark ml-3" %>
-  <% end %>
+<div class='row' id='dash-friends-row'>
+  <!-- friends-bar !-->
+    <div class='row' id='dash-friends-titlebar'>
+      <div class='column' id='dash-friends-titlebar-left'>
+      <h5 id='dash-friends-titlebar-left-text'>
+        Friends
+      </h5>  <!-- end dash-friends-titlebar-left-text !-->
+    </div> <!-- end dash-friends-titlebar-left !-->
+    <div class='row' id='dash-friends-titlebar-center'>
+    <%= form_tag dashboard_path, method: :get, action: :search do %>
+      <%= text_field_tag :query, params[:query],
+        class: 'form-control',
+        id: 'dash-friends-titlebar-center-bar',
+        placeholder: 'find by username'%>
 
-<!-- Search result appears here -->
-  <% if params[:query].present? %>
-    <% @results.each do |friend|%>
-      <%= friend.username %> is <%= friend.name %>
-      <%= form_tag ({controller: 'pages', action: 'create', method: 'post', id: friend.id}) do %>
-        <% if @user.pending_friends.include?(friend) %>
-          <input class="" type=submit value='Request Pending' disabled="true">
-        <% else %>
-          <input class="" type=submit value='Add Friend'>
-        <% end %>
-      <% end %>
+      <%= submit_tag "find", class: 'btn btn-primary',
+        id: 'dash-friends-titlebar-center-button' %>
+
     <% end %>
-  <% end %>
+    </div> <!-- end dash-friends-titlebar-center !-->
+    <div class='column' id='dash-friends-titlebar-right'>
+      <div class='container' id='dash-friends-titlebar-right-box'>
+        <div class='btn btn-primary' id='dash-friends-titlebar-right-button'>
+          +
+        </div> <!-- end dash-friends-titlebar-right-button !-->
+      </div> <!-- end dash-friends-titlebar-right-box !-->
+    </div> <!-- end dash-friends-titlebar-right !-->
+  </div> <!-- end dash-friends-titlebar !-->
+

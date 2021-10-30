@@ -1,69 +1,27 @@
 <!-- dashboard.html.erb !-->
-
 <div class='container' id='dash-container'>
   <div class='row' id='dash-main-row'>
     <!-- avatar !-->
-    <div class='column' id='dash-main-card'>
-      <div class='container' id='dash-main-card-container'>
-        <div class='container' id='dash-main-card-picture-container'>
-          <%= image_tag @user.avatar_path, class: 'avatar', id: 'dash-main-card-picture', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
-        </div>
-
-        <div class='container' id='dash-main-card-text-container'>
-          <h5 id='dash-main-card-text'>
-            Welcome
-            <br>
-            <%= @user.name.split.first %>!
-          </h5>
-        </div>
-      </div>
-    </div>
-
+    <%= render 'pages/welcome' %>
+    <!-- profile-list !-->
+      <!-- div class='column', id='dash-main-list' inside !-->
     <%= render 'diet_profiles/show' %>
+  </div> <!-- end dash-main-row !-->
+
+  <%= render 'friends/search' %>
+  <% if params[:query].present? %>
+    <%= render 'friends/results' %>
+  <% end %>
 
   <!-- friends-list !-->
-  <div class='container' id='dash-friends'>
-    <h5 id='dash-list-friends'>
-      Friends
-    </h5>
+  <%= render 'friends/list' %>
 
-    <% @user.friends.each do |friend| %>
-      <div id='card-dash-friend'>
-        <%= friend.name %>
-        <% friend.diet_profiles.each do |tag| %>
-            <%= tag.health_label.name  %>
-            <% tag.health_label.assign_icon(tag.health_label) %>
-              <%= image_tag "#{tag.health_label.icon_path}", class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
-      </div>
-    <% end %>
+<!-- PARTIAL(s) BELOW NEED STYLING -->
+  <% unless @user.requested_friends.empty? %>
+    <%= render 'friends/requests' %>
+  <% end %>
+<!-- END OF PARTIALS MISSING STYLING -->
 
-    <div id='dash-links-friends'>
-      <div id='dash-container-friends-find'>
-        <%= render 'friends/search'%>
-      </div>
-      <% unless @user.requested_friends.empty? %>
-        <%= render 'friends/requests_received' %>
-      <% end %>
-      <% unless @user.pending_friends.empty? %>
-        <%= render 'friends/requests_sent' %>
-      <% end %>
-    </div>
+  <%= render 'pages/find_resto' %>
 
-  <!-- find-restaurant !-->
-  <!-- select-friends !-->
-  <div class='container' id='dash-search'>
-
-    <%= form_tag restaurants_path, method: :get do %>
-      <% @user.friends.each do |friend| %>
-        <div class='d-flex'>
-          <%= check_box_tag 'friend_ids[]', friend.id %>
-          <!-- id: friend, class: 'form-control' %> -->
-          <%= friend.name %>
-        </div>
-      <% end %>
-      <%= submit_tag 'Search', class: 'btn btn-primary' %>
-    <% end %>
-  </div>
-  <!-- add-location !-->
-</div>
+</div> <!-- end dash-container !-->

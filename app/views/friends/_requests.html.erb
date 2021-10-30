@@ -7,8 +7,14 @@
   <%= form_tag ({controller: 'pages', action: 'accept', method: 'post', id: friend.id}) do %>
     <input class="" type=submit value='Accept'>
     <% end %>
+
   <%= form_tag ({controller: 'pages', action: 'decline', method: 'post', id: friend.id}) do %>
     <input class="" type=submit value='Decline'>
     <% end %>
   <% end %>
 </div>
+
+<!-- STYLING NEEDED HERE TOO -->
+ <% unless @user.pending_friends.empty? %>
+    <%= render 'friends/requests_sent' %>
+  <% end %>
