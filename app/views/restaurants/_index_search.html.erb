@@ -11,7 +11,7 @@
       <div class="card-info">
         <%= link_to restaurant.name, restaurant_path(restaurant, :user_ids => @user_ids)%>
         <p> <%= restaurant.location %> </p>
-        <p> <%= restaurant.compatibility(@users) %> </p>
+        <p> <%= restaurant.compatibility(@users)%> % </p>
       </div>
       <%= image_tag 'alcohol.svg', class:'card-icon' %>
     </div>

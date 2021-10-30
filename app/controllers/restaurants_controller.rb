@@ -1,26 +1,26 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
+  after_action :sort_by_compatibility, only: %i[index]
   before_action :skip_policy_scope
 
   def index
-    # @restaurants = Restaurant.all.order(created_at: :desc)
-    # find_health_label
     @all_restaurants = Restaurant.all.order(created_at: :desc)
     @users = params[:friend_ids].present? ? params[:friend_ids].map { |id| User.find(id.to_i) } : []
-
     @users << current_user
-
     @user_ids = @users.map(&:id)
+
     find_matching_restaurants
+    sort_by_compatibility
     @restaurants
   end
 
   def show
     @users = params[:user_ids].map { |id| User.find(id.to_i) }
-    @starter = @restaurant.dishes.where(dish_type: "starter")
-    @salad = @restaurant.dishes.where(dish_type: "salad")
-    @main = @restaurant.dishes.where(dish_type: "main course")
-    @dessert = @restaurant.dishes.where(dish_type: "desserts")
+    @dish_type = Dish.dish_types
+    # @starter = @restaurant.dishes.where(dish_type: "starter")
+    # @salad = @restaurant.dishes.where(dish_type: "salad")
+    # @main = @restaurant.dishes.where(dish_type: "main course")
+    # @dessert = @restaurant.dishes.where(dish_type: "desserts")
   end
 
   private
@@ -50,5 +50,13 @@ class RestaurantsController < ApplicationController
       end
       @restaurants << restaurant if @counter == @users.count
     end
+  end
+
+  def sort_by_compatibility
+    hash = {}
+    @restaurants.map { |resto| hash[resto.id] = resto.compatibility(@users) }
+    hash = hash.sort_by { |_, v| -v }
+    sorted = hash.to_h
+    @restaurants = sorted.map { |id, _| Restaurant.find(id) }
   end
 end
