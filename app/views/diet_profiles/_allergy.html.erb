@@ -1,8 +1,9 @@
 <h4>Allergies</h4>
 <ul id='dash-main-list-allergies'>
   <% @diets.select(&@allergy).each do |tag| %>
+  <% tag.health_label.assign_icon(tag.health_label) %>
     <li class='dash-main-list-allergy'>
-        <%= image_tag 'leaf-test.png', class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= image_tag tag.health_label.icon_path, class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
       <br>
       <div class='container' id='dash-main-list-allergy-text'>
         <%= tag.health_label.name.gsub('-Free', '') %>
