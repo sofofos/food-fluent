@@ -1,0 +1,78 @@
+// _login.scss
+// (connected with sessions/new.html.erb)
+
+@media (min-width: 320) and (max-width: 539px) {
+  #login-form {
+  	width: 80%
+  }
+}
+
+@media (min-width: 540px) and (max-width: 779px) {
+  #login-form {
+  	width: 60%
+  }
+}
+
+@media (min-width: 780px) {
+  #login-form {
+  	width: 40%
+  }
+}
+
+#login-form {
+  background: $white;
+  border: 1px solid $kelly;
+  border-radius: 25px;
+  padding: 0px 20px;
+}
+#login-form-title-container {
+  padding: 0px 10px;
+  width: 250px;
+}
+#login-form-title {
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  border-top: 15px solid $white;
+  cursor: default;
+  margin: 0px 10px 10px 10px;
+  text-align: center;
+}
+#login-form-inputs .form-check {
+  margin: 10px 0px 10px 0px;
+  padding: 0;
+}
+#user_remember_me {
+  width: 300px;
+}
+#login-form-signin {
+  margin: 10px 0px 10px 0px;
+  text-align: center;
+}
+#login-form-signin .btn,
+#login-form-links a {
+  border: 2px solid $forest;
+  border-radius: 25px;
+  color: $forest;
+  padding: 6px 12px;
+}
+#login-form-signin .btn:hover,
+#login-form-links a:hover {
+  background-color: $forest;
+  border: 2px solid $kelly;
+  border-radius: 25px;
+  color: $white;
+  text-decoration: none;
+}
+#login-form-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  margin: 20px 0px 20px 0px;
+  text-align: center;
+  width: 100%;
+}
+#login-form-links a {
+  margin: 0;
+}
