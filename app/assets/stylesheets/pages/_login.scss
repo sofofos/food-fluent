@@ -1,35 +1,35 @@
-// _signup.scss
-// (connected with registrations/new.html.erb)
+// _login.scss
+// (connected with sessions/new.html.erb)
 
 @media (min-width: 320) and (max-width: 539px) {
-  #signup-form {
+  #login-form {
   	width: 80%
   }
 }
 
 @media (min-width: 540px) and (max-width: 779px) {
-  #signup-form {
+  #login-form {
   	width: 60%
   }
 }
 
 @media (min-width: 780px) {
-  #signup-form {
+  #login-form {
   	width: 40%
   }
 }
 
-#signup-form {
+#login-form {
   background: $white;
   border: 1px solid $kelly;
   border-radius: 25px;
   padding: 0px 20px;
 }
-#signup-form-title-container {
+#login-form-title-container {
   padding: 0px 10px;
   width: 250px;
 }
-#signup-form-title {
+#login-form-title {
   border: 1px solid rgba(0, 0, 0, .2);
   border-radius: 10px;
   border-top: 15px solid $white;
@@ -37,30 +37,46 @@
   margin: 0px 10px 10px 10px;
   text-align: center;
 }
-#signup-form-inputs abbr {
+#login-form-inputs abbr {
   border: none !important;
   text-decoration: none !important;
 }
-#signup-form-create {
+#login-form-inputs .form-check {
+  margin: 10px 0px 10px 0px;
+  padding: 0;
+}
+#user_remember_me {
+  width: 300px;
+}
+#login-form-signin {
   margin: 10px 0px 10px 0px;
   text-align: center;
 }
-#signup-form-create .btn,
-#signup-form-links a {
+#login-form-signin .btn,
+#login-form-links a {
   border: 2px solid $forest;
   border-radius: 25px;
   color: $forest;
   padding: 6px 12px;
 }
-#signup-form-create .btn:hover,
-#signup-form-links a:hover {
+#login-form-signin .btn:hover,
+#login-form-links a:hover {
   background-color: $forest;
   border: 2px solid $kelly;
   border-radius: 25px;
   color: $white;
   text-decoration: none;
 }
-#signup-form-links {
+#login-form-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
   margin: 20px 0px 20px 0px;
   text-align: center;
+  width: 100%;
+}
+#login-form-links a {
+  margin: 0;
 }
