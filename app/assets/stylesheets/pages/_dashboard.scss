@@ -14,6 +14,7 @@
 }
 #dash-main-card-container {
   border: 2px solid $forest;
+  background-color: $white;
   border-radius: 15%;
   height: 200px;
   width: 200px;
@@ -197,21 +198,21 @@
 #dash-finder-cards {
   width: 100%;
 }
-#dash-friends-card,
-#dash-finder-card {
+.dash-friends-card,
+.dash-finder-card {
   border: 2px solid $forest;
-  border-radius: 15%;
-  height: 320px;
-  max-width: 320px;
-  width: 100%;
+  border-radius: 25px;
+  // height: 225px;
+  // max-width: 225px;
+  // width: 100%;
 }
 #dash-friends-card-head-container,
 #dash-finder-card-head-container {
   display: flex;
   justify-content: space-around;
-  max-width: 320px;
+  // max-width: 225px;
   padding: 5px 0px 5px 0px;
-  width: 100%;
+  // width: 100%;
 }
 #dash-friends-card-head-pic-container,
 #dash-finder-card-head-pic-container {
