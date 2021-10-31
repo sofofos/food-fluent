@@ -1,199 +1,24 @@
-<!-- dashboard.html.erb !-->
-
 <div class='container' id='dash-container'>
   <div class='row' id='dash-main-row'>
     <!-- avatar !-->
-    <div class='column' id='dash-main-card'>
-      <div class='container' id='dash-main-card-container'>
-        <div class='container' id='dash-main-card-pic-container'>
-          <%= image_tag @user.avatar_path, 
-              class: 'avatar', 
-              id: 'dash-main-card-pic', 
-              alt: 'Profile Picture', 
-              data: { title: 'profile_pic' }, 
-              'aria-haspopup': true, 
-              'aria-expanded': false 
-          %>
-        </div> <!-- end dash-main-card-pic-container !-->
-
-        <div class='container' id='dash-main-card-text-container'>
-          <h5 id='dash-main-card-text'>
-            Welcome
-            <br> <!-- space between Welcome and @user.name !-->
-            <div class='text' id='dash-main-card-text-name'>
-              <%= @user.name.split.first %>!
-            </div>
-          </h5>  <!-- end dash-main-card-text !-->
-        </div> <!-- end dash-main-card-text-container !-->
-      </div> <!-- end dash-main-card-container !-->
-    </div> <!-- end dash-main-card !-->
-
+    <%= render 'pages/welcome' %>
     <!-- profile-list !-->
       <!-- div class='column', id='dash-main-list' inside !-->
     <%= render 'diet_profiles/show' %>
   </div> <!-- end dash-main-row !-->
 
-  <div class='row' id='dash-friends-row'>
-    <!-- friends-bar !-->
-    <div class='row' id='dash-friends-titlebar'>
-      <div class='column' id='dash-friends-titlebar-left'>
-        <h5 id='dash-friends-titlebar-left-text'>
-          Friends
-        </h5>  <!-- end dash-friends-titlebar-left-text !-->
-      </div> <!-- end dash-friends-titlebar-left !-->
+  <%= render 'friends/search' %>
+  <% if params[:query].present? %>
+    <%= render 'friends/results' %>
+  <% end %>
 
-      <div class='row' id='dash-friends-titlebar-center'>
-        <%= form_tag friends_path, method: :get, action: :search do %>
-          <%= text_field_tag :query, 
-              params[:query], 
-              class: 'form-control', 
-              id: 'dash-friends-titlebar-center-bar', 
-              placeholder: 'My Friends' 
-          %>
-          <%= submit_tag 'find', 
-              class: 'btn btn-primary', 
-              id: 'dash-friends-titlebar-center-button' 
-          %>
-        <% end %>
-      </div> <!-- end dash-friends-titlebar-center !-->
+  <!-- friends-list !-->
+  <%= render 'friends/list' %>
 
-      <div class='column' id='dash-friends-titlebar-right'>
-        <div class='container' id='dash-friends-titlebar-right-box'>
-          <div class='btn btn-primary' id='dash-friends-titlebar-right-button'>
-            +
-          </div> <!-- end dash-friends-titlebar-right-button !-->
-        </div> <!-- end dash-friends-titlebar-right-box !-->
-      </div> <!-- end dash-friends-titlebar-right !-->
-    </div> <!-- end dash-friends-titlebar !-->
+<!-- PARTIAL(s) BELOW NEED STYLING -->
+  <% unless @user.requested_friends.empty? %>
+    <%= render 'friends/requests' %>
+  <% end %>
+<!-- END OF PARTIALS MISSING STYLING -->
 
-    <!-- friends-list !-->
-    <div class='cards' id='dash-friends-cards'>
-      <% @user.friends.each do |friend| %>
-        <div class='card' id='dash-friends-card'>
-          <div class='container' id='dash-friends-card-head-container'>
-            <div class='column' id='dash-friends-card-head-pic-container'>
-              <%= image_tag @user.avatar_path, 
-                  class: 'avatar', 
-                  id: 'dash-friends-card-head-pic', 
-                  alt: 'Profile Picture', 
-                  data: { title: 'profile_pic' }, 
-                  'aria-haspopup': true, 
-                  'aria-expanded': false 
-              %>
-            </div> <!-- end dash-friends-card-head-pic-container !-->
-
-            <div class='column' id='dash-friends-card-head-text-container'>
-              <div class='text' id='dash-friends-card-head-text' >
-                <%= friend.name %>
-              </div> <!-- end dash-friends-card-head-text !-->
-            </div> <!-- end dash-friends-card-head-text-container !-->
-          </div> <!-- end dash-friends-card-head-container !-->
-
-          <div class='container' id='dash-friends-card-body-container'>
-            <% friend.diet_profiles.each do |tag| %>   
-              <li class='container' id='dash-friends-card-body-list'>
-                <div class='icon' id='dash-friends-card-body-label'>
-                  <%  tag.health_label.assign_icon(tag.health_label) %>
-                  <%= image_tag "#{tag.health_label.icon_path}", 
-                      class: 'icon', 
-                      id: 'dash-main-list-allergy-icon', 
-                      alt: 'Allergy Icon', 
-                      data: { title: 'allergy' }, 
-                      'aria-haspopup': true, 
-                      'aria-expanded': false 
-                  %>
-                  <div class='text' id='dash-friends-card-body-tooltip'>
-                    <%= tag.health_label.name.gsub('-Free', '') %>
-                  </div> <!-- end dash-friends-card-body-tooltip !-->
-                </div> <!-- end dash-friends-card-body-label !-->
-              </li> <!-- end dash-friends-card-body-list !-->
-            <% end %>
-          </div>
-        </div> <!-- dash-friends-card !-->
-      <% end %>
-    </div> <!-- end dash-friends-cards !-->
-  </div> <!-- end dash-friends-row !-->
-
-  <div class='row' id='dash-finder-row'>
-    <!-- finder-bar !-->
-    <div class='row' id='dash-finder-titlebar'>
-      <div class='column' id='dash-finder-titlebar-left'>
-        <h5 id='dash-finder-titlebar-left-text'>
-          Finder
-        </h5>  <!-- end dash-finder-titlebar-left-text !-->
-      </div> <!-- end dash-finder-titlebar-left !-->
-
-      <div class='column' id='dash-finder-titlebar-right'>
-        <%= form_tag friends_path, method: :get, action: :search do %>
-          <%= text_field_tag :query, 
-              params[:query], 
-              class: 'form-control', 
-              id: 'dash-finder-titlebar-right-bar', 
-              placeholder: 'Enter Location' 
-          %>
-          <%= submit_tag 'enter', 
-              class: 'btn btn-primary', 
-              id: 'dash-finder-titlebar-right-button' 
-          %>
-        <% end %>
-      </div> <!-- end dash-finder-titlebar-right !-->
-    </div> <!-- end dash-finder-titlebar !-->
-
-    <!-- finder-list !-->
-      <%= form_tag restaurants_path, method: :get do %>
-    <div class='cards' id='dash-finder-cards'>
-      <% @user.friends.each do |friend| %>
-        <div class='card' id='dash-finder-card'>
-          <div class='container' id='dash-finder-card-head-container'>
-            <div class='column' id='dash-finder-card-head-pic-container'>
-              <%= image_tag @user.avatar_path, 
-                  class: 'avatar', 
-                  id: 'dash-finder-card-head-pic', 
-                  alt: 'Profile Picture', 
-                  data: { title: 'profile_pic' }, 
-                  'aria-haspopup': true, 
-                  'aria-expanded': false 
-              %>
-            </div> <!-- end dash-finder-card-head-pic-container !-->
-
-            <div class='column' id='dash-finder-card-head-text-container'>
-              <div class='container' id='dash-finder-card-head-checkbox-container'>
-                <%= check_box_tag 'friend_ids[]', friend.id, 
-                    class: 'form-control', 
-                    id: 'dash-finder-card-head-checkbox' 
-                %>
-              </div> <!-- end dash-finder-card-head-checkbox-container !-->
-
-              <div class='text' id='dash-finder-card-head-text' >
-                <%= friend.name %>
-              </div> <!-- end dash-finder-card-head-text !-->
-            </div> <!-- end dash-finder-card-head-text-container !-->
-
-          </div> <!-- end dash-finder-card-head-container !-->
-
-          <div class='container' id='dash-finder-card-body-container'>
-            <% friend.diet_profiles.each do |tag| %>   
-              <li class='container' id='dash-finder-card-body-list'>
-                <div class='icon' id='dash-finder-card-body-label'>
-                  <%  tag.health_label.assign_icon(tag.health_label) %>
-                  <%= image_tag "#{tag.health_label.icon_path}", 
-                      class: 'icon', 
-                      id: 'dash-main-list-allergy-icon', 
-                      alt: 'Allergy Icon', 
-                      data: { title: 'allergy' }, 
-                      'aria-haspopup': true, 
-                      'aria-expanded': false 
-                  %>
-                  <div class='text' id='dash-finder-card-body-tooltip'>
-                    <%= tag.health_label.name.gsub('-Free', '') %>
-                  </div> <!-- end dash-finder-card-body-tooltip !-->
-                </div> <!-- end dash-finder-card-body-label !-->
-              </li> <!-- end dash-finder-card-body-list !-->
-            <% end %>
-          </div>
-        </div> <!-- dash-finder-card !-->
-        <% end %>
-      <% end %>
-    </div> <!-- end dash-finder-cards !-->
-  </div> <!-- end dash-finder-row !-->
-</div> <!-- end dash-container !-->
+  <%= render 'pages/find_resto' %>

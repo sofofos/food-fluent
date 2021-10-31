@@ -13,11 +13,11 @@
           <div class="d-flex flex-column align-items-start">
             <div class="contact-item">
               <%= image_tag 'address.svg', class:'icon' %>
-              <p> <%= @restaurant.location %> </p>                 
+              <p> <%= @restaurant.location %> </p>
             </div>
             <div class="contact-item">
               <%= image_tag 'telephone.svg', class:'icon' %>
-              <p> <%= @restaurant.phone_number %> </p>  
+              <p> <%= @restaurant.phone_number %> </p>
             </div>
           </div>
           <div class="buttons-container">
@@ -29,8 +29,10 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
-<!-- modal above -- >
+
+
 
 <%= render 'restaurants/dishes_show' %>

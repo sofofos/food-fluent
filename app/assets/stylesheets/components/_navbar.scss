@@ -1,7 +1,9 @@
+// _navbar.scss
+
 #nav {
+  display: flex;
   box-shadow: $primary-box-shadow;
   justify-content: space-between;
-  display: flex;
   width: 100%;
 }
 

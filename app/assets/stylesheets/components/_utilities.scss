@@ -1,3 +1,5 @@
+// _utilities.scss
+
 html {
   margin: 0px;
   padding: 0px;
@@ -57,6 +59,19 @@ li {
   bottom: 0;
 }
 
-// .content-background{
-//   background-color: 
-// }
+// input form placeholder centering
+::placeholder {
+  text-align: center;
+}
+:-moz-placeholder { // Firefox 18
+  text-align: center;  
+}
+::-moz-placeholder { // Firefox 19+
+  text-align: center;  
+}
+:-ms-input-placeholder { // Internet Explorer
+  text-align: center; 
+}
+::-webkit-input-placeholder { // Edge
+  text-align: center;
+}
