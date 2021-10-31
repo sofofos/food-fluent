@@ -140,8 +140,8 @@
     </div> <!-- end dash-finder-titlebar !-->
 
     <!-- finder-list !-->
-    <div class='cards' id='dash-finder-cards'>
       <%= form_tag restaurants_path, method: :get do %>
+    <div class='cards' id='dash-finder-cards'>
       <% @user.friends.each do |friend| %>
         <div class='card' id='dash-finder-card'>
           <div class='container' id='dash-finder-card-head-container'>
@@ -192,7 +192,7 @@
             <% end %>
           </div>
         </div> <!-- dash-finder-card !-->
-      <% end %>
+        <% end %>
       <% end %>
     </div> <!-- end dash-finder-cards !-->
   </div> <!-- end dash-finder-row !-->
