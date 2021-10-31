@@ -1,0 +1,65 @@
+// _signup.scss
+
+@media (min-width: 320) and (max-width: 539px) {
+  #signup-form {
+  	width: 80%
+  }
+}
+
+@media (min-width: 540px) and (max-width: 779px) {
+  #signup-form {
+  	width: 60%
+  }
+}
+
+@media (min-width: 780px) {
+  #signup-form {
+  	width: 40%
+  }
+}
+
+#signup-form {
+  background: $white;
+  border: 1px solid $kelly;
+  border-radius: 25px;
+  padding: 0px 20px;
+}
+#signup-form-title-container {
+  padding: 0px 10px;
+  width: 250px;
+}
+#signup-form-title {
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  border-top: 15px solid $white;
+  cursor: default;
+  margin: 0px 10px 10px 10px;
+  text-align: center;
+}
+#signup-form-inputs abbr {
+  border: none !important;
+  text-decoration: none !important;
+}
+#signup-form-create {
+  margin: 10px 0px 10px 0px;
+  text-align: center;
+}
+#signup-form-create .btn,
+#signup-form-links a {
+  border: 2px solid $forest;
+  border-radius: 25px;
+  color: $forest;
+  padding: 6px 12px;
+}
+#signup-form-create .btn:hover,
+#signup-form-links a:hover {
+  background-color: $forest;
+  border: 2px solid $kelly;
+  border-radius: 25px;
+  color: $white;
+  text-decoration: none;
+}
+#signup-form-links {
+  margin: 20px 0px 20px 0px;
+  text-align: center;
+}

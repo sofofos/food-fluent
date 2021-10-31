@@ -1,33 +1,62 @@
-<h2>Sign up</h2>
+<!-- registrations/new.html.erb !-->
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class='container' id='signup-form'>
+  <div class='container' id='signup-form-title-container'>
+    <h2 class='text' id='signup-form-title'>
+      Signup
+    </h2>
+  </div>
+
+  <%= simple_form_for(
+      resource, 
+      as: resource_name, 
+      url: registration_path(resource_name) 
+      ) do |f| %>
   <%= f.error_notification %>
+    <div class='form-inputs' id='signup-form-inputs'>
+      <%= f.input :username, 
+                  class: 'form-input', 
+                  id: 'signup-form-inputs-username', 
+                  required: true, 
+                  autofocus: true, 
+                  input_html: { autocomplete: "username" }
+      %>
+      <%= f.input :name, 
+                  class: 'form-input', 
+                  id: 'signup-form-inputs-name', 
+                  required: true, 
+                  autofocus: true, 
+                  input_html: { autocomplete: "name" }
+      %>
+      <%= f.input :email, 
+                  class: 'form-input', 
+                  id: 'signup-form-inputs-email', 
+                  required: true, 
+                  autofocus: true, 
+                  input_html: { autocomplete: "email" }
+      %>
+      <%= f.input :password, 
+                  class: 'form-input', 
+                  id: 'signup-form-inputs-password', 
+                  required: true, 
+                  placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), 
+                  input_html: { autocomplete: "new-password" } 
+      %>
+      <%= f.input :password_confirmation,
+                  class: 'form-input', 
+                  id: 'signup-form-inputs-confirmation',  
+                  required: true, 
+                  placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), 
+                  input_html: { autocomplete: "new-password" } 
+      %>
+    </div> <!-- end signup-form-inputs !-->
 
-  <div class="form-inputs">
-    <%= f.input :username,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "username" }%>
-    <%= f.input :name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "name" }%>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+    <div class='form-actions' id='signup-form-create'>
+      <%= f.button :submit, 'Create Account' %>
+    </div> <!-- end signup-form-create !-->
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class='form-actions' id='signup-form-links'>
+      <%= render 'devise/shared/links' %>
+    </div> <!-- end signup-form-links !-->
+  <% end %> <%# end simple_form_for %>
+</div> <!-- end signup-form !-->
