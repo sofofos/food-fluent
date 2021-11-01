@@ -1,30 +1,17 @@
 <!-- Search for friends -->
-<div class='row' id='dash-friends-row'>
-  <!-- friends-bar !-->
-    <div class='row' id='dash-friends-titlebar'>
-      <div class='column' id='dash-friends-titlebar-left'>
-      <h5 id='dash-friends-titlebar-left-text'>
-        Friends
-      </h5>  <!-- end dash-friends-titlebar-left-text !-->
-    </div> <!-- end dash-friends-titlebar-left !-->
-    <div class='row' id='dash-friends-titlebar-center'>
+<div class="friends-search-head">
+  <h5>
+    Friends
+  </h5> 
+
+  <div class="search">
     <%= form_tag dashboard_path, method: :get, action: :search do %>
-      <%= text_field_tag :query, params[:query],
-        class: 'form-control',
-        id: 'dash-friends-titlebar-center-bar',
-        placeholder: 'find by username'%>
-
-      <%= submit_tag "find", class: 'btn btn-primary',
-        id: 'dash-friends-titlebar-center-button' %>
-
+    <%= text_field_tag :query, params[:query],
+    class: 'form-control',
+    placeholder: 'find by username'%>
+    <%= submit_tag "find", class: 'green-button-sm' %>
     <% end %>
-    </div> <!-- end dash-friends-titlebar-center !-->
-    <div class='column' id='dash-friends-titlebar-right'>
-      <div class='container' id='dash-friends-titlebar-right-box'>
-        <div class='btn btn-primary' id='dash-friends-titlebar-right-button'>
-          +
-        </div> <!-- end dash-friends-titlebar-right-button !-->
-      </div> <!-- end dash-friends-titlebar-right-box !-->
-    </div> <!-- end dash-friends-titlebar-right !-->
-  </div> <!-- end dash-friends-titlebar !-->
+  </div>  
+</div>
+
 

@@ -14,6 +14,20 @@
   -webkit-transition: all 0.3s ease;
 }
 
+.green-button-sm {
+  background-color: $forest;
+  border: 1px solid $white;
+  border-radius: 10px;
+  color: $white;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
 .buttons-container{
     width: 100%;
     display:flex;

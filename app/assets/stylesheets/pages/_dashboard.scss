@@ -1,12 +1,29 @@
 
-// _dashboard.scss original card properties end
+// dashboard containers
+
+.dashboard-container{
+  padding: 0px 80px;
+}
+
 .dashboard-head {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 50px;
+  padding: 0xp auto;
 }
 
+.dashboard-content{
+  margin-top: 25px;
+  border: 2px solid $grey;
+  border-radius: 25px;
+  width: 100%;
+  padding: 25px;
+  background-color: $white;
+}
+
+
+// user card
 .card-user{
  padding: 10px;
 }
@@ -56,7 +73,8 @@
   display: flex;
   justify-content:space-around;
   align-items: start;
-  width: 80%;
+  width: 100%;
+  padding: 20px;
 }
 
 .user-preference {
@@ -87,17 +105,19 @@
   background-color: $forest-light-transparent;
   border: 2px solid $forest;
   border-radius: 25px;
+  text-align: center;
 }
 
 .user-text{
-  align-self: center;
+  // align-self: center;
   min-width: 100px;
-  padding: 2px 0px;
+  margin-top:0px!important;
   margin: 0px!important;
-  line-height: 25px;
+  padding: 2px;
 }
 
 // friends
+
 
 #dash-friends-row,
 #dash-finder-row {
@@ -106,88 +126,12 @@
   min-width: 1110px;
   padding: 0;
 }
-#dash-friends-titlebar,
-#dash-finder-titlebar {
-  margin: 10px;
-  min-width: 1090px;
-  padding: 0;
+
+.friends-search-head{
+ display: flex;
 }
 
-#dash-friends-titlebar-left,
-#dash-friends-titlebar-center,
-#dash-friends-titlebar-right {
-  height: 80px;
-  margin: 10px 0px 10px 0px;
-}
-#dash-friends-titlebar-left {
-  display: flex;
-  align-items: center;
-  width: 33.33%;
-}
-#dash-friends-titlebar-left-text {
-  font-weight: bold;
-  margin: 10px 0px 10px 0px;
-  text-align: left;
-  width: 100%;
-}
-#dash-friends-titlebar-center {
-  display: flex;
-  align-items: center;
-  width: 33.33%;
-}
-#dash-friends-titlebar-center form {
-  display: flex;
-  align-items: center;
-  margin: 0px 10px 0px 10px;
-  width: 100%;
-}
-#dash-friends-titlebar-center-bar {
-  border: 2px solid $forest;
-  border-radius: 25px;
-  width: 75%;
-}
-#dash-friends-titlebar-center-button {
-  background-color: $white;
-  border: 2px solid $grey;
-  border-radius: 25px;
-  color: $forest;
-  margin-left: 5px;
-  width: 25%;
-}
-#dash-friends-titlebar-right {
-  width: 33.33%;
-}
-#dash-friends-titlebar-right-box {
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  height: 100%;
-  width: 100%;
-}
-#dash-friends-titlebar-right-button {
-  background: $forest;
-  border: 2px solid $grey;
-  border-radius: 999px;
-  -moz-border-radius: 999px;
-  -webkit-border-radius: 999px;
-  color: $white;
-  height: 30px;
-  line-height: 1.5em;
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-  transition: color 0.3s linear;
-  transition: background 0.3s linear;
-  -o-transition: background 0.3s linear;
-  -moz-transition: background 0.3s linear;
-  -ms-transition: background 0.3s linear;
-  -webkit-transition: background 0.3s linear;
-  width: 30px;
-}
-#dash-friends-titlebar-right-button:hover {
-  background: $kelly;
-  cursor: pointer;
-}
+
 #dash-friends-cards,
 #dash-finder-cards {
   width: 100%;
