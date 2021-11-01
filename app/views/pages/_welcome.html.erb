@@ -1,24 +1,18 @@
-    <div class='column' id='dash-main-card'>
-      <div class='container' id='dash-main-card-container'>
-        <div class='container' id='dash-main-card-pic-container'>
-          <%= image_tag @user.avatar_path,
-              class: 'avatar',
-              id: 'dash-main-card-pic',
-              alt: 'Profile Picture',
-              data: { title: 'profile_pic' },
-              'aria-haspopup': true,
-              'aria-expanded': false
-          %>
-        </div> <!-- end dash-main-card-pic-container !-->
-
-        <div class='container' id='dash-main-card-text-container'>
-          <h5 id='dash-main-card-text'>
-            Welcome
-            <br> <!-- space between Welcome and @user.name !-->
-            <div class='text' id='dash-main-card-text-name'>
-              <%= @user.name.split.first %>!
-            </div>
-          </h5>  <!-- end dash-main-card-text !-->
-        </div> <!-- end dash-main-card-text-container !-->
-      </div> <!-- end dash-main-card-container !-->
-    </div> <!-- end dash-main-card !-->
+<div class="card-user"> 
+  <div class="card-user-main">     
+    <%= image_tag @user.avatar_path,
+        class: 'avatar',
+        alt: 'Profile Picture',
+        data: { title: 'profile_pic' },
+        'aria-haspopup': true,
+        'aria-expanded': false
+    %>
+    <div class="card-text">
+      <h5>Welcome</h5>
+      <p class='card-user-name'> 
+        <strong> <%= @user.name.split.first %>!</strong>
+      </p>        
+    </div>
+  </div>
+</div>
+        

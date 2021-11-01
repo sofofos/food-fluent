@@ -1,5 +1,5 @@
 <!-- finder-bar !-->
-  
+<div class="dashboard-layout-container">
   <h5 id='dash-finder-titlebar-left-text'>
     Find a restaurant!
   </h5>  <!-- end dash-finder-titlebar-left-text !-->
@@ -20,6 +20,7 @@
         <%= check_box_tag 'friend_ids[]', friend.id %>
 
 
+
         <div class="py-3">
               <% friend.diet_profiles.each do |tag| %>
               <%  tag.health_label.assign_icon(tag.health_label) %>
@@ -27,11 +28,12 @@
                 class: 'icon', id: '',
                 alt: 'Allergy Icon', data: { title: 'allergy' },
                 'aria-haspopup': true, 'aria-expanded': false %>
-                  <%= tag.health_label.name.gsub('-Free', '') %>    
+                <%= tag.health_label.name.gsub('-Free', '') %>    
             <% end %>
         </div>
-    <% end %>
-    </div>
       <% end %>
+    </div>
+    <% end %> 
   </div>
-
+</div>
+  
