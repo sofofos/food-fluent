@@ -17,7 +17,7 @@
   justify-content: space-around;
   align-items: center;
   border-radius: 25px;
-  padding: 10px;
+  padding: 20px;
   border-radius: 25px;
   box-shadow: 2px 1px 6px $forest-light;
   width: 200px;
@@ -40,15 +40,7 @@
 } 
 
 .card-text{
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center;
-  line-spacing: 1;
-}
-
-.card-user-name {
-  font-size: 16px;
+  font-weight: bold;
 }
 
 #dash-main-list {
