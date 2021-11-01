@@ -5,13 +5,18 @@
     <%= render 'diet_profiles/show' %>
   </div> <!-- end dash-main-row !-->
 
+  <div class='row' id='dash-friends-row'>
   <%= render 'friends/search' %>
   <% if params[:query].present? %>
     <%= render 'friends/results' %>
+    <!-- ALSO NEEDS STYLING ^^^ -->
   <% end %>
 
   <!-- friends-list !-->
-  <%= render 'friends/list' %>
+    <div class='cards' id='dash-friends-cards'>
+      <%= render 'friends/list' %>
+    </div>
+  </div>
 
 <!-- PARTIAL(s) BELOW NEED STYLING -->
   <% unless @user.requested_friends.empty? %>
@@ -19,5 +24,8 @@
   <% end %>
 <!-- END OF PARTIALS MISSING STYLING -->
 
-  <%= render 'pages/find_resto' %>
+  <div class='row' id='dash-finder-row'>
+   <%= render 'pages/find_resto' %>
+ </div>
+
 </div>  
