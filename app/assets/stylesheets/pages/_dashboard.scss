@@ -3,6 +3,8 @@
 .dashboard-head {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
 }
 
 .card-user{
@@ -17,7 +19,7 @@
   justify-content: space-around;
   align-items: center;
   border-radius: 25px;
-  padding: 10px;
+  padding: 20px;
   border-radius: 25px;
   box-shadow: 2px 1px 6px $forest-light;
   width: 200px;
@@ -33,78 +35,68 @@
   align-items: center;
   border-radius: 25px;
   padding: 10px;
-  border: 3px solid $forest;
+  box-shadow: 2px 1px 6px $forest-light;
   border-radius: 25px;
   width: 200px;
-  height: 200px;
+  min-height: 200px;
 } 
 
 .card-text{
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center;
-  line-spacing: 1;
+  font-weight: bold;
 }
 
-.card-user-name {
-  font-size: 16px;
-}
-
-#dash-main-list {
-  margin: 10px 0px 10px 0px;
-  min-height: 200px;
-  text-align: center;
-  width: 50%;
-}
-#dash-main-list-container {
-  border: 2px solid $forest;
-  border-radius: 25px;
-  min-height: 200px;
-  padding: 10px 0px 10px 0px;
-}
-#dash-main-list-diets,
-#dash-main-list-allergies,
-#dash-main-list-macros {
-  display: flex;
-  align-items: center;
+.diet-profile{
+  max-width: 50%;
   flex-grow: 1;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  list-style: none;
-  margin: 10px 10px 10px 10px;
-  overflow: hidden;
-  padding: 0;
+}
+
+// diet profile styles
+
+.user-profile-container {
+  display: flex;
+  justify-content:space-around;
+  align-items: start;
+  width: 80%;
+}
+
+.user-preference {
+  padding: 10px 0px;
+}
+
+.user-profile-head{
+  padding: 10px;
   text-align: center;
-  width: 33.33%, 33.33%, 33.33%;
+}
+
+.user-preference-list {
+  text-align: center;
+  padding:5px;
+  margin-top:10px;
 }
 .dash-main-list-diet,
 .dash-main-list-allergy,
 .dash-main-list-macro {
-  height: 85px;
-  margin: 0px 10px 0px 10px;
-  min-height: 80px;
-  min-width: 100px;
-  max-height: 85px;
-  max-width: 100px;
-  width: 100px;
+
 }
-#dash-main-list-diet-icon,
-#dash-main-list-allergy-icon,
-#dash-main-list-macro-icon {
-  height: 50px;
-  width: 50px;
+.user-preference-icon {
+  height: 30px;
+  width: 30px;
 }
-#dash-main-list-diet-text,
-#dash-main-list-allergy-text,
-#dash-main-list-macro-text {
+
+.user-preference-labels{
+  align-self: center;
+  background-color: $forest-light-transparent;
+  border-radius: 25px;
+}
+
+.user-text{
   border: 2px solid $forest;
   border-radius: 25px;
-  min-height: 25px;
   min-width: 100px;
-  padding: 0;
+  padding: 2px 0px;
 }
+
+// friends
 
 #dash-friends-row,
 #dash-finder-row {
