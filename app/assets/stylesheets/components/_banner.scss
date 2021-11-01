@@ -40,6 +40,8 @@
 
 .call-to-action {
   margin-top: 0.4em;
+  display: flex;
+  flex-direction: column;
 }
 
 .call-to-action h3 {
@@ -54,4 +56,10 @@
   padding: 10px;
   padding-left: 0px;
   width: 100%;
+}
+
+.call-to-action > #button-landing{
+  text-align: center;
+  align-self: end;
+  max-width: 25%;
 }

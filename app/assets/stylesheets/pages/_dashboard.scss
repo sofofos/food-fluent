@@ -1,53 +1,55 @@
-// _dashboard.scss
 
-#dash-main-row {
-  margin: 10px 0px 10px 0px;
-  max-width: 100%;
-  padding: 0;
-}
-// _dashboard.scss original card properties begin
-// if changes are made on these properties, copy changes to duplicates in _cards.scss
-#dash-main-card {
-  height: 200px;
-  margin: 10px 0px 10px 0px;
-  width: 50%;
-}
-#dash-main-card-container {
-  border: 2px solid $forest;
-  border-radius: 15%;
-  height: 200px;
-  width: 200px;
-}
-#dash-main-card-pic-container {
-  display: flex;
-  align-items: center;
-  height: 120px;
-  justify-content: center;
-  padding: 0px 10px 0px 10px;
-  width: 170px;
-}
-#dash-main-card-pic {
-  border: 2px solid $grey;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-}
-#dash-main-card-text-container {
-  display: flex;
-  align-items: center;
-  height: 70px;
-  justify-content: center;
-  margin: 5px 0px 0px 0px;
-  width: 170px;
-}
-#dash-main-card-text {
-  color: $forest;
-  height: 60px;
-  margin: 5px 0px 5px 0px;
-  text-align: center;
-  width: 140px;
-}
 // _dashboard.scss original card properties end
+.dashboard-head {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-user{
+ padding: 10px;
+}
+
+// main user card 
+.card-user-main{
+  background-color: $white;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 2px 1px 6px $forest-light;
+  width: 200px;
+  height: 200px;
+}
+
+// friends card 
+.card-user-content{
+  background-color: $white;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  padding: 10px;
+  border: 3px solid $forest;
+  border-radius: 25px;
+  width: 200px;
+  height: 200px;
+} 
+
+.card-text{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  line-spacing: 1;
+}
+
+.card-user-name {
+  font-size: 16px;
+}
 
 #dash-main-list {
   margin: 10px 0px 10px 0px;
@@ -197,21 +199,21 @@
 #dash-finder-cards {
   width: 100%;
 }
-#dash-friends-card,
-#dash-finder-card {
+.dash-friends-card,
+.dash-finder-card {
   border: 2px solid $forest;
-  border-radius: 15%;
-  height: 320px;
-  max-width: 320px;
-  width: 100%;
+  border-radius: 25px;
+  // height: 225px;
+  // max-width: 225px;
+  // width: 100%;
 }
 #dash-friends-card-head-container,
 #dash-finder-card-head-container {
   display: flex;
   justify-content: space-around;
-  max-width: 320px;
+  // max-width: 225px;
   padding: 5px 0px 5px 0px;
-  width: 100%;
+  // width: 100%;
 }
 #dash-friends-card-head-pic-container,
 #dash-finder-card-head-pic-container {
