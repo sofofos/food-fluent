@@ -5,35 +5,41 @@
   </h5>  <!-- end dash-finder-titlebar-left-text !-->
 
   <!-- finder-list !-->
-  <div class="cards">
-
-      <% @user.friends.each do |friend| %>
-      <div class="card-category p-3" id="dash-friends-card"> 
-        <%= form_tag restaurants_path, method: :get do %>
-        <%= image_tag @user.avatar_path, class: 'avatar',
-        id: 'dash-finder-card-head-pic', alt: 'Profile Picture',
-        data: { title: 'profile_pic' }, 'aria-haspopup': true,
-        'aria-expanded': false %>
-
-        <%= friend.name %>
-
-        <%= check_box_tag 'friend_ids[]', friend.id %>
-
-
-
-        <div class="py-3">
-              <% friend.diet_profiles.each do |tag| %>
-              <%  tag.health_label.assign_icon(tag.health_label) %>
-              <%= image_tag "#{tag.health_label.icon_path}",
-                class: 'icon', id: '',
-                alt: 'Allergy Icon', data: { title: 'allergy' },
-                'aria-haspopup': true, 'aria-expanded': false %>
-                <%= tag.health_label.name.gsub('-Free', '') %>    
-            <% end %>
+  <div class='cards' id='dash-friends-cards'>
+  <%= form_tag restaurants_path, method: :get do %>
+    <div class='card-category' id='dash-friends-card'>
+    <% @user.friends.each do |friend| %>
+      <div class='container' id='dash-friends-card-head-container'>
+        <div class='column' id='dash-friends-card-head-pic-container'>
+        <%= image_tag @user.avatar_path, class: 'avatar', id: 'dash-friends-card-head-pic', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
         </div>
+
+        <div class='column' id='dash-friends-card-head-text-container'>
+          <div class='text' id='dash-friends-card-head-text' >
+            <%= friend.name %>
+          </div>
+        </div>
+      </div>
+      <div class='container' id='dash-friends-card-body-container'>
+        <% friend.diet_profiles.each do |tag| %>
+        <li class='container' id='dash-friends-card-body-list'>
+          <div class='icon' id='dash-friends-card-body-label'>
+            <%  tag.health_label.assign_icon(tag.health_label) %>
+            <%= image_tag "#{tag.health_label.icon_path}", class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class='text' id='dash-friends-card-body-tooltip'>
+              <%= tag.health_label.name.gsub('-Free', '') %>
+            </div>
+          </div>
+        </li>
+        <% end %>
+      </div>
+      <%= check_box_tag 'friend_ids[]', friend.id %>
       <% end %>
     </div>
-    <% end %> 
   </div>
+  <%= submit_tag 'Find a restaurant' %>
 </div>
-  
+<% end %>
+</div>
+</div>
+
