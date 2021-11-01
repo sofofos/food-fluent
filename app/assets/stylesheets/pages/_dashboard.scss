@@ -77,9 +77,22 @@
 .dash-main-list-macro {
 
 }
-.user-profile-icon {
+.user-preference-icon {
   height: 30px;
   width: 30px;
+}
+
+.user-preference-labels{
+  align-self: center;
+  background-color: $forest-light-transparent;
+  border-radius: 25px;
+}
+
+.user-text{
+  border: 2px solid $forest;
+  border-radius: 25px;
+  min-width: 100px;
+  padding: 2px 0px;
 }
 
 // friends
