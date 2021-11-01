@@ -1,12 +1,11 @@
-<h4>Macros</h4>
-<ul id='dash-main-list-macros'>
-      <% @diets.select(&@macros).each do |tag| %>
-      <li class='dash-main-list-macro'>
-        <%= image_tag tag.health_label.icon_path, class: 'icon', id: 'dash-main-list-macro-icon', alt: 'Macro Icon', data: { title: 'macro' }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <br>
-        <div class='container' id='dash-main-list-macro-text'>
-          <%= tag.health_label.name.gsub('-Free', '') %>
-        </div>
-      </li>
-    <% end %>
-</ul>
+<div class="user-preference">
+  <h4 class="user-profile-head">Macros</h4>
+  <% @diets.select(&@macros).each do |tag| %>
+    <div class='user-preference-list'>
+      <% tag.health_label.assign_icon(tag.health_label) %>
+      <%= image_tag tag.health_label.icon_path, class:'user-profile-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <br>
+      <%= tag.health_label.name.gsub('-Free', '') %>
+    </div>
+  <% end %>
+</div>

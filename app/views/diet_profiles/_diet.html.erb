@@ -1,13 +1,12 @@
-<h4>Diet</h4>
-<ul id='dash-main-list-diets'>
-  <% @diets.select(&@diet).each do |tag| %>
-    <li class='dash-main-list-diet'>
-      <% tag.health_label.assign_icon(tag.health_label) %>
-      <%= image_tag tag.health_label.icon_path, class: 'icon', id: 'dash-main-list-diet-icon', alt: 'Diet Icon', data: { title: 'diet' }, 'aria-haspopup': true, 'aria-expanded': false %>
-    <br>
-      <div class='container' id='dash-main-list-diet-text'>
-        <%= tag.health_label.name %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+<div class='user-preference'>
+  <h4 class='user-profile-head'>Diet</h4>
+    <% @diets.select(&@diet).each do |tag| %>
+    <div class='user-preference-list'>
+        <% tag.health_label.assign_icon(tag.health_label) %>
+          <%= image_tag tag.health_label.icon_path, class: 'user-profile-icon', alt: 'Diet Icon', data: { title: 'diet' }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div>
+            <%= tag.health_label.name %>
+          </div>
+    </div>
+      <% end %>
+</div>
