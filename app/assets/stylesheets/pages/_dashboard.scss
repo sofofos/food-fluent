@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 50px;
+  margin: 50px 0px;
   padding: 0xp auto;
 }
 
@@ -21,7 +21,6 @@
   padding: 25px;
   background-color: $white;
 }
-
 
 // user card
 .card-user{
@@ -63,7 +62,7 @@
 
 .card-border {
   border: 2px solid $forest;
-  box-shadow: 2px 1px 6px $gray, 2px 1px 6px $gray;
+  box-shadow: 0px 2px 6px $gray, 2px 2px 6px $gray;
 }
 
 .card-text{
