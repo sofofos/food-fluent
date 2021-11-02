@@ -244,7 +244,7 @@
 }
 
 .card-user-content:hover > .avatar {
-  border-color: $forest; 
+  border-color: $forest;
 }
 .card-border {
   border: 2px solid $forest;
@@ -305,21 +305,23 @@
 
 // friends
 
-
 .icon-name {
   position: absolute;
   visibility: hidden;
-  background-color: $forest;
-  border: 1px solid $black;
-  border-radius: 5px;
-  color: $white;
+  background-color: $forest-light;
+  border: 1px solid $forest;
+  border-radius: 50%;
+  color: $black;
   font-family: 'Biryani';
   font-size: 10px;
   opacity: .9;
   text-align: center;
-  width: 100px;
+  padding: 4px;
+  width: auto;
+  white-space: nowrap;
 }
-.icon-name:hover > .icon {
+
+.icon-sm:hover > .icon-name {
   visibility: visible;
 }
 

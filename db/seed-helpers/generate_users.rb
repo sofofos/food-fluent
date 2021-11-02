@@ -19,7 +19,7 @@ def add_diets(user)
     diet = DietProfile.create!(
           health_label: HealthLabel.all(&:diet).sample,
           user: user)
-    expand_profile(diet, user)
+    # expand_profile(diet, user)
   end
 
   #strip duplicate health_labels from diet_profile
