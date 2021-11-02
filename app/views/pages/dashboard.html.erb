@@ -1,16 +1,15 @@
-<div class='container'>
-  <div class='row dashboard-head'>
+<div class="dashboard-container">
+  <div class='dashboard-head'>
     <%= render 'pages/welcome' %>
     <!-- profile-list !-->
     <%= render 'diet_profiles/show' %>
   </div> <!-- end dash-main-row !-->
 
-  <div class='row' id='dash-friends-row'>
-  <%= render 'friends/search' %>
-  <% if params[:query].present? %>
-    <%= render 'friends/results' %>
-    <!-- ALSO NEEDS STYLING ^^^ -->
-  <% end %>
+  <div class="dashboard-content">
+    <%= render 'friends/search' %>
+    <% if params[:query].present? %>
+      <%= render 'friends/results' %>
+    <% end %>
 
   <!-- friends-list !-->
     <div class='cards' id='dash-friends-cards'>
@@ -22,10 +21,8 @@
   <% unless @user.requested_friends.empty? %>
     <%= render 'friends/requests' %>
   <% end %>
+  </div>
 <!-- END OF PARTIALS MISSING STYLING -->
 
-  <div class='row' id='dash-finder-row'>
-   <%= render 'pages/find_resto' %>
- </div>
-
-</div>  
+  <%= render 'pages/find_resto' %>
+</div>
