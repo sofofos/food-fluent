@@ -1,9 +1,9 @@
 <!-- Search for friends -->
 <div class="search-head">
   <div class="search-item">
-    <h5 class="search-title">
+    <h4 class="search-title">
       Friends
-    </h5>
+    </h4>
   </div>
 
   <div class="search-item">
@@ -11,7 +11,7 @@
         <div class="search-form">
             <%= text_field_tag :query, params[:query],
             class: 'search-bar',
-            placeholder: 'find by username'%>
+            placeholder: 'username'%>
             <%= submit_tag "search", class: 'green-button-sm' %>
         </div>
     <% end %>

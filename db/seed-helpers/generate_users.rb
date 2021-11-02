@@ -36,7 +36,7 @@ def add_friends(user)
 end
 
 def assign_avatar(user)
-  avatars = ["chris.png", "sofia.png", "vivi.png"]
+  avatars = ["avatars/chris.png", "avatars/sofia.png", "avatars/vivi.png"]
   user.avatar_path = avatars.sample
   user.save!
 end
