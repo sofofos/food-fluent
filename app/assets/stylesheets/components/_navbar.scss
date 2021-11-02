@@ -19,9 +19,14 @@
 #nav-collapse {
   flex-grow: 0;
 }
+#nav-collapse-list {
+  float: right;
+}
 #nav-collapse-list-item {
   border: 4px double $grey;
   border-radius: 50%;
+  max-height: 48px;
+  max-width: 48px;
 }
 #nav-collapse-list-item img {
   cursor: pointer;
@@ -33,6 +38,7 @@
   border: 2px solid $forest;
   border-radius: 25px;
   margin-top: 5px;
+  float: right;
 }
 #nav-collapse-list-item-links .dropdown-item {
   color: $forest;
