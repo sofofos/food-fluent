@@ -4,11 +4,10 @@
   <% @diets.select(&@macros).each do |tag| %>
     <div class='user-preference-list'>
       <% tag.health_label.assign_icon(tag.health_label) %>
-      <%= image_tag tag.health_label.icon_path, class:'user-preference-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <br>
+      <%= image_tag tag.health_label.icon_path, class:'icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
       <div class="user-preference-labels">
-      <p class=" user-text"><%= tag.health_label.name.gsub('-Free', '') %></p>
-    </div>
+       <p class=" user-text"><%= tag.health_label.name.gsub('-Free', '') %></p>
+      </div>
     </div>
   <% end %>
 </div>

@@ -6,7 +6,21 @@
   border-radius: 10px;
   color: $white;
   padding: 10px 20px;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.green-button-sm {
+  background-color: $forest;
+  border: 1px solid $white;
+  border-radius: 10px;
+  color: $white;
+  padding: 3px 6px;
+  text-transform: capitalize;
   transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -22,9 +36,9 @@
     justify-content: space-between;
 }
 
-.green-button:hover {
-  background-color: $forest-light;
-  border: 1px solid $forest;
+.green-button:hover, .green-button-sm:hover {
+  background-color: $forest-light-transparent;
+  border-color: $white;
   box-shadow: inset 0 0 8px $forest;
   color: $forest;
   text-decoration: none;

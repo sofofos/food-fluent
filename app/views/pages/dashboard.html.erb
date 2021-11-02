@@ -1,14 +1,15 @@
-<div class='container'>
+<div class="dashboard-container">
   <div class='dashboard-head'>
     <%= render 'pages/welcome' %>
     <!-- profile-list !-->
     <%= render 'diet_profiles/show' %>
   </div> <!-- end dash-main-row !-->
 
-  <%= render 'friends/search' %>
-  <% if params[:query].present? %>
-    <%= render 'friends/results' %>
-  <% end %>
+  <div class="dashboard-content">
+    <%= render 'friends/search' %>
+    <% if params[:query].present? %>
+      <%= render 'friends/results' %>
+    <% end %>
 
   <!-- friends-list !-->
   <%= render 'friends/list' %>
@@ -17,7 +18,8 @@
   <% unless @user.requested_friends.empty? %>
     <%= render 'friends/requests' %>
   <% end %>
+  </div>
 <!-- END OF PARTIALS MISSING STYLING -->
 
-  <%= render 'pages/find_resto' %>
-</div>  
+  <%# render 'pages/find_resto' %>    
+</div>
