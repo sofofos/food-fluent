@@ -8,8 +8,9 @@
 
 .cards-friends {
   display: grid;
-  grid-gap: 25px;
+  grid-gap: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin-top: 20px;
 }
 
 .card-category {
@@ -183,7 +184,7 @@
  padding: 10px;
  display: flex;
  flex-direction: column;
- justify-content: space-around;
+ align-items: center;
 }
 
 
@@ -219,7 +220,22 @@
   transition: background-color 0.3s ease;
 } 
 
-.card-user-content:hover{
+.card-user-friends{
+ background-color: $white;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  padding: 10px;
+  border-radius: 25px;
+  width: 200px;
+  min-height: 200px;
+  transition: background-color 0.3s ease; 
+}
+
+.card-user-friends:hover{
   background-color: $forest-light-transparent;
   border-color: $forest;
   box-shadow: inset -2px 4px 8px $forest, inset 2px -4px 8px $forest;

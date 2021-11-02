@@ -1,7 +1,7 @@
 <div class='cards-friends'>
   <% @user.friends.each do |friend| %>
     <div class='card-user'>
-      <div class="card-user-content card-border card-position">
+      <div class="card-user-friends card-border card-position">
         <%= image_tag @user.avatar_path, class: 'avatar', id: 'dash-friends-card-head-pic', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
 
           <div class="card-text">
