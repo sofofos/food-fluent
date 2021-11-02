@@ -38,7 +38,11 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= image_tag 'bg-restaurant.png', class:'bg-wrapper' %>
-    <%= yield %>
+
+    <main>
+      <%= yield %>
+    </main>
+
     <%= render 'shared/footer' %>
   </body>
 </html>

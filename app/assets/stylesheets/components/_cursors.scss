@@ -1,0 +1,38 @@
+// _cursors.scss
+
+html {
+  cursor: url('../images/cursors/cursor-default.png'), default;
+  cursor: url('../images/cursors/cursor-context-menu.png'), context-menu;
+  cursor: url('../images/cursors/cursor-help.png'), help;
+  cursor: url('../images/cursors/cursor-pointer.png'), pointer;
+  cursor: url('../images/cursors/cursor-progress.png'), progress;
+  cursor: url('../images/cursors/cursor-wait.png'), wait;
+  cursor: url('../images/cursors/cursor-cell.png'), cell;
+  cursor: url('../images/cursors/cursor-crosshair.png'), crosshair;
+  cursor: url('../images/cursors/cursor-text.png'), text;
+  cursor: url('../images/cursors/cursor-vertical-text.png'), vertical-text;
+  cursor: url('../images/cursors/cursor-alias.png'), alias;
+  cursor: url('../images/cursors/cursor-copy.png'), copy;
+  cursor: url('../images/cursors/cursor-move.png'), move;
+  cursor: url('../images/cursors/cursor-no-drop.png'), no-drop;
+  cursor: url('../images/cursors/cursor-not-allowed.png'), not-allowed;
+  cursor: url('../images/cursors/cursor-grab.png'), grab;
+  cursor: url('../images/cursors/cursor-grabbing.png'), grabbing;
+  cursor: url('../images/cursors/cursor-all-scroll.png'), all-scroll;
+  cursor: url('../images/cursors/cursor-col-resize.png'), col-resize;
+  cursor: url('../images/cursors/cursor-row-resize.png'), row-resize;
+  cursor: url('../images/cursors/cursor-n-resize.png'), n-resize;
+  cursor: url('../images/cursors/cursor-e-resize.png'), e-resize;
+  cursor: url('../images/cursors/cursor-s-resize.png'), s-resize;
+  cursor: url('../images/cursors/cursor-w-resize.png'), w-resize;
+  cursor: url('../images/cursors/cursor-ne-resize.png'), ne-resize;
+  cursor: url('../images/cursors/cursor-nw-resize.png'), nw-resize;
+  cursor: url('../images/cursors/cursor-se-resize.png'), se-resize;
+  cursor: url('../images/cursors/cursor-sw-resize.png'), sw-resize;
+  cursor: url('../images/cursors/cursor-ew-resize.png'), ew-resize;
+  cursor: url('../images/cursors/cursor-ns-resize.png'), ns-resize;
+  cursor: url('../images/cursors/cursor-nesw-resize.png'), nesw-resize;
+  cursor: url('../images/cursors/cursor-nwse-resize.png'), nwse-resize;
+  cursor: url('../images/cursors/cursor-zoom-in.png'), zoom-in;
+  cursor: url('../images/cursors/cursor-zoom-out.png'), zoom-out;
+}

@@ -6,29 +6,29 @@
 
   <!-- finder-list !-->
   <div class="cards">
-
-      <% @user.friends.each do |friend| %>
-      <div class="card-category p-3" id="dash-friends-card"> 
-        <%= form_tag restaurants_path, method: :get do %>
-        <%= image_tag @user.avatar_path, class: 'avatar',
+    <% @user.friends.each do |friend| %>
+    <div class="card-category p-3" id="dash-friends-card"> 
+      <%= form_tag restaurants_path, method: :get do %>
+      <%= image_tag @user.avatar_path, class: 'avatar',
         id: 'dash-finder-card-head-pic', alt: 'Profile Picture',
         data: { title: 'profile_pic' }, 'aria-haspopup': true,
-        'aria-expanded': false %>
-        <%= friend.name %>
-        <%= check_box_tag 'friend_ids[]', friend.id %>
+        'aria-expanded': false 
+      %>
+      <%= friend.name %>
+      <%= check_box_tag 'friend_ids[]', friend.id %>
 
 
-
-        <div class="py-3">
-              <% friend.diet_profiles.each do |tag| %>
-              <%  tag.health_label.assign_icon(tag.health_label) %>
-              <%= image_tag "#{tag.health_label.icon_path}",
-                class: 'icon', id: '',
-                alt: 'Allergy Icon', data: { title: 'allergy' },
-                'aria-haspopup': true, 'aria-expanded': false %>
-                <%= tag.health_label.name.gsub('-Free', '') %>    
-            <% end %>
-        </div>
+      <div class="py-3">
+        <% friend.diet_profiles.each do |tag| %>
+          <%  tag.health_label.assign_icon(tag.health_label) %>
+          <%= image_tag "#{tag.health_label.icon_path}",
+              class: 'icon', id: '',
+              alt: 'Allergy Icon', data: { title: 'allergy' },
+              'aria-haspopup': true, 'aria-expanded': false 
+          %>
+          <%= tag.health_label.name.gsub('-Free', '') %>    
+        <% end %>
+      </div>
       <% end %>
     </div>
     <% end %> 
