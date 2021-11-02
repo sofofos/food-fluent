@@ -27,6 +27,12 @@
 
 .search-bar {
   border-radius: 10px;
-  border-color: $forest;
+  border: 2px solid $forest;
   display:flex;
+  margin-right: 3px;
+  color: $forest!important;
+}
+
+.search-bar[placeholder] {
+  color: $forest;
 }

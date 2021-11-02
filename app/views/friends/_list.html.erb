@@ -1,31 +1,18 @@
-<div class='cards' id='dash-friends-cards'>
+<div class='cards-friends'>
   <% @user.friends.each do |friend| %>
-    <div class='card-category' id='dash-friends-card'>
-    <div class='container' id='dash-friends-card-head-container'>
-      <div class='column' id='dash-friends-card-head-pic-container'>
+    <div class='card-user'>
+      <div class="card-user-content">
         <%= image_tag @user.avatar_path, class: 'avatar', id: 'dash-friends-card-head-pic', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
-      </div> <!-- end dash-friends-card-head-pic-container !-->
 
-      <div class='column' id='dash-friends-card-head-text-container'>
-        <div class='text' id='dash-friends-card-head-text' >
           <%= friend.name %>
-        </div> <!-- end dash-friends-card-head-text !-->
-      </div> <!-- end dash-friends-card-head-text-container !-->
-    </div> <!-- end dash-friends-card-head-container !-->
+  
 
-    <div class='container' id='dash-friends-card-body-container'>
-      <% friend.diet_profiles.each do |tag| %>
-        <li class='container' id='dash-friends-card-body-list'>
-          <div class='icon' id='dash-friends-card-body-label'>
-            <%  tag.health_label.assign_icon(tag.health_label) %>
-            <%= image_tag "#{tag.health_label.icon_path}", class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class='text' id='dash-friends-card-body-tooltip'>
-              <%= tag.health_label.name.gsub('-Free', '') %>
-            </div> <!-- end dash-friends-card-body-tooltip !-->
-          </div> <!-- end dash-friends-card-body-label !-->
-        </li> <!-- end dash-friends-card-body-list !-->
+        <% friend.diet_profiles.each do |tag| %>
+              <%  tag.health_label.assign_icon(tag.health_label) %>
+              <%= image_tag "#{tag.health_label.icon_path}", class: 'icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= tag.health_label.name.gsub('-Free', '') %>
       <% end %>
+      </div>
     </div>
-  </div> <!-- dash-friends-card !-->
-<% end %>
-</div> <!-- end dash-friends-cards !-->
+  <% end %>
+</div>

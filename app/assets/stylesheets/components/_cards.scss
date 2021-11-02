@@ -6,6 +6,12 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.cards-friends {
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
 .card-category {
   background: $white;
   border-radius: 25px;

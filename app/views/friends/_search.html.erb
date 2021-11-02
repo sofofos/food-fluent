@@ -12,10 +12,13 @@
             <%= text_field_tag :query, params[:query],
             class: 'search-bar',
             placeholder: 'find by username'%>
-            <%= submit_tag "find", class: 'green-button-sm' %>     
+            <%= submit_tag "search", class: 'green-button-sm' %>     
         </div>
     <% end %>
   </div>  
+  <div class="search-item">
+      <%= image_tag 'add', class:'icon' %>
+  </div>
 </div>
 
 
