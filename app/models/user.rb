@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :health_labels, through: :diet_profiles
 
   def random_avatar
-    avatars = ["chris.png", "sofia.png", "vivi.png"]
+    avatars = ["avatars/chris.png", "avatars/sofia.png", "avatars/vivi.png"]
     self.avatar_path = avatars.sample if self.avatar_path.nil?
     self.save!
   end

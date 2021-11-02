@@ -1,50 +1,65 @@
 <!-- _navbar.html.erb !-->
 
-<div class='navbar navbar-expand-sm navbar-light navbar-lewagon' id='nav'>
-  <%= link_to '/', class: 'navbar-brand' do %>
-    <%= image_tag 'bg-new.png', id:"logo" %>
-  <% end %> <!-- end link_to !-->
+<header class='navbar navbar-expand-sm navbar-light navbar-lewagon sticky' id='nav'>
+  <%= link_to '/', class: 'navbar-brand', id: 'nav-home' do %>
+    <%= image_tag '_logo-cutlery.png', 
+        class: 'navbar-brand-icon', 
+        id: 'nav-home-icon' 
+    %>
+  <% end %>  <!-- end nav-home !-->
 
-  <button class='navbar-toggler' id='navbar-button' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-    <span class='navbar-toggler-icon'>
-    </span>
-  </button> <!-- end navbar-button !-->
+  <button class='navbar-toggler' id='nav-toggle' type='button' data-toggle='collapse' data-target='#nav-collapse' aria-controls='nav-collapse' aria-expanded='false' aria-label='Toggle navigation'>
+    <span class='navbar-toggler-icon' id='nav-toggle-icon'>
+    </span> <!-- end nav-toggle-icon !-->
+  </button>  <!-- end nav-toggle !-->
 
-  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-    <ul class='navbar-nav mr-auto' id='navbar-list'>
+  <div class='collapse navbar-collapse' id='nav-collapse'>
+    <ul class='navbar-nav mr-auto' id='nav-collapse-list'>
       <% if user_signed_in? %>
-        <li class='nav-item dropdown' id='navbar-list-item'>
+        <li class='nav-item dropdown' id='nav-collapse-list-item'>
           <%= image_tag current_user.avatar_path, 
                         class: 'avatar dropdown-toggle', 
-                        id: 'navbarDropdown', 
+                        id: 'nav-collapse-list-avatar', 
                         data: { toggle: 'dropdown' }, 
                         'aria-haspopup': true, 
                         'aria-expanded': false 
           %>
 
-          <div class='dropdown-menu dropdown-menu-right' id='navbar-list-item-dropdown' aria-labelledby='navbarDropdown'>
-            <div class='links' id='navbar-list-item-links'>
+          <div class='dropdown-menu dropdown-menu-right' id='nav-collapse-list-item-box' aria-labelledby='nav-collapse-list-avatar'>
+            <div class='links' id='nav-collapse-list-item-links'>
               <%= link_to 'Dashboard', 
                   dashboard_path, 
-                  class:'drop-down-link dropdown-item' 
+                  class:'drop-down-link dropdown-item', 
+                  id: 'nav-collapse-list-item-links-dashboard'
               %>
               <%= link_to 'Logout', 
                   destroy_user_session_path, 
                   method: :delete, 
-                  class: 'drop-down-link dropdown-item' 
+                  class: 'drop-down-link dropdown-item', 
+                  id: 'nav-collapse-list-items-links-logout'
               %>
-            </div> <!-- end navbar-list-item-links !-->
-          </div> <!-- end navbar-list-item-dropdown !-->
-        </li> <!-- end navbar-list-item !-->
+            </div> <!-- end nav-collapse-list-item-links !-->
+          </div> <!-- end nav-collapse-list-item-box !-->
+        </li>  <!-- end nav-collapse-list-item !-->
       <% else %>
-        <li class='nav-item' id='navbar-list-login'>
-          <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
-        </li> <!-- end navbar-list-login !-->
+        <div class='container' id='nav-plain-list-item-container'>
+          <li class='nav-item' id='nav-plain-list-item-first'>
+            <%= link_to 'Login', 
+                new_user_session_path, 
+                class: 'nav-link', 
+                id: 'nav-plain-list-item-login' 
+            %>
+          </li>  <!-- end nav-plain-list-item-first !-->
 
-        <li class='nav-item' id='navbar-list-signup'>
-          <%= link_to 'Signup', new_user_registration_path, class:'nav-link'%>
-        </li> <!-- end navbar-list-signup !-->
-      <% end %> <!-- end user_signed_in? !-->
-    </ul> <!-- end navbar-list !-->
-  </div> <!-- end navbarSupportedContent !-->
-</div> <!-- end nav !-->
+          <li class='nav-item' id='nav-plain-list-item-second'>
+            <%= link_to 'Signup', 
+                new_user_registration_path, 
+                class:'nav-link', 
+                id: 'nav-plain-list-item-signup' 
+            %>
+          </li>  <!-- end nav-plain-list-item-second !-->
+        </div> <!-- end nav-plain-list-item-container !-->
+      <% end %>  <!-- end user_signed_in? !-->
+    </ul>  <!-- end nav-collapse-list !-->
+  </div> <!-- end nav-collapse !-->
+</header> <!-- end nav !-->
