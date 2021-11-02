@@ -10,7 +10,11 @@ body {
   color: $forest;
   margin-bottom: 0px!important;
   min-height: 100vh;
-  padding-bottom:250px;
+  padding-bottom: 250px;
+}
+
+main {
+  z-index: 7; // _navbar.scss: .sticky{} -1
 }
 
 h1,
@@ -51,12 +55,13 @@ li {
 
 .bg-wrapper {
   position: absolute;
+  bottom: 0;
   left: -410px;
+  opacity: .7;
+  overflow: hidden;
   top: 19px;
   width: 70vw;
   z-index: -1000;
-  overflow: hidden;
-  bottom: 0;
 }
 
 // input form placeholder centering

@@ -2,9 +2,19 @@
 
 #nav {
   display: flex;
+  background: $white;
   box-shadow: $primary-box-shadow;
+  box-sizing: border-box;
   justify-content: space-between;
   width: 100%;
+}
+
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  width: 100%;
+  z-index: 8; // _utilities.scss: main{} +1
 }
 
 #nav-home img,
