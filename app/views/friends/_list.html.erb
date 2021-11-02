@@ -1,18 +1,25 @@
 <div class='cards-friends'>
   <% @user.friends.each do |friend| %>
     <div class='card-user'>
-      <div class="card-user-content">
+      <div class="card-user-content card-border card-position">
         <%= image_tag @user.avatar_path, class: 'avatar', id: 'dash-friends-card-head-pic', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
 
-          <%= friend.name %>
+          <div class="card-text">
+            <%= friend.name %>
+          </div>
   
-
-        <% friend.diet_profiles.each do |tag| %>
-              <%  tag.health_label.assign_icon(tag.health_label) %>
-              <%= image_tag "#{tag.health_label.icon_path}", class: 'icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <%= tag.health_label.name.gsub('-Free', '') %>
-      <% end %>
+        <div class="item-position">
+          <% friend.diet_profiles.each do |tag| %>
+            <%  tag.health_label.assign_icon(tag.health_label) %>
+            <%= image_tag "#{tag.health_label.icon_path}", class: 'icon-sm', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
+          
+              <div class="icon-name">
+                <%= tag.health_label.name.gsub('-Free', '')%>
+              </div>  
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
+

@@ -26,6 +26,9 @@
 // user card
 .card-user{
  padding: 10px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
 }
 
 // main user card 
@@ -57,6 +60,11 @@
   width: 200px;
   min-height: 200px;
 } 
+
+.card-border {
+  border: 2px solid $forest;
+  box-shadow: 2px 1px 6px $gray, 2px 1px 6px $gray;
+}
 
 .card-text{
   font-weight: bold;
@@ -92,12 +100,6 @@
   margin-top:10px;
 }
 
-
-.user-preference-icon {
-  height: 30px;
-  width: 30px;
-}
-
 .user-preference-labels{
   margin-top: 3px;
   display: flex;
@@ -119,8 +121,7 @@
 // friends
 
 
-#dash-friends-card-body-tooltip,
-#dash-finder-card-body-tooltip {
+.icon-name {
   position: absolute;
   visibility: hidden;
   background-color: $forest;
@@ -133,9 +134,23 @@
   text-align: center;
   width: 100px;
 }
-#dash-friends-card-body-label:hover > #dash-friends-card-body-tooltip,
-#dash-finder-card-body-label:hover > #dash-finder-card-body-tooltip {
+.icon-name:hover > .icon {
   visibility: visible;
+}
+
+.card-position {
+  position: relative;
+}
+
+.item-position{
+  display: flex;
+  flex-direction:column;
+  position: absolute;
+  justify-content: space-around;
+  padding: 1px;
+  right: 0.5em;
+  top: 0;
+  height: 100%;
 }
 
 #dash-finder-titlebar-left,
