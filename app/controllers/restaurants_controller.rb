@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
   before_action :skip_policy_scope
   before_action :save_query_path, only: %i[index]
+  # after_action :byebug, only: %i[show]
 
   def index
     @all_restaurants = Restaurant.all.order(created_at: :desc)
@@ -21,6 +22,7 @@ class RestaurantsController < ApplicationController
     @users = @user_ids.map { |id| User.find(id.to_i) }
     @dish_type = Dish.dish_types
     @query_path = session[:query]
+    # byebug
   end
 
   def save_query_path

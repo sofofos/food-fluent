@@ -3,8 +3,7 @@ class PagesController < ApplicationController
   before_action :add_procs, only: %i[dashboard]
   before_action :user_friend, only: %i[create accept decline]
 
-  def home
-  end
+  def home; end
 
   def dashboard
     @user = current_user

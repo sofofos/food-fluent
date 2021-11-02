@@ -11,18 +11,21 @@
       <%= render 'friends/results' %>
     <% end %>
 
-  <!-- friends-list !-->
+  <!-- friends-list + restaurant search !-->
     <div class='cards' id='dash-friends-cards'>
       <%= render 'friends/list' %>
     </div>
-  </div>
 
+
+<div class='cards' id='dash-friends-cards'>
+
+<div class='cards-friends'>
 <!-- PARTIAL(s) BELOW NEED STYLING -->
   <% unless @user.requested_friends.empty? %>
     <%= render 'friends/requests' %>
   <% end %>
+</div>
   </div>
+</div>
 <!-- END OF PARTIALS MISSING STYLING -->
-
-  <%#= render 'pages/find_resto' %>
 </div>
