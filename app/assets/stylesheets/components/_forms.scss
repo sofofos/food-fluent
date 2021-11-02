@@ -1,0 +1,32 @@
+.search-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+}
+
+.search-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-title{
+  height: inherit;
+  align-self: center;
+  margin-bottom:0px!important;
+}
+ 
+
+
+.search-form{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.search-bar {
+  border-radius: 10px;
+  border-color: $forest;
+  display:flex;
+}

@@ -1,15 +1,19 @@
 <!-- Search for friends -->
-<div class="friends-search-head">
-  <h5>
-    Friends
-  </h5> 
+<div class="search-head">
+  <div class="search-item">
+    <h5 class="search-title">
+      Friends
+    </h5>    
+  </div>
 
-  <div class="search">
+  <div class="search-item">
     <%= form_tag dashboard_path, method: :get, action: :search do %>
-    <%= text_field_tag :query, params[:query],
-    class: 'form-control',
-    placeholder: 'find by username'%>
-    <%= submit_tag "find", class: 'green-button-sm' %>
+        <div class="search-form">
+            <%= text_field_tag :query, params[:query],
+            class: 'search-bar',
+            placeholder: 'find by username'%>
+            <%= submit_tag "find", class: 'green-button-sm' %>     
+        </div>
     <% end %>
   </div>  
 </div>
