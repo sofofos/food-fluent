@@ -70,7 +70,7 @@
 // Create custom checkbox
 .green-checkbox {
   position: absolute;
-  background-color: #DDDDDD;
+  background-color: $forest-light;
   border: 1px solid #339933;
   border-radius: 50%;
   height: 25px;
@@ -80,11 +80,11 @@
 }
 // Add colour on mouseover
 .green-checkbox-container:hover input ~ .green-checkbox {
-  background-color: #FFFFFF;
+  background-color: $kelly;
 }
 // Add colour on toggle
 .green-checkbox-container input:checked ~ .green-checkbox {
-  background-color: #339933;
+  background-color: $forest;
 }
 // Create checkmark indicator
 .green-checkbox:after {

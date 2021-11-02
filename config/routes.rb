@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
 
   resources :users, only: %i[index]
-  resources :diet_profiles, only: %I[new create]
+  resources :diet_profiles, only: %I[new create edit update]
   resources :pages, only: %i[index create] do
      member do
         post :accept

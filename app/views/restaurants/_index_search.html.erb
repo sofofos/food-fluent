@@ -6,7 +6,6 @@
     <div class="card-layer">
     <%= link_to "See More", restaurant_path(restaurant, :user_ids => @user_ids), class:'card-hover-text' %>
     </div>
-
     <div class="card-description">
       <div class="card-info">
         <%= link_to restaurant.name, restaurant_path(restaurant, :user_ids => @user_ids)%>
@@ -15,5 +14,6 @@
       </div>
     </div>
   </div>
+
  <% end %>
 </div>
