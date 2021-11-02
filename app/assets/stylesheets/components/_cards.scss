@@ -177,3 +177,147 @@
   border: 3px solid $forest;
   background-color: $white;
 }
+
+// user card
+.card-user{
+ padding: 10px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+}
+
+
+// main user card 
+.card-user-main{
+  background-color: $white;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 2px 1px 6px $forest-light;
+  width: 200px;
+  height: 200px;
+}
+
+// friends card 
+.card-user-content{
+  background-color: $white;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  padding: 10px;
+  box-shadow: 2px 1px 6px $forest-light;
+  border-radius: 25px;
+  width: 200px;
+  min-height: 200px;
+  transition: background-color 0.3s ease;
+} 
+
+.card-user-content:hover{
+  background-color: $forest-light-transparent;
+  border-color: $forest;
+  box-shadow: inset -2px 4px 8px $forest, inset 2px -4px 8px $forest;
+  color: $forest;
+  text-decoration: none;
+}
+
+.card-user-content:hover > .avatar {
+  border-color: $forest; 
+}
+.card-border {
+  border: 2px solid $forest;
+  box-shadow: 0px 2px 6px $gray, 2px 2px 6px $gray;
+}
+
+.card-text{
+  font-weight: bold;
+}
+
+.diet-profile{
+  max-width: 50%;
+  flex-grow: 1;
+}
+
+// diet profile styles
+
+.user-profile-container {
+  display: flex;
+  justify-content:space-around;
+  align-items: start;
+  width: 100%;
+  padding: 20px;
+}
+
+.user-preference {
+  padding: 10px 0px;
+}
+
+.user-profile-head{
+  padding: 10px;
+  text-align: center;
+}
+
+.user-preference-list {
+  text-align: center;
+  padding:5px;
+  margin-top:10px;
+}
+
+.user-preference-labels{
+  margin-top: 3px;
+  display: flex;
+  background-color: $forest-light-transparent;
+  border: 1px solid $forest;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.user-text{
+  // align-self: center;
+  min-width: 100px;
+  margin-top:0px!important;
+  padding: 2px;
+  align-self: center;
+  margin-bottom:0px!important;
+}
+
+// friends
+
+
+.icon-name {
+  position: absolute;
+  visibility: hidden;
+  background-color: $forest;
+  border: 1px solid $black;
+  border-radius: 5px;
+  color: $white;
+  font-family: 'Biryani';
+  font-size: 10px;
+  opacity: .9;
+  text-align: center;
+  width: 100px;
+}
+.icon-name:hover > .icon {
+  visibility: visible;
+}
+
+.card-position {
+  position: relative;
+}
+
+.item-position{
+  display: flex;
+  flex-direction:column;
+  position: absolute;
+  justify-content: space-around;
+  padding: 1px;
+  right: 0.5em;
+  top: 0;
+  height: 100%;
+}
