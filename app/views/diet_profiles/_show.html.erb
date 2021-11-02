@@ -1,25 +1,26 @@
 <!-- _show.html.erb !-->
-<div class='column' id='dash-main-list'>
-  <div class='container' id='dash-main-list-container'>
-  <% unless @diets.select(&@diet).empty? %>
-    <%= render 'diet_profiles/diet' %>
-  <% end %>
+<div class='card-user-content diet-profile'>
+  <div class='user-profile-container'>
+    <% unless @diets.select(&@diet).empty? %>
+      <%= render 'diet_profiles/diet' %>
+    <% end %>
 
-  <% unless @diets.select(&@allergy).empty? %>
-    <%= render 'diet_profiles/allergy'%>
-  <% end %>
+    <% unless @diets.select(&@allergy).empty? %>
+      <%= render 'diet_profiles/allergy'%>
+    <% end %>
 
-  <% unless @diets.select(&@macros).empty? %>
-    <%= render 'diet_profiles/macros' %>
-  <% end %>
+    <% unless @diets.select(&@macros).empty? %>
+      <%= render 'diet_profiles/macros' %>
+    <% end %>
 
-<!-- TODO: ADD STYLING FOR THIS BUTTON -->
-<% if @diets.empty?  %>
-  <%= link_to "Add a diet profile", new_diet_profile_path %>
-<%# <% else %>
-<%#  <%= link_to "Update your diet profile", edit_diet_profile_path(@diets.map(&:id)) %>
-<% end %>
-<!-- TODO: Add edit function for diet profile -->
-<!-- ^^ Until then, removing link to add dietprofile if one already exists^^ -->
-  </div> <!-- end dash-main-list-container !-->
-</div> <!-- end dash-main-list !-->
+  <!-- TODO: ADD STYLING FOR THIS BUTTON -->
+  <% if @diets.empty?  %>
+    <%= link_to 'Add a diet profile', new_diet_profile_path %>
+  <%# <% else %>
+  <%#  <%= link_to 'Update your diet profile', edit_diet_profile_path(@diets.map(&:id)) %>
+  <% end %>
+  </div> <!-- end user-profile-container !-->
+  <!-- <p>Update your diet profile</p> -->
+  <!-- TODO: Add edit function for diet profile -->
+  <!-- ^^ Until then, removing link to add dietprofile if one already exists^^ -->
+</div> <!-- end card-user-content diet-profile !-->

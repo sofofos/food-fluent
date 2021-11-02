@@ -8,6 +8,7 @@ html {
 body {
   position: relative;
   color: $forest;
+  font-family: $body-font;
   margin-bottom: 0px!important;
   min-height: 100vh;
   padding-bottom: 250px;
@@ -56,12 +57,12 @@ li {
 .bg-wrapper {
   position: absolute;
   bottom: 0;
-  left: -410px;
+  left: -210px;
   opacity: .7;
   overflow: hidden;
-  top: 19px;
-  width: 70vw;
-  z-index: -1000;
+  top: 150px;
+  width: 50vw;
+  z-index: -100;
 }
 
 // input form placeholder centering

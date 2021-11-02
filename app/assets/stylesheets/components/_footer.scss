@@ -1,7 +1,6 @@
 	.footer {
 	  position: absolute;
 	  box-shadow: $primary-box-shadow;
-	  // border-top: 1px solid $grey;
 	  color: $forest;
 	  bottom: 0px;
 	  height: 150px;
@@ -25,6 +24,13 @@
 		display: flex;
 		flex-direction: column;
 		transform: translate(0em, 10vh);
+		padding: 10px;
+		border-top: 1px solid transparent;
+		border-left: 1px solid transparent;
+		border-bottom: 1px solid transparent;
+		border-right: none!important;
+		border-radius: 15px 0px 0px 15px;
+		box-shadow: inset -3px 5px 20px $grey, inset 3px -5px 20px $grey;
 	}
 
 	.media-link {
