@@ -8,10 +8,14 @@ html {
 body {
   position: relative;
   color: $forest;
+  font-family: $body-font;
   margin-bottom: 0px!important;
   min-height: 100vh;
-  padding-bottom:250px;
-  font-family: $body-font;
+  padding-bottom: 250px;
+}
+
+main {
+  z-index: 7; // _navbar.scss: .sticky{} -1
 }
 
 h1,
@@ -52,11 +56,13 @@ li {
 
 .bg-wrapper {
   position: fixed;
+  bottom: 0;
   left: -210px;
+  opacity: .7;
+  overflow: hidden;
   top: 150px;
   width: 50vw;
   z-index: -100;
-  overflow: hidden;
 }
 
 // input form placeholder centering
