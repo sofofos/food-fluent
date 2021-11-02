@@ -1,45 +1,15 @@
-<!-- finder-bar !-->
-<div class="dashboard-layout-container">
-  <h5 id='dash-finder-titlebar-left-text'>
-    Find a restaurant!
-  </h5>  <!-- end dash-finder-titlebar-left-text !-->
-
-  <!-- finder-list !-->
-  <div class='cards' id='dash-friends-cards'>
   <%= form_tag restaurants_path, method: :get do %>
-    <div class='card-category' id='dash-friends-card'>
     <% @user.friends.each do |friend| %>
-      <div class='container' id='dash-friends-card-head-container'>
-        <div class='column' id='dash-friends-card-head-pic-container'>
-        <%= image_tag @user.avatar_path, class: 'avatar', id: 'dash-friends-card-head-pic', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
-        </div>
 
-        <div class='column' id='dash-friends-card-head-text-container'>
-          <div class='text' id='dash-friends-card-head-text' >
-            <%= friend.name %>
-          </div>
-        </div>
-      </div>
-      <div class='container' id='dash-friends-card-body-container'>
-        <% friend.diet_profiles.each do |tag| %>
-        <li class='container' id='dash-friends-card-body-list'>
-          <div class='icon' id='dash-friends-card-body-label'>
-            <%  tag.health_label.assign_icon(tag.health_label) %>
-            <%= image_tag "#{tag.health_label.icon_path}", class: 'icon', id: 'dash-main-list-allergy-icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class='text' id='dash-friends-card-body-tooltip'>
-              <%= tag.health_label.name.gsub('-Free', '') %>
-            </div>
-          </div>
-        </li>
-        <% end %>
-      </div>
+      <label class="green-checkbox-container">
+    <input type="checkbox" checked="check">
+    <span class="green-checkbox">
+
       <%= check_box_tag 'friend_ids[]', friend.id %>
-      <% end %>
-    </div>
-  </div>
+    </span>
+  </label>
+
+        <% end %>
   <%= submit_tag 'Find a restaurant' %>
-</div>
 <% end %>
-</div>
-</div>
 
