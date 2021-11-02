@@ -2,9 +2,10 @@
 
 <header class='navbar navbar-expand-sm navbar-light navbar-lewagon sticky' id='nav'>
   <%= link_to '/', class: 'navbar-brand', id: 'nav-home' do %>
-    <div class='navbar-brand-icon' id='nav-home-icon'>
-      <%= image_tag '_logo-cutlery.png' %>
-    </div> <!-- end nav-home-icon !-->
+    <%= image_tag '_logo-cutlery.png', 
+        class: 'navbar-brand-icon', 
+        id: 'nav-home-icon' 
+    %>
   <% end %>  <!-- end nav-home !-->
 
   <button class='navbar-toggler' id='nav-toggle' type='button' data-toggle='collapse' data-target='#nav-collapse' aria-controls='nav-collapse' aria-expanded='false' aria-label='Toggle navigation'>
