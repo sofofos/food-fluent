@@ -71,4 +71,3 @@ gem 'pundit'
 gem 'rest-client'
 gem 'json'
 gem 'bootstrap'
-
