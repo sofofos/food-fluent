@@ -27,10 +27,9 @@
     </div>
     <div class="row search-head">
       <label class="green-checkbox-container">
-        <input type="checkbox" >
+        <input type="checkbox" id="<% friend.id %>-box">
         <span class="green-checkbox">
-          <%= check_box_tag 'friend_ids[]', friend.id,
-            id: friend, class: 'form-control'%>
+          <%= check_box_tag 'friend_ids[]', friend.id %>
         </span>
       </label>
     </div>

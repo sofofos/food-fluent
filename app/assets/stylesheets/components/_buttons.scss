@@ -51,17 +51,18 @@
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
-  cursor: pointer;
+  // cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
 // Hide default checkbox
 .green-checkbox-container input {
   position: absolute;
-  cursor: pointer;
+  // cursor: pointer;
   height: 0;
   opacity: 0;
   width: 0;
@@ -79,6 +80,7 @@
   width: 25px;
 }
 // Add colour on mouseover
+
 .green-checkbox-container:hover input ~ .green-checkbox {
   background-color: $kelly;
 }
@@ -86,7 +88,8 @@
 .green-checkbox-container input:checked ~ .green-checkbox {
   background-color: $forest;
 }
-// Create checkmark indicator
+// Create checkmark indicato
+
 .green-checkbox:after {
   display: none;
   content: '';
