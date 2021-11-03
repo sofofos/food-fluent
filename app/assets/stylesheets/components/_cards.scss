@@ -341,9 +341,37 @@
   height: 100%;
 }
 
-.diet-items{
-  display:flex;
-  flex-direction:column;
-  margin-top: 15px;
-  background-color: $black;
+.diet-container{
+  width: 100%;
+  background: $white;
+  border-radius: 25px;
+  box-shadow: 4px 4px 12px $gray;
+  text-align: center; 
+  margin-top: 50px;
+  padding: 25px;
 }
+
+.diet-content{
+  display: flex;
+  justify-content: space-around;
+}
+
+.diet-card{
+  padding: 0px 20px;
+}
+
+.diet-title {
+  padding: 15px;
+}
+
+.diet-item{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $white;
+  padding: 2px;
+  position: relative;
+}
+
+.diet-item > input{
+  padding-right: auto;
