@@ -1,0 +1,114 @@
+// _cursors.scss
+
+.auto           { cursor: auto; }
+
+.none           { cursor: none; }
+
+.default        { cursor: url('cursors/cursor-default.png'), 
+                          url('cursors/cursor-default.cur'), 
+                          default; }
+.context-menu   { cursor: url('cursors/cursor-context-menu.png'), 
+                          url('cursors/cursor-context-menu.cur'), 
+                          context-menu; }
+.help           { cursor: url('cursors/cursor-help.png'), 
+                          url('cursors/cursor-help.cur'), 
+                          help; }
+.pointer        { cursor: url('cursors/cursor-pointer.png'), 
+                          url('cursors/cursor-ponter.cur'), 
+                          pointer; }
+.progress       { cursor: url('cursors/cursor-progress.png'), 
+                          url('cursors/cursor-progress.cur'), 
+                          progress; }
+.wait           { cursor: url('cursors/cursor-wait.png'), 
+                          url('cursors/cursor-wait.cur'), 
+                          wait; }
+.cell           { cursor: url('cursors/cursor-cell.png'), 
+                          url('cursors/cursor-cell.cur'), 
+                          cell; }
+.crosshair      { cursor: url('cursors/cursor-crosshair.png'), 
+                          url('cursors/cursor-crosshair.cur'), 
+                          crosshair; }
+.text           { cursor: url('cursors/cursor-text.png'), 
+                          url('cursors/cursor-text.cur'), 
+                          text; }
+.vertical-text  { cursor: url('cursors/cursor-vertical-text.png'), 
+                          url('cursors/cursor-vertical-text.cur'), 
+                          vertical-text; }
+.alias          { cursor: url('cursors/cursor-alias.png'), 
+                          url('cursors/cursor-alias.cur'), 
+                          alias; }
+.copy           { cursor: url('cursors/cursor-copy.png'), 
+                          url('cursors/cursor-copy.cur'), 
+                          copy; }
+.move           { cursor: url('cursors/cursor-move.png'), 
+                          url('cursors/cursor-move.cur'), 
+                          move; }
+.no-drop        { cursor: url('cursors/cursor-no-drop.png'), 
+                          url('cursors/cursor-no-drop.cur'), 
+                          no-drop; }
+.not-allowed    { cursor: url('cursors/cursor-not-allowed.png'), 
+                          url('cursors/cursor-not-allowed.cur'), 
+                          not-allowed; }
+.grab           { cursor: url('cursors/cursor-grab.png'), 
+                          url('cursors/cursor-grab.cur'), 
+                          grab; }
+.grabbing       { cursor: url('cursors/cursor-grabbing.png'), 
+                          url('cursors/cursor-grabbing.cur'), 
+                          grabbing; }
+.all-scroll     { cursor: url('cursors/cursor-all-scroll.png'), 
+                          url('cursors/cursor-all-scroll.cur'), 
+                          all-scroll; }
+.col-resize     { cursor: url('cursors/cursor-col-resize.png'), 
+                          url('cursors/cursor-col-resize.cur'), 
+                          col-resize; }
+.row-resize     { cursor: url('cursors/cursor-row-resize.png'), 
+                          url('cursors/cursor-row-resize.cur'), 
+                          row-resize; }
+.n-resize       { cursor: url('cursors/cursor-n-resize.png'), 
+                          url('cursors/cursor-n-resize.cur'), 
+                          n-resize; }
+.e-resize       { cursor: url('cursors/cursor-e-resize.png'), 
+                          url('cursors/cursor-e-resize.cur'), 
+                          e-resize; }
+.s-resize       { cursor: url('cursors/cursor-s-resize.png'), 
+                          url('cursors/cursor-s-resize.cur'), 
+                          s-resize; }
+.w-resize       { cursor: url('cursors/cursor-w-resize.png'), 
+                          url('cursors/cursor-w-resize.cur'), 
+                          w-resize; }
+.ne-resize      { cursor: url('cursors/cursor-ne-resize.png'), 
+                          url('cursors/cursor-ne-resize.cur'), 
+                          ne-resize; }
+.nw-resize      { cursor: url('cursors/cursor-nw-resize.png'), 
+                          url('cursors/cursor-nw-resize.cur'), 
+                          nw-resize; }
+.se-resize      { cursor: url('cursors/cursor-se-resize.png'), 
+                          url('cursors/cursor-se-resize.cur'), 
+                          se-resize; }
+.sw-resize      { cursor: url('cursors/cursor-sw-resize.png'), 
+                          url('cursors/cursor-sw-resize.cur'), 
+                          sw-resize; }
+.ew-resize      { cursor: url('cursors/cursor-ew-resize.png'), 
+                          url('cursors/cursor-ew-resize.cur'), 
+                          ew-resize; }
+.ns-resize      { cursor: url('cursors/cursor-ns-resize.png'), 
+                          url('cursors/cursor-ns-resize.cur'), 
+                          ns-resize; }
+.nesw-resize    { cursor: url('cursors/cursor-nesw-resize.png'), 
+                          url('cursors/cursor-nesw-resize.cur'), 
+                          nesw-resize; }
+.nwse-resize    { cursor: url('cursors/cursor-nwse-resize.png'), 
+                          url('cursors/cursor-nwse-resize.cur'), 
+                          nwse-resize; }
+.zoom-in        { cursor: url('cursors/cursor-zoom-in.png'), 
+                          url('cursors/cursor-zoom-in.cur'), 
+                          zoom-in; }
+.zoom-out       { cursor: url('cursors/cursor-zoom-out.png'), 
+                          url('cursors/cursor-zoom-out.cur'), 
+                          zoom-out; }
+
+html {
+  cursor: url('cursors/cursor-default.png'), 
+          url('cursors/cursor-default.cur'), 
+          default;
+}

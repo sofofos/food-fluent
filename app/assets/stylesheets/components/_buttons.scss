@@ -32,9 +32,9 @@
     width: 100%;
     display:flex;
     flex-direction: column;
-    margin: 0 auto;
     justify-content: space-between;
 }
+
 
 .green-button:hover, .green-button-sm:hover {
   background-color: $forest-light-transparent;
@@ -134,3 +134,6 @@
     text-decoration: none;
 }
 
+#button-landing {
+  text-transform: uppercase;
+}

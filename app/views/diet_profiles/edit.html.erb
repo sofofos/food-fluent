@@ -1,38 +1,40 @@
-<div>
-<%= form_tag diet_profile_path(@diet_profiles), method: :patch do %>
-<div>
-  <h6>Diet</h6>
-  <ul>
-  <% @diet_labels.select(&:diet?).each do |tag| %>
-    <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
-    <%= tag.name %>
-  <% end %>
-  </ul>
-</div>
+<div class='container'>
+  <%= form_tag diet_profile_path(@diet_profiles), method: :patch do %>
+  <div class="diet-container">
+    <div class="diet-content">
+      <div class="diet-card">
+        <h4 class="diet-title">Diet</h4>
+        <% @diet_labels.select(&:diet?).each do |tag| %>
+        <div class="diet-item">
+          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
+          <div><%= tag.name %></div>  
+        </div>
+        <% end %>
+      </div>
 
 
-<div>
-  <h6>Allergies</h6>
-  <ul>
-  <% @diet_labels.select(&:allergy?).each do |tag| %>
-    <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-    <%= tag.name.gsub('-Free', '') %>
-  <% end %>
-  </ul>
-</div>
+      <div class="diet-card">
+        <h4 class="diet-title">Allergies</h4>
+        <% @diet_labels.select(&:allergy?).each do |tag| %>
+        <div class="diet-item">
+          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
+          <div><%= tag.name.gsub('-Free', '') %></div>  
+        </div>
+          <% end %>
+      </div>
 
 
-<div>
-  <h6>Macronutrient preferences</h6>
-  <ul>
-  <% @diet_labels.select(&:macro?).each do |tag| %>
-    <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-    <%= tag.name %>
-  <% end %>
-  </ul>
-</div>
+      <div class="diet-card">
+        <h4 class="diet-title">Macros</h4>
+        <% @diet_labels.select(&:macro?).each do |tag| %>
+        <div class="diet-item">
+          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
+          <div class='card-text'><%= tag.name %></div> 
+          <% end %>
+        </div>
+      </div>
+      <%= submit_tag 'Submit', class: 'green-button m-5' %>
+      <% end %>
+    </div>
 
-    <%= submit_tag 'Submit', class: 'btn btn-primary' %>
-  <% end %>
-</div>
-
+  </div>
