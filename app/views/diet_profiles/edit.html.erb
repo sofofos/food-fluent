@@ -1,40 +1,41 @@
 <div class='container'>
-    <%= form_tag diet_profile_path(@diet_profiles), method: :patch do %>
-    <div class="d-flex">
-      <div class="diet-container">
-        <h4>Diet</h4>
-        <div class="diet-items">
-          <% @diet_labels.select(&:diet?).each do |tag| %>
+  <%= form_tag diet_profile_path(@diet_profiles), method: :patch do %>
+  <div class="diet-container">
+    <div class="diet-content">
+      <div class="diet-card">
+        <h4 class="diet-title">Diet</h4>
+        <% @diet_labels.select(&:diet?).each do |tag| %>
+        <div class="diet-item">
           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
-          <%= tag.name %>
-          <% end %>
+          <div><%= tag.name %></div>  
         </div>
+        <% end %>
       </div>
 
 
-      <div class="diet-container">
-        <h4>Allergies</h4>
-        <div class="diet-items">
-          <% @diet_labels.select(&:allergy?).each do |tag| %>
+      <div class="diet-card">
+        <h4 class="diet-title">Allergies</h4>
+        <% @diet_labels.select(&:allergy?).each do |tag| %>
+        <div class="diet-item">
           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-          <%= tag.name.gsub('-Free', '') %>
-          <% end %>
+          <div><%= tag.name.gsub('-Free', '') %></div>  
         </div>
+          <% end %>
       </div>
 
 
-      <div class="diet-container">
-        <h4>Macronutrient preferences</h4>
-          <% @diet_labels.select(&:macro?).each do |tag| %>
-        <div class="diet-items">
+      <div class="diet-card">
+        <h4 class="diet-title">Macros</h4>
+        <% @diet_labels.select(&:macro?).each do |tag| %>
+        <div class="diet-item">
           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-          <div><%= tag.name %></div>
-        </div>
+          <div class='card-text'><%= tag.name %></div> 
           <% end %>
+        </div>
       </div>
+      <%= submit_tag 'Submit', class: 'green-button m-5' %>
+      <% end %>
     </div>
 
-    <%= submit_tag 'Submit', class: 'btn btn-primary' %>
-    <% end %>
-</div>
+  </div>
 
