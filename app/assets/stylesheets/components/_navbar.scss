@@ -20,17 +20,19 @@
   color: $forest!important;
 }
 
+.navbar-expand-sm .navbar-nav .dropdown-menu {
+    position: absolute;
+}
+
 .dropdown-menu{
-  border: 1px solid $gray;
   padding: 0px!important;
-  border-radius: 5px;
+  border: 1px solid $forest!important;
 }
 
 .navbar-links{
   display:flex;
   flex-direction:column;
   align-items: center;
-  border-radius: inherit;
 }
 
 .navbar-link{
@@ -39,7 +41,6 @@
   padding: 10px;
   border: 1px solid transparent;
   transition: background-color 0.3s ease;
-  border-radius: inherit;
 }
 
 .navbar-link:hover{
