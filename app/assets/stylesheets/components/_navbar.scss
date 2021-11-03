@@ -1,77 +1,49 @@
+// // _navbar.scss
+
 // _navbar.scss
 
-.sticky {
-  position: sticky;
-  position: -webkit-sticky;
-  width: 100%;
-  z-index: 8; // _utilities.scss: main{} +1
-}
-
-#nav {
-  display: flex;
-  top: 0;
-  background: $white;
-  box-shadow: $primary-box-shadow;
-  box-sizing: border-box;
+.navbar-lewagon {
   justify-content: space-between;
-  width: 100%;
+  background: white;
 }
 
-#nav-home img {
-  height: 40px!important;
-  width: 40px!important;
-}
-#nav-home img:hover {
-  filter: opacity(0.7) drop-shadow(0 0 0 $forest-light);
-}
-
-#nav-collapse {
+.navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
-#nav-collapse-list {
-  float: right;
-}
-#nav-collapse-list-item {
-  border: 4px double $grey;
-  border-radius: 50%;
-  max-height: 48px;
-  max-width: 48px;
-}
-#nav-collapse-list-item img {
-  // cursor: pointer;
-}
-#nav-collapse-list-item:hover {
-  border: 4px double $forest;
-}
-#nav-collapse-list-item-box {
-  border: 2px solid $forest;
-  border-radius: 25px;
-  margin-top: 5px;
-  float: right;
-}
-#nav-collapse-list-item-links .dropdown-item {
-  color: $forest;
-}
-#nav-collapse-list-item-links .dropdown-item:hover {
-  background-color: $forest-light;
-  border-radius: 25px;
-  color: $black;
+
+.nav-link-image{
+  height: 50px;
+  width: 50px;
 }
 
-#nav-plain-list-item-container {
-  border: 2px solid $forest;
-  border-radius: 25px;
-  justify-content: space-around;
-  margin: 0px 5px;
-  max-width: 100%;
+.dropdown-custom{
+  color: $forest!important;
 }
-#nav-plain-list-item-login,
-#nav-plain-list-item-signup {
+
+.dropdown-menu{
+  border: 1px solid $gray;
+  padding: 0px!important;
+  border-radius: 5px;
+}
+
+.navbar-links{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  border-radius: inherit;
+}
+
+.navbar-link{
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease;
+  border-radius: inherit;
+}
+
+.navbar-link:hover{
   color: $forest;
-}
-#nav-plain-list-item-login:hover,
-#nav-plain-list-item-signup:hover {
-  background-color: $forest-light;
-  border-radius: 25px;
-  color: $black;
+  text-decoration: none;
+  background-color: $forest-light-transparent;
 }

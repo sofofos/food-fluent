@@ -121,7 +121,7 @@
 // cards - restaurant show
 
 
-.card-restaurant{
+.card-restaurant {
   width: 90%;
   border-radius: 25px;
   margin: 20px auto;
@@ -129,14 +129,14 @@
   box-shadow: 4px 4px 8px $grey;
 }
 
-.card-restaurant-img{
+.card-restaurant-img {
   width: 60%;
   flex-grow: 1;
   border-radius: 25px 0px 0px 25px;
   background-size: cover;
 }
 
-.restaurant-contact-info{
+.restaurant-contact-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -180,7 +180,7 @@
 }
 
 // user card
-.card-user{
+.card-user {
  padding: 10px;
  display: flex;
  flex-direction: column;
@@ -189,7 +189,7 @@
 
 
 // main user card 
-.card-user-main{
+.card-user-main {
   background-color: $white;
   display:flex;
   flex-direction: column;
@@ -204,7 +204,7 @@
 }
 
 // friends card 
-.card-user-content{
+.card-user-content {
   background-color: $white;
   display:flex;
   flex-direction: column;
@@ -220,7 +220,7 @@
   transition: background-color 0.3s ease;
 } 
 
-.card-user-friends{
+.card-user-friends {
  background-color: $white;
   display:flex;
   flex-direction: column;
@@ -235,7 +235,7 @@
   transition: background-color 0.3s ease; 
 }
 
-.card-user-friends:hover{
+.card-user-friends:hover {
   background-color: $forest-light-transparent;
   border-color: $forest;
   box-shadow: inset -2px 4px 8px $forest, inset 2px -4px 8px $forest;
@@ -251,11 +251,11 @@
   box-shadow: 0px 2px 6px $gray, 2px 2px 6px $gray;
 }
 
-.card-text{
+.diet-c-text{
   font-weight: bold;
 }
 
-.diet-profile{
+.diet-profile {
   max-width: 50%;
   flex-grow: 1;
 }
@@ -275,7 +275,7 @@
   padding: 10px 0px;
 }
 
-.user-profile-head{
+.user-profile-head {
   padding: 10px;
   text-align: center;
 }
@@ -286,7 +286,7 @@
   margin-top:10px;
 }
 
-.user-preference-labels{
+.user-preference-labels {
   margin-top: 3px;
   display: flex;
   background-color: $forest-light-transparent;
@@ -295,7 +295,7 @@
   text-align: center;
 }
 
-.user-text{
+.user-text {
   // align-self: center;
   min-width: 100px;
   margin-top:0px!important;
@@ -330,7 +330,7 @@
   position: relative;
 }
 
-.item-position{
+.item-position {
   display: flex;
   flex-direction:column;
   position: absolute;
@@ -341,7 +341,7 @@
   height: 100%;
 }
 
-.diet-container{
+.diet-container {
   width: 100%;
   background: $white;
   border-radius: 25px;
@@ -351,28 +351,46 @@
   padding: 25px;
 }
 
-.diet-content{
-  display: flex;
-  justify-content: space-around;
+@media (min-width: 540px) {
+  .diet-content {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
-.diet-card{
+.diet-card {
   padding: 0px 20px;
+  width: 200px;
 }
 
 .diet-title {
   padding: 15px;
 }
 
-.diet-item{
+.diet-item {
   display:flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: $white;
-  padding: 2px;
   position: relative;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: background-color 0.1s ease;
 }
 
-.diet-item > input{
-  padding-right: auto;
+.diet-item:hover{
+  background-color: $forest-light-transparent;
+}
+
+.diet-item > div {
+  margin: 0px 0px 0px 10px;
+}
+
+.diet-item > input {
+  width: 25%;
+}
+
+.diet-card-text {
+  margin: 0px auto;
+  text-align: center;
 }

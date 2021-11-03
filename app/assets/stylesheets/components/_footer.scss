@@ -1,64 +1,50 @@
-// _footer.scss
+.footer {
+    position: absolute;
+    box-shadow: $primary-box-shadow;
+    color: $forest;
+    bottom: 0px;
+    height: 150px;
+    left: 0px;
+    padding: 30px;
+    width: 100%;
+  }
 
-#foot {
-  display: flex;
-  position: absolute;
-  bottom: 0px;
-  align-items: center;
-  box-shadow: $primary-box-shadow;
-  color: $forest;
-  height: 150px;
-  left: 0px;
-  padding: 30px;
-  width: 100%;
-}
+  .footer-content-wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
 
-#foot-container-contact {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-#foot-container-contact p {
-  font-size: 14px;
-  line-height: 1;
-  margin: 15px 0px;
-}
-#foot-container-contact p:hover {
-  background-color: $forest-light-transparent;
-  border-radius: 10px;  
-}
-#foot-container-contact-rows-locale, 
-#foot-container-contact-rows-mail {
-  text-decoration: none;
-}
+  .media-links {
+    position: fixed;
+    right: 0px;
+    bottom: 50vh;
+    display: flex;
+    flex-direction: column;
+    transform: translate(0em, 10vh);
+    padding: 10px;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-right: none!important;
+    border-radius: 15px 0px 0px 15px;
+    box-shadow: inset -3px 5px 20px $grey, inset 3px -5px 20px $grey;
+  }
 
-#foot-container-media {
-  position: fixed;	
-  border-bottom: 1px solid transparent;
-  border-left: 1px solid transparent;
-  border-radius: 15px 0px 0px 15px;
-  border-right: none!important;
-  border-top: 1px solid transparent;
-  bottom: 33vh;
-  box-shadow: inset -3px 5px 20px $grey, inset 3px -5px 20px $grey;
-  flex-direction: column;
-  padding: 10px;
-  right: 0px;
-  transform: translate(0em, 10vh);
-}
-.media-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.media-link-icon {
-  height: 40px!important;
-  padding: 10px;
-  width: 40px!important;
-}
-.media-link:hover{
+  .media-link {
+    height: 40px;
+    padding: 10px;
+    width: 40px;
+  }
+
+  .media-link:hover{
   background-color: $forest-light-transparent;
   border-radius: 10px;
-}
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1;
+  } 

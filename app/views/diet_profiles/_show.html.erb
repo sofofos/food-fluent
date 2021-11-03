@@ -13,7 +13,6 @@
       <%= render 'diet_profiles/macros' %>
     <% end %>
 
-    <!-- TODO: ADD STYLING FOR THIS BUTTON -->
     <% if @diets.empty?  %>
       <%= link_to "Add a diet profile", new_diet_profile_path %>
     <% else %>
@@ -21,4 +20,4 @@
       edit_diet_profile_path(@diets.map(&:id)) %>
     <% end %>
   </div>
-</div> <!-- end dash-main-list-container !-->
+</div> <!-- card-user-content diet-profile !-->

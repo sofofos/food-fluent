@@ -1,13 +1,28 @@
 <!-- home.html.erb !-->
+<!-- (connected with _banner.scss) !-->
 
 <div class='banner'>
   <div class='container content-wrap content-border'>
-    <h1>food fluent</h1>
-    <%# <%= image_tag 'cutlery-green.png', class:'logo' %> 
-    <h2>a restaurant for everyone</h2>
+    <h1>
+      FOOD FLUENT
+    </h1>
+
+    <h2>
+      A RESTAURANT FOR EVERYONE
+    </h2>
+
     <div class='call-to-action'>
-      <h3>You shouldn't have to choose between your lifestyle and your friends!</h3>
-     <%= link_to 'Get Started!', dashboard_path, class:'green-button', id:'button-landing' %></p>  
-    </div>
-  </div>
-</div>
+      <h3>
+        You shouldn't have to choose between your lifestyle & your friends!
+      </h3>
+
+      <div class='container'>
+        <%= link_to 'Get Started!', 
+            dashboard_path, 
+            class:'green-button', 
+            id:'button-landing' 
+        %>
+      </div>
+    </div> <!-- end call-to-action !-->
+  </div> <!-- end container content-wrap content-border !-->
+</div> <!-- end banner !-->
