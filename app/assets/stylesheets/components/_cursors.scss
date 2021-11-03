@@ -1,106 +1,44 @@
 // _cursors.scss
 
+.auto           { cursor: auto; }
+.default        { cursor: default; }
+.none           { cursor: none; }
+.context-menu   { cursor: context-menu; }
+.help           { cursor: help; }
+.pointer        { cursor: pointer; }
+.progress       { cursor: progress; }
+.wait           { cursor: wait; }
+.cell           { cursor: cell; }
+.crosshair      { cursor: crosshair; }
+.text           { cursor: text; }
+.vertical-text  { cursor: vertical-text; }
+.alias          { cursor: alias; }
+.copy           { cursor: copy; }
+.move           { cursor: move; }
+.no-drop        { cursor: no-drop; }
+.not-allowed    { cursor: not-allowed; }
+.grab           { cursor: grab; }
+.grabbing       { cursor: grabbing; }
+.all-scroll     { cursor: all-scroll; }
+.col-resize     { cursor: col-resize; }
+.row-resize     { cursor: row-resize; }
+.n-resize       { cursor: n-resize; }
+.e-resize       { cursor: e-resize; }
+.s-resize       { cursor: s-resize; }
+.w-resize       { cursor: w-resize; }
+.ne-resize      { cursor: ne-resize; }
+.nw-resize      { cursor: nw-resize; }
+.se-resize      { cursor: se-resize; }
+.sw-resize      { cursor: sw-resize; }
+.ew-resize      { cursor: ew-resize; }
+.ns-resize      { cursor: ns-resize; }
+.nesw-resize    { cursor: nesw-resize; }
+.nwse-resize    { cursor: nwse-resize; }
+.zoom-in        { cursor: zoom-in; }
+.zoom-out       { cursor: zoom-out; }
+
 html {
-  cursor: url('../images/cursors/cursor-default.png'), 
-          url('../images/cursors/cursor-default.cur'), 
+  cursor: url('cursors/cursor-default.png'), 
+          url('cursors/cursor-default.cur'), 
           default;
-  cursor: url('../images/cursors/cursor-context-menu.png'), 
-          url('../images/cursors/cursor-context-menu.cur'), 
-          context-menu;
-  cursor: url('../images/cursors/cursor-help.png'), 
-          url('../images/cursors/cursor-help.cur'), 
-          help;
-  cursor: url('../images/cursors/cursor-pointer.png'), 
-          url('../images/cursors/cursor-pointer.cur'), 
-          pointer;
-  cursor: url('../images/cursors/cursor-progress.png'), 
-          url('../images/cursors/cursor-progress.cur'), 
-          progress;
-  cursor: url('../images/cursors/cursor-wait.png'), 
-          url('../images/cursors/cursor-wait.cur'), 
-          wait;
-  cursor: url('../images/cursors/cursor-cell.png'), 
-          url('../images/cursors/cursor-cell.cur'), 
-          cell;
-  cursor: url('../images/cursors/cursor-crosshair.png'), 
-          url('../images/cursors/cursor-crosshair.cur'), 
-          crosshair;
-  cursor: url('../images/cursors/cursor-text.png'), 
-          url('../images/cursors/cursor-text.cur'), 
-          text;
-  cursor: url('../images/cursors/cursor-vertical-text.png'), 
-          url('../images/cursors/cursor-vertical-text.cur'), 
-          vertical-text;
-  cursor: url('../images/cursors/cursor-alias.png'), 
-          url('../images/cursors/cursor-alias.cur'), 
-          alias;
-  cursor: url('../images/cursors/cursor-copy.png'), 
-          url('../images/cursors/cursor-copy.cur'), 
-          copy;
-  cursor: url('../images/cursors/cursor-move.png'), 
-          url('../images/cursors/cursor-move.cur'), 
-          move;
-  cursor: url('../images/cursors/cursor-no-drop.png'), 
-          url('../images/cursors/cursor-no-drop.cur'), 
-          no-drop;
-  cursor: url('../images/cursors/cursor-not-allowed.png'), 
-          url('../images/cursors/cursor-not-allowed.cur'), 
-          not-allowed;
-  cursor: url('../images/cursors/cursor-grab.png'), 
-          url('../images/cursors/cursor-grab.cur'), 
-          grab;
-  cursor: url('../images/cursors/cursor-grabbing.png'), 
-          url('../images/cursors/cursor-grabbing.cur'), 
-          grabbing;
-  cursor: url('../images/cursors/cursor-all-scroll.png'), 
-          url('../images/cursors/cursor-all-scroll.cur'), 
-          all-scroll;
-  cursor: url('../images/cursors/cursor-col-resize.png'), 
-          url('../images/cursors/cursor-col-resize.cur'), 
-          col-resize;
-  cursor: url('../images/cursors/cursor-row-resize.png'), 
-          url('../images/cursors/cursor-row-resize.cur'), 
-          row-resize;
-  cursor: url('../images/cursors/cursor-n-resize.png'), 
-          url('../images/cursors/cursor-n-resize.cur'), 
-          n-resize;
-  cursor: url('../images/cursors/cursor-e-resize.png'), 
-          url('../images/cursors/cursor-e-resize.cur'), 
-          e-resize;
-  cursor: url('../images/cursors/cursor-s-resize.png'), 
-          url('../images/cursors/cursor-s-resize.cur'), 
-          s-resize;
-  cursor: url('../images/cursors/cursor-w-resize.png'), 
-          url('../images/cursors/cursor-w-resize.cur'), 
-          w-resize;
-  cursor: url('../images/cursors/cursor-ne-resize.png'), 
-          url('../images/cursors/cursor-ne-resize.cur'), 
-          ne-resize;
-  cursor: url('../images/cursors/cursor-nw-resize.png'), 
-          url('../images/cursors/cursor-nw-resize.cur'), 
-          nw-resize;
-  cursor: url('../images/cursors/cursor-se-resize.png'), 
-          url('../images/cursors/cursor-se-resize.cur'), 
-          se-resize;
-  cursor: url('../images/cursors/cursor-sw-resize.png'), 
-          url('../images/cursors/cursor-sw-resize.cur'), 
-          sw-resize;
-  cursor: url('../images/cursors/cursor-ew-resize.png'), 
-          url('../images/cursors/cursor-ew-resize.cur'), 
-          ew-resize;
-  cursor: url('../images/cursors/cursor-ns-resize.png'), 
-          url('../images/cursors/cursor-ns-resize.cur'), 
-          ns-resize;
-  cursor: url('../images/cursors/cursor-nesw-resize.png'), 
-          url('../images/cursors/cursor-nesw-resize.cur'), 
-          nesw-resize;
-  cursor: url('../images/cursors/cursor-nwse-resize.png'), 
-          url('../images/cursors/cursor-nwse-resize.cur'), 
-          nwse-resize;
-  cursor: url('../images/cursors/cursor-zoom-in.png'), 
-          url('../images/cursors/cursor-zoom-in.cur'), 
-          zoom-in;
-  cursor: url('../images/cursors/cursor-zoom-out.png'), 
-          url('../images/cursors/cursor-zoom-out.cur'), 
-          zoom-out;
 }
