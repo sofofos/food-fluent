@@ -1,5 +1,9 @@
 // _utilities.scss
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
   margin: 0px;
   padding: 0px;
