@@ -251,7 +251,7 @@
   box-shadow: 0px 2px 6px $gray, 2px 2px 6px $gray;
 }
 
-.card-text{
+.diet-c-text{
   font-weight: bold;
 }
 
@@ -357,6 +357,7 @@
 }
 
 .diet-card{
+  width: 200px;
   padding: 0px 20px;
 }
 
@@ -366,13 +367,24 @@
 
 .diet-item{
   display:flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: $white;
-  padding: 2px;
   position: relative;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: background-color 0.1s ease;
+}
+
+.diet-item:hover{
+  background-color: $forest-light-transparent;
 }
 
 .diet-item > input{
-  padding-right: auto;
+  width: 25%;
+}
+
+.diet-card-text{
+  text-align: center;
+  margin: 0px auto;
 }

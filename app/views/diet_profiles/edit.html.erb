@@ -5,10 +5,10 @@
       <div class="diet-card">
         <h4 class="diet-title">Diet</h4>
         <% @diet_labels.select(&:diet?).each do |tag| %>
-        <div class="diet-item">
+        <label class="diet-item">
           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
-          <div><%= tag.name %></div>  
-        </div>
+          <p class="diet-card-text"><%= tag.name %></p>  
+        </label>
         <% end %>
       </div>
 
@@ -16,10 +16,10 @@
       <div class="diet-card">
         <h4 class="diet-title">Allergies</h4>
         <% @diet_labels.select(&:allergy?).each do |tag| %>
-        <div class="diet-item">
+        <label class="diet-item">
           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-          <div><%= tag.name.gsub('-Free', '') %></div>  
-        </div>
+          <p class="diet-card-text"><%= tag.name.gsub('-Free', '') %></p>  
+        </label>
           <% end %>
       </div>
 
@@ -27,15 +27,15 @@
       <div class="diet-card">
         <h4 class="diet-title">Macros</h4>
         <% @diet_labels.select(&:macro?).each do |tag| %>
-        <div class="diet-item">
+        <label class="diet-item">
           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-          <div class='card-text'><%= tag.name %></div> 
+          <p class="diet-card-text"><%= tag.name %></p> 
           <% end %>
-        </div>
+        </label>
       </div>
-      <%= submit_tag 'Submit', class: 'green-button m-5' %>
       <% end %>
     </div>
+      <%= submit_tag 'Submit', class: 'green-button m-5' %>
 
   </div>
 
