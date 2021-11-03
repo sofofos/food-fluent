@@ -1,38 +1,38 @@
-<div>
-<%= form_tag diet_profile_path(@diet_profiles), method: :patch do %>
-<div>
-  <h6>Diet</h6>
-  <ul>
-  <% @diet_labels.select(&:diet?).each do |tag| %>
-    <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
-    <%= tag.name %>
-  <% end %>
-  </ul>
-</div>
+<div class='container'>
+    <%= form_tag diet_profile_path(@diet_profiles), method: :patch do %>
+    <div class="d-flex">
+      <div class="diet-container">
+        <h4>Diet</h4>
+        <div class="diet-items">
+          <% @diet_labels.select(&:diet?).each do |tag| %>
+          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
+          <%= tag.name %>
+          <% end %>
+        </div>
+      </div>
 
+      <div class="diet-container">
+        <h4>Allergies</h4>
+        <div class="diet-items">
+          <% @diet_labels.select(&:allergy?).each do |tag| %>
+          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
+          <%= tag.name.gsub('-Free', '') %>
+          <% end %>
+        </div>
+      </div>
 
-<div>
-  <h6>Allergies</h6>
-  <ul>
-  <% @diet_labels.select(&:allergy?).each do |tag| %>
-    <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-    <%= tag.name.gsub('-Free', '') %>
-  <% end %>
-  </ul>
-</div>
-
-
-<div>
-  <h6>Macronutrient preferences</h6>
-  <ul>
-  <% @diet_labels.select(&:macro?).each do |tag| %>
-    <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-    <%= tag.name %>
-  <% end %>
-  </ul>
-</div>
+      <div class="diet-container">
+        <h4>Macronutrient preferences</h4>
+          <% @diet_labels.select(&:macro?).each do |tag| %>
+        <div class="diet-items">
+          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
+          <div><%= tag.name %></div>
+        </div>
+          <% end %>
+      </div>
+    </div>
 
     <%= submit_tag 'Submit', class: 'btn btn-primary' %>
-  <% end %>
+    <% end %>
 </div>
 
