@@ -1,87 +1,24 @@
-<!-- _footer.html.erb !-->
-
-<footer class='footer' id='foot'>
-  <div class='container' id='foot-container'>
-    <div class='footer-content-wrap' id='foot-container-contact'>
-      <div id='foot-container-contact-rows'>
-        <p class='text' id='foot-container-contact-row-1'>
-          Food Fluent, Inc.
-        </p>
-
-        <%= link_to 'https://www.google.com/maps/place/5333+Casgrain+Ave,+Montreal,+QC+H2T+1X3', class: 'locale', id: 'foot-container-contact-rows-locale' do %>
-          <p class='text' id='foot-container-contact-row-2'>
-            5333 Av. Casgrain, Ste. 102
-          </p>
-
-          <p class='text' id='foot-container-contact-row-3'>
-            Montréal, Québec H2T 1X3
-          </p>
-        <% end %>  <!-- end foot-container-contact-rows-locale !-->
-
-        <%= mail_to 'info@foodfluent.xyz', class: 'mailer', id: 'foot-container-contact-rows-mail' do %>
-          <p class='text' id='foot-container-contact-row-4'>
-            info@foodfluent.xyz
-          </p>
-        <% end %>  <!-- end foot-container-contact-rows-mail !-->
-      </div> <!-- end foot-container-contact-rows !-->
-    </div> <!-- end foot-container-contact !-->
-
-    <div class='media-links' id='foot-container-media'>
-      <%= link_to 'https://www.facebook.com', class: 'media-link', id: 'foot-container-media-link-facebook' do %>
-        <%= image_tag 'social/facebook.png', 
-            class: 'media-link-icon', 
-            id: 'foot-container-media-icon-facebook' 
-        %>
-      <% end %>  <!-- end foot-container-media-link-facebook !-->
-
-      <%= link_to 'https://www.github.com/sofofos/food-fluent', class: 'media-link', id: 'foot-container-media-link-github' do %>
-        <%= image_tag 'social/github.png', 
-            class: 'media-link-icon', 
-            id: 'foot-container-media-icon-github' 
-        %>
-      <% end %>  <!-- end foot-container-media-link-github !-->
-
-      <%= link_to 'https://www.instagram.com', class: 'media-link', id: 'foot-container-media-link-instagram' do %>
-        <%= image_tag 'social/instagram.png', 
-            class: 'media-link-icon', 
-            id: 'foot-container-media-icon-instagram' 
-        %>
-      <% end %>  <!-- end foot-container-media-link-instagram !-->
-
-      <%= link_to 'https://www.linkedin.com', class: 'media-link', id: 'foot-container-media-link-linkedin' do %>
-        <%= image_tag 'social/linkedin.png', 
-            class: 'media-link-icon', 
-            id: 'foot-container-media-icon-linkedin' 
-        %>
-      <% end %>  <!-- end foot-container-media-link-linkedin !-->
-
-      <%= link_to 'https://www.tumblr.com', class: 'media-link', id: 'foot-container-media-link-tumblr' do %>
-        <%= image_tag 'social/tumblr.png', 
-            class: 'media-link-icon', 
-            id: 'foot-container-media-icon-tumblr' 
-        %>
-      <% end %>  <!-- end foot-container-media-link-tumblr !-->
-
-      <%= link_to 'https://www.twitter.com', class: 'media-link', id: 'foot-container-media-link-twitter' do %>
-        <%= image_tag 'social/twitter.png', 
-            class: 'media-link-icon', 
-            id: 'foot-container-media-icon-twitter' 
-        %>
-      <% end %>  <!-- end foot-container-media-link-twitter !-->
-
-      <%= link_to 'https://www.vimeo.com', class: 'media-link', id: 'foot-container-media-link-vimeo' do %>
-        <%= image_tag 'social/vimeo.png', 
-            class: 'media-link-icon', 
-            id: 'foot-container-media-icon-vimeo' 
-        %>
-      <% end %>  <!-- end foot-container-media-link-vimeo !-->
-
-      <%= link_to 'https://www.youtube.com', class: 'media-link', id: 'foot-container-media-link-youtube' do %>
-        <%= image_tag 'social/youtube.png', 
-            class: 'media-link-icon', 
-            id: 'foot-container-media-icon-youtube' 
-        %>
-      <% end %>  <!-- end foot-container-media-link-youtube !-->
-    </div> <!-- end foot-container-media !-->
-  </div> <!-- end foot-container !-->
-</footer> <!-- end foot !-->
+<footer class='footer d-flex align-items-center'>
+  <div class='container'>
+    <div class='footer-content-wrap'>
+      <p>
+        Food Fluent, Inc.
+      </p>
+      <p>
+        5333 Av. Casgrain, Ste. 102
+      </p>
+      <p>
+        Montréal, Québec H2T 1X3
+      </p>
+      <p>
+        email: info@foodfluent.xyz
+      </p>
+      <div class='media-links d-flex justify-content-center align-items-center'>
+        <%= image_tag 'social/facebook.png', class:'media-link'%>
+        <%= image_tag 'social/instagram.png' , class:'media-link'%>
+        <%= image_tag 'social/twitter.png' , class:'media-link'%>
+        <%= image_tag 'social/linkedin.png' , class:'media-link'%>
+      </div>
+    </div>
+  </div>
+</footer>
