@@ -8,6 +8,8 @@
 .avatar-large {
   width: 56px;
   border-radius: 50%;
+  border: 1px solid $forest-light;
+  transition: border 0.3s ease;
 }
 .avatar-bordered {
   width: 40px;
