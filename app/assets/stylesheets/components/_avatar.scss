@@ -1,16 +1,21 @@
 .avatar {
   width: 80px;
   border-radius: 50%;
-  border: 1px solid $forest-light-transparent;
+  border: 2px solid $forest-light;
   transition: border 0.3s ease;
+  padding: 1px;
+  margin: 1px;
 }
 
 .avatar-large {
   width: 56px;
   border-radius: 50%;
-  border: 1px solid $forest-light;
+  border: 2px solid $forest;
   transition: border 0.3s ease;
+  padding: 1px;
+  margin: 1px;
 }
+
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
@@ -22,4 +27,15 @@
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+
+.avatar-border{
+  border-radius: 25px; 
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+}
+
+.avatar-border:hover{
+  border: 2px solid $forest;
 }

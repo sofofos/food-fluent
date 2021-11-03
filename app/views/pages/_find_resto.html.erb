@@ -5,10 +5,8 @@
       <div class="card-user-friends card-border card-position">
         <label class="green-checkbox-container">
           <input type="checkbox" checked="check">
-          <span class="green-checkbox">
-            <%= check_box_tag 'friend_ids[]', friend.id, id: friend, class: 'form-control'%>
+            <%= check_box_tag 'friend_ids[]', friend.id, id: friend, class: 'form-control green-checkbox' , type:'checkbox', checked:'checked'%>
             <%= friend.name %>
-          </span>
         </label>
       </div>
     <% end %>
