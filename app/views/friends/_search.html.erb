@@ -3,7 +3,7 @@
   <div class="search-item">
     <h4 class="search-title">
       Friends
-    </h4>    
+    </h4>
   </div>
 
   <div class="search-item">
@@ -11,11 +11,11 @@
         <div class="search-form">
             <%= text_field_tag :query, params[:query],
             class: 'search-bar',
-            placeholder: 'find by username'%>
-            <%= submit_tag "find", class: 'green-button-sm' %>     
+            placeholder: 'username'%>
+            <%= submit_tag "search", class: 'green-button-sm' %>
         </div>
     <% end %>
-  </div>  
+  </div>
   <div class="search-item">
       <%= image_tag 'add', class:'icon' %>
   </div>
