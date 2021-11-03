@@ -13,9 +13,9 @@
   </button>  <!-- end nav-toggle !-->
 
   <div class='collapse navbar-collapse'>
-    <ul class='navbar-nav mr-auto'>
+    <ul class='navbar-nav mr-auto dropdown-custom'>
       <% if user_signed_in? %>
-        <li class='nav-item dropdown'>
+        <li class='nav-item dropdown avatar-border'>
           <%= image_tag current_user.avatar_path, 
                         class: 'avatar-large dropdown-toggle nav-link-image', 
                         
