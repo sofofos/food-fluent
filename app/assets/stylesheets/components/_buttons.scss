@@ -88,8 +88,8 @@
 .green-checkbox-container input:checked ~ .green-checkbox {
   background-color: $forest;
 }
-// Create checkmark indicato
 
+// Create checkmark indicato
 .green-checkbox:after {
   display: none;
   content: '';
