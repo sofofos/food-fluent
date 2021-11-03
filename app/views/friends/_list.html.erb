@@ -25,15 +25,15 @@
         <% end %>
       </div>
     </div>
-    <div class="row search-head">
+    <div class="search-head">
+      <div class="search-item">
       <label class="green-checkbox-container">
-        <input type="checkbox" id="<% friend.id %>-box">
-        <span class="green-checkbox">
-          <%= check_box_tag 'friend_ids[]', friend.id %>
-        </span>
-      </label>
-    </div>
+          <%= check_box_tag 'friend_ids[]', friend.id, false %>
+        <span class="green-checkbox"></span>
+        </label>
+      </div>
   </div>
+</div>
   <% end %>
 </div>
 <div class="search-head">
