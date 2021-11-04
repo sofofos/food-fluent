@@ -1,8 +1,8 @@
 // _navbar.scss
 
 .navbar-lewagon {
-  justify-content: space-between;
   background: white;
+  justify-content: space-between;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,7 +19,7 @@
 }
 
 .navbar-expand-sm .navbar-nav .dropdown-menu {
-    position: absolute;
+  position: absolute;
 }
 
 .dropdown-menu {
@@ -29,23 +29,27 @@
   padding: 0px!important;
 }
 
-.navbar-links{
+.navbar-links {
   display:flex;
   flex-direction:column;
   align-items: center;
 }
 
-.navbar-link{
-  text-align: center;
-  width: 100%;
-  padding: 10px;
+.navbar-link {
   border: 1px solid transparent;
+  padding: 10px;
+  text-align: center;
   transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .navbar-link:hover{
   background-color: $forest-light-transparent;
   border-radius: 25px;
   color: $forest;
+  text-decoration: none;
+}
+
+.navbar-link > a {
   text-decoration: none;
 }
