@@ -1,42 +1,53 @@
+<!-- edit.html.erb !-->
+
 <div class='container'>
   <%= form_tag diet_profile_path(@diet_profiles), method: :patch do %>
-  <div class="diet-container">
+  <div class='diet-container'>
     <%= link_to image_tag('cancel.svg', class:'icon-xs', id:'exit'), dashboard_path %>
-    <div class="diet-content">
-      <div class="diet-card">
-        <h4 class="diet-title">Diet</h4>
+    <div class='diet-content'>
+      <div class='diet-card'>
+        <h4 class='diet-title'>
+          Diet
+        </h4>
         <% @diet_labels.select(&:diet?).each do |tag| %>
-        <label class="diet-item">
+        <label class='diet-item'>
           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
-          <p class="diet-card-text"><%= tag.name %></p>  
+          <p class='diet-card-text'>
+            <%= tag.name %>
+          </p>  
         </label>
         <% end %>
       </div>
 
-
-      <div class="diet-card">
-        <h4 class="diet-title">Allergies</h4>
+      <div class='diet-card'>
+        <h4 class='diet-title'>
+          Allergies
+        </h4>
         <% @diet_labels.select(&:allergy?).each do |tag| %>
-        <label class="diet-item">
+        <label class='diet-item'>
           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-          <p class="diet-card-text"><%= tag.name.gsub('-Free', '') %></p>  
+          <p class='diet-card-text'>
+            <%= tag.name.gsub('-Free', '') %>
+          </p>  
         </label>
         <% end %>
       </div>
 
-
-      <div class="diet-card">
-        <h4 class="diet-title">Macros</h4>
+      <div class='diet-card'>
+        <h4 class='diet-title'>
+          Macros
+        </h4>
         <% @diet_labels.select(&:macro?).each do |tag| %>
-        <label class="diet-item">
+        <label class='diet-item'>
           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-          <p class="diet-card-text"><%= tag.name %></p> 
+          <p class='diet-card-text'>
+            <%= tag.name %>
+          </p> 
           <% end %>
         </label>
+        <% end %>
       </div>
-      <% end %>
     </div>
   <%= submit_tag 'Submit', class: 'green-button m-5' %>
-  </div>  
+  </div>
 </div>
-

@@ -293,31 +293,28 @@
 }
 
 .user-preference-labels {
-  margin-top: 3px;
   display: flex;
   background-color: $forest-light-transparent;
   border: 1px solid $forest;
   border-radius: 25px;
+  margin-top: 3px;
   text-align: center;
 }
 
 .user-text {
-  // align-self: center;
-  min-width: 100px;
-  margin-top:0px!important;
-  padding: 2px;
   align-self: center;
   margin-bottom:0px!important;
+  margin-top:0px!important;
+  min-width: 100px;
+  padding: 2px;
 }
-
-// friends
 
 .icon-name {
   position: absolute;
   visibility: hidden;
   background-color: $forest-light;
   border: 1px solid $forest;
-  border-radius: 50%;
+  border-radius: 25px;
   color: $black;
   font-family: 'Biryani';
   font-size: 10px;
