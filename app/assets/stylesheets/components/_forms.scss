@@ -1,3 +1,5 @@
+// _forms.scss
+
 .search-head {
   display: flex;
   justify-content: space-around;
@@ -11,13 +13,13 @@
   align-items: center;
 }
 
-.search-title{
+.search-title {
   height: inherit;
   align-self: center;
   margin-bottom:0px!important;
 }
 
-.search-form{
+.search-form {
   display:flex;
   justify-content:space-between;
   align-items: center;

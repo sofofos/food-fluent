@@ -1,3 +1,5 @@
+<!-- _requests.html.erb !-->
+
 <!-- Friend Requests Received -->
 <div class='requests-head'>
   <div class='requests-title'>
@@ -54,7 +56,7 @@
   <% end %> <!-- end @requests.each !-->
 </div> <!-- end cards-friends !-->
 
-
-<%# <% unless @user.pending_friends.empty? %>
-<%= render 'friends/requests_pending' %>
-<%# <% end %>
+<!-- disable for testing !-->
+<% unless @user.pending_friends.empty? %>
+  <%= render 'friends/requests_pending' %>
+<% end %>
