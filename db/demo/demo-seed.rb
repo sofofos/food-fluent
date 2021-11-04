@@ -1,8 +1,7 @@
-require_relative 'make_restaurants'
-require_relative 'make_dishes'
-require_relative 'mtl-restos'
-require_relative 'demo-dishes'
 require_relative 'demo-users'
+require_relative 'init-restos'
+require_relative 'dishes-omni'
+require_relative 'dishes-pant'
 
 print "cleaning db... "
 
@@ -27,6 +26,8 @@ urls = [
   'https://avatars.githubusercontent.com/u/63886360?v=4',
   'https://avatars.githubusercontent.com/u/36909683?v=4']
 
+puts "generating classmates... "
+
 users.each_with_index do |name, i|
   user = generate_users(name)
   assign_username(user)
@@ -34,6 +35,10 @@ users.each_with_index do |name, i|
   user.avatar_path = urls[i]
 end
 
-init_restos
-init_dishes_pant(Restaurant.find_by(name:"La Panthère Verte"))
-init_dishes_omni(Restaurant.find_by(name:"Omnivore"))
+puts "initializing montreal restos"
+
+our_two = init_restos
+init_dishes_omni(our_two[0])
+init_dishes_pant(our_two[1])
+
+puts "done! Happy Demo!"

@@ -36,16 +36,16 @@ def assign_allergy(allergies)
   end
 end
 
-def add_diet(user)
+def add_dietp(user)
   labels_d = ["Keto-Friendly", "Kosher", "Paleo", "Pescatarian", "Vegan", "Vegetarian"]
-  labels_a = init_allergies
+  allergies = init_allergies
 
-  diets = labels.map{|label| HealthLabel.create(name: label, category: :diet) }
+  diets = labels_d.map{|label| HealthLabel.create(name: label, category: :diet) }
 
   rand(1..2).times do
-    DietProfile.create!( health_label: labels_d.sample, user: user)
+    DietProfile.create!( health_label: diets.sample, user: user)
   end
   rand(0..2).times do
-    DietProfile.create!( health_label: labels_a.sample, user: user)
+    DietProfile.create!( health_label: allergies.sample, user: user)
   end
 end

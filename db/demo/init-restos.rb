@@ -1,43 +1,45 @@
   require 'faker'
 
-def init_panthere
-    Restaurant.create!(
-    name: "La Panthère Verte"
+def init_restos
+  pant = Restaurant.new(
+    name: "La Panthère Verte",
     website: "https://www.thegreenpanther.com/",
     phone_number:"(514) 508-5564",
     location: "160 St-Viateur Est, Montreal, QC"
     )
+  pant.save!
 
-  Restaurant.create!(
-    name: "Omnivore"
+  omni = Restaurant.new(
+    name: "Omnivore",
     website: "https://www.omnivoregrill.com/",
     phone_number:"(514) 303-5757",
     location:"4306 Boulevard St Laurent, QC H2W 1Z3, Montreal, QC"
     )
+  omni.save!
 
   Restaurant.create!(
-    name: "Alma"
+    name: "Alma",
     website: "https://www.almamontreal.com/",
     phone_number:"(514) 543-1363",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 
   Restaurant.create!(
-    name: "Arepera"
+    name: "Arepera",
     website: "https://www.arepera.ca/",
     phone_number:"(514) 508-7267",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 
   Restaurant.create!(
-    name: "Damas"
+    name: "Damas",
     website: "https://restaurant-damas.com/",
     phone_number:"(514) 439-5435",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 
   Restaurant.create!(
-    name: "Dinette Triple Crown"
+    name: "Dinette Triple Crown",
     website: "http://www.dinettetriplecrown.com/",
     phone_number:"(514) 272-2617",
     location: Faker::Address.street_address + ", Montreal, QC"
@@ -45,42 +47,42 @@ def init_panthere
 
 
   Restaurant.create!(
-    name: "Lola Rosa"
+    name: "Lola Rosa",
     website: "https://lolarosa.ca/",
     phone_number:"(514) 543-0613",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 
   Restaurant.create!(
-    name: "Ma Poule Mouillée"
+    name: "Ma Poule Mouillée",
     website: "http://mapoulemouillee.ca/",
     phone_number:"(514) 522-5175",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 
   Restaurant.create!(
-    name: "Qing Hua Dumpling"
+    name: "Qing Hua Dumpling",
     website: "https://www.facebook.com/qinghuademaisonneuve/",
     phone_number:"(514) 903-9887",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 
   Restaurant.create!(
-    name: "Reubens Deli"
+    name: "Reubens Deli",
     website: "http://reubensdeli.com/",
     phone_number:"(514) 866-1029",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 
   Restaurant.create!(
-    name: "Schwartzs Deli"
+    name: "Schwartzs Deli",
     website: "https://www.schwartzsdeli.com/",
     phone_number:"(514) 842-4813",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 
   Restaurant.create!(
-    name: "Sushi Momo"
+    name: "Sushi Momo",
     website: "https://sushikomomo.ca/en",
     phone_number:"(514) 825-6363",
     location: Faker::Address.street_address + ", Montreal, QC"
@@ -108,7 +110,7 @@ def init_panthere
     )
 
   Restaurant.create!(
-    name: "Kazu  ",
+    name: "Kazu ",
     website: "https://kazumontreal.com ",
     phone_number: "(514) 937-2333",
     location: Faker::Address.street_address + ", Montreal, QC"
@@ -176,4 +178,5 @@ def init_panthere
     phone_number: "(514) 875-4545",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
+  return [omni, pant]
 end
