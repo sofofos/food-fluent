@@ -1,5 +1,7 @@
 # require './db/seeds/make_dishes.rb'
-# require 'faker'
+require 'faker'
+
+
 
 def generate_number
   prefix = Faker::PhoneNumber.extension(length: 3)
