@@ -1,12 +1,13 @@
 # make the dishes for restaurants in db/seeds.rb
 
-DIETS = HealthLabel.labels[:diets]
-ALLERGIES = HealthLabel.labels[:allergies]
-MACROS = HealthLabel.labels[:macros]
+DIET = HealthLabel.labels[:diets]
+ALLERGIE = HealthLabel.labels[:allergies]
+MACRO = HealthLabel.labels[:macros]
 
 def make_dish(restaurant, dish_data, i)
   # if index for dishes reaches max dataset entries:
   j = i % 20
+  # puts "j inside make_dish: #{j}"
 
   if j < 20 && dish_data["hits"][j]["recipe"]["dishType"].count == 1
     dish = Dish.new(
@@ -23,7 +24,7 @@ def make_dish_labels(dish_data, dish, j)
   labels = dish_data["hits"][j]["recipe"]["healthLabels"]
   labels << dish_data["hits"][j]["recipe"]["dietLabels"]
 
-  dhls = labels.select { |label| DIETS.include?(label) || ALLERGIES.include?(label) || MACROS.include?(label) }
+  dhls = labels.select { |label| DIET.include?(label) || ALLERGIE.include?(label) || MACRO.include?(label) }
 
   dhls.each do |label|
     dish_label = HealthLabel.find_by(name: label) || HealthLabel.create(name: label)
@@ -46,6 +47,7 @@ end
   5.times do |j|
   # index for dishes ( up to 20 entries/ json file )
     j += (nth_resto * 5)
+    # puts "j in make_dishes: #{j}"
 
   # first request: starters
     make_dish(restaurant, @starter_hash, j)

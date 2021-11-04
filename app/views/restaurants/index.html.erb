@@ -1,5 +1,6 @@
 <div class="container">
   <div class="py-5">
+    <%= link_to 'Back', dashboard_path, class: "green-button" %>
     <% if @restaurants.empty? %>
       <%= render 'restaurants/index_all'%>
     <% else %>

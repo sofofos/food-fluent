@@ -15,7 +15,7 @@ puts "generating nice restos with yummy foods.."
 
 load_files(0)
 
-30.times do |i|
+10.times do |i|
   # puts "calling restaurant maker dish maker"
   restaurant = generate_restaurant
   make_dishes(restaurant, i)
