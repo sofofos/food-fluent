@@ -1,5 +1,4 @@
 <!-- _show.html.erb !-->
-
 <div class='card-user-content diet-profile'>
   <div class="user-profile-container">
     <% unless @diets.select(&@diet).empty? %>
@@ -14,15 +13,14 @@
       <%= render 'diet_profiles/macros' %>
     <% end %>
 
+    <!-- TODO: ADD STYLING FOR THIS BUTTON -->
     <% if @diets.empty?  %>
-      <div class='green-button m-5' id='button-diet'>
-        <%= link_to "Add a Diet Profile", new_diet_profile_path %>
-      </div>
+      <%= link_to "Add a diet profile", new_diet_profile_path %>
     <% else %>
       <%= link_to image_tag('edit.svg', class:'icon-sm'),
-          edit_diet_profile_path(@diets.map(&:id)), 
-          id: 'edit-icon' 
-      %>
+      edit_diet_profile_path(@diets.map(&:id)), id:'edit-icon' %>
     <% end %>
   </div>
 </div> <!-- end dash-main-list-container !-->
+
+              <%  %>
