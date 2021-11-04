@@ -47,6 +47,13 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+
+.buttons-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+
 }
 
 .green-button:hover, .green-button-sm:hover, .green-button-xs:hover {
@@ -67,14 +74,14 @@
 .green-checkbox-container {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
   // cursor: pointer;
   font-size: 22px;
-  -webkit-user-select: none;
+  margin-bottom: 12px;
+  padding-left: 35px;
+  user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
+  -webkit-user-select: none;
 }
 
 // Hide default checkbox
@@ -97,8 +104,8 @@
   top: 0;
   width: 25px;
 }
-// Add colour on mouseover
 
+// Add colour on mouseover
 .green-checkbox-container:hover input ~ .green-checkbox {
   background-color: $kelly;
 }
@@ -107,7 +114,7 @@
   background-color: $forest;
 }
 
-// Create checkmark indicato
+// Create checkmark indicator
 .green-checkbox:after {
   display: none;
   content: '';
@@ -124,10 +131,10 @@
   border-width: 0 3px 3px 0;
   height: 10px;
   left: 9px;
+  top: 5px;
   transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  top: 5px;
   width: 5px;
 }
 /* Use both classes with this syntax
@@ -137,38 +144,38 @@
   </label>
 */
 
-.person-button{
-    text-transform: uppercase;
-    background-color: #339933;
-    border: 1px solid #FFFFFF;
-    border-radius: 10px;
-    color: #FFFFFF;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
+.person-button {  
+  background-color: #339933;
+  border: 1px solid #FFFFFF;
+  border-radius: 10px;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
 }
 
 .person-button:hover {
-    background-color: $forest-light;
-    border: 1px solid $forest;
-    box-shadow: inset 0 0 8px $forest;
-    color: $forest;
-    text-decoration: none;
+  background-color: $forest-light;
+  border: 1px solid $forest;
+  box-shadow: inset 0 0 8px $forest;
+  color: $forest;
+  text-decoration: none;
 }
 
 .back-button {
+  position: absolute;
   bottom: 0px;
   right: 0px;
-  position:absolute;
 }
 
 #button-landing {
   text-transform: uppercase;
 }
 
-#exit{
+#exit {
   position: absolute;
-  top: 20px;
   right: 20px;
+  top: 20px;
 }
 
 // friend request button
