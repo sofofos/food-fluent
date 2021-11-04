@@ -1,0 +1,144 @@
+﻿{
+    "Sheet1": [
+        {
+            "name": "Falafel Sandwich",
+            "price": "8.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/3b/48/180x180_3b48e87e86bb3b7ead041d705a788fad.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Tempeh Sandwich",
+            "price": "8.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/de/a5/180x180_dea53134fd96712f11b594c9e9297ea7.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Shawarma Sandwich",
+            "price": "8.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/79/e5/180x180_79e52325315d5cb4f3b286f61452c18d.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Burger Sandwich",
+            "price": "8.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/3d/ff/180x180_3dff0530c169b6f05a2c8a5a535a78f7.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Hummus & Falafel Plate",
+            "price": "12.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/8e/ad/180x180_8ead0a6043c99900f6b023ef64ed1dca.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Hummus & Tempeh Plate",
+            "price": "12.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/ef/a4/180x180_efa4e4c9af3e3cd2d7fe987a72513ee5.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Hummus & Shawarma Plate",
+            "price": "12.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/d5/f2/180x180_d5f20b9f1beb6238a7d46f0bf0d4320e.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Hummus & Burger Plate",
+            "price": "12.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/d0/54/180x180_d05460e64dfeb7f30a3253f173d68c2a.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Falafel Bowl",
+            "price": "12.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/19/78/180x180_19782dc652fc464b3dd4aa40f953bce1.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Tempeh Bowl",
+            "price": "12.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/75/a1/180x180_75a1e5a2da9e7e840ad1f7f21a4f3abf.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Shawarma Bowl",
+            "price": "12.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/05/63/180x180_0563172eb9b69f27e44139a7cea1f592.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Burger Bowl",
+            "price": "12.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/6c/03/180x180_6c03a598395ad90862be081f8a8ef5f0.jpeg",
+            "dish_type": "main"
+        },
+        {
+            "name": "Sweet Potato Poutine (small)",
+            "price": "7.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/ab/e6/180x180_abe618199c998d09a0f4f71d17a6da22.jpeg",
+            "dish_type": "starters"
+        },
+        {
+            "name": "Sweet Potato Fries (small)",
+            "price": "4.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/d4/43/180x180_d443d7283ca37fcefbdf6641535d793f.jpeg",
+            "dish_type": "starters"
+        },
+        {
+            "name": "Schnitzels",
+            "price": "5.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/eb/8d/180x180_eb8dc096734d566770139d65a5ae4f83.jpeg",
+            "dish_type": "starters"
+        },
+        {
+            "name": "Falafel Side",
+            "price": "3.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/9f/63/180x180_9f630b589c85b8b7160671d11cf37e03.jpeg",
+            "dish_type": "starters"
+        },
+        {
+            "name": "Veggie Burger Patty",
+            "price": "3.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/c3/44/180x180_c3440321f30a0133cd0192751b1f336a.jpeg",
+            "dish_type": "starters"
+        },
+        {
+            "name": "Hummus with pita",
+            "price": "5.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/cb/b6/180x180_cbb61bc45a6f633cceb5033d278e95bf.jpeg",
+            "dish_type": "starters"
+        },
+        {
+            "name": "Jackfruit Shawarma",
+            "price": "3.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/31/b3/180x180_31b3d5e66b4170d288a8d82e89eaa300.jpeg",
+            "dish_type": "starters"
+        },
+        {
+            "name": "Snack Attack (to share)",
+            "price": "14.95",
+            "health_label": "vegan",
+            "img_url": "https://images.koomi.com/koomi_images/21franchise/72/20/180x180_722048d0dba758eb3747d68b616a31b3.jpeg",
+            "dish_type": "starters"
+        }
+    ]
+}
