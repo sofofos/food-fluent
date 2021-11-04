@@ -1,7 +1,36 @@
-<!-- Friend Requests sent -->
-<div class="">
-  <h3>Pending:</h3>
+<!-- Friend Requests Sent -->
+<div class='requests-head'>
+  <div class='requests-subtitle requests-sent'>
+    <h6>
+      Sent
+    </h6>
+  </div>
+</div> <!-- end requests-head !-->
+
+<div class='cards-friends'>
   <% @pending.each do |friend| %>
-  <%= friend.name%>
-  <% end %>
-</div>
+  <div class='card-user'>
+    <div class='card-user-friends card-border card-position'>
+      <%= image_tag @user.avatar_path, 
+          class: 'avatar', 
+          id: 'dash-friends-card-head-pic', 
+          alt: 'Profile Picture', 
+          data: { title: 'profile_pic' }, 
+          'aria-haspopup': true, 
+          'aria-expanded': false 
+      %>
+
+      <div class='card-text'>
+        <%= friend.name %>
+      </div>
+
+      <div class='card-text'>
+        <h6>
+          Waiting...
+        </h6>
+      </div>
+
+    </div> <!-- end card-user-friends card-border card-position !-->  
+  </div> <!-- end card-user !-->
+  <% end %> <!-- end @pending.each !-->
+</div> <!-- end cards-friends !-->

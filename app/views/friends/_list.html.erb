@@ -4,7 +4,14 @@
   <% @user.friends.each do |friend| %>
   <div class='card-user'>
     <div class="card-user-friends card-border card-position">
-      <%= image_tag @user.avatar_path, class: 'avatar', id: 'dash-friends-card-head-pic', alt: 'Profile Picture', data: { title: 'profile_pic' }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%= image_tag @user.avatar_path, 
+          class: 'avatar', 
+          id: 'dash-friends-card-head-pic', 
+          alt: 'Profile Picture', 
+          data: { title: 'profile_pic' }, 
+          'aria-haspopup': true, 
+          'aria-expanded': false 
+      %>
 
       <div class="card-text">
         <%= friend.name %>
@@ -14,9 +21,13 @@
         <% friend.diet_profiles.each do |tag| %>
         <div class="icon-sm">
           <%  tag.health_label.assign_icon(tag.health_label) %>
-          <%= image_tag "#{tag.health_label.icon_path}", class: 'icon-sm',
-          alt: 'Allergy Icon', data: { title: 'allergy' },
-          'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "#{tag.health_label.icon_path}", 
+              class: 'icon-sm', 
+              alt: 'Allergy Icon', 
+              data: { title: 'allergy' }, 
+              'aria-haspopup': true, 
+              'aria-expanded': false 
+          %>
 
           <div class="icon-name">
             <%= tag.health_label.name.capitalize %>
@@ -27,20 +38,23 @@
     </div>
     <div class="search-head">
       <div class="search-item">
-      <label class="green-checkbox-container">
+        <label class="green-checkbox-container">
           <%= check_box_tag 'friend_ids[]', friend.id, false %>
-        <span class="green-checkbox"></span>
+          <span class="green-checkbox">
+          </span>
         </label>
       </div>
+    </div>
   </div>
-</div>
   <% end %>
 </div>
+
 <div class="search-head">
   <h5 class="search-item">
     Select a friend to include in your restaurant search!
   </h5>
 </div>
+
 <div class="search-head">
   <div class="search-item">
     <div class="search-form">
