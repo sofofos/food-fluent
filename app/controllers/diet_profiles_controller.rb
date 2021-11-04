@@ -17,7 +17,7 @@ class DietProfilesController < ApplicationController
 
   def update
     current_user.diet_profiles.destroy_all
-    create_diet_profiles
+    @diet_profile.nil? ? redirect_to(dashboard_path) : create_diet_profiles
   end
 
   private
