@@ -1,5 +1,12 @@
 // _forms.scss
 
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+}
+
 .search-head {
   display: flex;
   justify-content: space-around;
@@ -7,34 +14,43 @@
   width: 100%;
 }
 
+.search-space-between {
+  display: flex;
+  flex-direction:column;
+  align-items: end;
+}
+
 .search-item {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .search-title {
-  height: inherit;
   align-self: center;
-  margin-bottom:0px!important;
+  height: inherit;
+  margin-bottom: 0px!important;
 }
 
 .search-form {
   display:flex;
-  justify-content:space-between;
   align-items: center;
+  justify-content:space-between;
+  width: 100%;
 }
 
 .search-bar {
+  display: flex;
   border-radius: 5px;
   border: 2px solid $forest;
-  display:flex;
-  margin-right: 3px;
   color: $forest!important;
+  margin-right: 3px;
 }
 
 .search-bar[placeholder] {
+  background-color: $forest-light-transparent;
   color: $forest;
+  text-align: center;
 }
 
 .requests-title {
@@ -47,4 +63,8 @@
 }
 .requests-sent {
   margin: 30px 0px 0px 0px;
+}
+
+.form-container {
+  margin-top: 100px;
 }

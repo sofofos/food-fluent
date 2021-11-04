@@ -103,10 +103,10 @@
   border-width: 0 3px 3px 0;
   height: 10px;
   left: 9px;
+  top: 5px;
   transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  top: 5px;
   width: 5px;
 }
 /* Use both classes with this syntax
@@ -157,8 +157,8 @@
 
 #exit {
   position: absolute;
-  top: 20px;
   right: 20px;
+  top: 20px;
 }
 
 // friend request button

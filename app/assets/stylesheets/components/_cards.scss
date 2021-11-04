@@ -39,7 +39,7 @@
 
 .card-category .card-description {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   border-radius: inherit;
   color: $forest;
@@ -90,8 +90,8 @@
 .card-layer > .card-hover-text {
   color: $forest!important;
   font-size: 24px;
-  padding-bottom: 24px;
   font-weight: 900;
+  padding-bottom: 24px;
 }
 
 .card-wrap:hover .card-layer {
