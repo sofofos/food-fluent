@@ -14,8 +14,8 @@
 }
 
 #card-username {
-  margin: 0px;
   font-weight: bold;
+  margin: 0px;
 }
 
 .card-category {
@@ -115,12 +115,13 @@
 }
 
 .card-hover-text:hover {
-  text-decoration: none;
   color: $forest-clear!important;
+  text-decoration: none;
 }
 
 .dishes {
-  display: none;
+  opacity: .8;
+  padding: 5px;
 }
 
 .dishes.show-meals {

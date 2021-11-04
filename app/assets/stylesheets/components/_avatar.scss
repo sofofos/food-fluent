@@ -1,3 +1,5 @@
+// _avatar.scss
+
 .avatar-sm {
   width: 40px;
   border-radius: 50%;
@@ -6,7 +8,6 @@
   padding: 1px;
   margin: 1px;
 }
-
 
 .avatar {
   width: 80px;
@@ -39,13 +40,12 @@
   border: white 1px solid;
 }
 
-
-.avatar-border{
+.avatar-border {
   border-radius: 50%; 
   border: 2px solid transparent;
   transition: border 0.3s ease;
 }
 
-.avatar-border:hover{
+.avatar-border:hover {
   border: 2px solid $forest;
 }
