@@ -1,20 +1,16 @@
-<!-- Search for friends -->
 <div class="search-header">
   <div class="search-item">
     <h4 class="search-title">
       Friends
     </h4>
   </div>
-
   <div class="search-item">
     <%= form_tag dashboard_path, method: :get, action: :search do %>
         <div class="search-form">
             <%= text_field_tag :query, params[:query],
             class: 'search-bar',
             placeholder: 'username'%>
-            <button type="button" class="green-button-sm" data-toggle="modal" data-target="#friendSearch">
-  search
-</button>
+            <%= submit_tag "search", class: 'green-button-sm' %>
         </div>
     <% end %>
   </div>
