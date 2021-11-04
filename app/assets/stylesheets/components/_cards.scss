@@ -413,3 +413,28 @@
   opacity: .8;
   padding: 5px;
 }
+
+
+// pending requests
+
+.card-request{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-pending{
+  border: 2px solid $forest;
+  padding: 10px;
+  border-radius: 25px;
+  min-width: 200px;
+}
+
+.card-request-content{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.card-request-content > img{
+  margin-bottom: 5px;
+}
