@@ -47,14 +47,8 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+  }
 
-.buttons-container {
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-
-}
 
 .green-button:hover, .green-button-sm:hover, .green-button-xs:hover {
   background-color: $forest-light-transparent;
@@ -170,17 +164,6 @@
 
 #button-landing {
   text-transform: uppercase;
-}
-
-#button-diet a {
-  color: $white;
-}
-#button-diet a:hover {
-  color: $forest;
-}
-#button-diet a,
-#button-diet a:hover {
-  text-decoration: none;
 }
 
 #exit {
