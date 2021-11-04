@@ -4,7 +4,8 @@
   <% @user.friends.each do |friend| %>
   <div class='card-user'>
     <div class="card-user-friends card-border card-position">
-      <%= image_tag @user.avatar_path,
+      <%= image_tag friend.avatar_path,
+
           class: 'avatar',
           id: 'dash-friends-card-head-pic',
           alt: 'Profile Picture',
@@ -39,8 +40,7 @@
       <div class="search-item">
         <label class="green-checkbox-container">
           <%= check_box_tag 'friend_ids[]', friend.id, false %>
-          <span class="green-checkbox">
-          </span>
+          <span class="green-checkbox"></span>
         </label>
       </div>
     </div>
