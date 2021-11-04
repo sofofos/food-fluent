@@ -22,9 +22,10 @@
 
 <div class='dashboard-container'>
     <!-- disable for testing !-->
-    <%# unless @user.requested_friends.empty? %>
+    <% unless @user.requested_friends.empty? %>
     <div class='dashboard-content'>
       <%= render 'friends/requests' %>
     </div>
-    <%# end %>
+    <% end %>
 </div>
+<% console %>
