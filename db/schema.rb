@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_30_064424) do
+ActiveRecord::Schema.define(version: 2021_11_04_093050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_10_30_064424) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "dish_type"
     t.string "img_url"
+    t.decimal "price", precision: 8, scale: 2
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
 
