@@ -1,11 +1,13 @@
-<div class="dashboard-container">
+<!-- dashboard.html.erb !-->
+
+<div class='dashboard-container'>
   <div class='dashboard-head'>
     <%= render 'pages/welcome' %>
     <!-- profile-list !-->
     <%= render 'diet_profiles/show' %>
   </div> <!-- end dash-main-row !-->
 
-  <div class="dashboard-content">
+  <div class='dashboard-content'>
     <%= render 'friends/search' %>
     <% if params[:query].present? %>
       <%= render 'friends/results' %>
@@ -15,11 +17,14 @@
     <div class='cards' id='dash-friends-cards'>
       <%= render 'friends/list' %>
     </div>
+  </div>
+</div>
 
-    <div class='cards-friends'>
-      <% unless @user.requested_friends.empty? %>
-        <%= render 'friends/requests' %>
-      <% end %>
-    </div>
+<div class='dashboard-container'>
+  <div class='dashboard-content'>
+    <!-- disable for testing !-->
+    <% unless @user.requested_friends.empty? %>
+      <%= render 'friends/requests' %>
+    <% end %>
   </div>
 </div>

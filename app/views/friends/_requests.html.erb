@@ -1,20 +1,62 @@
-<!-- Friend requests received -->
-<div id='dash-container-friends-see'>
-  <h3>Friend Requests:</h3>
+<!-- _requests.html.erb !-->
 
+<!-- Friend Requests Received -->
+<div class='requests-head'>
+  <div class='requests-title'>
+    <h4>
+      Requests
+    </h4>
+  </div>
+
+  <div class='requests-subtitle requests-received'>
+    <h6>
+      Received
+    </h6>
+  </div>
+</div> <!-- end requests-head !-->
+
+<div class='cards-friends'>
   <% @requests.each do |friend| %>
-  <%= friend.name%>
-  <%= form_tag ({controller: 'pages', action: 'accept', method: 'post', id: friend.id}) do %>
-    <input class="" type=submit value='Accept'>
-    <% end %>
+  <div class='card-user'>
+    <div class="card-user-friends card-border card-position">
+      <%= image_tag @user.avatar_path, 
+          class: 'avatar', 
+          id: 'dash-friends-card-head-pic', 
+          alt: 'Profile Picture', 
+          data: { title: 'profile_pic' }, 
+          'aria-haspopup': true, 
+          'aria-expanded': false 
+      %>
 
-  <%= form_tag ({controller: 'pages', action: 'decline', method: 'post', id: friend.id}) do %>
-    <input class="" type=submit value='Decline'>
-    <% end %>
-  <% end %>
-</div>
+      <div class="card-text">
+        <%= friend.name %>
+      </div>
 
-<!-- STYLING NEEDED HERE TOO -->
- <% unless @user.pending_friends.empty? %>
-    <%= render 'friends/requests_pending' %>
-  <% end %>
+      <%= form_tag (
+          { controller: 'pages', 
+            action: 'accept', 
+            method: 'post', 
+            id: friend.id}
+          ) do 
+      %>
+        <input class='friend-accept' type=submit value='Accept'>
+      <% end %>
+
+      <%= form_tag (
+          { controller: 'pages', 
+            action: 'decline', 
+            method: 'post', 
+            id: friend.id}
+          ) do 
+      %>
+        <input class='friend-reject' type=submit value='Decline'>
+      <% end %>
+    </div> <!-- end card-user-friends card-border card-position !-->
+  </div> <!-- end card-user !-->
+  <% end %> <!-- end @requests.each !-->
+</div> <!-- end cards-friends !-->
+
+<!-- disable for testing !-->
+<% unless @user.pending_friends.empty? %>
+  <%= render 'friends/requests_pending' %>
+<% end %>

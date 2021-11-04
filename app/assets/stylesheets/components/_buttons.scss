@@ -35,7 +35,6 @@
     justify-content: space-between;
 }
 
-
 .green-button:hover, .green-button-sm:hover {
   background-color: $forest-light-transparent;
   border-color: $white;
@@ -43,8 +42,6 @@
   color: $forest;
   text-decoration: none;
 }
-
-
 
 .green-checkbox-container {
   display: block;
@@ -145,4 +142,25 @@
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+// friend request button
+.friend-accept, 
+.friend-reject {
+  border-radius: 25px;
+  color: $black;
+}
+.friend-accept {
+  background-color: $kelly-clear;
+  border: 1px solid $black;
+}
+.friend-reject {
+  background-color: $guardsman-clear;
+  border: 1px solid $black;
+}
+.friend-accept:hover {
+  background-color: $kelly;
+}
+.friend-reject:hover {
+  background-color: $guardsman;
 }

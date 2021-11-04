@@ -401,3 +401,12 @@
   margin: 0px auto;
   text-align: center;
 }
+
+// sent friend request text
+.card-text h6 {
+  background-color: $sky;
+  border-radius: 25px;
+  color: black;
+  opacity: .8;
+  padding: 5px;
+}
