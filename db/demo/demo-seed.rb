@@ -18,13 +18,13 @@ users = ["Veronica Vargas Zaraza", "Francesco Perrozzi", "Kevin Hookumchand",
          "Jeremie Antoine", "Sofia Alvarez"]
 
 paths = ["avatars/vero-avatar.png",
-         "avatars/fran-avatar.jpeg",
-         "avatars/kev-avatar.jpg",
+         "avatars/fran-avatar.png",
+         "avatars/kev-avatar.png",
          "avatars/chris-avatar.png",
-         "avatars/jerb-avatar.jpeg",
-         "avatars/juan-avatar.jpg",
-         "avatars/jera-avatar.jpeg",
-         "avatars/sof-avatar.jpg"]
+         "avatars/jerb-avatar.png",
+         "avatars/juan-avatar.png",
+         "avatars/jera-avatar.png",
+         "avatars/sof-avatar.png"]
 
 
 puts "generating montreal restaurants for your demo delight..."
