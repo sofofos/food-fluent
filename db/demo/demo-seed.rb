@@ -36,7 +36,6 @@ users.each_with_index do |name, i|
   assign_username(user)
   add_dietp(user)
   user.avatar_path = paths[i]
-  puts user.avatar_path
   user.save!
 end
 
