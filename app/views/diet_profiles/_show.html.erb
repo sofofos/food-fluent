@@ -17,8 +17,8 @@
     <% if @diets.empty?  %>
       <%= link_to "Add a diet profile", new_diet_profile_path %>
     <% else %>
-      <%= link_to image_tag('edit.svg', class:'icon-xs'),
-      edit_diet_profile_path(@diets.map(&:id)), id:"edit-icon" %>
+      <%= link_to image_tag('edit.svg', class:'icon-sm'),
+      edit_diet_profile_path(@diets.map(&:id)), id:'edit-icon' %>
     <% end %>
   </div>
 </div> <!-- end dash-main-list-container !-->
