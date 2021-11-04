@@ -19,8 +19,10 @@
         <%= link_to "Add a Diet Profile", new_diet_profile_path %>
       </div>
     <% else %>
-      <%= link_to image_tag('edit.svg', class:'icon-xs'),
-      edit_diet_profile_path(@diets.map(&:id)), id:"edit-icon" %>
+      <%= link_to image_tag('edit.svg', class:'icon-sm'),
+          edit_diet_profile_path(@diets.map(&:id)), 
+          id: 'edit-icon' 
+      %>
     <% end %>
   </div>
 </div> <!-- end dash-main-list-container !-->
