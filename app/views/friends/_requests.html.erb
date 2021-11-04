@@ -58,5 +58,5 @@
 
 <!-- disable for testing !-->
 <% unless @user.pending_friends.empty? %>
-  <% render 'friends/requests_pending' %>
+  <%= render 'friends/requests_pending' %>
 <% end %>
