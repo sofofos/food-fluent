@@ -52,6 +52,11 @@ ol {
   font: 20px Biryani;
 }
 
+p,
+li {
+  color: $forest;
+}
+
 .bg-wrapper {
   position: fixed;
   bottom: 0;
