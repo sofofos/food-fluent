@@ -49,3 +49,11 @@ def add_dietp(user)
     DietProfile.create!( health_label: allergies.sample, user: user)
   end
 end
+
+
+def make_friends(user)
+  strangers = User.all.reject{ |usr| usr.id == user.id }
+  friend = strangers.sample
+  friend.friend_request(user)
+  user.requested_friends.each { |friend| user.accept_request(friend) }
+end

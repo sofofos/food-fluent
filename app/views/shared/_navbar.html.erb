@@ -2,7 +2,7 @@
 
 <header class='navbar navbar-expand-sm navbar-light navbar-lewagon sticky'>
   <%= link_to '/', class: 'navbar-brand' do %>
-    <%= image_tag '_logo-cutlery.png', 
+    <%= image_tag '_logo-cutlery.png',
         class: 'nav-link-image'
     %>
   <% end %>  <!-- end nav-home !-->
@@ -16,7 +16,7 @@
     <ul class='navbar-nav mr-auto dropdown-custom'>
       <% if user_signed_in? %>
         <li class='nav-item dropdown avatar-border'>
-          <%= image_tag current_user.avatar_path, 
+          <%= image_tag current_user.avatar_path,
                         class: 'avatar-large dropdown-toggle nav-link-image', 
                         
                         data: { toggle: 'dropdown' }, 
@@ -58,3 +58,4 @@
     </ul>  <!-- end nav-collapse-list !-->
   </div> <!-- end nav-collapse !-->
 </header> <!-- end nav !-->
+<% console %>

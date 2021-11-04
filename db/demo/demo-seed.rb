@@ -13,26 +13,38 @@ puts "done! nice clean database"
 
 puts "generating montreal restaurants for your demo delight..."
 
-users = ['Sofia Alvarez', 'Jeremie Antoine', 'Juan Arciniegas',
-         'Jeremy Boxerman', 'Chris Gamboa', 'Kevin Hookumchand',
-         'Francesco Perrozzi', 'Veronica Vargas Zaraza']
-urls = [
-  'https://res.cloudinary.com/wagon/image/upload/c_fi…,h_200,w_200/v1635998095/tkd0goosnoz6k0vcf3ia.jpg',
-  'https://avatars.githubusercontent.com/u/80538704?v=4',
-  'https://res.cloudinary.com/wagon/image/upload/c_fi…,h_200,w_200/v1635996534/qo7q1da3doc8go7plui8.jpg',
-  'https://avatars.githubusercontent.com/u/82000043?v=4',
-  'https://avatars.githubusercontent.com/u/82340344?v=4',
-  'https://res.cloudinary.com/wagon/image/upload/c_fi…,h_200,w_200/v1620407999/fpyumlsv3pwpiknhfzyg.jpg',
-  'https://avatars.githubusercontent.com/u/63886360?v=4',
-  'https://avatars.githubusercontent.com/u/36909683?v=4']
+users = ["Veronica Vargas Zaraza", "Francesco Perrozzi", "Kevin Hookumchand",
+         "Chris Gamboa", "Jeremy Boxerman", "Juan Arciniegas",
+         "Jeremie Antoine", "Sofia Alvarez"]
+
+paths = ["avatars/vero-avatar.png",
+         "avatars/fran-avatar.jpeg",
+         "avatars/kev-avatar.jpg",
+         "avatars/chris-avatar.png",
+         "avatars/jerb-avatar.jpeg",
+         "avatars/juan-avatar.jpg",
+         "avatars/jera-avatar.jpeg",
+         "avatars/sof-avatar.jpg"]
+
 
 puts "generating classmates... "
+
+
 
 users.each_with_index do |name, i|
   user = generate_users(name)
   assign_username(user)
   add_dietp(user)
-  user.avatar_path = urls[i]
+  user.avatar_path = paths[i]
+  puts user.avatar_path
+  user.save!
+end
+
+puts "generating friends"
+users.each_with_index do |_,i|
+  i += User.first.id
+  user = User.find(i)
+  make_friends(user)
 end
 
 puts "initializing montreal restos"
