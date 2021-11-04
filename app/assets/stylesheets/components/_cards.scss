@@ -39,7 +39,7 @@
 
 .card-category .card-description {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   border-radius: inherit;
   color: $forest;
@@ -85,7 +85,7 @@
   width: 100%;
   height: 100%;
   /* transition effect. not necessary */
-  transition: opacity .2s, visibility .2s;
+  transition: opacity .2s, visibility .2s, box-shadow .2s;
 }
 
 .card-layer > .card-hover-text {
@@ -99,7 +99,7 @@
 .card-wrap:hover .card-layer {
   visibility: visible;
   opacity: 1;
-  text-decoration: underline;
+  box-shadow: inset 10px 20px 80px $forest-light, inset -20px -10px 80px $gray;
 }
 
 .card-hover-text {
@@ -175,7 +175,6 @@
   color: $white;
   padding: 10px;
   border-radius: 25px;
-  align-self: center;
   opacity: 1!important;
 }
 
@@ -305,7 +304,7 @@
   // align-self: center;
   min-width: 100px;
   margin-top:0px!important;
-  padding: 2px;
+  padding: 5px 10px;
   align-self: center;
   margin-bottom:0px!important;
 }
