@@ -23,3 +23,4 @@ def init_labels(labels, dish)
     dhl.save!
   end
 end
+

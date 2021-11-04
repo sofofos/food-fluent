@@ -2,6 +2,7 @@ require_relative 'demo-users'
 require_relative 'init-restos'
 require_relative 'dishes-omni'
 require_relative 'dishes-pant'
+require_relative 'filler-restos'
 
 print "cleaning db... "
 
@@ -11,7 +12,6 @@ Restaurant.destroy_all
 User.destroy_all
 puts "done! nice clean database"
 
-puts "generating montreal restaurants for your demo delight..."
 
 users = ["Veronica Vargas Zaraza", "Francesco Perrozzi", "Kevin Hookumchand",
          "Chris Gamboa", "Jeremy Boxerman", "Juan Arciniegas",
@@ -27,9 +27,15 @@ paths = ["avatars/vero-avatar.png",
          "avatars/sof-avatar.jpg"]
 
 
+puts "generating montreal restaurants for your demo delight..."
+
+our_two = init_restos
+init_dishes_omni(our_two[0])
+init_dishes_pant(our_two[1])
+
+make_filler(our_two)
+
 puts "generating classmates... "
-
-
 
 users.each_with_index do |name, i|
   user = generate_users(name)
@@ -45,11 +51,5 @@ users.each_with_index do |_,i|
   user = User.find(i)
   make_friends(user)
 end
-
-puts "initializing montreal restos"
-
-our_two = init_restos
-init_dishes_omni(our_two[0])
-init_dishes_pant(our_two[1])
 
 puts "done! Happy Demo!"
