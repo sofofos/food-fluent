@@ -21,10 +21,10 @@
 </div>
 
 <div class='dashboard-container'>
+  <div class='dashboard-content'>
     <!-- disable for testing !-->
-    <%# unless @user.requested_friends.empty? %>
-    <div class='dashboard-content'>
+    <% unless @user.requested_friends.empty? %>
       <%= render 'friends/requests' %>
-    </div>
-    <%# end %>
+    <% end %>
+  </div>
 </div>

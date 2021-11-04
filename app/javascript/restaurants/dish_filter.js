@@ -6,7 +6,7 @@ function filterDishes () {
       const userDishes = document.getElementById(`${button.id}-dishes`)
       userDishes.classList.toggle("show-meals");
       if (currentlyShowing) {
-        currentlyShowing.classList.toggle('show-meals');
+        currentlyShowing.classList.remove('show-meals');
       }
       });
   });

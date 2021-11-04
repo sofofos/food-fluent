@@ -34,9 +34,9 @@
         <% end %>
 
         <% @dish_type.each do |key, name| %>
-            <% type = (key + "?").to_sym %>
           <h2><%= name.pluralize.capitalize %></h2>
           <div class="cards">
+            <% type = (key + "?").to_sym %>
             <% @restaurant.dishes.select(&type).each do |dish| %>
               <div class="card-category">
                 <%= image_tag dish.img_url, class:'card-img' %>

@@ -4,7 +4,7 @@
 <div class='requests-head'>
   <div class='requests-title'>
     <h4>
-      Friends Requests
+      Requests
     </h4>
   </div>
 
@@ -58,5 +58,5 @@
 
 <!-- disable for testing !-->
 <% unless @user.pending_friends.empty? %>
-  <% render 'friends/requests_pending' %>
+  <%= render 'friends/requests_pending' %>
 <% end %>
