@@ -44,7 +44,7 @@
 
 .card-category .card-description {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   border-radius: inherit;
   color: $forest;
@@ -54,16 +54,14 @@
 
 .icon {
   height: 30px;
-  width: 30px;
   margin-bottom: 3px;
+  width: 30px;
 }
-
 .icon-sm {
   height: 25px;
   width: 25px;
 }
-
-.icon-xs{
+.icon-xs {
   height: 20px;
   width: 20px;
 }
@@ -75,41 +73,41 @@
 }
 
 .card-layer {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: $forest-light-transparent;
-  border-radius: inherit;
-  visibility: hidden;
-  opacity: 0;
   display: flex;
+  position: absolute;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  background: $forest-light-transparent;
+  border-radius: inherit;
+  bottom: 0;
   height: 100%;
-  /* transition effect. not necessary */
-  transition: opacity .2s, visibility .2s;
+  left: 0;
+  opacity: 0;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+
+  // transition effect unnecessary
+  transition: opacity .2s, visibility .2s, box-shadow .2s;
 }
 
 .card-layer > .card-hover-text {
   color: $forest!important;
   font-size: 24px;
-  padding-bottom: 24px;
   font-weight: 900;
+  padding-bottom: 24px;
 }
 
-
 .card-wrap:hover .card-layer {
-  visibility: visible;
+  box-shadow: inset 10px 20px 80px $forest-light, inset -20px -10px 80px $gray;
   opacity: 1;
-  text-decoration: underline;
+  visibility: visible;
 }
 
 .card-hover-text {
-  transition: .2s;
   transform: translateY(1em);
+  transition: .2s;
 }
 
 .card_wrap:hover .card-hover-text {
@@ -118,6 +116,7 @@
 
 .card-hover-text:hover {
   text-decoration: none;
+  color: $forest-clear!important;
 }
 
 .dishes {
@@ -129,21 +128,18 @@
 }
 
 // cards - restaurant show
-
-
 .card-restaurant {
-  width: 90%;
   border-radius: 25px;
+  box-shadow: 4px 4px 8px $grey;
   margin: 20px auto;
   position: relative;
-  box-shadow: 4px 4px 8px $grey;
+  width: 90%;
 }
-
 .card-restaurant-img {
-  width: 60%;
-  flex-grow: 1;
-  border-radius: 25px 0px 0px 25px;
   background-size: cover;
+  border-radius: 25px 0px 0px 25px;
+  flex-grow: 1;
+  width: 60%;
 }
 
 .restaurant-contact-info {
@@ -154,97 +150,90 @@
 }
 
 .contact-item {
-  width: 100%;
-  height: 50px;
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
+  justify-content: space-between;
+  height: 50px;
+  width: 100%;
+}
+.contact-item > p {
+  align-self: center;
+  padding-left: 50px;
 }
 
-.contact-item > p {
-  padding-left: 50px;
-  align-self: center;
-}
 .card-match-calculation {
   position: absolute;
-  top: 25px;
-  left: 25px;
   background-color: $forest;
-  color: $white;
-  padding: 5px 10px;
   border-radius: 25px;
+  color: $white;
+  left: 25px;
+  padding: 5px 10px;
+  top: 25px;
 }
-
 .card-match-calculation-sm {
   background-color: $forest;
-  color: $white;
-  padding: 10px;
   border-radius: 25px;
-  align-self: center;
+  color: $white;
   opacity: 1!important;
+  padding: 10px;
 }
 
 .card-container-design {
-  border: 3px solid $forest;
   background-color: $white;
+  border: 3px solid $forest;
 }
 
 // user card
 .card-user {
- padding: 10px;
- display: flex;
- flex-direction: column;
- align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 }
-
 
 // main user card 
 .card-user-main {
-  background-color: $white;
   display:flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  border-radius: 25px;
-  padding: 20px;
+  justify-content: space-around;
+  background-color: $white;
   border-radius: 25px;
   box-shadow: 2px 1px 6px $forest-light;
-  width: 200px;
   height: 200px;
+  padding: 20px;
+  width: 200px;
 }
 
 // friends card 
 .card-user-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   background-color: $white;
-  display:flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 25px;
   border: 2px solid transparent;
-  padding: 10px;
+  border-radius: 25px;
   box-shadow: 2px 1px 6px $forest-light;
-  border-radius: 25px;
-  width: 200px;
   min-height: 200px;
-  transition: background-color 0.3s ease;
-} 
-
-.card-user-friends {
- background-color: $white;
-  display:flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 25px;
-  border: 2px solid transparent;
   padding: 10px;
-  border-radius: 25px;
+  transition: background-color 0.3s ease;
   width: 200px;
-  min-height: 200px;
-  transition: background-color 0.3s ease; 
 }
 
+.card-user-friends {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: $white;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  padding: 10px;
+  min-height: 200px;
+  transition: background-color 0.3s ease; 
+  width: 200px;
+}
 .card-user-friends:hover {
   background-color: $forest-light-transparent;
   border-color: $forest;
@@ -256,30 +245,30 @@
 .card-user-content:hover > .avatar {
   border-color: $forest;
 }
+
 .card-border {
   border: 2px solid $forest;
   box-shadow: 0px 2px 6px $gray, 2px 2px 6px $gray;
 }
 
-.diet-c-text{
+.diet-c-text {
   font-weight: bold;
 }
 
 .diet-profile {
-  max-width: 50%;
-  flex-grow: 1;
   position: relative;
+  flex-grow: 1;
+  max-width: 50%;
 }
 
 // diet profile styles
-
 .user-profile-container {
   display: flex;
-  justify-content:space-around;
   align-items: start;
-  width: 100%;
+  justify-content: space-around;
   padding: 20px;
   position: relative;
+  width: 100%;
 }
 
 .user-preference {
@@ -292,43 +281,40 @@
 }
 
 .user-preference-list {
+  margin-top: 10px;
+  padding: 5px;
   text-align: center;
-  padding:5px;
-  margin-top:10px;
 }
 
 .user-preference-labels {
-  margin-top: 3px;
   display: flex;
   background-color: $forest-light-transparent;
   border: 1px solid $forest;
   border-radius: 25px;
+  margin-top: 3px;
   text-align: center;
 }
 
 .user-text {
-  // align-self: center;
-  min-width: 100px;
-  margin-top:0px!important;
-  padding: 2px;
   align-self: center;
-  margin-bottom:0px!important;
+  margin-bottom: 0px!important;
+  margin-top: 0px!important;
+  min-width: 100px;
+  padding: 5px 10px;
 }
 
 // friends
-
 .icon-name {
   position: absolute;
-  visibility: hidden;
   background-color: $forest-light;
   border: 1px solid $forest;
-  border-radius: 50%;
+  border-radius: 10px;
   color: $black;
   font-family: 'Biryani';
   font-size: 10px;
   opacity: .9;
-  text-align: center;
-  padding: 4px;
+  padding: 0px 6px;
+  visibility: hidden;
   width: auto;
   white-space: nowrap;
 }
@@ -345,22 +331,26 @@
   display: flex;
   flex-direction:column;
   position: absolute;
-  justify-content: space-around;
-  padding: 1px;
+  justify-content: start;
+  height: 100%;
+  padding: 10px 5px;
   right: 0.5em;
   top: 0;
-  height: 100%;
+}
+
+.item-position > .icon-sm {
+  margin-bottom: 10px;
 }
 
 .diet-container {
-  width: 100%;
   background: $white;
   border-radius: 25px;
-  box-shadow: 4px 4px 12px $gray;
-  text-align: center; 
+  box-shadow: 2px 1px 6px #b5e1b5;
   margin-top: 50px;
   padding: 25px;
   position: relative;
+  text-align: center; 
+  width: 100%;
 }
 
 @media (min-width: 540px) {
@@ -381,10 +371,10 @@
 
 .diet-item {
   display:flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: $white;
   position: relative;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $white;
   border: 1px solid transparent;
   border-radius: 5px;
   transition: background-color 0.1s ease;
@@ -405,4 +395,38 @@
 .diet-card-text {
   margin: 0px auto;
   text-align: center;
+}
+
+// sent friend request text
+.card-text h6 {
+  background-color: $sky;
+  border-radius: 25px;
+  color: black;
+  opacity: .8;
+  padding: 5px;
+}
+
+
+// pending requests
+
+.card-request{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-pending{
+  border: 2px solid $forest;
+  padding: 10px;
+  border-radius: 25px;
+  min-width: 200px;
+}
+
+.card-request-content{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.card-request-content > img{
+  margin-bottom: 5px;
 }

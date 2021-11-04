@@ -1,19 +1,19 @@
-<h1 class='text-center'> Choose your future favourite restaurant!</h1>
-  <div class="cards mt-3">
-  <% @restaurants.each do |restaurant| %>
+  <h1 class='text-center mb-5'> Choose your future favourite restaurant!</h1>
+<div class="cards mt-5">
+  <% @all_restaurants.each do |restaurant| %>
   <div class="card-category card-wrap">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img">
     <div class="card-layer">
-    <%= link_to "See More", restaurant_path(restaurant, :user_ids => @user_ids), class:'card-hover-text' %>
+      <%= link_to "See More", restaurant_path(restaurant, :user_ids => @user_ids), class:'card-hover-text' %>
     </div>
     <div class="card-description">
       <div class="card-info">
         <%= link_to restaurant.name, restaurant_path(restaurant, :user_ids => @user_ids)%>
         <p> <%= restaurant.location %> </p>
-        <p> <%= restaurant.compatibility(@users)%> % </p>
       </div>
+      <p class='card-match-calculation-sm'><%= restaurant.compatibility(@users) %>%</p>
     </div>
   </div>
-
- <% end %>
+  <% end %>
+  <%= link_to 'Back', dashboard_path, class:'green-button-sm text-center w-25'%>
 </div>
