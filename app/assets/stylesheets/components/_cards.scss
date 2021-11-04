@@ -63,6 +63,11 @@
   width: 25px;
 }
 
+.icon-xs{
+  height: 20px;
+  width: 20px;
+}
+
 .card-wrap {
   position: relative;
   height: 200px;
@@ -263,6 +268,7 @@
 .diet-profile {
   max-width: 50%;
   flex-grow: 1;
+  position: relative;
 }
 
 // diet profile styles
@@ -354,6 +360,7 @@
   text-align: center; 
   margin-top: 50px;
   padding: 25px;
+  position: relative;
 }
 
 @media (min-width: 540px) {
