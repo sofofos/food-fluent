@@ -2,7 +2,6 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show]
   before_action :skip_policy_scope
   before_action :save_query_path, only: %i[index]
-  # after_action :byebug, only: %i[show]
 
   def index
     @all_restaurants = Restaurant.all.order(created_at: :desc)
@@ -11,18 +10,17 @@ class RestaurantsController < ApplicationController
     @user_ids = @users.map(&:id)
 
     find_matching_restaurants
-    sort_by_compatibility
-    @restaurants
+    @restaurants = sort_by_compatibility
     session[:query] = @query_path
     session[:user_ids] = @user_ids
   end
 
   def show
     @user_ids = session[:user_ids] || params[:user_ids]
-    @users = @user_ids.map { |id| User.find(id.to_i) }
+    @users = @user_ids.reverse.map { |id| User.find(id.to_i) }
+
     @dish_type = Dish.dish_types
     @query_path = session[:query]
-    # byebug
   end
 
   def save_query_path
@@ -65,7 +63,7 @@ class RestaurantsController < ApplicationController
     @restaurants.map { |resto| hash[resto.id] = resto.compatibility(@users) }
     hash = hash.sort_by { |_, v| -v }
     sorted = hash.to_h
-    @restaurants = sorted.map { |id, _| Restaurant.find(id) }
+    sorted.map { |id, _| Restaurant.find(id) }
   end
 
 end
