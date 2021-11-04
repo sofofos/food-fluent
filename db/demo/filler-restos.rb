@@ -1,4 +1,4 @@
-mrequire_relative '../seed-helpers/load_files'
+require_relative '../seed-helpers/load_files'
 require_relative '../seed-helpers/make_dishes'
 
 def make_filler(our_two)
