@@ -49,8 +49,8 @@
 
 .icon {
   height: 30px;
-  width: 30px;
   margin-bottom: 3px;
+  width: 30px;
 }
 .icon-sm {
   height: 25px;
@@ -164,7 +164,6 @@
   padding: 5px 10px;
   top: 25px;
 }
-
 .card-match-calculation-sm {
   background-color: $forest;
   border-radius: 25px;
@@ -180,10 +179,10 @@
 
 // user card
 .card-user {
- display: flex;
- flex-direction: column;
- align-items: center;
- padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 }
 
 // main user card 
@@ -214,7 +213,7 @@
   padding: 10px;
   transition: background-color 0.3s ease;
   width: 200px;
-} 
+}
 
 .card-user-friends {
   display:flex;
@@ -246,7 +245,7 @@
   box-shadow: 0px 2px 6px $gray, 2px 2px 6px $gray;
 }
 
-.diet-c-text{
+.diet-c-text {
   font-weight: bold;
 }
 
@@ -276,8 +275,8 @@
 }
 
 .user-preference-list {
-  padding: 5px;
   margin-top: 10px;
+  padding: 5px;
   text-align: center;
 }
 
