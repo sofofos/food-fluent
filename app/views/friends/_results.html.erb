@@ -1,12 +1,40 @@
 <!-- Search result appears here -->
 
-<% @results.each do |friend|%>
-  <%= friend.username %> is <%= friend.name %>
-  <%= form_tag ({controller: 'pages', action: 'create', method: 'post', id: friend.id}) do %>
-    <% if @user.pending_friends.include?(friend) %>
-      <input class="" type=submit value='Request Pending' disabled="true">
-    <% else %>
-      <input class="" type=submit value='Add Friend'>
-    <% end %>
-  <% end %>
-<% end %>
+
+
+<div class="modal fade" id="friendSearch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-request">
+          <% @results.each do |friend|%>
+          <div class="card-pending">
+            <div class="card-request-content">
+              <%= image_tag friend.avatar_path, class:'avatar-sm' %>
+              <p> <%= friend.name %> </p>
+
+              <%= form_tag ({controller: 'pages', action: 'create', method: 'post', id: friend.id}), class:'request-form' do %>
+              <% if @user.pending_friends.include?(friend) %>
+              <input class="green-button-xs" type=submit value='Request Pending' disabled="true">
+              <% else %>
+              <input class="green-button-xs" type=submit value='Add Friend'>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="green-button" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>

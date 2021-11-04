@@ -12,7 +12,9 @@
             <%= text_field_tag :query, params[:query],
             class: 'search-bar',
             placeholder: 'username'%>
-            <%= submit_tag "search", class: 'green-button-sm' %>
+            <button type="button" class="green-button-sm" data-toggle="modal" data-target="#friendSearch">
+  search
+</button>
         </div>
     <% end %>
   </div>
