@@ -57,6 +57,12 @@
   text-decoration: none;
 }
 
+.green-button-xs[disabled="true"]{
+  background-color: $gray!important;
+  color: $white!important;
+  box-shadow: none!important;
+}
+
 
 .green-checkbox-container {
   display: block;
