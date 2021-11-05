@@ -25,16 +25,16 @@
         <% end %>
       </div>
 
-
+<!--
       <div class="diet-card">
         <h4 class="diet-title">Macros</h4>
-        <% @diet_labels.select(&:macro?).each do |tag| %>
+        <%# @diet_labels.select(&:macro?).each do |tag| %>
         <label class="diet-item">
-          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
+          <%#= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
           <p class="diet-card-text"><%= tag.name %></p> 
-          <% end %>
+          <%# end %>
         </label>
-      </div>
+      </div> -->
       <% end %>
     </div>
   <%= submit_tag 'Submit', class: 'green-button m-5' %>

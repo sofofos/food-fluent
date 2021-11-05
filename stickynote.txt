@@ -1,0 +1,29 @@
+Close modal with escape key:
+in pure JS
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        alert('Esc key pressed.');
+    }
+};
+
+
+show icons of dish
+  <div class="card-info">
+   <% dish.dish_health_labels.each do |tag| %>
+    <div class="icon-sm">
+      <%  tag.health_label.assign_icon(tag.health_label) %>
+        <%= image_tag "#{tag.health_label.icon_path}",
+            class: 'icon-sm',
+            alt: 'Allergy Icon',
+            data: { title: 'allergy' },
+            'aria-haspopup': true,
+            'aria-expanded': false
+          %>
+        <div class="icon-name">
+      <%= tag.health_label.name.capitalize %>
+      </div>
+      </div>
+    <% end %>
+  </div>
