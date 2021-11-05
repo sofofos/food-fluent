@@ -8,9 +8,10 @@
 
 .cards-friends {
   display: grid;
-  grid-gap: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  margin-top: 20px;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 4px;
+  grid-auto-flow: column;
 }
 
 #card-username {
@@ -218,7 +219,6 @@
   box-shadow: 2px 1px 6px $forest-light;
   min-height: 200px;
   padding: 10px;
-  transition: background-color 0.3s ease;
   width: 200px;
 } 
 
@@ -227,20 +227,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: $white;
   border: 2px solid transparent;
   border-radius: 25px;
   padding: 10px;
-  min-height: 200px;
+  height: 150px;
   transition: background-color 0.3s ease; 
   width: 200px;
 }
-.card-user-friends:hover {
+.card-background:hover {
   background-color: $forest-light-transparent;
   border-color: $forest;
   box-shadow: inset -2px 4px 8px $forest, inset 2px -4px 8px $forest;
   color: $forest;
   text-decoration: none;
+}
+
+.card-background{
+  background-color: $white;
+  transition: background-color 0.3s ease;
 }
 
 .card-user-content:hover > .avatar {
@@ -434,4 +438,10 @@
 
 .friends-requests{
   display:flex;
+}
+
+.card-absolute-checkbox{
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
