@@ -4,56 +4,53 @@
  
 
   <div class='cards-friends-requests'>
-    <div class='requests-subtitle requests-received'>
-      <h6>
-        Received
-      </h6>
+     <div class='requests-head'>
+      <div class='text-center'>
+        <h4>
+            Friends request
+        </h4>
+      </div>
+    </div> <!-- end requests-head !-->
+    <div class="cards-friends">
+      <% @requests.each do |friend| %>
+      <div class='card-user'>
+        <div class="card-user-friends card-border">
+          <%= image_tag friend.avatar_path, 
+              class: 'avatar-sm', 
+              id: 'dash-friends-card-head-pic', 
+              alt: 'Profile Picture', 
+              data: { title: 'profile_pic' }, 
+              'aria-haspopup': true, 
+              'aria-expanded': false 
+          %>
+
+          <div class="card-text">
+            <%= friend.name %>
+          </div>
+          <div class="buttons-friends-request d-flex justify-content-between">
+            <%= form_tag (
+                { controller: 'pages', 
+                  action: 'accept', 
+                  method: 'post', 
+                  id: friend.id}
+                ) do 
+            %>
+              <input class='friend-accept friend-button' type=submit value='Accept'>
+            <% end %>
+
+            <%= form_tag (
+                { controller: 'pages', 
+                  action: 'decline', 
+                  method: 'post', 
+                  id: friend.id}
+                ) do 
+            %>
+              <input class='friend-reject friend-button' type=submit value='Decline'>
+            <% end %>
+          </div>
+        </div> <!-- end card-user-friends card-border card-position !-->
+      </div> <!-- end card-user !-->
+      <% end %> <!-- end @requests.each !-->
     </div>
-
-    <% @requests.each do |friend| %>
-    <div class='card-user'>
-      <div class="card-user-friends card-border card-position">
-        <%= image_tag friend.avatar_path, 
-            class: 'avatar', 
-            id: 'dash-friends-card-head-pic', 
-            alt: 'Profile Picture', 
-            data: { title: 'profile_pic' }, 
-            'aria-haspopup': true, 
-            'aria-expanded': false 
-        %>
-
-        <div class="card-text">
-          <%= friend.name %>
-        </div>
-
-        <%= form_tag (
-            { controller: 'pages', 
-              action: 'accept', 
-              method: 'post', 
-              id: friend.id}
-            ) do 
-        %>
-          <input class='friend-accept' type=submit value='Accept'>
-        <% end %>
-
-        <%= form_tag (
-            { controller: 'pages', 
-              action: 'decline', 
-              method: 'post', 
-              id: friend.id}
-            ) do 
-        %>
-          <input class='friend-reject' type=submit value='Decline'>
-        <% end %>
-      </div> <!-- end card-user-friends card-border card-position !-->
-    </div> <!-- end card-user !-->
-    <% end %> <!-- end @requests.each !-->
   </div> <!-- end cards-friends !-->
-  <div class="cards-friends-requests">
-    <% unless @user.pending_friends.empty? %>
-      <%= render 'friends/requests_pending' %>
-    <% end %>
-  </div>
-
-
 
