@@ -47,8 +47,7 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-
+}
 
 .green-button:hover, .green-button-sm:hover, .green-button-xs:hover {
   background-color: $forest-light-transparent;
@@ -64,10 +63,13 @@
   box-shadow: none!important;
 }
 
+.buttons-friends-request{
+  width: 80%;
+}
 
 .green-checkbox-container {
   display: block;
-  position: relative;
+  position: absolute;
   // cursor: pointer;
   font-size: 22px;
   margin-bottom: 12px;
@@ -91,11 +93,11 @@
 .green-checkbox {
   position: absolute;
   background-color: $forest-light;
-  border: 1px solid #339933;
-  border-radius: 50%;
+  border: 1px solid #339933!important;
+  border-radius: 50%!important;
   height: 25px;
-  left: 0;
-  top: 0;
+  left: 10px;
+  top: 10px;
   width: 25px;
 }
 
@@ -149,12 +151,21 @@
 }
 
 .person-button:hover {
-  background-color: $forest-light;
+  background-color: $forest-light ;
   border: 1px solid $forest;
   box-shadow: inset 0 0 8px $forest;
   color: $forest;
   text-decoration: none;
 }
+
+.selected {
+  background-color: $forest-light!important ;
+  border: 1px solid $forest;
+  box-shadow: inset 0 0 8px $forest;
+  color: $forest;
+  text-decoration: none;
+}
+
 
 .back-button {
   position: absolute;
@@ -173,23 +184,36 @@
 }
 
 // friend request button
-.friend-accept, 
-.friend-reject {
-  border-radius: 25px;
-  color: $black;
+
+
+.friend-button{
+  background-color: $white;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
 }
+.button-pending{
+  color: $sky;
+  border: 2px solid $sky;
+  padding: 1px 4px;
+  display: flex;
+
+  align-items: center;
+}
+
 .friend-accept {
-  background-color: $kelly-clear;
-  border: 1px solid $black;
+  color: $forest;
+  border: 2px solid $forest;
 }
 .friend-reject {
-  background-color: $guardsman-clear;
-  border: 1px solid $black;
+  color: $guardsman;
+  border: 2px solid $guardsman;
 }
-.friend-accept:hover {
-  background-color: $kelly;
+.friend-accept:hover  {
+  color: $white;
+  background-color: $forest;
 }
 .friend-reject:hover {
+  color: $white;
   background-color: $guardsman;
 }
 
