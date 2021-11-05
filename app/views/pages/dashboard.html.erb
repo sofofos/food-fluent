@@ -10,21 +10,27 @@
   <div class='dashboard-content'>
     <%= render 'friends/search' %>
     <% if params[:query].present? %>
-      <%= render 'friends/results' %>
+    <%= render 'friends/results' %>
     <% end %>
 
-  <!-- friends-list + restaurant search !-->
+    <!-- friends-list + restaurant search !-->
     <div>
       <%= render 'friends/list' %>
     </div>
   </div>
 </div>
 
+<% unless @user.requested_friends.empty? && @user.pending_friends.empty?%>
 <div class='dashboard-container'>
-    <!-- disable for testing !-->
+  <!-- disable for testing !-->
+  <div class='dashboard-content'>
     <% unless @user.requested_friends.empty? %>
-    <div class='dashboard-content'>
-      <%= render 'friends/requests' %>
-    </div>
+    <%= render 'friends/requests' %>
     <% end %>
+
+    <% unless @user.pending_friends.empty? %>
+    <%= render 'friends/requests_pending' %>
+    <% end %>
+  </div>  
 </div>
+<% end %>
