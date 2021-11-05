@@ -18,19 +18,10 @@
       <%= render 'friends/list' %>
     </div>
   </div>
-</div>
 
-<% unless @user.requested_friends.empty? && @user.pending_friends.empty?%>
-<div class='dashboard-container'>
-  <!-- disable for testing !-->
-  <div class='dashboard-content'>
-    <% unless @user.requested_friends.empty? %>
-    <%= render 'friends/requests' %>
-    <% end %>
-
-    <% unless @user.pending_friends.empty? %>
-    <%= render 'friends/requests_pending' %>
-    <% end %>
-  </div>  
+  <div class="dashboard-content">
+      <% unless @user.requested_friends.empty? %>
+        <%= render 'friends/requests' %>
+      <% end %>
+  </div>
 </div>
-<% end %>
