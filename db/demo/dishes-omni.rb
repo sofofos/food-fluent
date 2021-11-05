@@ -1,16 +1,16 @@
 require_relative 'init-labels'
 
 
-diets = ["Keto-Friendly", "Kosher", "Mediterranean",
-  "Paleo", "Pescatarian", "Vegan", "Vegetarian"]
+# diets = ["Keto-Friendly", "Kosher", "Mediterranean",
+#   "Paleo", "Pescatarian", "Vegan", "Vegetarian"]
 
-allergies = ["Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
-      "Gluten-Free", "Peanut-Free", "Pork-Free", "Poultry-Free",
-      "Red-Meat-Free", "Sesame-Free", "Shellfish-Free",
-      "Soy-Free", "Sulfite-Free", "Tree-Nut-Free", "Wheat-Free"]
+# allergies = ["Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+#       "Gluten-Free", "Peanut-Free", "Pork-Free", "Poultry-Free",
+#       "Red-Meat-Free", "Sesame-Free", "Shellfish-Free",
+#       "Soy-Free", "Sulfite-Free", "Tree-Nut-Free", "Wheat-Free"]
 
-macros = ["High-Fiber", "High-Protein", "Low-Carb",
-   "Low-Fat", "Low-Sodium", "Low-Sugar"]
+# macros = ["High-Fiber", "High-Protein", "Low-Carb",
+#    "Low-Fat", "Low-Sodium", "Low-Sugar"]
 
 def init_dishes_omni(restaurant)
   dish = Dish.create!(
@@ -250,8 +250,7 @@ def init_dishes_omni(restaurant)
     dish_type: "main course"
     )
   health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
-                  "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free", "Shellfish-Free", "Soy-Free", 
-                  "Tree-Nut-Free"]
+                  "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Shellfish-Free", "Soy-Free", "Tree-Nut-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -261,7 +260,8 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_c301cffc9363459ebe1ca98e1cfb4ba0~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "main course"
     )
-  health_labels = ["Vegan"]
+  health_labels = ["Mediterranean", "Pescatarian", "Vegetarian", "Alcohol-Free", "Egg-Free", "Fish-Free", "Peanut-Free", 
+                  "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free", "Shellfish-Free", "Soy-Free", "Tree-Nut-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -271,6 +271,8 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_aaa77eb3e3414b83bfbf88ad121e379a~mv2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "main course"
     )
-    health_labels = ["Vegetarian"]
+    health_labels = ["Mediterranean", "Pescatarian", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                    "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Shellfish-Free", "Soy-Free", 
+                    "Tree-Nut-Free"]
     init_labels(health_labels, dish)
 end
