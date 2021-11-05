@@ -104,7 +104,7 @@ def init_dishes_omni(restaurant)
     dish_type: "starter"
     )
   health_labels = ["Mediterranean", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free","Peanut-Free", "Pork-Free", "Sesame-Free", 
-                  "Shellfish-Free", "Soy-Free", "Tree-Nut-Free", "Keto-Friendly", "Kosher", "Mediterranean", "Paleo"]
+                  "Shellfish-Free", "Soy-Free", "Tree-Nut-Free", "Keto-Friendly", "Paleo"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -138,8 +138,8 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_0774ad8a37964d2bb805b2a91b2e57e4~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "main course"
     )
-  health_labels = ["Mediterranean", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free","Peanut-Free", "Pork-Free", "Sesame-Free", 
-                  "Shellfish-Free", "Soy-Free", "Tree-Nut-Free", "Keto-Friendly", "Kosher", "Mediterranean", "Paleo"]
+  health_labels = ["Mediterranean", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free","Peanut-Free", "Pork-Free", 
+                  "Shellfish-Free", "Soy-Free", "Tree-Nut-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -149,7 +149,9 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_40de2f67b022453fa3d3916d2d485ecb~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "main course"
     )
-  health_labels = ["Pork-Free"]
+  health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                  "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free", "Shellfish-Free", "Soy-Free", 
+                  "Tree-Nut-Free", "Gluten-Free", "Wheat-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -159,7 +161,8 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_4c0a58ced63849c897a563fca247ca13~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "main course"
     )
-    health_labels = ["gluten-free", "keto-friendly"]
+    health_labels = ["Mediterranean", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free","Peanut-Free", "Pork-Free", 
+                    "Shellfish-Free", "Soy-Free", "Tree-Nut-Free", "gluten-free", "keto-friendly"]
     init_labels(health_labels, dish)
 
   dish = Dish.create!(
