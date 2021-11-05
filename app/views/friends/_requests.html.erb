@@ -49,11 +49,7 @@
     </div> <!-- end card-user !-->
     <% end %> <!-- end @requests.each !-->
   </div> <!-- end cards-friends !-->
-  <div class="cards-friends-requests">
-    <% unless @user.pending_friends.empty? %>
-      <%= render 'friends/requests_pending' %>
-    <% end %>
-  </div>
+  
 
 
 

@@ -8,10 +8,7 @@
   </div> <!-- end dash-main-row !-->
 
   <div class='dashboard-content'>
-    <%= render 'friends/search' %>
-    <% if params[:query].present? %>
-    <%= render 'friends/results' %>
-    <% end %>
+    
 
     <!-- friends-list + restaurant search !-->
     <div>
@@ -20,8 +17,17 @@
   </div>
 
   <div class="dashboard-content">
+    <div class="cards-friends-requests">
+      <%= render 'friends/search' %>
+    <% if params[:query].present? %>
+    <%= render 'friends/results' %>
+    <% end %>
       <% unless @user.requested_friends.empty? %>
         <%= render 'friends/requests' %>
       <% end %>
+      <% unless @user.pending_friends.empty? %>
+        <%= render 'friends/requests_pending' %>
+      <% end %>
+    </div>
   </div>
 </div>
