@@ -1,4 +1,4 @@
-<h3>We couldn't find anything 🥺️</h3>
+
 <h4>See some restaurants in the area</h4>
 <div class="cards mt-3">
 <% @all_restaurants.each do |restaurant| %>
@@ -12,7 +12,7 @@
         <%= link_to restaurant.name, restaurant_path(restaurant, :user_ids => @user_ids)%>
         <p> <%= restaurant.location %> </p>
       </div>
-      <p class='card-match-calculation-sm'><%= restaurant.compatibility(@users) %>%</p>
+      <p class='card-match-calculation-sm'><%= restaurant.compatibility(@users, @a) %>%</p>
     </div>
   </div>
 <% end %>
