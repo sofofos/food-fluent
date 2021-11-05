@@ -1,5 +1,17 @@
 require_relative 'init-labels'
 
+
+diets = ["Keto-Friendly", "Kosher", "Mediterranean",
+  "Paleo", "Pescatarian", "Vegan", "Vegetarian"]
+
+allergies = ["Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+      "Gluten-Free", "Peanut-Free", "Pork-Free", "Poultry-Free",
+      "Red-Meat-Free", "Sesame-Free", "Shellfish-Free",
+      "Soy-Free", "Sulfite-Free", "Tree-Nut-Free", "Wheat-Free"]
+
+macros = ["High-Fiber", "High-Protein", "Low-Carb",
+   "Low-Fat", "Low-Sodium", "Low-Sugar"]
+
 def init_dishes_omni(restaurant)
   dish = Dish.create!(
     name: "Fatouche",
@@ -8,7 +20,9 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_ba7e2cd1b70c484eb58382ad85a3dc0e~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
-    health_labels = ["Vegan", "Vegetarian"]
+    health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                    "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free", "Shellfish-Free", "Soy-Free", 
+                    "Tree-Nut-Free"]
     init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -18,7 +32,8 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_6bebef7a2d03466d8d65459ee6a5f26c~mv2_d_5379_3586_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
-  health_labels = ["Vegan", "Vegetarian"]
+  health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                  "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free", "Shellfish-Free", "Soy-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -28,7 +43,9 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_26d61179627e4acd8733442d7ad3c837~mv2_d_5297_3531_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
-  health_labels = ["Red-Meat-Free", "Shellfish-Free"]
+  health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                  "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free", "Shellfish-Free", "Soy-Free", 
+                  "Tree-Nut-Free", "Gluten-Free", "Wheat-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -38,7 +55,9 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_528e153d5bd84c66ab06ac7c27cdf185~mv2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
-  health_labels = ["Vegan", "Vegetarian", "Gluten-Free"]
+  health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                  "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Shellfish-Free", "Soy-Free", 
+                  "Tree-Nut-Free", "Gluten-Free", "Wheat-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -48,7 +67,9 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_4f810bef9be84ea09617bd141e15c05e~mv2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
-    health_labels = ["Vegan", "Vegetarian", "Gluten-Free"]
+    health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                    "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Shellfish-Free", "Soy-Free", 
+                    "Tree-Nut-Free", "Gluten-Free", "Wheat-Free"]
     init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -58,7 +79,9 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_cda024ae42ec47e18e290533d881ba8a~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
-  health_labels = ["Vegan", "Vegetarian", "Gluten-Free"]
+  health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                  "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free", "Shellfish-Free", "Soy-Free", 
+                  "Tree-Nut-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -68,7 +91,9 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_3fb24684e5fe476bba0a9516e6ea6ed7~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
-  health_labels = ["Red-Meat-Free", "Pork-Free"]
+  health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                  "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Sesame-Free", "Shellfish-Free", "Soy-Free", 
+                  "Tree-Nut-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -78,7 +103,8 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_7dbdc5d8171546c5b4563ee3a195f382~mv2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
-  health_labels = ["Pork-Free"]
+  health_labels = ["Mediterranean", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free","Peanut-Free", "Pork-Free", "Sesame-Free", 
+                  "Shellfish-Free", "Soy-Free", "Tree-Nut-Free", "Keto-Friendly", "Kosher", "Mediterranean", "Paleo"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -88,7 +114,9 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_4fb61f94f108405d964b59101ae5b1f5~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
-  health_labels = ["Pork-Free"]
+  health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+    "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Shellfish-Free", "Soy-Free", 
+    "Tree-Nut-Free", "Gluten-Free", "Wheat-Free"]
   init_labels(health_labels, dish)
 
   dish = Dish.create!(
@@ -98,6 +126,10 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_7dbdc5d8171546c5b4563ee3a195f382~mv2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
+  health_labels = ["Mediterranean", "Pescatarian", "Vegan", "Vegetarian", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free",
+                  "Peanut-Free", "Pork-Free", "Poultry-Free", "Red-Meat-Free", "Shellfish-Free", "Soy-Free", 
+                  "Tree-Nut-Free", "Gluten-Free", "Wheat-Free"]
+  init_labels(health_labels, dish)
 
   dish = Dish.create!(
     name: "Omnivore",
@@ -106,6 +138,9 @@ def init_dishes_omni(restaurant)
     img_url: "https://static.wixstatic.com/media/ff5eee_0774ad8a37964d2bb805b2a91b2e57e4~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "main course"
     )
+  health_labels = ["Mediterranean", "Alcohol-Free", "Dairy-Free", "Egg-Free", "Fish-Free","Peanut-Free", "Pork-Free", "Sesame-Free", 
+                  "Shellfish-Free", "Soy-Free", "Tree-Nut-Free", "Keto-Friendly", "Kosher", "Mediterranean", "Paleo"]
+  init_labels(health_labels, dish)
 
   dish = Dish.create!(
     name: "Herbivore",
