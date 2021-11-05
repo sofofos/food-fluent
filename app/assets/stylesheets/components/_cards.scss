@@ -51,6 +51,7 @@
   color: $forest;
   padding: 16px;
   position: relative;
+  flex-direction: column;
 }
 
 .icon {
@@ -120,11 +121,13 @@
   color: $forest-clear!important;
 }
 
+.menu.show-meals,
 .dishes {
   display: none;
 }
 
-.dishes.show-meals {
+.menu,
+.dishes.show-meals  {
   display: inherit;
 }
 

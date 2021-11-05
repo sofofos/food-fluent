@@ -10,7 +10,8 @@ class RestaurantsController < ApplicationController
     @user_ids = @users.map(&:id)
 
     find_matching_restaurants
-    @restaurants = sort_by_compatibility
+    sort_by_compatibility
+    @restaurants
     session[:query] = @query_path
     session[:user_ids] = @user_ids
   end
@@ -63,6 +64,6 @@ class RestaurantsController < ApplicationController
     @restaurants.map { |resto| hash[resto.id] = resto.compatibility(@users) }
     something = hash.sort_by { |_, v| -v }
     sorted = something.to_h
-    sorted.map { |id, _| Restaurant.find(id) }
+    @restaurants = sorted.map { |id, _| Restaurant.find(id) }
   end
 end
