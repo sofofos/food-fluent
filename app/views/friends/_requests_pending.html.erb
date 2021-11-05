@@ -1,38 +1,37 @@
 <!-- _requests_pending.html.erb !-->
 
 <!-- Friend Requests Sent -->
-<div class='requests-head'>
-  <div class='requests-subtitle requests-sent'>
-    <h6>
-      Sent
-    </h6>
-  </div>
-</div> <!-- end requests-head !-->
 
-<div class='cards-friends'>
-  <% @pending.each do |friend| %>
-  <div class='card-user'>
-    <div class='card-user-friends card-border card-position'>
-      <%= image_tag @user.avatar_path, 
-          class: 'avatar', 
-          id: 'dash-friends-card-head-pic', 
-          alt: 'Profile Picture', 
-          data: { title: 'profile_pic' }, 
-          'aria-haspopup': true, 
-          'aria-expanded': false 
-      %>
-
-      <div class='card-text'>
-        <%= friend.name %>
+  <div class='cards-friends-requests mt-5'>
+    <div class='requests-head'>
+      <div class='text-center'>
+        <h4>
+            Pending Requests
+        </h4>
       </div>
+    </div> <!-- end requests-head !-->
+    <div class="cards-friends">
+    <% @pending.each do |friend| %>
+      <div class='card-user'>
+        <div class='card-user-friends card-border card-position'>
+          <%= image_tag friend.avatar_path, 
+              class: 'avatar-sm', 
+              id: 'dash-friends-card-head-pic', 
+              alt: 'Profile Picture', 
+              data: { title: 'profile_pic' }, 
+              'aria-haspopup': true, 
+              'aria-expanded': false 
+          %>
 
-      <div class='card-text'>
-        <h6>
-          Waiting...
-        </h6>
-      </div>
+          <div class='card-text'>
+            <%= friend.name %>
+          </div>
 
-    </div> <!-- end card-user-friends card-border card-position !-->  
-  </div> <!-- end card-user !-->
-  <% end %> <!-- end @pending.each !-->
-</div> <!-- end cards-friends !-->
+          <div class='button-pending friend-button'>
+              Pending
+          </div>
+        </div>   
+      </div>  
+    <% end %> 
+    </div>
+  </div> 

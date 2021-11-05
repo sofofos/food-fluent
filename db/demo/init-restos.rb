@@ -116,26 +116,10 @@ def init_restos
     )
 
   Restaurant.create!(
-    name: "Gibeau Orange Julep ",
-    website: "https://orangejulep.ca ",
-    phone_number: "(514) 738-7486",
-    img_url: "restaurants/gibeau-orange-julep.png",
-    location: Faker::Address.street_address + ", Montreal, QC"
-    )
-
-  Restaurant.create!(
     name: "Kazu ",
     website: "https://kazumontreal.com ",
     phone_number: "(514) 937-2333",
     img_url: "restaurants/kazu.png",
-    location: Faker::Address.street_address + ", Montreal, QC"
-    )
-
-  Restaurant.create!(
-    name: "La Banquise ",
-    website: "https://labanquise.com ",
-    phone_number: "(514) 525-2415",
-    img_url: "restaurants/la-banquise.png",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 
@@ -168,14 +152,6 @@ def init_restos
     website: "https://www.facebook.com/PhoLienExpress",
     phone_number: "(514) 735-6949",
     img_url: "restaurants/pho-lien.png",
-    location: Faker::Address.street_address + ", Montreal, QC"
-    )
-
-  Restaurant.create!(
-    name: "Roch le Coq ",
-    website: "https://rochlecoq.com",
-    phone_number: "(514) 637-2337",
-    img_url: "restaurants/roch-le-coq.png",
     location: Faker::Address.street_address + ", Montreal, QC"
     )
 

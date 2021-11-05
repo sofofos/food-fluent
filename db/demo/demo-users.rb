@@ -53,7 +53,9 @@ end
 
 def make_friends(user)
   strangers = User.all.reject{ |usr| usr.id == user.id }
-  friend = strangers.sample
-  friend.friend_request(user)
+  2.times do
+    friend = strangers.sample
+    friend.friend_request(user)
+  end
   user.requested_friends.each { |friend| user.accept_request(friend) }
 end
