@@ -4,7 +4,8 @@
 
 <% @all_restaurants.each do |restaurant| %>
   <div class="card-category card-wrap">
-     <%= image_tag @restaurant.img_url, class: "card-img" %>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img">
+     <%#= image_tag @restaurant.img_url, class: "card-img" %>
     <div class="card-layer">
       <%= link_to "See More", restaurant_path(restaurant, :user_ids => @user_ids), class:'card-hover-text' %>
     </div>
