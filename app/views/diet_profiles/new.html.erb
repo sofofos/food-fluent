@@ -7,7 +7,7 @@
         <h4 class="diet-title">Diet</h4>
         <% @diet_labels.select(&:diet?).each do |tag| %>
         <label class="diet-item">
-          <%= check_box_tag "diet_profile[health_label_id][]", tag.id  %>
+           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
           <p class="diet-card-text"><%= tag.name %></p>
         </label>
         <% end %>
@@ -18,7 +18,7 @@
         <h4 class="diet-title">Allergies</h4>
         <% @diet_labels.select(&:allergy?).each do |tag| %>
         <label class="diet-item">
-          <%= check_box_tag "diet_profile[health_label_id][]", tag.id %>
+           <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
           <p class="diet-card-text"><%= tag.name.gsub('-Free', '') %></p>
         </label>
         <% end %>
@@ -29,7 +29,7 @@
         <h4 class="diet-title">Macros</h4>
         <%# @diet_labels.select(&:macro?).each do |tag| %>
         <label class="diet-item">
-          <%#= check_box_tag "diet_profile[health_label_id][]", tag.id %>
+           <%#= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
           <p class="diet-card-text"><%#= tag.name %></p>
           <%# end %>
         </label>
