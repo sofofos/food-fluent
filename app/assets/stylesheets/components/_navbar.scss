@@ -14,6 +14,11 @@
   width: 50px;
 }
 
+.navbar-flex {
+  border: 4px double $forest;
+  border-radius: 25px;
+}
+
 .dropdown-custom{
   color: $forest!important;
 }
@@ -37,6 +42,8 @@
 
 .navbar-link {
   border: 1px solid transparent;
+  border-radius: 15px;
+  margin: 2px;
   padding: 10px;
   text-align: center;
   transition: background-color 0.3s ease;

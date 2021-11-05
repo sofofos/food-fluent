@@ -2,22 +2,32 @@
   <div class='container'>
     <div class='footer-content-wrap'>
       <p>
-        Food Fluent, Inc.
-      </p>
-      <p>
-        5333 Av. Casgrain, Ste. 102
-      </p>
-      <p>
-        Montréal, Québec H2T 1X3
-      </p>
-      <p>
-        email: info@foodfluent.xyz
+        Made with ♥ by The Food Fluent Team
       </p>
       <div class='media-links d-flex justify-content-center align-items-center'>
-        <%= image_tag 'social/facebook.png', class:'media-link'%>
-        <%= image_tag 'social/instagram.png' , class:'media-link'%>
-        <%= image_tag 'social/twitter.png' , class:'media-link'%>
-        <%= image_tag 'social/linkedin.png' , class:'media-link'%>
+        <%= mail_to 'info@foodfluent.xyz' do %>
+          <%= image_tag 'social/email.png', class: 'media-link' %>
+        <% end %>
+
+        <%= link_to 'https://facebook.com' do %>
+          <%= image_tag 'social/facebook.png', class: 'media-link' %>
+        <% end %>
+
+        <%= link_to 'https://github.com/sofofos/food-fluent' do %>
+          <%= image_tag 'social/github.png', class: 'media-link' %>
+        <% end %>
+
+        <%= link_to 'https://instagram.com' do %>
+          <%= image_tag 'social/instagram.png' , class: 'media-link' %>
+        <% end %>
+
+        <%= link_to 'https://linkedin.com' do %>
+          <%= image_tag 'social/linkedin.png' , class: 'media-link' %>
+        <% end %>
+
+        <%= link_to 'https://twitter.com' do %>
+          <%= image_tag 'social/twitter.png' , class: 'media-link' %>
+        <% end %>
       </div>
     </div>
   </div>
