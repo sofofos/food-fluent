@@ -61,9 +61,8 @@ class RestaurantsController < ApplicationController
   def sort_by_compatibility
     hash = {}
     @restaurants.map { |resto| hash[resto.id] = resto.compatibility(@users) }
-    hash = hash.sort_by { |_, v| -v }
-    sorted = hash.to_h
+    something = hash.sort_by { |_, v| -v }
+    sorted = something.to_h
     sorted.map { |id, _| Restaurant.find(id) }
   end
-
 end
