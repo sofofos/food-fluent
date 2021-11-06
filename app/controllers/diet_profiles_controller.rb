@@ -12,6 +12,8 @@ class DietProfilesController < ApplicationController
   end
 
   def edit
+    @diets = current_user.diet_profiles.map(&:id)
+    params[:id] = @diets
     @diet_labels = HealthLabel.all.uniq(&:name).sort_by(&:name)
   end
 
@@ -23,8 +25,10 @@ class DietProfilesController < ApplicationController
   private
 
   def find_diet_profile
-    @diet_profiles = DietProfile.find(params[:id])
-    authorize @diet_profiles
+    # @diets = current_user.diet_profiles.map(&:id)
+    # params[:id] = @diets
+    @diet_profile = DietProfile.find(params[:id])
+    authorize @diet_profile
   end
 
   def diet_profile_params

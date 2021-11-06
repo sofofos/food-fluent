@@ -1,5 +1,5 @@
 <div class='container'>
-  <%= form_tag diet_profile_path(@diet_profiles), method: :patch do %>
+  <%= form_tag diet_profile_path(@diets), method: :patch do %>
   <div class="diet-container">
     <%= link_to image_tag('cancel.svg', class:'icon-xs', id:'exit'), dashboard_path %>
     <h3 class='mb-5'>Edit your Diet Profile</h3>
@@ -8,7 +8,17 @@
         <h4 class="diet-title">Diet</h4>
         <% @diet_labels.select(&:diet?).each do |tag| %>
         <label class="diet-item">
-          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
+          <% diet = proc { |x| x.health_label.name } %>
+          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.diet_profiles.map(&diet).include?(tag.name)  %>
+            <div class="icon-sm">
+          <%  tag.assign_icon(tag) %>
+          <%= image_tag "#{tag.icon_path}",
+              class: 'icon-sm',
+              alt: 'Allergy Icon',
+              data: { title: 'allergy' },
+              'aria-haspopup': true,
+              'aria-expanded': false
+          %></div>
           <p class="diet-card-text"><%= tag.name %></p>  
         </label>
         <% end %>
@@ -19,25 +29,28 @@
         <h4 class="diet-title">Allergies</h4>
         <% @diet_labels.select(&:allergy?).each do |tag| %>
         <label class="diet-item">
-          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
+          <% diet = proc { |x| x.health_label.name } %>
+          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.diet_profiles.map(&diet).include?(tag.name)  %>
+            <div class="icon-sm">
+          <%  tag.assign_icon(tag) %>
+          <%= image_tag "#{tag.icon_path}",
+              class: 'icon-sm',
+              alt: 'Allergy Icon',
+              data: { title: 'allergy' },
+              'aria-haspopup': true,
+              'aria-expanded': false
+          %></div>
           <p class="diet-card-text"><%= tag.name.gsub('-Free', '') %></p>  
         </label>
         <% end %>
       </div>
 
 
-      <div class="diet-card">
-        <h4 class="diet-title">Macros</h4>
-        <% @diet_labels.select(&:macro?).each do |tag| %>
-        <label class="diet-item">
-          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-          <p class="diet-card-text"><%= tag.name %></p> 
-          <% end %>
-        </label>
-      </div>
+
       <% end %>
     </div>
   <%= submit_tag 'Submit', class: 'green-button m-5' %>
   </div>  
 </div>
 
+<% console %>
