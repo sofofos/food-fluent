@@ -24,10 +24,12 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { filterDishes } from '../restaurants/dish_filter';
+import { dietLabels } from '../diet/diet_profile';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   filterDishes();
+  dietLabels();
 });
 

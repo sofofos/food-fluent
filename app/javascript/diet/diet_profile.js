@@ -1,16 +1,13 @@
 function dietLabels () {
-  const dietItems = document.querySelectorAll('.diet-item');
-  dietItems.forEach((button) => {
-    button.addEventListener('click', (event) => { 
-      const currentlyShowing = document.querySelector('.show-meals') 
-      const currentlyShowingButton = document.querySelector('.selected')
-      const userDishes = document.getElementById(`${button.id}-dishes`)
-      userDishes.classList.toggle("show-meals");
-      button.classList.toggle("selected");
-      if (currentlyShowing) {
-        currentlyShowing.classList.remove('show-meals');
-        currentlyShowingButton.classList.remove('selected');
-      }
+  const dietCardText = document.querySelectorAll('.diet-card-text');
+  dietCardText.forEach((dietText) => {
+    dietText.addEventListener('click', (event) => {
+    const dietItem = document.querySelectorAll('diet-card-text'); 
+      dietItem.classList.toggle('selected');
+      // if (currentlyShowing) {
+      //   currentlyShowing.classList.remove('show-meals');
+      //   currentlyShowingButton.classList.remove('selected');
+      // }
     });
   });
 }
