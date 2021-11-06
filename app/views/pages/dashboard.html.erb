@@ -13,7 +13,9 @@
   <div class="dashboard-content">
       <%= render 'friends/search' %>
       <% if params[:query].present? %>
-      <%= render 'friends/results' %>
+        <%= render 'friends/results' %>
+      <% else %>
+        <%= render  'friends/results_fail' %>
       <% end %>
       <div class="friends-alignment mt-5">
         <% unless @user.requested_friends.empty? %>

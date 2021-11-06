@@ -183,6 +183,10 @@
   top: 20px;
 }
 
+#failed-search-button{
+  color: $guardsman;
+}
+
 // friend request button
 
 
@@ -201,7 +205,7 @@
 
 .button-absolute{
   position:absolute;
-  bottom:25px;
+  top:25px;
   right:25px;
 }
 

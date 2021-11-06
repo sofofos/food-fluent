@@ -1,25 +1,29 @@
-<div class="dashboard-content position-relative">
-  <div class="mx-3">
-    <h2>Choose your restaurant!</h2>
-    <h5>Find your best matches below</h5>
+<div class="dashboard-content">
+  <div class="position-relative">  
+    <div class="mx-3">
+      <h2>Choose your restaurant!</h2>
+      <h5>Find your best matches below</h5>
+    </div>
+    <%= link_to 'Edit Search', dashboard_path, class: "green-button button-absolute" %>
   </div>
-  <%= link_to 'Edit Search', dashboard_path, class: "green-button button-absolute" %>
-</div>
 
-<div class="cards mt-5">
-  <% @restaurants.each do |restaurant| %>
-  <div class="card-category card-wrap">
-    <%= image_tag restaurant.img_url, class: "card-img" %>
-    <div class="card-layer">
-      <%= link_to "See More", restaurant_path(restaurant, :user_ids => @user_ids), class:'card-hover-text' %>
-    </div>
-    <div class="card-description">
-      <div class="card-info">
-        <%= link_to restaurant.name, restaurant_path(restaurant, :user_ids => @user_ids)%>
-        <p> <%= restaurant.location %> </p>
+  <hr>
+
+  <div class="cards mt-5">
+    <% @restaurants.each do |restaurant| %>
+    <div class="card-category card-wrap">
+      <%= image_tag restaurant.img_url, class: "card-img" %>
+      <div class="card-layer">
+        <%= link_to "See More", restaurant_path(restaurant, :user_ids => @user_ids), class:'card-hover-text' %>
       </div>
-      <p class='card-match-calculation-sm'><%= restaurant.compatibility(@users) %>%</p>
+      <div class="card-description">
+        <div class="card-info">
+          <%= link_to restaurant.name, restaurant_path(restaurant, :user_ids => @user_ids)%>
+          <p> <%= restaurant.location %> </p>
+        </div>
+        <p class='card-match-calculation-sm'><%= restaurant.compatibility(@users) %>%</p>
+      </div>
     </div>
-  </div>
-  <% end %>
+    <% end %>
+  </div>  
 </div>
