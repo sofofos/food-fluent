@@ -1,9 +1,8 @@
   <h1 class='text-center mb-5'> Choose your future favourite restaurant!</h1>
 <div class="cards mt-5">
-  <% @all_restaurants.each do |restaurant| %>
+  <% @restaurants.each do |restaurant| %>
   <div class="card-category card-wrap">
     <%= image_tag restaurant.img_url, class: "card-img" %>
-    <%#= image_tag @restaurant.img_url, class: "card-img" %>
     <div class="card-layer">
       <%= link_to "See More", restaurant_path(restaurant, :user_ids => @user_ids), class:'card-hover-text' %>
     </div>
@@ -17,3 +16,4 @@
   </div>
   <% end %>
 </div>
+<% console %>

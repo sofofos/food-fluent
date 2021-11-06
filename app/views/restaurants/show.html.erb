@@ -1,5 +1,6 @@
 <div class="container">
   <div class="py-5">
+    <%= link_to 'Back', @query_path, class: "green-button" %>
     <h1 class='text-center'>
       <%= @restaurant.name %>
     </h1>
@@ -26,15 +27,35 @@
             <a type="button" class="green-button" data-toggle="modal" data-target="#staticBackdrop">
               see menu
             </a>
-            <%= link_to "Visit Website", @restaurant.website, class:"green-button" %>
-            <%= link_to 'Back', @query_path, class: "green-button" %>
+            <%= link_to "Visit Website", @restaurant.website, target: '_blank', class:"green-button" %>
+
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-
 
 <%= render 'restaurants/dishes_show' %>
+    <div class="card-restaurant dashboard-content">
+       <% @dish_type.each do |key, name| %>
+            <% type = (key + "?").to_sym %>
+          <br>
+          <h2><%= name.pluralize.capitalize %></h2>
+          <div class="cards">
+            <% @restaurant.dishes.select(&type).each do |dish| %>
+              <div class="card-category">
+                <%= image_tag dish.img_url, class:'card-img' %>
+                <div class="card-description">
+                  <div class="card-info">
+                    <%= dish.name %>
+                  </div>
+                  <div class="card-info">
+                    <%= dish.price %> $
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>
