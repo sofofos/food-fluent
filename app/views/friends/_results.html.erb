@@ -1,20 +1,20 @@
 <div class="card-request my-5">
-  <% @results.each do |friend| %>
-  <div class="card-pending">
-    <div class="card-request-content">
-      <%= image_tag friend.avatar_path, class:'avatar-sm' %>
-      <p> <%= friend.name %> </p>
+    <% @results.each do |friend| %>
+      <div class="card-pending">
+        <div class="card-request-content">
+          <%= image_tag friend.avatar_path, class:'avatar-sm' %>
+          <p><%= friend.name %></p>
 
-      <%= form_tag ({controller: 'pages', action: 'create', method: 'post', id: friend.id}), class:'request-form' do %>
-          <% if @user.pending_friends.include?(friend) %>
-          <input class="button-pending friend-button" type=submit value='Pending' disabled="true">
-          <% else %>
-          <input class="green-button-xs" type=submit value='Add Friend'>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+          <%= form_tag ({controller: 'pages', action: 'create', method: 'post', id: friend.id}), class:'request-form' do %>
+            <% if @user.pending_friends.include?(friend) %>
+              <input class="button-pending friend-button" type=submit value='Pending' disabled="true">
+            <% else %>
+              <input class="green-button-xs" type=submit value='Add Friend'>
+            <% end %>
+          <% end %>
+        </div>
+     </div>
+    <% end %>
   <% end %>
 </div>
-
 <hr id="hr-search">
