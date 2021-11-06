@@ -16,7 +16,7 @@ def init_dishes_omni(restaurant)
   dish = Dish.create!(
     name: "Fatouche",
     restaurant: restaurant,
-    price: "7",
+    price: "7.00",
     img_url: "https://static.wixstatic.com/media/ff5eee_ba7e2cd1b70c484eb58382ad85a3dc0e~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
@@ -63,7 +63,7 @@ def init_dishes_omni(restaurant)
   dish = Dish.create!(
     name: "Babaghanouj",
     restaurant: restaurant,
-    price: "7",
+    price: "7.00",
     img_url: "https://static.wixstatic.com/media/ff5eee_4f810bef9be84ea09617bd141e15c05e~mv2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
@@ -99,7 +99,7 @@ def init_dishes_omni(restaurant)
   dish = Dish.create!(
     name: "Extra brochette",
     restaurant: restaurant,
-    price: "6",
+    price: "6.00",
     img_url: "https://static.wixstatic.com/media/ff5eee_7dbdc5d8171546c5b4563ee3a195f382~mv2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
@@ -110,7 +110,7 @@ def init_dishes_omni(restaurant)
   dish = Dish.create!(
     name: "Akrams Hot Sauce",
     restaurant: restaurant,
-    price: "9",
+    price: "9.00",
     img_url: "https://static.wixstatic.com/media/ff5eee_4fb61f94f108405d964b59101ae5b1f5~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "starter"
     )
@@ -157,7 +157,7 @@ def init_dishes_omni(restaurant)
   dish = Dish.create!(
     name: "Carnivore",
     restaurant: restaurant,
-    price: "22",
+    price: "22.00",
     img_url: "https://static.wixstatic.com/media/ff5eee_4c0a58ced63849c897a563fca247ca13~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "main course"
     )
@@ -245,7 +245,7 @@ def init_dishes_omni(restaurant)
   dish = Dish.create!(
     name: "Khodra Sandwich",
     restaurant: restaurant,
-    price: "8",
+    price: "8.00",
     img_url: "https://static.wixstatic.com/media/ff5eee_fd5e2f7e86944c7993ccc2d403ce6578~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "main course"
     )
@@ -267,7 +267,7 @@ def init_dishes_omni(restaurant)
   dish = Dish.create!(
     name: "Battata Sandwich",
     restaurant: restaurant,
-    price: "8",
+    price: "8.00",
     img_url: "https://static.wixstatic.com/media/ff5eee_aaa77eb3e3414b83bfbf88ad121e379a~mv2.jpg/v1/fill/w_232,h_232,usm_1.20_1.00_0.01/file.webp",
     dish_type: "main course"
     )
