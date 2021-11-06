@@ -56,7 +56,7 @@ def init_dishes_pant(restaurant)
   dish = Dish.create!(
     name: "Hummus & Falafel Plate",
     restaurant: restaurant,
-    price: "12.9",
+    price: "12.90",
     dish_type: "main",
     img_url: "https://images.koomi.com/koomi_images/21franchise/8e/ad/180x180_8ead0a6043c99900f6b023ef64ed1dca.jpeg"
     )
@@ -69,7 +69,7 @@ def init_dishes_pant(restaurant)
   dish = Dish.create!(
     name: "Hummus & Tempeh Plate",
     restaurant: restaurant,
-    price: "12.9",
+    price: "12.90",
     dish_type: "main",
     img_url: "https://images.koomi.com/koomi_images/21franchise/ef/a4/180x180_efa4e4c9af3e3cd2d7fe987a72513ee5.jpeg"
     )
@@ -82,7 +82,7 @@ def init_dishes_pant(restaurant)
   dish = Dish.create!(
     name: "Hummus & Shawarma Plate",
     restaurant: restaurant,
-    price: "12.9",
+    price: "12.90",
     dish_type: "main",
     img_url: "https://images.koomi.com/koomi_images/21franchise/d5/f2/180x180_d5f20b9f1beb6238a7d46f0bf0d4320e.jpeg"
     )
@@ -95,7 +95,7 @@ def init_dishes_pant(restaurant)
   dish = Dish.create!(
     name: "Hummus & Burger Plate",
     restaurant: restaurant,
-    price: "12.9",
+    price: "12.90",
     dish_type: "main",
     img_url: "https://images.koomi.com/koomi_images/21franchise/d0/54/180x180_d05460e64dfeb7f30a3253f173d68c2a.jpeg"
     )
@@ -108,7 +108,7 @@ def init_dishes_pant(restaurant)
   dish = Dish.create!(
     name: "Falafel Bowl",
     restaurant: restaurant,
-    price: "12.9",
+    price: "12.90",
     dish_type: "main",
     img_url: "https://images.koomi.com/koomi_images/21franchise/19/78/180x180_19782dc652fc464b3dd4aa40f953bce1.jpeg"
     )
@@ -121,7 +121,7 @@ def init_dishes_pant(restaurant)
   dish = Dish.create!(
     name: "Tempeh Bowl",
     restaurant: restaurant,
-    price: "12.9",
+    price: "12.90",
     dish_type: "main",
     img_url: "https://images.koomi.com/koomi_images/21franchise/75/a1/180x180_75a1e5a2da9e7e840ad1f7f21a4f3abf.jpeg"
     )
@@ -134,7 +134,7 @@ def init_dishes_pant(restaurant)
   dish = Dish.create!(
     name: "Shawarma Bowl",
     restaurant: restaurant,
-    price: "12.9",
+    price: "12.90",
     dish_type: "main",
     img_url: "https://images.koomi.com/koomi_images/21franchise/05/63/180x180_0563172eb9b69f27e44139a7cea1f592.jpeg"
     )
@@ -147,7 +147,7 @@ def init_dishes_pant(restaurant)
   dish = Dish.create!(
     name: "Burger Bowl",
     restaurant: restaurant,
-    price: "12.9",
+    price: "12.90",
     dish_type: "main",
     img_url: "https://images.koomi.com/koomi_images/21franchise/6c/03/180x180_6c03a598395ad90862be081f8a8ef5f0.jpeg"
     )
@@ -251,7 +251,7 @@ def init_dishes_pant(restaurant)
   dish = Dish.create!(
     name: "Snack Attack (to share)",
     restaurant: restaurant,
-    price: "14.9",
+    price: "14.90",
     dish_type: "starter",
     img_url: "https://images.koomi.com/koomi_images/21franchise/72/20/180x180_722048d0dba758eb3747d68b616a31b3.jpeg"
     )
