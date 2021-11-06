@@ -7,9 +7,17 @@
       <div class="diet-card">
         <h4 class="diet-title">Diet</h4>
         <% @diet_labels.select(&:diet?).each do |tag| %>
-        <label class="diet-item">
-          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag)  %>
-          <p class="diet-card-text"><%= tag.name %></p>  
+         <label class="diet-item ">
+          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
+          <span class="label-icon">
+            <div class="icon-sm">
+              <%  tag.assign_icon(tag) %>
+              <%= image_tag "#{tag.icon_path}", class: 'icon-sm',
+                alt: 'Allergy Icon', data: { title: 'allergy' },
+                'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+          </span>
+          <p class="diet-card-text"><%= tag.name.gsub('-Free', '') %></p>
         </label>
         <% end %>
       </div>
@@ -18,9 +26,20 @@
       <div class="diet-card">
         <h4 class="diet-title">Allergies</h4>
         <% @diet_labels.select(&:allergy?).each do |tag| %>
-        <label class="diet-item">
-          <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
-          <p class="diet-card-text"><%= tag.name.gsub('-Free', '') %></p>  
+          <label class="diet-item ">
+            <%= check_box_tag "diet_profile[health_label_id][]", tag.id, current_user.health_labels.include?(tag) %>
+            <span class="label-icon">
+              <div class="icon-sm">
+              <%  tag.assign_icon(tag) %>
+              <%= image_tag "#{tag.icon_path}", class: 'icon-sm',
+                  alt: 'Allergy Icon', data: { title: 'allergy' },
+                  'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="icon-name">
+              <%= tag.name.capitalize %>
+            </div>
+          </div> </span>
+
+          <p class="diet-card-text"><%= tag.name.gsub('-Free', '') %></p>
         </label>
         <% end %>
       </div>
