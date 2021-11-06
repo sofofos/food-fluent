@@ -68,6 +68,10 @@ li {
   z-index: -100;
 }
 
+#hr-search{
+  background-color: $forest-light-transparent!important;
+}
+
 // input form placeholder centering
 ::placeholder {
   text-align: center;

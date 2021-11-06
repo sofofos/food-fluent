@@ -1,4 +1,11 @@
-  <h1 class='text-center mb-5'> Choose your future favourite restaurant!</h1>
+<div class="d-flex position-relative">
+  <div class="mx-3">
+    <h2>Choose your restaurant!</h2>
+    <h5>Find your best matches below</h5>
+  </div>
+  <%= link_to 'Edit Search', dashboard_path, class: "green-button button-absolute" %>
+</div>
+
 <div class="cards mt-5">
   <% @restaurants.each do |restaurant| %>
   <div class="card-category card-wrap">
@@ -16,4 +23,3 @@
   </div>
   <% end %>
 </div>
-<% console %>

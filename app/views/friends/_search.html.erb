@@ -1,12 +1,11 @@
 <!-- Search for friends -->
-<div class="search-head">
-  <div class="search-item">
+
+  <div class="search-item align-self-center">
     <h4 class="search-title">
-      Friends
+      Find your friends!
     </h4>
   </div>
-
-  <div class="search-item">
+  <div class="search-item search-position-absolute">
     <%= form_tag dashboard_path, method: :get, action: :search do %>
         <div class="search-form">
             <%= text_field_tag :query, params[:query],
@@ -16,6 +15,5 @@
         </div>
     <% end %>
   </div>
-</div>
 
 
