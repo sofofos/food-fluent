@@ -42,10 +42,8 @@
 
   <%= render 'restaurants/dishes_show' %>
 
-
-<<<<<<< HEAD
-    <div class="card-restaurant dashboard-content my-3">
-  <h2 class="text-center">Entire Menu</h2>
+  <div class="card-restaurant dashboard-content my-3">
+    <h2 class="text-center">Entire Menu</h2>
        <% @dish_type.each do |key, name| %>
             <% type = (key + "?").to_sym %>
           <% unless @restaurant.dishes.select(&type).empty? %>
@@ -66,12 +64,7 @@
                 </div>
               </div>
             <% end %>
-          </div>
         </div>
-      </div>
       <% end %>
     </div>
-    <% end %>
-  </div>
-</div>
 </div>
