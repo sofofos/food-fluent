@@ -38,12 +38,12 @@
 <%= render 'restaurants/dishes_show' %>
 
 
-    <div class="card-restaurant dashboard-content">
+    <div class="card-restaurant dashboard-content my-3">
   <h2 class="text-center">Entire Menu</h2>
        <% @dish_type.each do |key, name| %>
             <% type = (key + "?").to_sym %>
           <% unless @restaurant.dishes.select(&type).empty? %>
-            <h3 class="text-center"><%= name.pluralize.capitalize %></h2>
+            <h3 class="text"><%= name.pluralize.capitalize %></h2>
             <br>
           <% end %>
           <div class="cards">
