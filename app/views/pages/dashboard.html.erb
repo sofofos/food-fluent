@@ -15,7 +15,7 @@
       <% if params[:query].present? %>
       <%= render 'friends/results' %>
       <% end %>
-      <div class="friends-alignment">
+      <div class="friends-alignment mt-5">
         <% unless @user.requested_friends.empty? %>
           <%= render 'friends/requests' %>
         <% end %>
