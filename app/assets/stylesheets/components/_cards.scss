@@ -51,7 +51,6 @@
   color: $forest;
   padding: 16px;
   position: relative;
-  flex-direction: column;
 }
 
 .icon {
@@ -447,4 +446,10 @@
   position: absolute;
   top: 10px;
   left: 10px;
+}
+
+.friends-alignment{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
