@@ -1,43 +1,49 @@
 <div class="container">
   <div class="py-5">
-          <%= link_to 'Back to Search', @query_path, class: "green-button" %>
-
-    <h1 class='text-center'>
-      <%= @restaurant.name %>
-    </h1>
-    <div class="card-restaurant">
-      <div class="card-match-calculation">
-        <%= @restaurant.compatibility(@users) %>% Match
-      </div>
-      <div class="d-flex justify-content-between">
-        <%= image_tag @restaurant.img_url, class: "card-restaurant-img" %>
+    <div class="dashboard-content position-relative">
+    <div class="mx-3">
+      <h2><%= @restaurant.name %></h2>
+     </div>
+    <%= link_to 'Back to Search', @query_path, class: "green-button button-absolute" %>
+  </div>
 
 
-        <div class="restaurant-contact-info">
-          <div class="d-flex flex-column align-items-start">
-            <div class="contact-item">
-              <%= image_tag 'address.svg', class:'icon' %>
-              <p> <%= @restaurant.location %> </p>
-            </div>
-            <div class="contact-item">
-              <%= image_tag 'telephone.svg', class:'icon' %>
-              <p> <%= @restaurant.phone_number %> </p>
-            </div>
+  <h1 class='text-center'>
+  </h1>
+  <div class="card-restaurant">
+    <div class="card-match-calculation">
+      <%= @restaurant.compatibility(@users) %>% Match
+    </div>
+    <div class="d-flex justify-content-between">
+      <%= image_tag @restaurant.img_url, class: "card-restaurant-img" %>
+
+
+      <div class="restaurant-contact-info">
+        <div class="d-flex flex-column align-items-start">
+          <div class="contact-item">
+            <%= image_tag 'address.svg', class:'icon' %>
+            <p> <%= @restaurant.location %> </p>
           </div>
-          <div class="buttons-container">
-            <a type="button" class="green-button" data-toggle="modal" data-target="#staticBackdrop">
-              Your Custom menu
-            </a>
-            <%= link_to "Visit Website", @restaurant.website, target: '_blank', class:"green-button" %>
-
+          <div class="contact-item">
+            <%= image_tag 'telephone.svg', class:'icon' %>
+            <p> <%= @restaurant.phone_number %> </p>
           </div>
+        </div>
+        <div class="buttons-container">
+          <a type="button" class="green-button" data-toggle="modal" data-target="#staticBackdrop">
+            Your Custom menu
+          </a>
+          <%= link_to "Visit Website", @restaurant.website, target: '_blank', class:"green-button" %>
+
         </div>
       </div>
     </div>
+  </div>
 
-<%= render 'restaurants/dishes_show' %>
+  <%= render 'restaurants/dishes_show' %>
 
 
+<<<<<<< HEAD
     <div class="card-restaurant dashboard-content my-3">
   <h2 class="text-center">Entire Menu</h2>
        <% @dish_type.each do |key, name| %>
@@ -61,7 +67,11 @@
               </div>
             <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
+      <% end %>
+    </div>
+    <% end %>
   </div>
+</div>
 </div>

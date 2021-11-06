@@ -17,16 +17,18 @@ $aqua:        #00FFFF;
 $black:       #000000;
 $fuchsia:     #FF00FF;
 $grey:        #efefef;
+  $grey-shadow: rgba(0, 0, 0, .2);
 $indigo:      #660099;
 $lime:        #00FF00;
 $orange:      #FF9900;
 $red:         #FF0000;
 $white:       #FFFFFF;
-$gray-shadow: rgba(0, 0, 0, .2);
+  $white-dim:   rgba(255,255,255,0.9);
 
 // Colour Palette 3e (tertiary, aliases)
 $cyan:        #00FFFF;
 $gray:        #CCCCCC;
+  $gray-shadow: rgba(0, 0, 0, .2);
 $magenta:     #FF00FF;
 
 // Box Shadows
