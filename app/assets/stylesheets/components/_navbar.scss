@@ -63,3 +63,9 @@
 .navbar-link > a {
   text-decoration: none;
 }
+
+.nav-link-image:hover {
+  filter: opacity(0.7) drop-shadow(0 0 0 $forest-light-transparent);
+}
+
+
