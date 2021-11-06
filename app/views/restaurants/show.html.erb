@@ -25,7 +25,7 @@
           </div>
           <div class="buttons-container">
             <a type="button" class="green-button" data-toggle="modal" data-target="#staticBackdrop">
-              see menu
+              Your Custom menu
             </a>
             <%= link_to "Visit Website", @restaurant.website, target: '_blank', class:"green-button" %>
 
@@ -35,7 +35,10 @@
     </div>
 
 <%= render 'restaurants/dishes_show' %>
+
+
     <div class="card-restaurant dashboard-content">
+  <h2 class="text-center">Entire Menu</h2>
        <% @dish_type.each do |key, name| %>
             <% type = (key + "?").to_sym %>
           <br>
