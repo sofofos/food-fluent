@@ -42,10 +42,12 @@
   <h2 class="text-center">Entire Menu</h2>
        <% @dish_type.each do |key, name| %>
             <% type = (key + "?").to_sym %>
-          <br>
-          <h2><%= name.pluralize.capitalize %></h2>
+          <% unless @restaurant.dishes.select(&type).empty? %>
+            <h3 class="text-center"><%= name.pluralize.capitalize %></h2>
+            <br>
+          <% end %>
           <div class="cards">
-            <% @restaurant.dishes.select(&type).each do |dish| %>
+              <% @restaurant.dishes.select(&type).each do |dish| %>
               <div class="card-category">
                 <%= image_tag dish.img_url, class:'card-img' %>
                 <div class="card-description">
@@ -53,7 +55,7 @@
                     <%= dish.name %>
                   </div>
                   <div class="card-info">
-                    <%= dish.price %> $
+                     <%= "%.2f" % dish.price %>$
                   </div>
                 </div>
               </div>
