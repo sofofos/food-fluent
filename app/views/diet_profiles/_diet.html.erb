@@ -1,12 +1,15 @@
-<div class='user-preference'>
-  <h4 class='user-profile-head'>Diet</h4>
-    <% @diets.select(&@diet).each do |tag| %>
-    <div class='user-preference-list'>
-        <% tag.health_label.assign_icon(tag.health_label) %>
-          <%= image_tag tag.health_label.icon_path, class: 'icon', alt: 'Diet Icon', data: { title: 'diet' }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="user-preference-labels">
-              <p class="user-text"><%= tag.health_label.name %></p>
-          </div>
+<div class="user-preference">
+  <h4 class="user-profile-head">Diet</h4>
+  <% @diets.select(&@diet).each do |tag| %>
+  <div class='user-preference-list'>
+    <% tag.health_label.assign_icon(tag.health_label) %>
+    <%= image_tag tag.health_label.icon_path, class:'icon', alt: 'Allergy Icon', data: { title: 'allergy' }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <br>
+    <div class="user-preference-labels">
+      <p class="user-text"><%= tag.health_label.name.gsub('-Free', '') %></p>
     </div>
-      <% end %>
+  </div>
+  <% end %>
 </div>
+
+
