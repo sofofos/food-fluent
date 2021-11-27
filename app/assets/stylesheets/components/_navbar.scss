@@ -19,8 +19,8 @@
 }
 
 .navbar-flex {
-  border: 4px double $forest;
-  border-radius: 25px;
+  border-radius: 15px;
+  width: 200px;
 }
 
 .dropdown-custom{
@@ -32,30 +32,32 @@
 }
 
 .dropdown-menu {
-  border: 4px double $forest!important;
-  border-radius: 25px;
+  border: 2px double $forest!important;
+  border-radius: 15px;
   margin-top: 10px;
-  padding: 0px!important;
 }
 
 .navbar-links {
   display:flex;
   flex-direction:column;
   align-items: center;
+  justify-content: space-between;
+  padding: 0px!important;
 }
 
 .navbar-link {
-  border: 1px solid transparent;
-  border-radius: 15px;
-  margin: 2px;
+  margin: 5px;
   padding: 10px;
   text-align: center;
-  transition: background-color 0.3s ease;
+  background-color: trasparent;
+  transition: background-color 0.3s ease, border 0.3s ease;
   width: 100%;
+  border-radius: 25px!important;
 }
 
 .navbar-link:hover{
   background-color: $forest-light-transparent;
+  border: 2px solid $forest;
   color: $forest;
   text-decoration: none;
 }
