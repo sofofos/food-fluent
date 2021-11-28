@@ -48,3 +48,11 @@
     font-size: 14px;
     line-height: 1;
   } 
+
+@media screen and (max-width: 567px){
+    .media-links{
+      position: static;
+      flex-direction: row;
+      background-color:$white;
+    }
+  }  
