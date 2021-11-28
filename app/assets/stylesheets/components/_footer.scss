@@ -1,8 +1,8 @@
 .footer {
-    position: absolute;
-    box-shadow: $primary-box-shadow;
-    color: $forest;
-    bottom: 0px;
+  position: absolute;
+  box-shadow: $primary-box-shadow;
+  color: $forest;
+  bottom: 0px;
     // height: 150px;
     left: 0px;
     padding: 30px;
@@ -40,8 +40,8 @@
   }
 
   .media-link:hover{
-  background-color: $forest-light-transparent;
-  border-radius: 10px;
+    background-color: $forest-light-transparent;
+    border-radius: 10px;
   }
 
   p {
@@ -49,10 +49,15 @@
     line-height: 1;
   } 
 
-@media screen and (max-width: 567px){
+  @media screen and (max-width: 567px){
     .media-links{
       position: static;
       flex-direction: row;
       background-color:$white;
+      border-top: 1px solid transparent;
+      border-left: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-right: none!important;
+      border-radius: 15px 15px 0px 0px;
     }
   }  
