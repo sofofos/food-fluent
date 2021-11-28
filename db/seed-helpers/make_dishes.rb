@@ -14,6 +14,7 @@ def make_dish(restaurant, dish_data, i)
       name: dish_data["hits"][j]["recipe"]["label"],
       restaurant: restaurant,
       img_url: dish_data["hits"][j]["recipe"]["image"],
+      price: "8.95",
       dish_type: dish_data["hits"][j]["recipe"]["dishType"][0])
     dish.save!
     make_dish_labels(dish_data, dish, j)
