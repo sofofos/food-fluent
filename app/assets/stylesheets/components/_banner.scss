@@ -15,10 +15,8 @@
 .content-wrap {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-  background-color: rgba(230, 230, 230, 0.3);
-  border-radius: 24px;
+  align-items: center;
+  justify-content: center;
 }
 @media (min-width: 780px) {
   .content-wrap {
@@ -37,6 +35,7 @@
   font-size: 4.3em;
   font-weight: 800;
   margin: 15px 10px;
+  padding:10px;
 }
 @media (max-width: 399px) {
   .content-wrap h1 {
@@ -63,18 +62,39 @@
   font-size: 1.35em;
   margin: 10px 15px;
 }
+
 .call-to-action > .container {
   display: flex;
   justify-content: flex-end;
   padding: 15px;
 }
-@media (max-width: 699px) {
-  .call-to-action > .container {
-    justify-content: flex-start;
-  }
-}
+
 .call-to-action > #button-landing{
   align-self: end;
   max-width: 25%;
   text-align: center;
 }
+
+@media screen and (max-width: 567px){
+  .content-wrap h1 {
+    font-size: 1.3em;
+    margin: 20px 10px;
+  }
+
+  .content-wrap h2 {
+    font-size: 1.1em;
+    text-align: center;
+  }
+
+  .call-to-action{
+    margin-top: 50px;
+  }
+
+  .call-to-action h3 {
+    font-size: 0.9em;
+  }
+
+  .call-to-action > .container{
+    justify-content: center;
+  }
+} 

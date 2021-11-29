@@ -13,7 +13,7 @@
       as: resource_name, 
       url: session_path(resource_name)
       ) do |f| %>
-    <div class='form-inputs' id='login-form-inputs'>
+    <div class='form-inputs p-3' id='login-form-inputs'>
       <%= f.input :email, 
                   class: 'form-input', 
                   id: 'login-form-inputs-email', 
@@ -31,7 +31,7 @@
                   as: :boolean if devise_mapping.rememberable? 
       %>
     </div> <!-- end login-form-inputs !-->
-  
+    
     <div class='form-actions' id='login-form-signin'>
       <%= f.button :submit, 'Login' %>
     </div> <!-- end login-form-signin !-->
