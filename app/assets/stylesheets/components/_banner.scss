@@ -62,18 +62,39 @@
   font-size: 1.35em;
   margin: 10px 15px;
 }
+
 .call-to-action > .container {
   display: flex;
   justify-content: flex-end;
   padding: 15px;
 }
-@media (max-width: 699px) {
-  .call-to-action > .container {
-    justify-content: flex-start;
-  }
-}
+
 .call-to-action > #button-landing{
   align-self: end;
   max-width: 25%;
   text-align: center;
 }
+
+@media screen and (max-width: 567px){
+  .content-wrap h1 {
+    font-size: 1.3em;
+    margin: 20px 10px;
+  }
+
+  .content-wrap h2 {
+    font-size: 1.1em;
+    text-align: center;
+  }
+
+  .call-to-action{
+    margin-top: 50px;
+  }
+
+  .call-to-action h3 {
+    font-size: 0.9em;
+  }
+
+  .call-to-action > .container{
+    justify-content: center;
+  }
+} 
