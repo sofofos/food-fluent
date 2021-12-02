@@ -15,25 +15,32 @@
 </div>
 
 <br />
-
----
-
 <div align='center'>
-  
-### Quick Links
-
-  
 <a href='https://www.food-fluent.xyz/' target="_blank">
-  
-<img src='https://img.shields.io/badge/VISIT-forestgreen?style=for-the-badge'>
-
+  <img src='https://img.shields.io/badge/VISIT-forestgreen?style=for-the-badge'>
 </a>
-  
 </div>
 
 ---
 
-### TEXT 🥳 🚀
+### ABOUT US 🥳 🚀
+
+**Lead Dev **
+** Backend **
+** Frontend - structure **
+Final project for Le Wagon's web development bootcamp in Montreal - batch #640. <p>  A MVP version was presented on November 6, 2021. You can view our demo <a href="https://www.youtube.com/watch?v=aDrsmeKQaPY&t=852s" target="_blank"> here </a> </p>
+<p>
+  Many people have all sorts of food allergies or dietary restrictions.
+  Diet profiles such as vegan, paleo, keto, etc are not always known by everyone
+  This is a web-app to simplify the process of finding a restaurant that fits your needs along with those of your group
+</p>
+
+  DIET PROFILES: They can select from a range of popular categories, and further customize it (ex: paleo but allergic to raw garlic)
+NETWORK: They can connect with their friends on the application, so profiles can be combined for searches
+MENUS: A repository of restaurants' online menus is maintained, while encouraging restaurant owners/chefs to fill in the blanks (listing ingredients not mentioned in meal descriptions). Users are encouraged to report additional information like an unlisted allergen in a dish they experienced
+SEARCH: [...] with a percentage rating based on the number of available options in a menu. Can add sorting filters to take other factors into account such as distance, google reviews rating, price range etc..
+
+
 
 -
 ---
