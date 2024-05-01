@@ -149,7 +149,6 @@ GEM
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
-
     nokogiri (1.13.10-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.10-x86_64-linux)
@@ -196,8 +195,8 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
-      loofah (~> 2.3)
+    rails-html-sanitizer (1.4.4)
+      loofah (~> 2.19, >= 2.19.1)
     railties (6.1.4.1)
       actionpack (= 6.1.4.1)
       activesupport (= 6.1.4.1)
